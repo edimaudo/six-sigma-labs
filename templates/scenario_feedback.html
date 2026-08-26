@@ -1,16 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Scenario feedback{% endblock %}
+{% block title %}Reasoning review · {{ scenario.title }}{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="eyebrow">{{ scenario.title }} · reasoning review</div>
-  <h1>{{ result.label }}</h1>
-  <div class="score-strip"><strong>{{ result.score }}/5</strong><span>reasoning signal</span></div>
-  <div class="panel section"><div class="kicker">What I noticed</div><p>{{ result.feedback }}</p></div>
-  <div class="question"><div class="small">Go one level deeper</div><h2>{{ result.next_question }}</h2></div>
-  <section class="panel section-muted"><div class="kicker">Your response</div><p>{{ thinking }}</p></section>
-  <div class="button-row">
-    <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue</a>
-    <a class="button button-secondary" href="/journal">Reflect</a>
-  </div>
+  <div class="eyebrow">Reasoning review · {{ scenario.title }}</div>
+  <h1>Your thinking, challenged.</h1>
+  <div class="score-strip"><strong>{{ result.score }}/100</strong><span>reasoning quality</span></div>
+  <section class="panel section"><div class="kicker">Your response</div><p>{{ thinking }}</p></section>
+  <section class="panel"><div class="kicker">Feedback</div><p>{{ result.feedback }}</p></section>
+  {% if result.missing %}
+  <section class="question section"><div class="small">Missing dimensions</div><strong>{{ result.missing|join(' · ') }}</strong></section>
+  {% endif %}
+  <section class="question"><div class="small">Next Socratic question</div><strong>{{ result.next_question }}</strong></section>
+  <div class="panel section-muted"><div class="kicker">What the system is tracking</div><p>Evidence quality, assumptions, stakeholder perspective, and DMAIC reasoning are carried forward as part of your scenario performance.</p></div>
+  <div class="button-row"><a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue investigation</a><a class="button button-secondary" href="/journal">Reflect</a></div>
 </div>
 {% endblock %}

@@ -194,3 +194,34 @@ footer { padding: 2rem 1.5rem; color: var(--muted); font-size: .8rem; border-top
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+.signed-in-label { font-size: .75rem; color: #e0e0e0; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+.price-card { background: var(--surface); padding: 1.75rem; min-height: 390px; display: flex; flex-direction: column; }
+.price-card.featured { outline: 2px solid var(--blue-60); outline-offset: -2px; }
+.price-card h2, .price-card h3 { font-weight: 400; }
+.price-card .button { margin-top: auto; align-self: flex-start; }
+.price-period { font-size: .9rem; color: var(--muted); margin-left: .2rem; }
+.pricing-note { margin-top: 1rem; }
+.signup-layout { display: grid; grid-template-columns: 1.25fr .75fr; gap: 3rem; align-items: start; }
+.signup-card { margin: 0; }
+.signup-card .button { width: 100%; }
+.alert { border-left: 4px solid #da1e28; background: color-mix(in srgb, #da1e28 10%, var(--surface)); padding: 1rem; margin: 1rem 0; }
+input[type=email], input[type=password] { width: 100%; border: 0; border-bottom: 1px solid var(--muted); background: var(--surface); color: var(--text); padding: .875rem; font: inherit; border-radius: 0; }
+button:disabled, .button[aria-disabled="true"] { opacity: .5; cursor: not-allowed; }
+.metrics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+.metric-card { background: var(--surface); padding: 1rem; }
+.metric-card strong { display: block; font-size: 1.7rem; font-weight: 400; }
+.metric-card span { color: var(--muted); font-size: .8rem; }
+.conversation-item { border-left: 2px solid var(--blue-60); padding: .75rem 1rem; margin: 1rem 0; background: var(--surface-alt); }
+.conversation-item p { margin: .3rem 0; }
+.chat-label { font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .pricing-grid, .signup-layout, .metrics-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-contrast: more) {
+  .panel, .card, .price-card, .option { border-width: 2px; }
+  .button { text-decoration: underline; }
+}

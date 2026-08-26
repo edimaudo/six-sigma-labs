@@ -38,6 +38,7 @@
     const bg = isDark ? '#161616' : '#ffffff';
     const fg = isDark ? '#f4f4f4' : '#161616';
     const grid = isDark ? '#393939' : '#e0e0e0';
+    Plotly.purge(targetId);
     Plotly.newPlot(targetId, [{
       x, y, mode: 'lines+markers', type: 'scatter',
       line: { color: '#0f62fe', width: 2 }, marker: { color: '#0f62fe' }

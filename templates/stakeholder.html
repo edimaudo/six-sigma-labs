@@ -2,21 +2,36 @@
 {% block title %}Interview · {{ stakeholder }}{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="eyebrow">Stakeholder interview · {{ scenario.title }}</div>
+  <div class="eyebrow">Adaptive stakeholder interview · {{ scenario.title }}</div>
   <h1>{{ stakeholder }}</h1>
-  <p class="lead">{{ person.opening }}</p>
+  <p class="lead">The stakeholder does not give you the whole answer. Your question determines which evidence becomes relevant.</p>
+
   <section class="panel section">
     <div class="kicker">Your question</div>
-    <p class="quoted-question">{{ question or 'Tell me what you think matters most here.' }}</p>
+    <p class="quoted-question">{{ question or 'Ask a specific question about the problem, process, customer, evidence, incentive, or control.' }}</p>
+    {% if question %}<span class="tag">Question quality {{ dialogue.score }}/100</span>{% endif %}
   </section>
+
   <section class="panel">
-    <div class="kicker">Evidence revealed</div>
-    {% for clue in person.clues %}<div class="concept-row"><span class="concept-number">{{ '%02d'|format(loop.index) }}</span><p>{{ clue }}</p></div>{% endfor %}
+    <div class="kicker">Stakeholder response</div>
+    <p>{{ dialogue.reply if dialogue else person.opening }}</p>
+    {% if dialogue and dialogue.new_clues %}
+      <div class="kicker" style="margin-top:1.5rem">New evidence</div>
+      {% for clue in dialogue.new_clues %}<div class="concept-row"><span class="concept-number">{{ '%02d'|format(loop.index) }}</span><p>{{ clue }}</p></div>{% endfor %}
+    {% endif %}
   </section>
+
   <section class="question section">
-    <div class="small">Notice the incentive</div>
-    <strong>{{ person.incentive }}</strong>
+    <div class="small">Socratic challenge</div>
+    <strong>{{ dialogue.challenge if dialogue else 'What evidence would change your mind?' }}</strong>
   </section>
+
+  <section class="panel section-muted">
+    <div class="kicker">Read the organizational signal</div>
+    <p>{{ person.incentive }}</p>
+    {% if dialogue and dialogue.dimensions %}<p class="small">Your question touched: {{ dialogue.dimensions|join(', ') }}.</p>{% endif %}
+  </section>
+
   <div class="button-row">
     <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Return to investigation</a>
     <a class="button button-secondary" href="/journal">Reflect</a>

@@ -10,6 +10,12 @@
     {% for phase in detail.phases %}<span class="phase {% if state.phase == phase %}active{% elif detail.phases.index(state.phase) > loop.index0 %}done{% endif %}">{{ phase|title }}</span>{% endfor %}
   </div>
 
+  <div class="metrics-grid section" aria-label="Scenario performance metrics">
+    <div class="metric-card"><strong>{{ state.reasoning_score }}/100</strong><span>reasoning score</span></div>
+    <div class="metric-card"><strong>{{ state.evidence_score }}/100</strong><span>evidence uncovered</span></div>
+    <div class="metric-card"><strong>{{ state.stakeholder_score }}/100</strong><span>stakeholder questioning</span></div>
+  </div>
+
   <div class="two-col section">
     <section class="panel">
       <div class="kicker">First question</div>
@@ -26,6 +32,20 @@
       <p class="small">Illustrative data. Treat it as evidence to investigate, not proof of cause.</p>
     </section>
   </div>
+
+  {% if state.conversation %}
+  <section class="section">
+    <div class="kicker">Investigation record</div>
+    <h2>What you have learned so far.</h2>
+    {% for turn in state.conversation[-5:] %}
+    <article class="conversation-item">
+      <div class="chat-label">{{ turn.stakeholder }} · {{ turn.score }}/100 question quality</div>
+      <p><strong>You:</strong> {{ turn.question or 'No specific question asked.' }}</p>
+      <p><strong>Stakeholder:</strong> {{ turn.response }}</p>
+    </article>
+    {% endfor %}
+  </section>
+  {% endif %}
 
   <section class="section">
     <div class="kicker">Stakeholder interviews</div>
