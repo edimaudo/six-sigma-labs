@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 import sqlite3
 
 DB_PATH = Path(__file__).resolve().parent.parent / "sixsigma.db"
@@ -40,6 +41,15 @@ def init_db():
             score INTEGER DEFAULT 0,
             created_at TEXT DEFAULT CURRENT_TIMESTAMP
         );
+        CREATE TABLE IF NOT EXISTS scenario_sessions (
+            id TEXT PRIMARY KEY,
+            scenario_id TEXT NOT NULL,
+            phase TEXT DEFAULT 'define',
+            visited_stakeholders TEXT DEFAULT '[]',
+            discovered_clues TEXT DEFAULT '[]',
+            decisions TEXT DEFAULT '[]',
+            updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+        );
         INSERT OR IGNORE INTO learner (id) VALUES (1);
         """
     )
@@ -59,15 +69,12 @@ def update_learner(**values):
     values = {k: v for k, v in values.items() if k in allowed}
     if not values:
         return
-    values["updated_at"] = "CURRENT_TIMESTAMP"
     sets = []
     params = []
     for key, value in values.items():
-        if key == "updated_at":
-            sets.append("updated_at = CURRENT_TIMESTAMP")
-        else:
-            sets.append(f"{key} = ?")
-            params.append(value)
+        sets.append(f"{key} = ?")
+        params.append(value)
+    sets.append("updated_at = CURRENT_TIMESTAMP")
     conn = get_conn()
     conn.execute(f"UPDATE learner SET {', '.join(sets)} WHERE id=1", params)
     conn.commit()
@@ -101,10 +108,60 @@ def add_attempt(activity_type, activity_id, response, feedback, score=0):
     )
     conn.commit()
     conn.close()
-    
+
 
 def list_attempts(limit=20):
     conn = get_conn()
-    rows = conn.execute("SELECT * FROM attempts ORDER BY id DESC LIMIT ?", (limit,)).fetchall()
+    rows = conn.execute(
+        "SELECT * FROM attempts ORDER BY id DESC LIMIT ?", (limit,)
+    ).fetchall()
     conn.close()
     return [dict(row) for row in rows]
+
+
+def create_scenario_session(session_id, scenario_id):
+    conn = get_conn()
+    conn.execute(
+        "INSERT OR IGNORE INTO scenario_sessions (id, scenario_id) VALUES (?, ?)",
+        (session_id, scenario_id),
+    )
+    conn.commit()
+    conn.close()
+
+
+def get_scenario_session(session_id):
+    conn = get_conn()
+    row = conn.execute(
+        "SELECT * FROM scenario_sessions WHERE id=?", (session_id,)
+    ).fetchone()
+    conn.close()
+    if not row:
+        return None
+    data = dict(row)
+    for key in ("visited_stakeholders", "discovered_clues", "decisions"):
+        try:
+            data[key] = json.loads(data[key] or "[]")
+        except json.JSONDecodeError:
+            data[key] = []
+    return data
+
+
+def update_scenario_session(session_id, **values):
+    allowed = {"phase", "visited_stakeholders", "discovered_clues", "decisions"}
+    sets = []
+    params = []
+    for key, value in values.items():
+        if key not in allowed:
+            continue
+        if key in {"visited_stakeholders", "discovered_clues", "decisions"}:
+            value = json.dumps(value)
+        sets.append(f"{key}=?")
+        params.append(value)
+    if not sets:
+        return
+    sets.append("updated_at=CURRENT_TIMESTAMP")
+    params.append(session_id)
+    conn = get_conn()
+    conn.execute(f"UPDATE scenario_sessions SET {', '.join(sets)} WHERE id=?", params)
+    conn.commit()
+    conn.close()

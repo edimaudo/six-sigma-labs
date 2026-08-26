@@ -1,16 +1,16 @@
 {% extends "base.html" %}
-{% block title %}Scenario Feedback{% endblock %}
+{% block title %}Scenario feedback{% endblock %}
 {% block content %}
 <div class="container narrow">
   <div class="eyebrow">{{ scenario.title }} · reasoning review</div>
   <h1>{{ result.label }}</h1>
-  <div class="panel section"><p>{{ result.feedback }}</p></div>
-  <div class="question"><div class="small">Your next move</div><h2>{{ result.next_question }}</h2></div>
-  <form method="post" action="/journal" class="panel section-muted">
-    <input type="hidden" name="scenario_id" value="{{ scenario.id }}">
-    <div class="form-field"><label for="reflection">What did this challenge reveal about your approach?</label><textarea name="reflection" id="reflection" rows="6"></textarea></div>
-    <button class="button" type="submit">Save reflection</button>
-  </form>
-  <a href="/scenario?id={{ scenario.id }}" class="text-link">← Return to scenario</a>
+  <div class="score-strip"><strong>{{ result.score }}/5</strong><span>reasoning signal</span></div>
+  <div class="panel section"><div class="kicker">What I noticed</div><p>{{ result.feedback }}</p></div>
+  <div class="question"><div class="small">Go one level deeper</div><h2>{{ result.next_question }}</h2></div>
+  <section class="panel section-muted"><div class="kicker">Your response</div><p>{{ thinking }}</p></section>
+  <div class="button-row">
+    <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue</a>
+    <a class="button button-secondary" href="/journal">Reflect</a>
+  </div>
 </div>
 {% endblock %}

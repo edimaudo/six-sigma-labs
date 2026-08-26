@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Annotated
+import uuid
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -7,13 +8,26 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 from .content import BELTS, DIAGNOSTIC, SCENARIOS
-from .db import add_attempt, add_journal, init_db, learner, list_attempts, list_journal, update_learner
+from .db import (
+    add_attempt,
+    add_journal,
+    create_scenario_session,
+    get_scenario_session,
+    init_db,
+    learner,
+    list_attempts,
+    list_journal,
+    update_learner,
+    update_scenario_session,
+)
+from .scenarios import SCENARIO_DETAIL
 from .socratic import evaluate
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-app = FastAPI(title="Six Sigma Operations Lab", version="0.2.0")
+app = FastAPI(title="Six Sigma Operations Lab", version="0.3.0")
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
+
 
 @app.on_event("startup")
 def startup():
@@ -22,6 +36,13 @@ def startup():
 
 def context(request: Request, **kwargs):
     return {"request": request, "belts": BELTS, "learner": learner(), **kwargs}
+
+
+def get_scenario(scenario_id: str | None):
+    base = next((s for s in SCENARIOS if s["id"] == scenario_id), None)
+    if base:
+        return base
+    return SCENARIOS[0]
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -67,7 +88,7 @@ async def learn(request: Request):
 async def belt_page(request: Request, belt: str):
     belt_key = belt.lower()
     if belt_key not in BELTS:
-        return RedirectResponse("/learn", status_code=303)
+        return RedirectResponse("/not-found", status_code=303)
     return templates.TemplateResponse(request=request, name="belt.html", context=context(request, belt=BELTS[belt_key], belt_key=belt_key))
 
 
@@ -75,9 +96,18 @@ async def belt_page(request: Request, belt: str):
 async def lesson(request: Request, belt: str, lesson_index: int):
     belt_key = belt.lower()
     if belt_key not in BELTS or not (1 <= lesson_index <= len(BELTS[belt_key]["modules"])):
-        return RedirectResponse("/learn", status_code=303)
+        return RedirectResponse("/not-found", status_code=303)
     module = BELTS[belt_key]["modules"][lesson_index - 1]
-    lesson_data = {"id": f"{belt_key}-{lesson_index:02d}", "index": lesson_index, "belt_key": belt_key, "belt": BELTS[belt_key], "title": module[1], "opening_question": module[2], "concepts": module[3], "teach_back": module[4]}
+    lesson_data = {
+        "id": f"{belt_key}-{lesson_index:02d}",
+        "index": lesson_index,
+        "belt_key": belt_key,
+        "belt": BELTS[belt_key],
+        "title": module[1],
+        "opening_question": module[2],
+        "concepts": module[3],
+        "teach_back": module[4],
+    }
     return templates.TemplateResponse(request=request, name="lesson.html", context=context(request, lesson=lesson_data))
 
 
@@ -95,9 +125,71 @@ async def teach(
 
 
 @app.get("/scenario", response_class=HTMLResponse)
-async def scenarios(request: Request, id: str | None = None):
-    scenario = next((s for s in SCENARIOS if s["id"] == id), SCENARIOS[0])
-    return templates.TemplateResponse(request=request, name="scenario.html", context=context(request, scenario=scenario))
+async def scenarios(request: Request, id: str | None = None, session: str | None = None):
+    scenario = get_scenario(id)
+    detail = SCENARIO_DETAIL[scenario["id"]]
+    session_id = session or str(uuid.uuid4())
+    create_scenario_session(session_id, scenario["id"])
+    state = get_scenario_session(session_id)
+    return templates.TemplateResponse(
+        request=request,
+        name="scenario.html",
+        context=context(request, scenario=scenario, detail=detail, state=state, session_id=session_id),
+    )
+
+
+@app.post("/scenario/{scenario_id}/stakeholder", response_class=HTMLResponse)
+async def scenario_stakeholder(
+    request: Request,
+    scenario_id: str,
+    session: Annotated[str, Form()],
+    stakeholder: Annotated[str, Form()],
+    question: Annotated[str, Form()] = "",
+):
+    scenario = get_scenario(scenario_id)
+    detail = SCENARIO_DETAIL[scenario["id"]]
+    state = get_scenario_session(session)
+    if not state or state["scenario_id"] != scenario["id"]:
+        create_scenario_session(session, scenario["id"])
+        state = get_scenario_session(session)
+
+    person = detail["stakeholders"].get(stakeholder)
+    if not person:
+        return RedirectResponse(f"/scenario?id={scenario['id']}&session={session}", status_code=303)
+
+    visited = list(dict.fromkeys(state["visited_stakeholders"] + [stakeholder]))
+    clue_ids = state["discovered_clues"] + [f"{stakeholder}:{i}" for i in range(len(person["clues"]))]
+    clue_ids = list(dict.fromkeys(clue_ids))
+    update_scenario_session(session, visited_stakeholders=visited, discovered_clues=clue_ids)
+    state = get_scenario_session(session)
+    return templates.TemplateResponse(
+        request=request,
+        name="stakeholder.html",
+        context=context(request, scenario=scenario, detail=detail, stakeholder=stakeholder, person=person, state=state, session_id=session, question=question),
+    )
+
+
+@app.post("/scenario/{scenario_id}/decision", response_class=HTMLResponse)
+async def scenario_decision(
+    request: Request,
+    scenario_id: str,
+    session: Annotated[str, Form()],
+    decision: Annotated[str, Form()],
+):
+    scenario = get_scenario(scenario_id)
+    detail = SCENARIO_DETAIL[scenario["id"]]
+    state = get_scenario_session(session)
+    option = next((o for o in detail["decision_options"] if o["id"] == decision), None)
+    if option and state:
+        decisions = state["decisions"] + [option["id"]]
+        phase = detail["phases"][min(len(decisions), len(detail["phases"]) - 1)]
+        update_scenario_session(session, decisions=decisions, phase=phase)
+        state = get_scenario_session(session)
+    return templates.TemplateResponse(
+        request=request,
+        name="decision_feedback.html",
+        context=context(request, scenario=scenario, detail=detail, state=state, session_id=session, decision=option),
+    )
 
 
 @app.post("/scenario/{scenario_id}/think", response_class=HTMLResponse)
@@ -105,11 +197,14 @@ async def scenario_think(
     request: Request,
     scenario_id: str,
     thinking: Annotated[str, Form()],
+    session: Annotated[str, Form()],
 ):
-    scenario = next((s for s in SCENARIOS if s["id"] == scenario_id), SCENARIOS[0])
+    scenario = get_scenario(scenario_id)
     result = evaluate(thinking, "general")
     add_attempt("scenario_thinking", scenario_id, thinking, result["feedback"], result["score"])
-    return templates.TemplateResponse(request=request, name="scenario_feedback.html", context=context(request, scenario=scenario, result=result, thinking=thinking))
+    detail = SCENARIO_DETAIL[scenario["id"]]
+    state = get_scenario_session(session)
+    return templates.TemplateResponse(request=request, name="scenario_feedback.html", context=context(request, scenario=scenario, detail=detail, state=state, result=result, thinking=thinking, session_id=session))
 
 
 @app.post("/journal")
@@ -147,3 +242,8 @@ async def progress_api():
 @app.get("/health")
 async def health():
     return {"status": "ok", "version": app.version}
+
+
+@app.exception_handler(404)
+async def not_found(request: Request, exc):
+    return templates.TemplateResponse(request=request, name="404.html", context=context(request), status_code=404)

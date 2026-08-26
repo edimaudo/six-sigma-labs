@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Interview · {{ stakeholder }}{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="eyebrow">Stakeholder interview · {{ scenario.title }}</div>
+  <h1>{{ stakeholder }}</h1>
+  <p class="lead">{{ person.opening }}</p>
+  <section class="panel section">
+    <div class="kicker">Your question</div>
+    <p class="quoted-question">{{ question or 'Tell me what you think matters most here.' }}</p>
+  </section>
+  <section class="panel">
+    <div class="kicker">Evidence revealed</div>
+    {% for clue in person.clues %}<div class="concept-row"><span class="concept-number">{{ '%02d'|format(loop.index) }}</span><p>{{ clue }}</p></div>{% endfor %}
+  </section>
+  <section class="question section">
+    <div class="small">Notice the incentive</div>
+    <strong>{{ person.incentive }}</strong>
+  </section>
+  <div class="button-row">
+    <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Return to investigation</a>
+    <a class="button button-secondary" href="/journal">Reflect</a>
+  </div>
+</div>
+{% endblock %}

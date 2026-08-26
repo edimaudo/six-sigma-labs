@@ -1,13 +1,53 @@
-function renderScenarioChart(targetId, x, y) {
-  if (!window.Plotly) return;
-  Plotly.newPlot(targetId, [{
-    x, y, mode: 'lines+markers', type: 'scatter',
-    line: { color: '#0f62fe', width: 2 }, marker: { color: '#0f62fe' }
-  }], {
-    title: 'Illustrative process performance',
-    margin: { t: 45, r: 20, b: 45, l: 50 },
-    xaxis: { title: 'Observation' },
-    yaxis: { title: 'Cycle time / performance' },
-    paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff'
-  }, { responsive: true, displayModeBar: false });
-}
+(function () {
+  const root = document.documentElement;
+  const scaleSelect = document.getElementById('type-scale');
+  const themeToggle = document.getElementById('theme-toggle');
+
+  function setScale(scale) {
+    root.dataset.typeScale = scale;
+    localStorage.setItem('ssol-type-scale', scale);
+    if (scaleSelect) scaleSelect.value = scale;
+  }
+
+  function setTheme(theme) {
+    root.dataset.theme = theme;
+    localStorage.setItem('ssol-theme', theme);
+    if (themeToggle) {
+      const isDark = theme === 'dark';
+      themeToggle.textContent = isDark ? 'Light mode' : 'Dark mode';
+      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+    }
+  }
+
+  if (scaleSelect) {
+    scaleSelect.value = root.dataset.typeScale || 'medium';
+    scaleSelect.addEventListener('change', (event) => setScale(event.target.value));
+  }
+
+  if (themeToggle) {
+    setTheme(root.dataset.theme || 'dark');
+    themeToggle.addEventListener('click', () => {
+      setTheme(root.dataset.theme === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  window.renderScenarioChart = function (targetId, x, y) {
+    if (!window.Plotly) return;
+    const isDark = root.dataset.theme === 'dark';
+    const bg = isDark ? '#161616' : '#ffffff';
+    const fg = isDark ? '#f4f4f4' : '#161616';
+    const grid = isDark ? '#393939' : '#e0e0e0';
+    Plotly.newPlot(targetId, [{
+      x, y, mode: 'lines+markers', type: 'scatter',
+      line: { color: '#0f62fe', width: 2 }, marker: { color: '#0f62fe' }
+    }], {
+      title: 'Illustrative process performance',
+      margin: { t: 45, r: 20, b: 45, l: 50 },
+      xaxis: { title: 'Observation', color: fg, gridcolor: grid },
+      yaxis: { title: 'Cycle time / performance', color: fg, gridcolor: grid },
+      font: { color: fg, family: 'IBM Plex Sans, Arial, sans-serif' },
+      paper_bgcolor: bg, plot_bgcolor: bg
+    }, { responsive: true, displayModeBar: false });
+  };
+})();
