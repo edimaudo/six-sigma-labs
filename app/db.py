@@ -79,6 +79,9 @@ def init_db():
             reasoning_score INTEGER DEFAULT 0,
             evidence_score INTEGER DEFAULT 0,
             stakeholder_score INTEGER DEFAULT 0,
+            gemini_interaction_id TEXT DEFAULT '',
+            gemini_stakeholder_interactions TEXT DEFAULT '{}',
+            gemini_reasoning_interaction_id TEXT DEFAULT '',
             updated_at TEXT DEFAULT CURRENT_TIMESTAMP
         );
         """
@@ -95,6 +98,16 @@ def init_db():
         )
         user_id = cur.lastrowid
         conn.execute("INSERT INTO learner_profiles (user_id) VALUES (?)", (user_id,))
+    # Lightweight migrations for existing prototype databases.
+    cols = {row[1] for row in conn.execute("PRAGMA table_info(scenario_sessions)").fetchall()}
+    migrations = {
+        "gemini_interaction_id": "ALTER TABLE scenario_sessions ADD COLUMN gemini_interaction_id TEXT DEFAULT ''",
+        "gemini_stakeholder_interactions": "ALTER TABLE scenario_sessions ADD COLUMN gemini_stakeholder_interactions TEXT DEFAULT '{}'",
+        "gemini_reasoning_interaction_id": "ALTER TABLE scenario_sessions ADD COLUMN gemini_reasoning_interaction_id TEXT DEFAULT ''",
+    }
+    for column, statement in migrations.items():
+        if column not in cols:
+            conn.execute(statement)
     conn.commit()
     conn.close()
 
@@ -222,24 +235,29 @@ def get_scenario_session(session_id, user_id):
         return None
     data = dict(row)
     for key in ("visited_stakeholders", "discovered_clues", "decisions", "conversation"):
+
         try:
             data[key] = json.loads(data[key] or "[]")
         except json.JSONDecodeError:
             data[key] = []
+    try:
+        data["gemini_stakeholder_interactions"] = json.loads(data.get("gemini_stakeholder_interactions") or "{}")
+    except json.JSONDecodeError:
+        data["gemini_stakeholder_interactions"] = {}
     return data
 
 
 def update_scenario_session(session_id, user_id, **values):
     allowed = {
         "phase", "visited_stakeholders", "discovered_clues", "decisions", "conversation",
-        "reasoning_score", "evidence_score", "stakeholder_score"
+        "reasoning_score", "evidence_score", "stakeholder_score", "gemini_interaction_id", "gemini_stakeholder_interactions", "gemini_reasoning_interaction_id"
     }
     sets = []
     params = []
     for key, value in values.items():
         if key not in allowed:
             continue
-        if key in {"visited_stakeholders", "discovered_clues", "decisions", "conversation"}:
+        if key in {"visited_stakeholders", "discovered_clues", "decisions", "conversation", "gemini_stakeholder_interactions"}:
             value = json.dumps(value)
         sets.append(f"{key}=?")
         params.append(value)

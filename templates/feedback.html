@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block title %}Reasoning Feedback{% endblock %}
 {% block content %}
+{% if error %}<div class="panel section" role="alert"><div class="kicker">AI service unavailable</div><p>{{ error }}</p><p class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</p></div>{% endif %}
 <div class="container narrow">
   <div class="eyebrow">Socratic feedback</div>
   <h1>{{ result.label }}</h1>

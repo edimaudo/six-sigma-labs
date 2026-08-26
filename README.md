@@ -1,6 +1,6 @@
 # Six Sigma Operations Lab MVP v0.4
 
-FastAPI + Jinja2 + SQLite + Plotly.js prototype for an applied Six Sigma learning product.
+FastAPI + Jinja2 + SQLite + Plotly.js + Google Gemini prototype for an applied Six Sigma learning product.
 
 ## Product model
 
@@ -14,7 +14,7 @@ The scenario engine treats the organization as part of the process. Learners inv
 
 - White, Yellow, Green and Black Belt curriculum structure
 - Question-first lessons and teach-back
-- Adaptive stakeholder dialogue using a local reasoning engine
+- Adaptive stakeholder dialogue using Google Gemini Interactions API
 - Evidence discovery based on the learner's question
 - Scenario reasoning, evidence and stakeholder scores
 - Persistent SQLite learner state
@@ -43,6 +43,16 @@ The built-in demo user is `demo@sixsigma.local`. Its default password is `demo-o
 
 ## Notes
 
-The adaptive engine is deterministic in this MVP. It is structured as a replaceable reasoning provider so an LLM-backed evaluator can be added later without changing the scenario UI or persistence model.
+AI behavior is provided by Google Gemini through the official `google-genai` SDK and Gemini Interactions API. Stakeholder conversations, scenario reasoning evaluation, and teach-back feedback are not implemented with a local heuristic AI fallback.
 
 Pricing is presentation-only in this build; no payment provider is connected.
+
+## Gemini configuration
+
+Set `GEMINI_API_KEY` in your local environment or Vercel project settings. `GEMINI_MODEL` defaults to `gemini-3.7-flash`. Google documents the Interactions API as the current default interface for new Gemini applications and supports chaining turns with `previous_interaction_id`.
+
+## Vercel
+
+The repository includes `vercel.json` for the FastAPI Python runtime. Add `GEMINI_API_KEY` and `SSOL_SESSION_SECRET` under Vercel Project Settings → Environment Variables before deployment.
+
+**Persistence note:** the current prototype still uses SQLite. Vercel's serverless runtime should not be treated as durable storage, so production deployment should move user/scenario state to a hosted database such as Postgres.

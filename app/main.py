@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import Annotated
 import uuid
 import os
+import asyncio
 
 from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -9,7 +10,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from .adaptive import evaluate_reasoning, stakeholder_response
+from .adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
 from .content import BELTS, DIAGNOSTIC, SCENARIOS
 from .db import (
     add_attempt,
@@ -26,7 +27,6 @@ from .db import (
     update_scenario_session,
 )
 from .scenarios import SCENARIO_DETAIL
-from .socratic import evaluate
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 app = FastAPI(title="Six Sigma Operations Lab", version="0.4.0")
@@ -198,7 +198,15 @@ async def teach(
     focus: Annotated[str, Form()] = "general",
     next_url: Annotated[str, Form()] = "/learn",
 ):
-    result = evaluate(response, focus)
+    try:
+        result, _interaction_id = await asyncio.to_thread(evaluate_teach_back, response, focus)
+    except (GeminiConfigError, GeminiResponseError) as exc:
+        return templates.TemplateResponse(
+            request=request,
+            name="feedback.html",
+            context=context(request, result=None, response=response, next_url=next_url, error=str(exc)),
+            status_code=503,
+        )
     add_attempt(current_user_id(request), "teach_back", activity_id, response, result["feedback"], result["score"])
     return templates.TemplateResponse(request=request, name="feedback.html", context=context(request, result=result, response=response, next_url=next_url))
 
@@ -238,9 +246,15 @@ async def scenario_stakeholder(
     if not person:
         return RedirectResponse(f"/scenario?id={scenario['id']}&session={session}", status_code=303)
 
-    result = stakeholder_response(person, question, state, state["phase"])
+    try:
+        previous_id = state.get("gemini_stakeholder_interactions", {}).get(stakeholder)
+        result, interaction_id = await asyncio.to_thread(
+            stakeholder_response, person, question, state, state["phase"], previous_id
+        )
+    except (GeminiConfigError, GeminiResponseError) as exc:
+        return templates.TemplateResponse(request=request, name="stakeholder.html", context=context(request, scenario=scenario, detail=detail, stakeholder=stakeholder, person=person, state=state, session_id=session, question=question, dialogue=None, error=str(exc)), status_code=503)
     visited = list(dict.fromkeys(state["visited_stakeholders"] + [stakeholder]))
-    clue_ids = list(dict.fromkeys(state["discovered_clues"] + [f"{stakeholder}:{i}" for i in range(len(result["new_clues"]))]))
+    clue_ids = list(dict.fromkeys(state["discovered_clues"] + [f"{stakeholder}:{i}" for i in result.get("new_clue_indices", [])]))
     conversation = state.get("conversation", []) + [{
         "stakeholder": stakeholder,
         "question": question.strip(),
@@ -250,6 +264,8 @@ async def scenario_stakeholder(
     }]
     stakeholder_score = min(100, state.get("stakeholder_score", 0) + max(5, result["score"] // 5))
     evidence_score = min(100, state.get("evidence_score", 0) + len(result["new_clues"]) * 10)
+    stakeholder_interactions = dict(state.get("gemini_stakeholder_interactions", {}))
+    stakeholder_interactions[stakeholder] = interaction_id
     update_scenario_session(
         session, user_id,
         visited_stakeholders=visited,
@@ -257,6 +273,7 @@ async def scenario_stakeholder(
         conversation=conversation,
         stakeholder_score=stakeholder_score,
         evidence_score=evidence_score,
+        gemini_stakeholder_interactions=stakeholder_interactions,
     )
     state = get_scenario_session(session, user_id)
     return templates.TemplateResponse(
@@ -304,10 +321,15 @@ async def scenario_think(
     if not state:
         create_scenario_session(session, user_id, scenario["id"])
         state = get_scenario_session(session, user_id)
-    result = evaluate_reasoning(thinking, state["phase"], state, detail)
+    try:
+        result, interaction_id = await asyncio.to_thread(
+            evaluate_reasoning, thinking, state["phase"], state, detail, state.get("gemini_reasoning_interaction_id") or None
+        )
+    except (GeminiConfigError, GeminiResponseError) as exc:
+        return templates.TemplateResponse(request=request, name="scenario_feedback.html", context=context(request, scenario=scenario, detail=detail, state=state, result=None, thinking=thinking, session_id=session, error=str(exc)), status_code=503)
     add_attempt(user_id, "scenario_thinking", scenario_id, thinking, result["feedback"], result["score"])
     reasoning_score = min(100, max(state.get("reasoning_score", 0), result["score"]))
-    update_scenario_session(session, user_id, reasoning_score=reasoning_score)
+    update_scenario_session(session, user_id, reasoning_score=reasoning_score, gemini_reasoning_interaction_id=interaction_id)
     state = get_scenario_session(session, user_id)
     return templates.TemplateResponse(request=request, name="scenario_feedback.html", context=context(request, scenario=scenario, detail=detail, state=state, result=result, thinking=thinking, session_id=session))
 
@@ -348,7 +370,7 @@ async def progress_api(request: Request):
 
 @app.get("/health")
 async def health():
-    return {"status": "ok", "version": app.version}
+    return {"status": "ok", "version": app.version, "gemini_configured": bool(os.getenv("GEMINI_API_KEY"))}
 
 
 @app.exception_handler(404)
