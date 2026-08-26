@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Diagnostic result{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">Diagnostic result</div>
+  <h1>{{ belt.name }}</h1>
+  <p class="lead">You scored {{ score }} / {{ max_score }}. Your recommended starting point is <strong>{{ belt.name }}</strong>.</p>
+  <div class="panel"><h3>{{ belt.tagline }}</h3><p>{{ belt.description }}</p></div>
+  <a class="button" href="/learn/{{ belt.name.split(' ')[0]|lower }}">Start {{ belt.name }}</a>
+  <a class="button secondary" href="/learn">View all belt levels</a>
+</div>
+{% endblock %}

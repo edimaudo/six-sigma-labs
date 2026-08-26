@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Diagnostic{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">Placement diagnostic</div>
+  <h1>What do you already know?</h1>
+  <p class="lead">The result is a starting point, not a certification. The quiz covers White, Yellow, Green, and Black Belt concepts.</p>
+  <form method="post" action="/diagnostic">
+  {% for q in questions %}
+    <div class="question">
+      <div class="small">Question {{ q.id }} · {{ q.belt|title }} level</div>
+      <strong>{{ q.question }}</strong>
+    </div>
+    {% for option in q.options %}
+      <label class="option"><input type="radio" name="answers" value="{{ loop.index0 }}" required> {{ option }}</label>
+    {% endfor %}
+  {% endfor %}
+  <button class="button" type="submit">See my starting level</button>
+  </form>
+</div>
+{% endblock %}

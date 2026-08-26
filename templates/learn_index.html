@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Learning paths{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">Learning paths</div>
+  <h1>From vocabulary to advanced improvement leadership.</h1>
+  <div class="grid-4 section">
+  {% for key, item in belts.items() %}
+    <a class="card" href="/learn/{{ key }}"><div class="number">{{ key|upper }}</div><h3>{{ item.name }}</h3><p>{{ item.tagline }}</p><p class="small">{{ item.modules|length }} core lessons</p></a>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

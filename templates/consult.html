@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Consult{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">Work consulting</div>
+  <h1>Bring an operations problem to the method.</h1>
+  <p class="lead">The future consulting workspace will help you move from problem framing to evidence, analysis, improvement, and control without replacing your judgment.</p>
+  <div class="grid-3 section">
+    {% for item in [("01","Define","Problem statement, VOC, scope, CTQ, business case"),("02","Measure","Baseline, process map, operational definitions, data"),("03","Analyze","Root causes, variation, relationships, tests"),("04","Improve","Options, experiments, implementation constraints"),("05","Control","SPC, control plan, ownership, response"),("06","Reflect","Stakeholders, assumptions, trade-offs, lessons learned")] %}
+    <div class="card"><div class="number">{{ item[0] }}</div><h3>{{ item[1] }}</h3><p>{{ item[2] }}</p></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

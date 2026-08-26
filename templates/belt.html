@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}{{ belt.name }}{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">{{ belt.name }}</div>
+  <h1>{{ belt.tagline }}</h1>
+  <p class="lead">{{ belt.description }}</p>
+  <div class="progress"><span style="width:100%"></span></div>
+
+  {% for module in belt.modules %}
+  <article class="lesson">
+    <div class="lesson-header">
+      <div class="lesson-number">{{ module[0] }}</div>
+      <div>
+        <div class="kicker">Lesson {{ module[0] }}</div>
+        <h2>{{ module[1] }}</h2>
+      </div>
+    </div>
+    <div class="question"><div class="small">Start with a question</div><strong>{{ module[2] }}</strong></div>
+    <div class="panel">
+      <div class="kicker">Concept</div>
+      <ul class="clean">{% for point in module[3] %}<li>{{ point }}</li>{% endfor %}</ul>
+    </div>
+    <div class="panel">
+      <div class="kicker">Teach-back</div>
+      <h3>{{ module[4] }}</h3>
+      <p class="small">In the full product, the Socratic tutor will challenge the explanation and probe for gaps rather than provide an immediate model answer.</p>
+    </div>
+  </article>
+  {% endfor %}
+  <a class="button" href="/scenario">Apply this level in a scenario</a>
+</div>
+{% endblock %}
