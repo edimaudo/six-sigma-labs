@@ -6,6 +6,13 @@
   <h1>What do you already know?</h1>
   <p class="lead">The result is a starting point, not a certification. The quiz covers White, Yellow, Green, and Black Belt concepts.</p>
   <form method="post" action="/diagnostic">
+  <div class="panel section-muted">
+    <div class="kicker">Business context</div>
+    <label for="business_area">Where do you want to apply Six Sigma?</label>
+    <select name="business_area" id="business_area" class="select">
+      <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
+    </select>
+  </div>
   {% for q in questions %}
     <div class="question">
       <div class="small">Question {{ q.id }} · {{ q.belt|title }} level</div>

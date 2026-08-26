@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ lesson.title }}{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="eyebrow">{{ lesson.belt.name }} · Lesson {{ "%02d"|format(lesson.index) }}</div>
+  <h1>{{ lesson.title }}</h1>
+
+  <section class="question hero-question">
+    <div class="small">Start with the question</div>
+    <h2>{{ lesson.opening_question }}</h2>
+    <p>Do not look for the definition first. Explain what you think the question is really asking.</p>
+  </section>
+
+  <section class="section">
+    <div class="kicker">Concept</div>
+    {% for concept in lesson.concepts %}
+      <div class="concept-row"><span class="concept-number">{{ "%02d"|format(loop.index) }}</span><p>{{ concept }}</p></div>
+    {% endfor %}
+  </section>
+
+  <section class="panel">
+    <div class="kicker">Teach it back</div>
+    <h2>{{ lesson.teach_back }}</h2>
+    <form method="post" action="/teach">
+      <input type="hidden" name="activity_id" value="{{ lesson.id }}">
+      <input type="hidden" name="focus" value="{{ lesson.belt_key }}">
+      <input type="hidden" name="next_url" value="/lesson/{{ lesson.belt_key }}/{{ lesson.index }}">
+      <div class="form-field"><label for="response">Your explanation</label><textarea name="response" id="response" rows="9" required placeholder="Explain it in your own words. Include an example or decision you would make."></textarea></div>
+      <button class="button" type="submit">Challenge my reasoning</button>
+    </form>
+  </section>
+
+  <section class="panel section-muted">
+    <div class="kicker">Reflect</div>
+    <form method="post" action="/journal">
+      <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
+      <div class="form-field"><label for="reflection">What did you change your mind about?</label><textarea name="reflection" id="reflection" rows="5" placeholder="Capture the assumption or insight you want to remember."></textarea></div>
+      <button class="button button-secondary" type="submit">Save to journal</button>
+    </form>
+  </section>
+
+  <div class="pager">
+    {% if lesson.index > 1 %}<a href="/lesson/{{ lesson.belt_key }}/{{ lesson.index - 1 }}">← Previous</a>{% endif %}
+    {% if lesson.index < lesson.belt.modules|length %}<a href="/lesson/{{ lesson.belt_key }}/{{ lesson.index + 1 }}">Next lesson →</a>{% endif %}
+  </div>
+</div>
+{% endblock %}

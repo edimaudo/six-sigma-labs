@@ -21,11 +21,7 @@
       <div class="kicker">Concept</div>
       <ul class="clean">{% for point in module[3] %}<li>{{ point }}</li>{% endfor %}</ul>
     </div>
-    <div class="panel">
-      <div class="kicker">Teach-back</div>
-      <h3>{{ module[4] }}</h3>
-      <p class="small">In the full product, the Socratic tutor will challenge the explanation and probe for gaps rather than provide an immediate model answer.</p>
-    </div>
+    <a class="button button-secondary" href="/lesson/{{ belt_key }}/{{ loop.index }}">Open lesson →</a>
   </article>
   {% endfor %}
   <a class="button" href="/scenario">Apply this level in a scenario</a>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Reasoning Feedback{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <div class="eyebrow">Socratic feedback</div>
+  <h1>{{ result.label }}</h1>
+  <div class="score-strip"><strong>{{ result.score }}/5</strong><span>reasoning signal</span></div>
+  <div class="panel section">
+    <div class="kicker">What I noticed</div>
+    <p>{{ result.feedback }}</p>
+  </div>
+  <div class="question">
+    <div class="small">Go one level deeper</div>
+    <h2>{{ result.next_question }}</h2>
+  </div>
+  <section class="panel section-muted">
+    <div class="kicker">Your response</div>
+    <p>{{ response }}</p>
+  </section>
+  <a class="button" href="{{ next_url }}">Continue</a>
+</div>
+{% endblock %}
