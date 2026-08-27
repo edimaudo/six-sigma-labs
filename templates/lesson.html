@@ -26,7 +26,7 @@
       <div class="term-card"><strong>{{ term }}</strong><p>{{ glossary.get(term, 'See the full glossary for the working definition.') }}</p></div>
       {% endfor %}
     </div>
-    <a class="text-link" href="/glossary">Open full glossary →</a>
+    <a class="text-link" href="/reference">Open reference →</a>
   </section>
   {% endif %}
 
@@ -34,7 +34,7 @@
   <section class="panel section">
     <div class="kicker">Underlying math</div>
     {% for formula in lesson.math %}<div class="formula-row"><code>{{ formula }}</code></div>{% endfor %}
-    <a class="text-link" href="/math">Open full math reference →</a>
+    <a class="text-link" href="/reference">Open reference →</a>
   </section>
   {% endif %}
 

@@ -27,7 +27,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="1.0.0")
+app = FastAPI(title="Six Sigma Labs", version="1.4.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -139,13 +139,22 @@ async def learn(request: Request):
 
 
 @app.get("/glossary", response_class=HTMLResponse)
-async def glossary(request: Request):
-    return templates.TemplateResponse(request=request, name="glossary.html", context=context(request, glossary=GLOSSARY))
+async def glossary_redirect():
+    return RedirectResponse("/reference", status_code=303)
 
 
 @app.get("/math", response_class=HTMLResponse)
-async def math_reference(request: Request):
-    return templates.TemplateResponse(request=request, name="math.html", context=context(request, math_reference=MATH_REFERENCE))
+async def math_redirect():
+    return RedirectResponse("/reference", status_code=303)
+
+
+@app.get("/reference", response_class=HTMLResponse)
+async def reference(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="reference.html",
+        context=context(request, glossary=GLOSSARY, math_reference=MATH_REFERENCE),
+    )
 
 
 @app.get("/case-studies", response_class=HTMLResponse)

@@ -29,17 +29,16 @@
     <a href="/diagnostic">Level check</a>
     <a href="/learn">Learn</a>
     <a href="/case-studies">Case studies</a>
-    <a href="/glossary">Glossary</a>
-    <a href="/math">Math</a>
+    <a href="/reference">Reference</a>
     <a href="/pricing">Pricing</a>
   </nav>
   <div class="header-tools" aria-label="Display settings">
-    <select id="type-scale" class="header-select" aria-label="Text and interface size">
+    <select id="type-scale" class="display-control" aria-label="Text and interface size">
       <option value="small">Small</option>
       <option value="medium">Medium</option>
       <option value="large">Large</option>
     </select>
-    <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">Light mode</button>
+    <button class="display-control" id="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false">Light mode</button>
     <!-- Account UI intentionally disabled during learning-product validation. -->
     <!-- <a href="/signup">Sign up</a> -->
     <!-- <a href="/signin">Sign in</a> -->
@@ -47,7 +46,6 @@
   </div>
 </header>
 <main id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
-<footer>Applied Six Sigma learning prototype · FastAPI · Gemini · Plotly.js</footer>
 </div>
 <script src="{{ url_for('static', path='app.js') }}" defer></script>
 </body>
