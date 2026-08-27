@@ -64,3 +64,7 @@ The repository includes `vercel.json` for the FastAPI Python runtime. Add `GEMIN
 - SQLite is suitable for local development only. Vercel serverless instances do not provide durable local filesystem persistence. Use a managed Postgres database for production learner accounts, journals, attempts, and scenario state.
 - Keep `GEMINI_API_KEY` and `SSOL_SESSION_SECRET` in Vercel Environment Variables; do not commit them.
 - The Gemini Interactions API is intentionally used for adaptive dialogue and structured evaluation.
+
+## Vercel troubleshooting
+
+The app uses Starlette `SessionMiddleware`, which requires the `itsdangerous` package. It is declared explicitly in `requirements.txt`. The deployment entrypoint is the root `main.py`, which imports `app.main:app`. Vercel installs Python dependencies declared in `requirements.txt` during the build.

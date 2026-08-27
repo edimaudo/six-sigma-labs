@@ -5,7 +5,7 @@ import os
 import secrets
 import sqlite3
 
-DB_PATH = Path(__file__).resolve().parent.parent / "sixsigma.db"
+DB_PATH = Path(__file__).resolve().parent / "sixsigma.db"
 
 
 def get_conn():

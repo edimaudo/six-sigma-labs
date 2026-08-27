@@ -10,9 +10,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
-from .adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
-from .content import BELTS, DIAGNOSTIC, SCENARIOS
-from .db import (
+from adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
+from content import BELTS, DIAGNOSTIC, SCENARIOS
+from db import (
     add_attempt,
     add_journal,
     authenticate,
@@ -26,10 +26,10 @@ from .db import (
     update_learner,
     update_scenario_session,
 )
-from .scenarios import SCENARIO_DETAIL
+from scenarios import SCENARIO_DETAIL
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-app = FastAPI(title="Six Sigma Operations Lab", version="0.6.0")
+BASE_DIR = Path(__file__).resolve().parent
+app = FastAPI(title="Six Sigma Operations Lab", version="0.8.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")

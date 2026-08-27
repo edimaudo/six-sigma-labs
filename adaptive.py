@@ -1,5 +1,5 @@
 """Compatibility layer for the Gemini-backed adaptive engine."""
-from .gemini import (
+from gemini import (
     GeminiConfigError,
     GeminiResponseError,
     evaluate_reasoning,
