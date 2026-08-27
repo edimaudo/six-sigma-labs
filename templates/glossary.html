@@ -1,14 +1,58 @@
 {% extends "base.html" %}
-{% block title %}Six Sigma glossary{% endblock %}
+{% block title %}Glossary — Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Reference</div>
-  <h1>Six Sigma glossary.</h1>
-  <p class="lead">The working vocabulary behind the lessons and case studies.</p>
-  <div class="glossary-grid section">
-  {% for term, definition in glossary.items() %}
-    <article class="term-card"><h3>{{ term }}</h3><p>{{ definition }}</p></article>
-  {% endfor %}
+  <div class="eyebrow">Glossary</div>
+  <h1>Glossary.</h1>
+  <p class="lead">Definitions, applications and formulas used throughout the course.</p>
+
+  <label class="sr-only" for="glossary-search">Search glossary</label>
+  <input id="glossary-search" class="reference-search" type="search" placeholder="Search the glossary" autocomplete="off">
+
+  <div class="section" aria-labelledby="terms-heading">
+    <h2 id="terms-heading">Terms</h2>
+    <div class="glossary-grid" id="glossary-results">
+      {% for term, entry in glossary.items() %}
+      <article class="term-card reference-card" data-reference="{{ (term ~ ' ' ~ entry.definition ~ ' ' ~ entry.why_it_matters ~ ' ' ~ entry.use_when ~ ' ' ~ entry.watch_out)|lower }}">
+        <h3>{{ term }}</h3>
+        <p><strong>Definition.</strong> {{ entry.definition }}</p>
+        <p><strong>Why it matters.</strong> {{ entry.why_it_matters }}</p>
+        <p><strong>Use it when.</strong> {{ entry.use_when }}</p>
+        <p><strong>Watch for.</strong> {{ entry.watch_out }}</p>
+      </article>
+      {% endfor %}
+    </div>
   </div>
+
+  <div class="section" aria-labelledby="math-heading">
+    <h2 id="math-heading">Math</h2>
+    <div class="term-grid" id="math-results">
+      {% for name, formula, explanation in math_reference %}
+      <article class="term-card reference-card" data-reference="{{ (name ~ ' ' ~ formula ~ ' ' ~ explanation)|lower }}">
+        <h3>{{ name }}</h3>
+        <div class="formula-row"><code>{{ formula }}</code></div>
+        <p>{{ explanation }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+  <p id="glossary-empty" class="panel" hidden>No matching glossary entries.</p>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const input = document.getElementById('glossary-search');
+    const cards = Array.from(document.querySelectorAll('[data-reference]'));
+    const empty = document.getElementById('glossary-empty');
+    input.addEventListener('input', function () {
+      const query = input.value.trim().toLowerCase();
+      let visible = 0;
+      cards.forEach(function (card) {
+        const match = !query || card.dataset.reference.includes(query);
+        card.hidden = !match;
+        if (match) visible += 1;
+      });
+      empty.hidden = visible !== 0;
+    });
+  });
+</script>
 {% endblock %}

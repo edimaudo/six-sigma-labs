@@ -14,9 +14,6 @@
       root.dataset.typeScale = localStorage.getItem('ssol-type-scale') || 'medium';
     }());
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
   <script src="https://cdn.plot.ly/plotly-3.6.0.min.js" defer></script>
 </head>
@@ -29,7 +26,7 @@
     <a class="{% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}active{% endif %}" href="/belt-level">Belt level</a>
     <a class="{% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}active{% endif %}" href="/learn">Learn</a>
     <a class="{% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}active{% endif %}" href="/case-studies">Case studies</a>
-    <a class="{% if request.url.path.startswith('/reference') %}active{% endif %}" href="/reference">Reference</a>
+    <a class="{% if request.url.path.startswith('/glossary') or request.url.path.startswith('/reference') or request.url.path.startswith('/math') %}active{% endif %}" href="/glossary">Glossary</a>
     <a class="{% if request.url.path.startswith('/pricing') %}active{% endif %}" href="/pricing">Pricing</a>
   </nav>
   <div class="header-tools" aria-label="Display settings">
