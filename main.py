@@ -166,21 +166,16 @@ async def learn(request: Request):
     return templates.TemplateResponse(request=request, name="learn_index.html", context=context(request, data_curriculum=DATA_PROCESS_CURRICULUM))
 
 
-@app.get("/glossary", response_class=HTMLResponse)
-async def glossary_redirect():
-    return RedirectResponse("/reference", status_code=303)
-
-
 @app.get("/math", response_class=HTMLResponse)
 async def math_redirect():
-    return RedirectResponse("/reference", status_code=303)
+    return RedirectResponse("/glossary", status_code=303)
 
 
-@app.get("/reference", response_class=HTMLResponse)
-async def reference(request: Request):
+@app.get("/glossary", response_class=HTMLResponse)
+async def glossary(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="reference.html",
+        name="glossary.html",
         context=context(request, glossary=GLOSSARY, math_reference=MATH_REFERENCE),
     )
 
