@@ -4,7 +4,7 @@ import uuid
 import os
 import asyncio
 
-from fastapi import FastAPI, Form, Request
+from fastapi import FastAPI, Form, Request, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -29,7 +29,7 @@ from .db import (
 from .scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-app = FastAPI(title="Six Sigma Operations Lab", version="0.4.0")
+app = FastAPI(title="Six Sigma Operations Lab", version="0.6.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -40,18 +40,26 @@ def startup():
     init_db()
 
 
-def current_user_id(request: Request) -> int:
+def optional_user_id(request: Request) -> int | None:
     user_id = request.session.get("user_id")
     if user_id:
         return int(user_id)
-    # Demo mode preserves the frictionless prototype experience.
-    request.session["user_id"] = 1
-    return 1
+    if os.getenv("SSOL_DEMO_MODE", "false").lower() == "true":
+        request.session["user_id"] = 1
+        return 1
+    return None
+
+
+def current_user_id(request: Request) -> int:
+    user_id = optional_user_id(request)
+    if user_id is not None:
+        return user_id
+    raise HTTPException(status_code=303, headers={"Location": "/signup"})
 
 
 def context(request: Request, **kwargs):
-    user_id = current_user_id(request)
-    profile = learner(user_id)
+    user_id = optional_user_id(request)
+    profile = learner(user_id) if user_id is not None else None
     return {"request": request, "belts": BELTS, "learner": profile, "user_id": user_id, **kwargs}
 
 

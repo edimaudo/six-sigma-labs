@@ -56,3 +56,11 @@ Set `GEMINI_API_KEY` in your local environment or Vercel project settings. `GEMI
 The repository includes `vercel.json` for the FastAPI Python runtime. Add `GEMINI_API_KEY` and `SSOL_SESSION_SECRET` under Vercel Project Settings → Environment Variables before deployment.
 
 **Persistence note:** the current prototype still uses SQLite. Vercel's serverless runtime should not be treated as durable storage, so production deployment should move user/scenario state to a hosted database such as Postgres.
+
+
+## Production readiness notes
+
+- `SSOL_DEMO_MODE` defaults to `false`; enable it explicitly only for a controlled demo environment.
+- SQLite is suitable for local development only. Vercel serverless instances do not provide durable local filesystem persistence. Use a managed Postgres database for production learner accounts, journals, attempts, and scenario state.
+- Keep `GEMINI_API_KEY` and `SSOL_SESSION_SECRET` in Vercel Environment Variables; do not commit them.
+- The Gemini Interactions API is intentionally used for adaptive dialogue and structured evaluation.
