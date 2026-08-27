@@ -72,7 +72,7 @@ def get_scenario(scenario_id: str | None):
 
 @app.get("/", response_class=HTMLResponse)
 async def landing(request: Request):
-    return templates.TemplateResponse(request=request, name="landing.html", context=context(request))
+    return templates.TemplateResponse(request=request, name="index.html", context=context(request))
 
 
 @app.get("/pricing", response_class=HTMLResponse)
