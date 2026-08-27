@@ -5,7 +5,13 @@ import os
 import secrets
 import sqlite3
 
-DB_PATH = Path(__file__).resolve().parent / "sixsigma.db"
+# Vercel serverless functions run with a read-only deployment filesystem.
+# Keep SQLite local for development, but use /tmp on Vercel so startup can
+# create the prototype database. /tmp is ephemeral and is NOT durable storage.
+if os.getenv("VERCEL", "").lower() == "1" or os.getenv("VERCEL_ENV"):
+    DB_PATH = Path("/tmp/sixsigma.db")
+else:
+    DB_PATH = Path(os.getenv("SSOL_DB_PATH", str(Path(__file__).resolve().parent / "sixsigma.db")))
 
 
 def get_conn():

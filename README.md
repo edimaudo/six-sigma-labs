@@ -68,3 +68,8 @@ The repository includes `vercel.json` for the FastAPI Python runtime. Add `GEMIN
 ## Vercel troubleshooting
 
 The app uses Starlette `SessionMiddleware`, which requires the `itsdangerous` package. It is declared explicitly in `requirements.txt`. The deployment entrypoint is the root `main.py`, which imports `app.main:app`. Vercel installs Python dependencies declared in `requirements.txt` during the build.
+
+
+## Vercel SQLite note
+
+When deployed to Vercel, the app detects the Vercel runtime and places the prototype SQLite database at `/tmp/sixsigma.db` because the deployed project filesystem is read-only. `/tmp` is ephemeral and instance-local, so learner accounts, progress, journals, and scenario sessions are not durable across all serverless executions. Before production use with paying users, replace the SQLite adapter in `db.py` with managed Postgres storage.
