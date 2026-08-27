@@ -1,28 +1,14 @@
 {% extends "base.html" %}
-{% block title %}Pricing · Six Sigma Operations Lab{% endblock %}
+{% block title %}Pricing · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
   <div class="eyebrow">Pricing</div>
-  <h1>Learn Six Sigma by doing the work.</h1>
-  <p class="lead">Every plan is built around the same learning loop: question, investigate, apply, teach, reflect.</p>
-
+  <h1>Choose how you want to learn.</h1>
+  <p class="lead">Start with the free material. Paid access unlocks the full curriculum and case-study library.</p>
   <section class="pricing-grid section">
-    <article class="price-card">
-      <div class="number">FOUNDATION</div><h2>Free</h2><p>Start with the core concepts and discover the learning model.</p>
-      <ul class="clean"><li>Foundations</li><li>White Belt material</li><li>Diagnostic</li><li>Sample simulation</li></ul>
-      <a class="button button-secondary" href="/diagnostic">Take level check</a>
-    </article>
-    <article class="price-card featured">
-      <div class="number">ALL ACCESS</div><h2>$29<span class="price-period">/month</span></h2><p>The complete applied learning experience.</p>
-      <ul class="clean"><li>White, Yellow, Green, Black Belt</li><li>Adaptive stakeholder simulations</li><li>Socratic teach-back</li><li>Journal and case-study workspace</li></ul>
-      <a class="button" href="/diagnostic">Check my level</a>
-    </article>
-    <article class="price-card">
-      <div class="number">ANNUAL</div><h2>$249<span class="price-period">/year</span></h2><p>For sustained practice and longitudinal learning.</p>
-      <ul class="clean"><li>Everything in All Access</li><li>Expanded scenario library</li><li>Longitudinal progress</li><li>Annual savings</li></ul>
-      <a class="button button-secondary" href="/case-studies">Explore cases</a>
-    </article>
+    <article class="price-card"><div class="number">FOUNDATIONS</div><h2>Free</h2><p>A practical introduction to Six Sigma and the way the labs work.</p><ul class="clean"><li>Foundations</li><li>White and Yellow Belt content</li><li>Belt Level assessment</li><li>Selected case studies</li></ul><a class="button button-secondary" href="/diagnostic">Find my starting point</a></article>
+    <article class="price-card featured"><div class="number">FULL COURSE</div><h2>$29<span class="price-period">/month</span></h2><p>Full access to the learning system.</p><ul class="clean"><li>White, Yellow, Green and Black Belt</li><li>DMAIC and DMADV / IDOV</li><li>Full case-study library</li><li>Gemini-powered stakeholder simulations</li><li>Reference library: glossary, math and process/data methods</li></ul><a class="button" href="/diagnostic">Find my starting point</a></article>
   </section>
-  <p class="small pricing-note">Prototype pricing only. No payment processor is connected yet.</p>
+  <p class="small pricing-note">Pricing shown for the prototype. Payments are not connected yet.</p>
 </div>
 {% endblock %}

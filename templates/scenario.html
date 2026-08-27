@@ -16,6 +16,13 @@
     <div class="metric-card"><strong>{{ state.stakeholder_score }}/100</strong><span>stakeholder questioning</span></div>
   </div>
 
+  <section class="section" aria-labelledby="lenses-heading">
+    <div class="kicker">Workplace decision lenses</div>
+    <h2 id="lenses-heading">A technically sound answer can still fail at work.</h2>
+    <div class="grid-3"><article class="card"><h3>Logos</h3><p>{{ detail.reasoning_lens.logos }}</p></article><article class="card"><h3>Pathos</h3><p>{{ detail.reasoning_lens.pathos }}</p></article><article class="card"><h3>Ethos</h3><p>{{ detail.reasoning_lens.ethos }}</p></article></div>
+    <div class="grid-3"><article class="card"><div class="number">Economic</div><p>{{ detail.reasoning_lens.economic }}</p></article><article class="card"><div class="number">Political</div><p>{{ detail.reasoning_lens.political }}</p></article><article class="card"><div class="number">Social</div><p>{{ detail.reasoning_lens.social }}</p></article></div>
+  </section>
+
   <div class="two-col section">
     <section class="panel">
       <div class="kicker">First question</div>

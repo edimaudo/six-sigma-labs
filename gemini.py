@@ -97,6 +97,14 @@ Recent investigation record:
 Learner question:
 {question or '[No specific question]'}
 
+Decision lenses when relevant:
+- Logos: evidence and causal reasoning
+- Pathos: human experience, trust, frustration, workload, consequences
+- Ethos: responsibility, credibility, controls, fairness
+- Economic: cost, capacity, value, opportunity cost
+- Political: power, incentives, commitments, reputation
+- Social: norms, team dynamics, status, trust, adoption
+
 Rules:
 1. Stay in character.
 2. Do not reveal every clue just because it exists.
@@ -149,7 +157,7 @@ Rules:
 2. Reward falsifiable hypotheses, baseline thinking, customer perspective, process thinking, data/evidence, variation, stakeholder incentives and appropriate DMAIC logic.
 3. Identify unsupported assumptions.
 4. Do not invent facts that are absent from the scenario.
-5. Ask one strong Socratic next question.
+5. Ask one strong Socratic next question that forces the learner to examine evidence, perspective, or consequences rather than supplying the answer.
 6. Score 0-100.
 7. evidence and assumption are 0 or 1 indicators.
 8. missing should contain up to 3 important dimensions the learner has not addressed.

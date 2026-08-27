@@ -1,52 +1,24 @@
 {% extends "base.html" %}
 {% block title %}Six Sigma Labs — Learn Six Sigma by solving real business problems{% endblock %}
 {% block content %}
-<div class="landing">
-  <div class="container">
-    <section class="hero landing-hero">
-      <div class="hero-copy">
-        <div class="eyebrow">Six Sigma Labs</div>
-        <h1>Learn Six Sigma by solving real business problems.</h1>
-        <p class="lead">Learn the method through interactive case studies, realistic stakeholders, and guided problem solving.</p>
-        <a class="button" href="/diagnostic">Find my starting point</a>
-      </div>
-    </section>
-
-    <section class="section landing-features" aria-labelledby="features-heading">
-      <div class="eyebrow">How it works</div>
-      <h2 id="features-heading">Practice the work, not just the terminology.</h2>
-      <div class="feature-grid">
-        <article class="feature-card">
-          <h3>Start with a problem</h3>
-          <p>Work through realistic business cases before choosing an improvement method.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Question stakeholders</h3>
-          <p>Use Gemini-powered people with different information, goals, and incentives.</p>
-        </article>
-        <article class="feature-card">
-          <h3>Build judgment</h3>
-          <p>Learn concepts, use the math, explain your reasoning, and improve your decisions.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section case-section" aria-labelledby="cases-heading">
-      <div>
-        <div class="eyebrow">Case studies</div>
-        <h2 id="cases-heading">The case is the classroom.</h2>
-        <p>Investigate the problem, talk to the people involved, analyze the evidence, and work through DMAIC.</p>
-        <a class="text-link" href="/case-studies">Explore case studies →</a>
-      </div>
-    </section>
-
-    <section class="section final-cta" aria-labelledby="cta-heading">
-      <div>
-        <div class="eyebrow">Start here</div>
-        <h2 id="cta-heading">Find your starting point.</h2>
-      </div>
-      <a class="button" href="/diagnostic">Find my starting point</a>
-    </section>
+<div class="landing"><div class="container">
+<section class="hero landing-hero">
+  <div class="hero-copy">
+    <h1>Learn Six Sigma by solving real business problems.</h1>
+    <p class="lead">Build the judgment to improve processes, work with stakeholders, and make evidence-based decisions.</p>
+    <a class="button" href="/diagnostic">Find my starting point</a>
   </div>
-</div>
+</section>
+<section class="section landing-features" aria-labelledby="features-heading">
+  <h2 id="features-heading">Learn the method. Apply it to the situation.</h2>
+  <div class="feature-grid">
+    <article class="feature-card"><h3>Learn</h3><p>Six Sigma, Lean, DMAIC, DMADV, process thinking, and the statistics behind the methods.</p></article>
+    <article class="feature-card"><h3>Question</h3><p>Use Socratic prompts to test assumptions and learn what evidence you actually need.</p></article>
+    <article class="feature-card"><h3>Work the case</h3><p>Talk to stakeholders, weigh evidence, and make decisions under economic, political, and social constraints.</p></article>
+  </div>
+</section>
+<section class="section case-section" aria-labelledby="cases-heading">
+  <div><div class="eyebrow">Case studies</div><h2 id="cases-heading">Practice on real operations problems.</h2><p>Explore cases across White, Yellow, Green, and Black Belt levels.</p><a class="text-link" href="/case-studies">Explore case studies →</a></div>
+</section>
+</div></div>
 {% endblock %}

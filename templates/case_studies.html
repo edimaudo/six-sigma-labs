@@ -1,21 +1,20 @@
 {% extends "base.html" %}
-{% block title %}Case studies{% endblock %}
+{% block title %}Case Studies · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Applied learning</div>
-  <h1>Case studies are the classroom.</h1>
-  <p class="lead">Each case starts with a business problem. Gemini-powered agents hold different information, incentives, and points of view. Your job is to investigate before you decide.</p>
-  <div class="grid-2 section case-grid">
+  <div class="eyebrow">Case studies</div>
+  <h1>Investigate the problem. Make the decision.</h1>
+  <p class="lead">Choose a business problem, then work with stakeholder agents who see the situation differently.</p>
+  <form class="case-search" method="get" action="/case-studies" role="search">
+    <label class="sr-only" for="case-query">Search case studies</label><input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry, or topic">
+    <label class="sr-only" for="case-belt">Filter by belt</label><select id="case-belt" name="belt"><option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>{% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}</select>
+    <button class="button button-small" type="submit">Search</button>
+  </form>
+  <p class="small">{{ scenarios|length }} case{% if scenarios|length != 1 %}s{% endif %} shown</p>
+  <div class="grid-3 section case-grid">
     {% for scenario in scenarios %}
-    <article class="card case-card">
-      <div class="case-topline"><span class="tag">{{ scenario.area }}</span><span class="tag">{{ scenario.difficulty }}</span></div>
-      <h2>{{ scenario.title }}</h2>
-      <p>{{ scenario.prompt }}</p>
-      <p class="small">{{ scenario.stakeholders|length }} stakeholder agents · DMAIC case</p>
-      <a class="button" href="/scenario?id={{ scenario.id }}">Start case →</a>
-    </article>
-    {% endfor %}
+    <article class="card case-card"><div class="case-topline"><span class="tag">{{ scenario.belt|title }} Belt</span><span class="tag">{{ scenario.area }}</span></div><h2>{{ scenario.title }}</h2><p>{{ scenario.prompt }}</p><a class="button" href="/scenario?id={{ scenario.id }}">Start case →</a></article>
+    {% else %}<div class="panel"><h2>No cases found.</h2><p>Try a different search or belt.</p></div>{% endfor %}
   </div>
-
 </div>
 {% endblock %}

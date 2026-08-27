@@ -364,3 +364,8 @@ footer { display: none; }
   .display-control { width: 7.25rem; }
   .reference-grid { grid-template-columns: 1fr; }
 }
+
+.case-search { display: grid; grid-template-columns: 1fr 11rem auto; gap: .75rem; margin: 2rem 0 .5rem; }
+.case-search input, .case-search select { min-height: 2.75rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: .65rem .8rem; font: inherit; }
+.question-inline { border-left: 3px solid var(--blue-60); padding-left: .75rem; }
+@media (max-width: 760px) { .case-search { grid-template-columns: 1fr; } }
