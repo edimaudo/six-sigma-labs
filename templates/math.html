@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Six Sigma math reference{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">Reference</div>
+  <h1>Just enough math to understand the method.</h1>
+  <p class="lead">Use this as a reference while learning. The course teaches the decision first, then the mathematics needed to support it.</p>
+  <div class="math-table section" role="table" aria-label="Six Sigma formulas">
+    {% for name, formula, explanation in math_reference %}
+    <div class="math-row" role="row"><div role="cell"><strong>{{ name }}</strong></div><div role="cell"><code>{{ formula }}</code></div><div role="cell"><p>{{ explanation }}</p></div></div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

@@ -94,16 +94,9 @@ def init_db():
     )
     conn.commit()
 
-    # Provide a single local demo account so the prototype remains usable without signup.
-    existing = conn.execute("SELECT id FROM users ORDER BY id LIMIT 1").fetchone()
-    if not existing:
-        password = os.getenv("SSOL_DEMO_PASSWORD", "demo-only")
-        cur = conn.execute(
-            "INSERT INTO users (email, password_hash, name) VALUES (?, ?, ?)",
-            ("demo@sixsigma.local", _hash_password(password), "Demo Learner"),
-        )
-        user_id = cur.lastrowid
-        conn.execute("INSERT INTO learner_profiles (user_id) VALUES (?)", (user_id,))
+    # Authentication is intentionally disabled in the current prototype.
+    # Do not create or reuse a shared demo account. Each browser session gets
+    # its own anonymous learner record when it first uses a protected flow.
     # Lightweight migrations for existing prototype databases.
     cols = {row[1] for row in conn.execute("PRAGMA table_info(scenario_sessions)").fetchall()}
     migrations = {
@@ -116,6 +109,21 @@ def init_db():
             conn.execute(statement)
     conn.commit()
     conn.close()
+
+
+def create_anonymous_user(name: str = "") -> int:
+    """Create a session-scoped learner without exposing account/auth UI."""
+    conn = get_conn()
+    email = f"anonymous-{secrets.token_hex(12)}@sixsigma.local"
+    cur = conn.execute(
+        "INSERT INTO users (email, password_hash, name) VALUES (?, ?, ?)",
+        (email, _hash_password(secrets.token_urlsafe(24)), name or "Learner"),
+    )
+    user_id = int(cur.lastrowid)
+    conn.execute("INSERT INTO learner_profiles (user_id) VALUES (?)", (user_id,))
+    conn.commit()
+    conn.close()
+    return user_id
 
 
 def create_user(email: str, password: str, name: str = ""):

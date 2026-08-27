@@ -1,63 +1,83 @@
 {% extends "base.html" %}
-{% block title %}Learn Six Sigma by solving operations problems{% endblock %}
+{% block title %}Six Sigma Labs — Learn Six Sigma by solving real problems{% endblock %}
 {% block content %}
-<div class="container">
-  <section class="hero">
-    <div>
-      <div class="eyebrow">Applied Six Sigma</div>
-      <h1>Learn Six Sigma by solving real operations problems.</h1>
-      <p class="lead">Work through realistic business situations, question assumptions, analyze evidence, manage stakeholders, and defend your decisions.</p>
-      <div class="button-row">
-        <a class="button" href="/signup">Start learning</a>
-        <a class="button button-secondary" href="/diagnostic">Take the diagnostic</a>
+<div class="landing">
+  <div class="container">
+    <section class="hero hero-single">
+      <div class="hero-copy">
+        <div class="eyebrow">Six Sigma Labs</div>
+        <h1>Learn Six Sigma by solving real business problems.</h1>
+        <p class="lead">Work through realistic operations cases, question stakeholders, analyze evidence, and defend your decisions. Learn the Six Sigma method by using it.</p>
+        <div class="button-row hero-cta">
+          <a class="button" href="/diagnostic">Find my starting point</a>
+          <a class="text-link" href="/case-studies">See how the cases work →</a>
+        </div>
       </div>
-    </div>
-    <div class="panel">
-      <div class="eyebrow">The learning loop</div>
-      <h3>Question → Investigate → Apply → Teach → Reflect</h3>
-      <p class="small">The course uses Six Sigma as the operating system for developing practical judgment.</p>
-    </div>
-  </section>
+      <div class="hero-proof" aria-label="How the product teaches">
+        <div class="kicker">A different way to learn</div>
+        <p><strong>Question first.</strong> Then learn the concept, inspect the evidence, use the method, explain your reasoning, and reflect on the decision.</p>
+      </div>
+    </section>
 
-  <section class="section grid-3">
-    <div class="card"><div class="number">01</div><h3>Learn the method</h3><p>DMAIC, Lean, process analysis, measurement, statistics, improvement, and control.</p></div>
-    <div class="card"><div class="number">02</div><h3>Practice the reality</h3><p>Simulated organizations where customers, managers, operators, technology, finance, and risk see different problems.</p></div>
-    <div class="card"><div class="number">03</div><h3>Build judgment</h3><p>Adaptive stakeholder conversations challenge your assumptions and reveal evidence only when you ask the right questions.</p></div>
-  </section>
+    <section class="section landing-features" aria-labelledby="why-heading">
+      <div class="section-intro">
+        <div class="eyebrow">Why Six Sigma Labs</div>
+        <h2 id="why-heading">The method matters. Knowing when to use it matters more.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <div class="number">01</div>
+          <h3>Start with the problem</h3>
+          <p>Cases begin with messy business problems rather than definitions. You decide what to investigate before the course tells you what tool to use.</p>
+        </article>
+        <article class="feature-card">
+          <div class="number">02</div>
+          <h3>Learn from people, not just data</h3>
+          <p>Gemini-powered stakeholders have different goals, information, and constraints. Your analysis has to work inside an organization, not just on a spreadsheet.</p>
+        </article>
+        <article class="feature-card">
+          <div class="number">03</div>
+          <h3>Build judgment</h3>
+          <p>Each lesson starts with a question. You use the glossary and math when needed, teach the concept back, and defend the decision you made.</p>
+        </article>
+      </div>
+    </section>
 
-  <section class="band">
-    <div class="eyebrow" style="color:#78a9ff">Four levels</div>
-    <h2>Start where your knowledge actually is.</h2>
-    <p>White Belt introduces the language. Yellow Belt builds participation skills. Green Belt develops project leadership. Black Belt adds advanced analysis and complex organizational change.</p>
-  </section>
+    <section class="section case-section" aria-labelledby="case-heading">
+      <div class="case-copy">
+        <div class="eyebrow">Case studies</div>
+        <h2 id="case-heading">The case is the classroom.</h2>
+        <p>Interview stakeholders. Find the evidence. Move through DMAIC. See how incentives, politics, process design, and data affect the problem.</p>
+        <a class="text-link" href="/case-studies">Explore the case library →</a>
+      </div>
+      <div class="case-flow" aria-label="Case study learning flow">
+        <span>Problem</span><span>Question</span><span>Evidence</span><span>Method</span><span>Decision</span><span>Reflection</span>
+      </div>
+    </section>
 
-  <section class="section">
-    <div class="eyebrow">Designed for operations</div>
-    <h2>The organization is part of the process.</h2>
-    <p>Every case includes process performance, stakeholder incentives, competing priorities, and the politics that determine whether an improvement survives implementation.</p>
-  </section>
+    <section class="section learning-system" aria-labelledby="learn-heading">
+      <div class="eyebrow">Learn</div>
+      <h2 id="learn-heading">A complete path from White Belt to Black Belt.</h2>
+      <p>Build the concepts progressively, with the glossary and underlying math available inside the lesson instead of forcing you to hunt for them elsewhere.</p>
+      <div class="level-strip" role="list" aria-label="Six Sigma belt levels">
+        <div role="listitem"><strong>White</strong><span>Language & mindset</span></div>
+        <div role="listitem"><strong>Yellow</strong><span>Project participation</span></div>
+        <div role="listitem"><strong>Green</strong><span>DMAIC application</span></div>
+        <div role="listitem"><strong>Black</strong><span>Advanced analysis</span></div>
+      </div>
+    </section>
 
-  <section class="section" id="pricing">
-    <div class="eyebrow">Pricing</div>
-    <h2>Choose how deeply you want to learn.</h2>
-    <div class="pricing-grid">
-      <article class="price-card">
-        <div class="number">FOUNDATION</div><h3>Free</h3><p>Explore the approach before committing.</p>
-        <ul class="clean"><li>Foundations</li><li>Diagnostic</li><li>Sample scenario</li><li>Basic journal</li></ul>
-        <a class="button button-secondary" href="/signup">Create account</a>
-      </article>
-      <article class="price-card featured">
-        <div class="number">ALL ACCESS</div><h3>$29<span class="price-period">/month</span></h3><p>Full applied Six Sigma learning experience.</p>
-        <ul class="clean"><li>White through Black Belt</li><li>Adaptive scenarios</li><li>Socratic teach-back</li><li>Consulting workspace</li></ul>
-        <a class="button" href="/signup">Start learning</a>
-      </article>
-      <article class="price-card">
-        <div class="number">ANNUAL</div><h3>$249<span class="price-period">/year</span></h3><p>For learners who want a longer operating cycle.</p>
-        <ul class="clean"><li>Everything in All Access</li><li>Priority scenario library</li><li>Longitudinal progress</li><li>Annual savings</li></ul>
-        <a class="button button-secondary" href="/signup">Choose annual</a>
-      </article>
-    </div>
-    <p class="small pricing-note">Prototype pricing. Payment processing is not connected in this build.</p>
-  </section>
+    <section class="section final-cta" aria-labelledby="cta-heading">
+      <div>
+        <div class="eyebrow">Start here</div>
+        <h2 id="cta-heading">Find the right place to begin.</h2>
+        <p>The level check is a starting point, not a judgment. It helps the course meet you where you are.</p>
+      </div>
+      <div class="button-row">
+        <a class="button" href="/diagnostic">Find my starting point</a>
+        <a class="button button-secondary" href="/pricing">View pricing</a>
+      </div>
+    </section>
+  </div>
 </div>
 {% endblock %}

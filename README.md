@@ -1,75 +1,31 @@
-# Six Sigma Operations Lab MVP v0.4
+# Six Sigma Operations Lab — MVP v1.0
 
-FastAPI + Jinja2 + SQLite + Plotly.js + Google Gemini prototype for an applied Six Sigma learning product.
+Applied Six Sigma learning prototype built with FastAPI, Jinja2, Gemini, SQLite for local/demo persistence, and Plotly.js.
 
-## Product model
+## Product architecture
+- **Level check**: 16-question placement quiz across White, Yellow, Green, and Black Belt.
+- **Learn**: gated until the placement quiz is completed.
+- **Lessons**: every teaching section begins with a question, then concepts, glossary terms, math, teach-back, and reflection.
+- **Case studies**: the primary applied-learning experience. Each case starts with an operations problem and uses Gemini-powered stakeholder agents with different incentives and partial information.
+- **Glossary**: reusable Six Sigma/Lean reference definitions.
+- **Math**: formulas and plain-language explanations for the underlying quantitative methods.
+- **Journal**: reflection tied to learning activities.
+- **Display**: responsive UI, dark/light mode, Small/Medium/Large text-and-interface scale.
 
-The application is built around:
+## Curriculum coverage
+The content model now includes the White Belt and Yellow Belt foundations plus the supplied Green Belt and Black Belt lesson lists, including:
+- Green Belt: organizational context, Lean, DFSS, Define, Measure, Analyze, Improve, Control, and case studies.
+- Black Belt: Define fundamentals, Six Sigma metrics, project selection and economics, Lean enterprise, Measure, Analyze, regression/DOE, and Control.
 
-**Question → Investigate → Apply → Teach → Reflect**
-
-The scenario engine treats the organization as part of the process. Learners investigate simulated stakeholders with different incentives, ask questions to reveal evidence, make decisions, and receive Socratic challenges.
-
-## Included in v0.4
-
-- White, Yellow, Green and Black Belt curriculum structure
-- Question-first lessons and teach-back
-- Adaptive stakeholder dialogue using Google Gemini Interactions API
-- Evidence discovery based on the learner's question
-- Scenario reasoning, evidence and stakeholder scores
-- Persistent SQLite learner state
-- Signup/signin using PBKDF2-SHA256 password hashing
-- Pricing page and pricing section on landing page
-- Responsive IBM Carbon-inspired visual language
-- Dark/light mode; defaults to the user's system preference, otherwise dark
-- Small / Medium / Large interface scaling (90% / 100% / 115%); Medium is default
-- Keyboard focus states, skip navigation, semantic landmarks and reduced-motion support
-- Custom 404 page
-- Plotly.js scenario visualization
-
-## Run locally
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-export SSOL_SESSION_SECRET='replace-with-a-long-random-secret'
-uvicorn app.main:app --reload
-```
-
-Open `http://127.0.0.1:8000`.
-
-The built-in demo user is `demo@sixsigma.local`. Its default password is `demo-only`; override it at first database initialization with `SSOL_DEMO_PASSWORD`.
-
-## Notes
-
-AI behavior is provided by Google Gemini through the official `google-genai` SDK and Gemini Interactions API. Stakeholder conversations, scenario reasoning evaluation, and teach-back feedback are not implemented with a local heuristic AI fallback.
-
-Pricing is presentation-only in this build; no payment provider is connected.
-
-## Gemini configuration
-
-Set `GEMINI_API_KEY` in your local environment or Vercel project settings. `GEMINI_MODEL` defaults to `gemini-3.7-flash`. Google documents the Interactions API as the current default interface for new Gemini applications and supports chaining turns with `previous_interaction_id`.
+## Authentication status
+Signup, sign-in, and sign-out UI/routes are intentionally disabled/commented for this phase. The prototype creates/uses a local learner record so the educational flows can be tested without account friction. Re-enable real accounts when durable production persistence is introduced.
 
 ## Vercel
-
-The repository includes `vercel.json` for the FastAPI Python runtime. Add `GEMINI_API_KEY` and `SSOL_SESSION_SECRET` under Vercel Project Settings → Environment Variables before deployment.
-
-**Persistence note:** the current prototype still uses SQLite. Vercel's serverless runtime should not be treated as durable storage, so production deployment should move user/scenario state to a hosted database such as Postgres.
-
-
-## Production readiness notes
-
-- `SSOL_DEMO_MODE` defaults to `false`; enable it explicitly only for a controlled demo environment.
-- SQLite is suitable for local development only. Vercel serverless instances do not provide durable local filesystem persistence. Use a managed Postgres database for production learner accounts, journals, attempts, and scenario state.
-- Keep `GEMINI_API_KEY` and `SSOL_SESSION_SECRET` in Vercel Environment Variables; do not commit them.
-- The Gemini Interactions API is intentionally used for adaptive dialogue and structured evaluation.
-
-## Vercel troubleshooting
-
-The app uses Starlette `SessionMiddleware`, which requires the `itsdangerous` package. It is declared explicitly in `requirements.txt`. The deployment entrypoint is the root `main.py`, which imports `app.main:app`. Vercel installs Python dependencies declared in `requirements.txt` during the build.
+- Root-level `main.py` is the ASGI entrypoint.
+- `vercel.json` configures the Python runtime.
+- SQLite uses `/tmp` on Vercel because the deployment filesystem is not durable/writable. Use managed Postgres before paid production.
+- Required environment variables: `GEMINI_API_KEY`, optional `GEMINI_MODEL`, and `SSOL_SESSION_SECRET`.
 
 
-## Vercel SQLite note
-
-When deployed to Vercel, the app detects the Vercel runtime and places the prototype SQLite database at `/tmp/sixsigma.db` because the deployed project filesystem is read-only. `/tmp` is ephemeral and instance-local, so learner accounts, progress, journals, and scenario sessions are not durable across all serverless executions. Before production use with paying users, replace the SQLite adapter in `db.py` with managed Postgres storage.
+## Learning content update
+The DFSS curriculum explicitly covers **DMADV (also known as IDOV)** for new development, with glossary definitions for both terms.

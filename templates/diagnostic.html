@@ -1,28 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Diagnostic{% endblock %}
+{% block title %}Six Sigma starting point{% endblock %}
 {% block content %}
-<div class="container">
-  <div class="eyebrow">Placement diagnostic</div>
-  <h1>What do you already know?</h1>
-  <p class="lead">The result is a starting point, not a certification. The quiz covers White, Yellow, Green, and Black Belt concepts.</p>
+<div class="container narrow">
+  <div class="eyebrow">Starting point</div>
+  <h1>Where should you start?</h1>
+  <p class="lead">A short set of questions across White, Yellow, Green, and Black Belt concepts. Your result suggests where the learning path should begin.</p>
   <form method="post" action="/diagnostic">
   <div class="panel section-muted">
     <div class="kicker">Business context</div>
-    <label for="business_area">Where do you want to apply Six Sigma?</label>
+    <label for="business_area">Where would you like to apply what you learn?</label>
     <select name="business_area" id="business_area" class="select">
       <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
     </select>
   </div>
   {% for q in questions %}
-    <div class="question">
-      <div class="small">Question {{ q.id }} · {{ q.belt|title }} level</div>
-      <strong>{{ q.question }}</strong>
-    </div>
-    {% for option in q.options %}
-      <label class="option"><input type="radio" name="answers" value="{{ loop.index0 }}" required> {{ option }}</label>
-    {% endfor %}
+    <fieldset class="quiz-question">
+      <legend><span class="small">Question {{ q.id }} · {{ q.belt|title }} level</span>{{ q.question }}</legend>
+      {% for option in q.options %}
+        <label class="option"><input type="radio" name="answers" value="{{ loop.index0 }}" required> {{ option }}</label>
+      {% endfor %}
+    </fieldset>
   {% endfor %}
-  <button class="button" type="submit">See my starting level</button>
+  <button class="button" type="submit">Show my starting point</button>
   </form>
 </div>
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Six Sigma glossary{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="eyebrow">Reference</div>
+  <h1>Six Sigma glossary.</h1>
+  <p class="lead">The working vocabulary behind the lessons and case studies.</p>
+  <div class="glossary-grid section">
+  {% for term, definition in glossary.items() %}
+    <article class="term-card"><h3>{{ term }}</h3><p>{{ definition }}</p></article>
+  {% endfor %}
+  </div>
+</div>
+{% endblock %}

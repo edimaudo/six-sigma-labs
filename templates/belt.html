@@ -7,23 +7,26 @@
   <p class="lead">{{ belt.description }}</p>
   <div class="progress"><span style="width:100%"></span></div>
 
+  <div class="lesson-list section">
   {% for module in belt.modules %}
-  <article class="lesson">
+  <article class="lesson-card">
     <div class="lesson-header">
-      <div class="lesson-number">{{ module[0] }}</div>
+      <div class="lesson-number">{{ module.code }}</div>
       <div>
-        <div class="kicker">Lesson {{ module[0] }}</div>
-        <h2>{{ module[1] }}</h2>
+        <div class="kicker">Lesson {{ loop.index }}</div>
+        <h2>{{ module.title }}</h2>
       </div>
     </div>
-    <div class="question"><div class="small">Start with a question</div><strong>{{ module[2] }}</strong></div>
-    <div class="panel">
-      <div class="kicker">Concept</div>
-      <ul class="clean">{% for point in module[3] %}<li>{{ point }}</li>{% endfor %}</ul>
+    <div class="question"><div class="small">Start with a question</div><strong>{{ module.opening_question }}</strong></div>
+    <div class="lesson-meta">
+      <span>{{ module.concepts|length }} concept points</span>
+      <span>{{ module.terms|length }} glossary terms</span>
+      {% if module.math %}<span>{{ module.math|length }} math references</span>{% endif %}
     </div>
     <a class="button button-secondary" href="/lesson/{{ belt_key }}/{{ loop.index }}">Open lesson →</a>
   </article>
   {% endfor %}
-  <a class="button" href="/scenario">Apply this level in a scenario</a>
+  </div>
+  <a class="button" href="/case-studies">Apply this level in a case study</a>
 </div>
 {% endblock %}

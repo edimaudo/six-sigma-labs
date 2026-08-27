@@ -11,13 +11,11 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
-from content import BELTS, DIAGNOSTIC, SCENARIOS
+from content import BELTS, BELT_ORDER, DIAGNOSTIC, GLOSSARY, MATH_REFERENCE, SCENARIOS
 from db import (
     add_attempt,
     add_journal,
-    authenticate,
     create_scenario_session,
-    create_user,
     get_scenario_session,
     init_db,
     learner,
@@ -29,7 +27,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Operations Lab", version="0.9.0")
+app = FastAPI(title="Six Sigma Labs", version="1.0.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -42,25 +40,35 @@ def startup():
 
 def optional_user_id(request: Request) -> int | None:
     user_id = request.session.get("user_id")
-    if user_id:
-        return int(user_id)
-    if os.getenv("SSOL_DEMO_MODE", "false").lower() == "true":
-        request.session["user_id"] = 1
-        return 1
-    return None
+    return int(user_id) if user_id else None
 
 
 def current_user_id(request: Request) -> int:
     user_id = optional_user_id(request)
     if user_id is not None:
         return user_id
-    raise HTTPException(status_code=303, headers={"Location": "/signup"})
+
+    # Authentication is intentionally disabled while the learning experience
+    # is being validated. Create an anonymous learner scoped to this browser
+    # session rather than attaching the visitor to a shared demo account.
+    from db import create_anonymous_user
+    user_id = create_anonymous_user()
+    request.session["user_id"] = int(user_id)
+    return int(user_id)
+
+
+def has_diagnostic(request: Request) -> bool:
+    user_id = optional_user_id(request)
+    if user_id is None:
+        return False
+    profile = learner(user_id)
+    return bool(profile and profile.get("diagnostic_total", 0))
 
 
 def context(request: Request, **kwargs):
     user_id = optional_user_id(request)
     profile = learner(user_id) if user_id is not None else None
-    return {"request": request, "belts": BELTS, "learner": profile, "user_id": user_id, **kwargs}
+    return {"request": request, "belts": BELTS, "belt_order": BELT_ORDER, "learner": profile, "user_id": user_id, "diagnostic_complete": bool(profile and profile.get("diagnostic_total", 0)), "glossary": GLOSSARY, "math_reference": MATH_REFERENCE, **kwargs}
 
 
 def get_scenario(scenario_id: str | None):
@@ -80,61 +88,14 @@ async def pricing(request: Request):
     return templates.TemplateResponse(request=request, name="pricing.html", context=context(request))
 
 
-@app.get("/signup", response_class=HTMLResponse)
-async def signup(request: Request):
-    return templates.TemplateResponse(request=request, name="signup.html", context=context(request, error=""))
-
-
-@app.post("/signup", response_class=HTMLResponse)
-async def signup_submit(
-    request: Request,
-    name: Annotated[str, Form()] = "",
-    email: Annotated[str, Form()] = "",
-    password: Annotated[str, Form()] = "",
-):
-    email = email.strip().lower()
-    if not name.strip() or "@" not in email or len(password) < 8:
-        return templates.TemplateResponse(
-            request=request,
-            name="signup.html",
-            context=context(request, error="Enter your name, a valid email, and a password of at least 8 characters."),
-            status_code=400,
-        )
-    user_id = create_user(email, password, name)
-    if not user_id:
-        return templates.TemplateResponse(
-            request=request,
-            name="signup.html",
-            context=context(request, error="An account already exists for that email."),
-            status_code=409,
-        )
-    request.session["user_id"] = user_id
-    return RedirectResponse("/diagnostic", status_code=303)
-
-
-@app.get("/signin", response_class=HTMLResponse)
-async def signin(request: Request):
-    return templates.TemplateResponse(request=request, name="signin.html", context=context(request, error=""))
-
-
-@app.post("/signin", response_class=HTMLResponse)
-async def signin_submit(
-    request: Request,
-    email: Annotated[str, Form()] = "",
-    password: Annotated[str, Form()] = "",
-):
-    user = authenticate(email, password)
-    if not user:
-        return templates.TemplateResponse(request=request, name="signin.html", context=context(request, error="Email or password is incorrect."), status_code=401)
-    request.session["user_id"] = user["id"]
-    return RedirectResponse("/learn", status_code=303)
-
-
-@app.post("/signout")
-async def signout(request: Request):
-    request.session.clear()
-    return RedirectResponse("/", status_code=303)
-
+# Authentication routes retained in source for later paid-account activation.
+# They are intentionally commented out of the product navigation and not linked
+# from the landing page while the educational experience is validated.
+# @app.get("/signup") ...
+# @app.post("/signup") ...
+# @app.get("/signin") ...
+# @app.post("/signin") ...
+# @app.post("/signout") ...
 
 @app.get("/diagnostic", response_class=HTMLResponse)
 async def diagnostic(request: Request):
@@ -150,29 +111,52 @@ async def diagnostic_submit(
     user_id = current_user_id(request)
     values = answers or []
     score = sum(1 for idx, q in enumerate(DIAGNOSTIC) if idx < len(values) and values[idx] == str(q["answer"]))
-    if score <= 2:
-        belt_key = "white"
-    elif score <= 4:
-        belt_key = "yellow"
-    elif score <= 6:
-        belt_key = "green"
-    else:
-        belt_key = "black"
+    by_belt = {belt: {"correct": 0, "total": 0} for belt in BELT_ORDER}
+    for idx, q in enumerate(DIAGNOSTIC):
+        by_belt[q["belt"]]["total"] += 1
+        if idx < len(values) and values[idx] == str(q["answer"]):
+            by_belt[q["belt"]]["correct"] += 1
+    belt_key = "white"
+    for candidate in BELT_ORDER:
+        if by_belt[candidate]["correct"] >= max(3, round(by_belt[candidate]["total"] * 0.75)):
+            belt_key = candidate
+        else:
+            break
+    request.session["diagnostic_complete"] = True
     update_learner(user_id, business_area=business_area, belt=belt_key, diagnostic_score=score, diagnostic_total=len(DIAGNOSTIC))
     return templates.TemplateResponse(
         request=request,
         name="diagnostic_result.html",
-        context=context(request, score=score, max_score=len(DIAGNOSTIC), belt=BELTS[belt_key]),
+        context=context(request, score=score, max_score=len(DIAGNOSTIC), belt=BELTS[belt_key], by_belt=by_belt),
     )
 
 
 @app.get("/learn", response_class=HTMLResponse)
 async def learn(request: Request):
+    if not has_diagnostic(request):
+        return RedirectResponse("/diagnostic", status_code=303)
     return templates.TemplateResponse(request=request, name="learn_index.html", context=context(request))
+
+
+@app.get("/glossary", response_class=HTMLResponse)
+async def glossary(request: Request):
+    return templates.TemplateResponse(request=request, name="glossary.html", context=context(request, glossary=GLOSSARY))
+
+
+@app.get("/math", response_class=HTMLResponse)
+async def math_reference(request: Request):
+    return templates.TemplateResponse(request=request, name="math.html", context=context(request, math_reference=MATH_REFERENCE))
+
+
+@app.get("/case-studies", response_class=HTMLResponse)
+async def case_studies(request: Request):
+    return templates.TemplateResponse(request=request, name="case_studies.html", context=context(request, scenarios=SCENARIOS))
 
 
 @app.get("/learn/{belt}", response_class=HTMLResponse)
 async def belt_page(request: Request, belt: str):
+    if not has_diagnostic(request):
+        return RedirectResponse("/diagnostic", status_code=303)
     belt_key = belt.lower()
     if belt_key not in BELTS:
         return RedirectResponse("/not-found", status_code=303)
@@ -184,16 +168,15 @@ async def lesson(request: Request, belt: str, lesson_index: int):
     belt_key = belt.lower()
     if belt_key not in BELTS or not (1 <= lesson_index <= len(BELTS[belt_key]["modules"])):
         return RedirectResponse("/not-found", status_code=303)
+    if not has_diagnostic(request):
+        return RedirectResponse("/diagnostic", status_code=303)
     module = BELTS[belt_key]["modules"][lesson_index - 1]
     lesson_data = {
+        **module,
         "id": f"{belt_key}-{lesson_index:02d}",
         "index": lesson_index,
         "belt_key": belt_key,
         "belt": BELTS[belt_key],
-        "title": module[1],
-        "opening_question": module[2],
-        "concepts": module[3],
-        "teach_back": module[4],
     }
     return templates.TemplateResponse(request=request, name="lesson.html", context=context(request, lesson=lesson_data))
 
@@ -361,8 +344,8 @@ async def journal(request: Request):
 
 
 @app.get("/consult", response_class=HTMLResponse)
-async def consult(request: Request):
-    return templates.TemplateResponse(request=request, name="consult.html", context=context(request))
+async def consult_legacy(request: Request):
+    return RedirectResponse("/case-studies", status_code=303)
 
 
 @app.get("/api/scenarios")

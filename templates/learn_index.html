@@ -3,11 +3,27 @@
 {% block content %}
 <div class="container">
   <div class="eyebrow">Learning paths</div>
-  <h1>From vocabulary to advanced improvement leadership.</h1>
+  <h1>Your starting level: {{ learner.belt|title }}</h1>
+  <p class="lead">The diagnostic is complete. Start at your assessed level or revisit a lower level to reinforce fundamentals.</p>
+  <div class="score-strip section"><strong>{{ learner.diagnostic_score }}/{{ learner.diagnostic_total }}</strong><span>diagnostic score · {{ learner.business_area or 'business context not selected' }}</span></div>
+
   <div class="grid-4 section">
-  {% for key, item in belts.items() %}
-    <a class="card" href="/learn/{{ key }}"><div class="number">{{ key|upper }}</div><h3>{{ item.name }}</h3><p>{{ item.tagline }}</p><p class="small">{{ item.modules|length }} core lessons</p></a>
+  {% for key in belt_order %}
+    {% set item = belts[key] %}
+    <a class="card {% if key == learner.belt %}card-highlight{% endif %}" href="/learn/{{ key }}">
+      <div class="number">{{ key|upper }}</div><h3>{{ item.name }}</h3><p>{{ item.tagline }}</p><p class="small">{{ item.modules|length }} lessons</p>
+      {% if key == learner.belt %}<span class="tag tag-success">Recommended starting level</span>{% endif %}
+    </a>
   {% endfor %}
   </div>
+
+  <section class="section">
+    <div class="eyebrow">Reference</div>
+    <div class="grid-3">
+      <a class="card" href="/glossary"><h3>Glossary</h3><p>Look up a term while learning.</p></a>
+      <a class="card" href="/math"><h3>Math reference</h3><p>Inspect the underlying formula without making the lesson a statistics textbook.</p></a>
+      <a class="card" href="/case-studies"><h3>Case studies</h3><p>Apply concepts to real operations problems.</p></a>
+    </div>
+  </section>
 </div>
 {% endblock %}

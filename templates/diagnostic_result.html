@@ -1,12 +1,27 @@
 {% extends "base.html" %}
-{% block title %}Diagnostic result{% endblock %}
+{% block title %}Your Six Sigma starting point{% endblock %}
 {% block content %}
-<div class="container">
-  <div class="eyebrow">Diagnostic result</div>
-  <h1>{{ belt.name }}</h1>
-  <p class="lead">You scored {{ score }} / {{ max_score }}. Your recommended starting point is <strong>{{ belt.name }}</strong>.</p>
-  <div class="panel"><h3>{{ belt.tagline }}</h3><p>{{ belt.description }}</p></div>
-  <a class="button" href="/learn/{{ belt.name.split(' ')[0]|lower }}">Start {{ belt.name }}</a>
-  <a class="button secondary" href="/learn">View all belt levels</a>
+<div class="container narrow">
+  <div class="eyebrow">Starting point</div>
+  <h1>Start at {{ belt.name }}.</h1>
+  <p class="lead">Your score is {{ score }}/{{ max_score }}. This is a suggested starting point, not a certification result.</p>
+  <div class="score-strip section"><strong>{{ score }}/{{ max_score }}</strong><span>overall score</span></div>
+
+  <section class="section">
+    <div class="kicker">How you did by level</div>
+    <div class="level-results">
+      {% for key in belt_order %}
+      <div class="level-result {% if key == learner.belt %}selected{% endif %}">
+        <div><strong>{{ belts[key].name }}</strong><p>{{ belts[key].tagline }}</p></div>
+        <span>{{ by_belt[key].correct }}/{{ by_belt[key].total }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="button-row">
+    <a class="button" href="/learn">Enter learning paths</a>
+    <a class="button button-secondary" href="/case-studies">Try a case study</a>
+  </div>
 </div>
 {% endblock %}
