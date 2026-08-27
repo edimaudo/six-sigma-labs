@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "app/main.py",
+      "src": "main.py", 
       "use": "@vercel/python",
       "config": { 
         "maxDuration": 300, 
@@ -13,11 +13,11 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "app/main.py"
+      "destination": "main.py"
     },
     {
       "source": "/(.*)",
-      "destination": "app/main.py"
+      "destination": "main.py"
     }
   ]
 }
