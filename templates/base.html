@@ -26,7 +26,7 @@
 <header class="header">
   <a class="brand" href="/" aria-label="Six Sigma Labs home">Six Sigma Labs</a>
   <nav class="nav" aria-label="Primary navigation">
-    <a class="{% if request.url.path == '/diagnostic' %}active{% endif %}" href="/diagnostic">Belt level</a>
+    <a class="{% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}active{% endif %}" href="/belt-level">Belt level</a>
     <a class="{% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}active{% endif %}" href="/learn">Learn</a>
     <a class="{% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}active{% endif %}" href="/case-studies">Case studies</a>
     <a class="{% if request.url.path.startswith('/reference') %}active{% endif %}" href="/reference">Reference</a>

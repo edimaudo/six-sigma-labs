@@ -27,7 +27,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="1.6.0")
+app = FastAPI(title="Six Sigma Labs", version="1.7.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -97,13 +97,13 @@ async def pricing(request: Request):
 # @app.post("/signin") ...
 # @app.post("/signout") ...
 
-@app.get("/diagnostic", response_class=HTMLResponse)
-async def diagnostic(request: Request):
+@app.get("/belt-level", response_class=HTMLResponse)
+async def belt_level(request: Request):
     return templates.TemplateResponse(request=request, name="diagnostic.html", context=context(request, questions=DIAGNOSTIC))
 
 
-@app.post("/diagnostic", response_class=HTMLResponse)
-async def diagnostic_submit(
+@app.post("/belt-level", response_class=HTMLResponse)
+async def belt_level_submit(
     request: Request,
     answers: Annotated[list[str] | None, Form()] = None,
     business_area: Annotated[str, Form()] = "",
@@ -131,10 +131,38 @@ async def diagnostic_submit(
     )
 
 
+# Backward-compatible aliases for the previous diagnostic URL.
+@app.get("/diagnostic", response_class=HTMLResponse)
+async def diagnostic_legacy(request: Request):
+    return RedirectResponse("/belt-level", status_code=303)
+
+
+@app.post("/diagnostic", response_class=HTMLResponse)
+async def diagnostic_legacy_post(request: Request):
+    form = await request.form()
+    values = form.getlist("answers")
+    business_area = str(form.get("business_area") or "")
+    user_id = current_user_id(request)
+    score = sum(1 for idx, q in enumerate(DIAGNOSTIC) if idx < len(values) and values[idx] == str(q["answer"]))
+    by_belt = {belt: {"correct": 0, "total": 0} for belt in BELT_ORDER}
+    for idx, q in enumerate(DIAGNOSTIC):
+        by_belt[q["belt"]]["total"] += 1
+        if idx < len(values) and values[idx] == str(q["answer"]):
+            by_belt[q["belt"]]["correct"] += 1
+    belt_key = "white"
+    for candidate in BELT_ORDER:
+        if by_belt[candidate]["correct"] >= max(3, round(by_belt[candidate]["total"] * 0.75)):
+            belt_key = candidate
+        else:
+            break
+    update_learner(user_id, business_area=business_area, belt=belt_key, diagnostic_score=score, diagnostic_total=len(DIAGNOSTIC))
+    return templates.TemplateResponse(request=request, name="diagnostic_result.html", context=context(request, score=score, max_score=len(DIAGNOSTIC), belt=BELTS[belt_key], by_belt=by_belt))
+
+
 @app.get("/learn", response_class=HTMLResponse)
 async def learn(request: Request):
     if not has_diagnostic(request):
-        return RedirectResponse("/diagnostic", status_code=303)
+        return RedirectResponse("/belt-level", status_code=303)
     return templates.TemplateResponse(request=request, name="learn_index.html", context=context(request, data_curriculum=DATA_PROCESS_CURRICULUM))
 
 
@@ -174,7 +202,7 @@ async def case_studies(request: Request):
 @app.get("/learn/{belt}", response_class=HTMLResponse)
 async def belt_page(request: Request, belt: str):
     if not has_diagnostic(request):
-        return RedirectResponse("/diagnostic", status_code=303)
+        return RedirectResponse("/belt-level", status_code=303)
     belt_key = belt.lower()
     if belt_key not in BELTS:
         return RedirectResponse("/not-found", status_code=303)
@@ -187,7 +215,7 @@ async def lesson(request: Request, belt: str, lesson_index: int):
     if belt_key not in BELTS or not (1 <= lesson_index <= len(BELTS[belt_key]["modules"])):
         return RedirectResponse("/not-found", status_code=303)
     if not has_diagnostic(request):
-        return RedirectResponse("/diagnostic", status_code=303)
+        return RedirectResponse("/belt-level", status_code=303)
     module = BELTS[belt_key]["modules"][lesson_index - 1]
     lesson_data = {
         **module,
