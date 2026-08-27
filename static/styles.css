@@ -46,7 +46,7 @@ body {
 }
 body, .panel, .card, textarea, input, select, .header, .band { transition: background-color .18s ease, color .18s ease, border-color .18s ease; }
 
-a { color: var(--blue-40); text-decoration-thickness: .08em; text-underline-offset: .14em; }
+a { color: var(--blue-40); text-decoration: none; text-underline-offset: .14em; }
 a:hover { color: #a6c8ff; }
 button, input, select, textarea { font: inherit; }
 button, a, input, select, textarea { touch-action: manipulation; }
@@ -79,8 +79,9 @@ button, a, input, select, textarea { touch-action: manipulation; }
 }
 .brand { color: white; font-weight: 600; text-decoration: none; }
 .nav { display: flex; gap: 1rem; font-size: .875rem; }
-.nav a { color: white; opacity: .9; }
-.nav a:hover { opacity: 1; text-decoration: none; }
+.nav a { color: white; opacity: .9; text-decoration: none; }
+.nav a:hover, .nav a:focus-visible { opacity: 1; text-decoration: underline; }
+.nav a.active { opacity: 1; }
 .header-tools { margin-left: auto; display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
 .display-control { display: flex; align-items: center; gap: .45rem; font-size: .75rem; color: #e0e0e0; }
 .display-control select, .icon-button {
@@ -196,7 +197,7 @@ footer { padding: 2rem 1.5rem; color: var(--muted); font-size: .8rem; border-top
 }
 
 .signed-in-label { font-size: .75rem; color: #e0e0e0; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+.pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--border); }
 .price-card { background: var(--surface); padding: 1.75rem; min-height: 390px; display: flex; flex-direction: column; }
 .price-card.featured { outline: 2px solid var(--blue-60); outline-offset: -2px; }
 .price-card h2, .price-card h3 { font-weight: 400; }
@@ -368,4 +369,20 @@ footer { display: none; }
 .case-search { display: grid; grid-template-columns: 1fr 11rem auto; gap: .75rem; margin: 2rem 0 .5rem; }
 .case-search input, .case-search select { min-height: 2.75rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); padding: .65rem .8rem; font: inherit; }
 .question-inline { border-left: 3px solid var(--blue-60); padding-left: .75rem; }
+@media (max-width: 760px) { .case-search { grid-template-columns: 1fr; } }
+
+/* v1.6 landing and navigation cleanup */
+.landing-hero-minimal { min-height: 70vh; max-width: 980px; display: flex; align-items: center; }
+.landing-actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.case-search { grid-template-columns: minmax(0, 1fr) 10rem 11rem auto; }
+.pricing-grid-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 900px) { .case-search { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .pricing-grid-two { grid-template-columns: 1fr; } .case-search { grid-template-columns: 1fr; } .landing-actions { flex-direction: column; align-items: stretch; } }
+
+/* v1.6 final UI rules */
+.nav a, .brand, .card, .price-card { text-decoration: none; }
+.nav a:hover, .nav a:focus-visible { text-decoration: underline; }
+.landing-features, .landing .case-section, .landing .final-cta { display: none !important; }
+footer { display: none !important; }
+.case-search { grid-template-columns: minmax(0, 1fr) 10rem 11rem auto; }
 @media (max-width: 760px) { .case-search { grid-template-columns: 1fr; } }

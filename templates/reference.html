@@ -3,14 +3,14 @@
 {% block content %}
 <div class="container">
   <div class="eyebrow">Reference</div>
-  <h1>Six Sigma reference.</h1>
-  <p class="lead">Search the terms, formulas, and concepts behind the lessons.</p>
+  <h1>Terms & math.</h1>
+  <p class="lead">Search the terms, formulas, and explanations behind the lessons.</p>
 
   <label class="sr-only" for="reference-search">Search reference</label>
   <input id="reference-search" class="reference-search" type="search" placeholder="Search terms, formulas, or explanations" autocomplete="off">
 
   <div class="reference-grid section" id="reference-results">
-    {% for term, definition in glossary.items() %}
+    {% for term, definition in glossary|dictsort %}
       <article class="reference-card" data-reference="{{ (term ~ ' ' ~ definition)|lower }}">
         <div class="reference-kind">Glossary</div>
         <h2>{{ term }}</h2>

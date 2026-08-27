@@ -1982,3 +1982,24 @@ SCENARIO_DETAIL = {'b-customer-verification': {'branch_questions': [{'feedback':
                                                                        'requirements. In purchase order approval, this stakeholder sees a '
                                                                        'different part of the operating problem.',
                                                             'role': 'Risk / compliance'}}}}
+
+
+# v1.6: Explicit DFSS/DMADV case framing.
+_DMADV_IDS = {
+    'w-invoice-correction','w-appointment-scheduling','y-purchase-orders','y-maintenance-request',
+    'g-hospital-pharmacy','g-factory-changeover','b-digital-onboarding','b-medication-administration'
+}
+for _case_id in _DMADV_IDS:
+    if _case_id in SCENARIO_DETAIL:
+        SCENARIO_DETAIL[_case_id]['method'] = 'DMADV / IDOV'
+        SCENARIO_DETAIL[_case_id]['phases'] = ['define','measure','analyze','design','verify']
+        SCENARIO_DETAIL[_case_id]['socratic_prompts'] = [
+            'Who is the customer, and what must the new design accomplish?',
+            'What requirements can you measure before choosing a design?',
+            'Which risks or constraints could invalidate the design?',
+            'Which design trade-off best balances customer, business, and operational needs?',
+            'What evidence would verify that the new design works in the real process?',
+        ]
+        SCENARIO_DETAIL[_case_id]['reasoning_lens']['economic'] += ' For a new design, consider lifecycle cost, capacity and cost of failure.'
+        SCENARIO_DETAIL[_case_id]['reasoning_lens']['political'] += ' Consider who owns the design decision and whose priorities shape requirements.'
+        SCENARIO_DETAIL[_case_id]['reasoning_lens']['social'] += ' Consider adoption, trust, role changes and how the new design fits real work.'

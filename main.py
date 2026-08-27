@@ -27,7 +27,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="1.5.0")
+app = FastAPI(title="Six Sigma Labs", version="1.6.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -161,8 +161,14 @@ async def reference(request: Request):
 async def case_studies(request: Request):
     q = (request.query_params.get("q") or "").strip().lower()
     belt = (request.query_params.get("belt") or "all").strip().lower()
-    filtered = [s for s in SCENARIOS if (belt == "all" or s["belt"] == belt) and (not q or q in " ".join([s["title"], s["area"], s["prompt"], s["difficulty"]]).lower())]
-    return templates.TemplateResponse(request=request, name="case_studies.html", context=context(request, scenarios=filtered, query=q, belt_filter=belt))
+    method = (request.query_params.get("method") or "all").strip()
+    filtered = [
+        s for s in SCENARIOS
+        if (belt == "all" or s["belt"] == belt)
+        and (method == "all" or s.get("method", "DMAIC") == method)
+        and (not q or q in " ".join([s["title"], s["area"], s["prompt"], s["difficulty"], s.get("method", "DMAIC")]).lower())
+    ]
+    return templates.TemplateResponse(request=request, name="case_studies.html", context=context(request, scenarios=filtered, query=q, belt_filter=belt, method_filter=method))
 
 
 @app.get("/learn/{belt}", response_class=HTMLResponse)

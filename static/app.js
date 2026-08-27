@@ -14,8 +14,8 @@
     localStorage.setItem('ssol-theme', theme);
     if (themeToggle) {
       const isDark = theme === 'dark';
-      themeToggle.textContent = isDark ? 'Light mode' : 'Dark mode';
-      themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+      themeToggle.textContent = isDark ? 'Dark mode' : 'Light mode';
+      themeToggle.setAttribute('aria-label', isDark ? 'Current theme: dark. Switch to light mode' : 'Current theme: light. Switch to dark mode');
       themeToggle.setAttribute('aria-pressed', String(isDark));
     }
   }
