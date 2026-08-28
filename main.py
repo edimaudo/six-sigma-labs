@@ -27,7 +27,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="1.7.0")
+app = FastAPI(title="Six Sigma Labs", version="1.9.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -83,10 +83,10 @@ async def landing(request: Request):
     return templates.TemplateResponse(request=request, name="landing.html", context=context(request))
 
 
-@app.get("/pricing", response_class=HTMLResponse)
-async def pricing(request: Request):
-    return templates.TemplateResponse(request=request, name="pricing.html", context=context(request))
-
+# Pricing route intentionally disabled while the learning product is being validated.
+# @app.get("/pricing", response_class=HTMLResponse)
+# async def pricing(request: Request):
+#     return templates.TemplateResponse(request=request, name="pricing.html", context=context(request))
 
 # Authentication routes retained in source for later paid-account activation.
 # They are intentionally commented out of the product navigation and not linked
@@ -161,8 +161,6 @@ async def diagnostic_legacy_post(request: Request):
 
 @app.get("/learn", response_class=HTMLResponse)
 async def learn(request: Request):
-    if not has_diagnostic(request):
-        return RedirectResponse("/belt-level", status_code=303)
     return templates.TemplateResponse(request=request, name="learn_index.html", context=context(request, data_curriculum=DATA_PROCESS_CURRICULUM))
 
 
@@ -196,8 +194,6 @@ async def case_studies(request: Request):
 
 @app.get("/learn/{belt}", response_class=HTMLResponse)
 async def belt_page(request: Request, belt: str):
-    if not has_diagnostic(request):
-        return RedirectResponse("/belt-level", status_code=303)
     belt_key = belt.lower()
     if belt_key not in BELTS:
         return RedirectResponse("/not-found", status_code=303)
@@ -209,8 +205,6 @@ async def lesson(request: Request, belt: str, lesson_index: int):
     belt_key = belt.lower()
     if belt_key not in BELTS or not (1 <= lesson_index <= len(BELTS[belt_key]["modules"])):
         return RedirectResponse("/not-found", status_code=303)
-    if not has_diagnostic(request):
-        return RedirectResponse("/belt-level", status_code=303)
     module = BELTS[belt_key]["modules"][lesson_index - 1]
     lesson_data = {
         **module,

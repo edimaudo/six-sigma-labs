@@ -47,7 +47,7 @@
       margin: { t: 45, r: 20, b: 45, l: 50 },
       xaxis: { title: 'Observation', color: fg, gridcolor: grid },
       yaxis: { title: 'Cycle time / performance', color: fg, gridcolor: grid },
-      font: { color: fg, family: 'IBM Plex Sans, Arial, sans-serif' },
+      font: { color: fg, family: 'Georgia, Times New Roman, serif' },
       paper_bgcolor: bg, plot_bgcolor: bg
     }, { responsive: true, displayModeBar: false });
   };
