@@ -30,10 +30,10 @@ Signup, sign-in, and sign-out UI/routes are intentionally disabled/commented for
 ## Learning content update
 The DFSS curriculum explicitly covers **DMADV (also known as IDOV)** for new development, with glossary definitions for both terms.
 
-- **Design language**: editorial, Economist-inspired visual system using serif headlines, restrained rules, paper/ink palette, and red accent; this is an original implementation rather than a copy of proprietary brand assets.
+- **Design language**: editorial, Economist-inspired visual system using serif headlines, restrained rules, paper/ink palette, and blue accent; this is an original implementation rather than a copy of proprietary brand assets.
 
 
 ## v2.0 learning and design notes
 - Belt level and Learn are separate routes and Learn is no longer gated by the assessment.
 - Pricing UI and route are intentionally disabled for now.
-- The interface uses an editorial, Economist-inspired layout with IBM blue as the accent; IBM Carbon styling is not used.
+- The interface uses an original editorial, Economist-inspired layout with blue as the accent; IBM Carbon styling is not used.

@@ -1,15 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Glossary — Six Sigma Labs{% endblock %}
+{% block title %}Glossary · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <h1>Glossary</h1>
-  <p class="lead">Definitions, applications and formulas used throughout the course.</p>
+  <div class="eyebrow">Glossary</div>
+  <h1>Terms, references and equations.</h1>
+  <p class="lead">A working reference for the methods, measures and mathematics used throughout Six Sigma Labs.</p>
 
   <label class="sr-only" for="glossary-search">Search glossary</label>
-  <input id="glossary-search" class="reference-search" type="search" placeholder="Search the glossary" autocomplete="off">
+  <input id="glossary-search" class="reference-search" type="search" placeholder="Search terms, definitions or equations" autocomplete="off">
 
   <div class="section" aria-labelledby="terms-heading">
-    <h2 id="terms-heading">Terms</h2>
+    <div class="kicker">Terms</div>
+    <h2 id="terms-heading">Definitions you can use at work.</h2>
     <div class="glossary-grid" id="glossary-results">
       {% for term, entry in glossary.items() %}
       <article class="term-card reference-card" data-reference="{{ (term ~ ' ' ~ entry.definition ~ ' ' ~ entry.why_it_matters ~ ' ' ~ entry.use_when ~ ' ' ~ entry.watch_out)|lower }}">
@@ -24,7 +26,8 @@
   </div>
 
   <div class="section" aria-labelledby="math-heading">
-    <h2 id="math-heading">Math</h2>
+    <div class="kicker">Equations</div>
+    <h2 id="math-heading">The mathematics behind the method.</h2>
     <div class="term-grid" id="math-results">
       {% for name, formula, explanation in math_reference %}
       <article class="term-card reference-card" data-reference="{{ (name ~ ' ' ~ formula ~ ' ' ~ explanation)|lower }}">
@@ -35,7 +38,7 @@
       {% endfor %}
     </div>
   </div>
-  <p id="glossary-empty" class="panel" hidden>No matching glossary entries.</p>
+  <p id="glossary-empty" class="panel" hidden>No matching entries.</p>
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {

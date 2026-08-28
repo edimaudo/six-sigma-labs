@@ -1,32 +1,36 @@
 {% extends "base.html" %}
-{% block title %}{{ belt.name }}{% endblock %}
+{% block title %}{{ belt.name }} · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
   <div class="eyebrow">{{ belt.name }}</div>
   <h1>{{ belt.tagline }}</h1>
-  <p class="lead">{{ belt.description }} Process and data methods are embedded in the lessons where they matter.</p>
-  <div class="progress"><span style="width:100%"></span></div>
+  <p class="lead">{{ belt.description }}</p>
+  <div class="progress" aria-label="Curriculum overview"><span style="width:100%"></span></div>
 
-  <div class="lesson-list section">
-  {% for module in belt.modules %}
-  <article class="lesson-card">
-    <div class="lesson-header">
-      <div class="lesson-number">{{ module.code }}</div>
-      <div>
-        <div class="kicker">Lesson {{ loop.index }}</div>
-        <h2>{{ module.title }}</h2>
+  <section class="section" aria-labelledby="lesson-list-heading">
+    <div class="kicker">Lessons</div>
+    <h2 id="lesson-list-heading">Start with the question, then work the method.</h2>
+    <div class="lesson-list">
+    {% for module in belt.modules %}
+    <article class="lesson-card">
+      <div class="lesson-header">
+        <div class="lesson-number">{{ module.code }}</div>
+        <div>
+          <div class="kicker">Lesson {{ loop.index }}</div>
+          <h2>{{ module.title }}</h2>
+          <div class="question"><strong>{{ module.opening_question }}</strong></div>
+          <div class="lesson-meta">
+            <span>{{ module.concepts|length }} concept points</span>
+            <span>{{ module.terms|length }} glossary terms</span>
+            {% if module.math %}<span>{{ module.math|length }} math references</span>{% endif %}
+          </div>
+          <a class="button button-secondary" href="{{ url_for('lesson', belt=belt_key, lesson_index=loop.index) }}">Open lesson</a>
+        </div>
       </div>
+    </article>
+    {% endfor %}
     </div>
-    <div class="question"><div class="small">Start with a question</div><strong>{{ module.opening_question }}</strong></div>
-    <div class="lesson-meta">
-      <span>{{ module.concepts|length }} concept points</span>
-      <span>{{ module.terms|length }} glossary terms</span>
-      {% if module.math %}<span>{{ module.math|length }} math references</span>{% endif %}
-    </div>
-    <a class="button button-secondary" href="/lesson/{{ belt_key }}/{{ loop.index }}">Open lesson →</a>
-  </article>
-  {% endfor %}
-  </div>
-  <a class="button" href="/case-studies">Apply this level in a case study</a>
+  </section>
+  <a class="button" href="{{ url_for('case_studies') }}">Apply this level in a case study</a>
 </div>
 {% endblock %}

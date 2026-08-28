@@ -28,7 +28,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="2.0.0")
+app = FastAPI(title="Six Sigma Labs", version="2.1.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")

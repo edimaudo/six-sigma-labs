@@ -34,14 +34,15 @@
 
   window.renderScenarioChart = function (targetId, x, y) {
     if (!window.Plotly) return;
-    const isDark = root.dataset.theme === 'dark';
-    const bg = isDark ? '#161616' : '#ffffff';
-    const fg = isDark ? '#f4f4f4' : '#161616';
-    const grid = isDark ? '#393939' : '#e0e0e0';
+    const styles = getComputedStyle(root);
+    const bg = styles.getPropertyValue('--paper').trim();
+    const fg = styles.getPropertyValue('--ink').trim();
+    const grid = styles.getPropertyValue('--rule').trim();
+    const blue = styles.getPropertyValue('--blue').trim();
     Plotly.purge(targetId);
     Plotly.newPlot(targetId, [{
       x, y, mode: 'lines+markers', type: 'scatter',
-      line: { color: '#0f62fe', width: 2 }, marker: { color: '#0f62fe' }
+      line: { color: blue, width: 2 }, marker: { color: blue }
     }], {
       title: 'Illustrative process performance',
       margin: { t: 45, r: 20, b: 45, l: 50 },
