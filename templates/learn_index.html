@@ -2,8 +2,19 @@
 {% block title %}Learn · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Learn</div><h1>Build your Six Sigma skills.</h1><p class="lead">Lessons are organized by belt. Every lesson begins with a question, then connects the idea to evidence, practice, and reflection.</p>
-  <div class="grid-4 section">{% for key in belt_order %}{% set item=belts[key] %}<a class="card" href="/learn/{{ key }}"><div class="number">{{ key|upper }}</div><h3>{{ item.name }}</h3><p>{{ item.tagline }}</p><p class="small">{{ item.modules|length }} lessons</p></a>{% endfor %}</div>
-  <section class="section"><div class="eyebrow">Process & data</div><h2>Process Improvement Using Data</h2><p class="lead">Build the analytical skills that sit underneath improvement work: visualization, variability, monitoring, regression, experiments, multivariate methods, and applications.</p><div class="grid-3">{% for item in data_curriculum %}<article class="card"><div class="number">{{ item.code }}</div><h3>{{ item.title }}</h3><p class="question-inline">{{ item.question }}</p><p>{{ item.concepts[0] }}</p><p class="small">{{ item.tools|join(', ') }}</p></article>{% endfor %}</div></section>
+  <div class="eyebrow">Learn</div>
+  <h1>Build your Six Sigma skills.</h1>
+  <p class="lead">Choose a belt. Process, data, statistics, design, and improvement methods are built into the lessons where they are used.</p>
+  <div class="grid-4 section">
+    {% for key in belt_order %}
+      {% set item = belts[key] %}
+      <a class="card" href="{{ url_for('belt_page', belt=key) }}">
+        <div class="number">{{ key|upper }}</div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.tagline }}</p>
+        <p class="small">{{ item.modules|length }} lessons · methods and analysis integrated</p>
+      </a>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

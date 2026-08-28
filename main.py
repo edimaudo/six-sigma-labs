@@ -3,6 +3,7 @@ from typing import Annotated
 import uuid
 import os
 import asyncio
+import math
 
 from fastapi import FastAPI, Form, Request, HTTPException
 from fastapi.responses import HTMLResponse, RedirectResponse
@@ -11,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
-from content import BELTS, BELT_ORDER, DIAGNOSTIC, GLOSSARY, MATH_REFERENCE, DATA_PROCESS_CURRICULUM, SCENARIOS
+from content import BELTS, BELT_ORDER, DIAGNOSTIC, GLOSSARY, MATH_REFERENCE, SCENARIOS
 from db import (
     add_attempt,
     add_journal,
@@ -27,7 +28,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="1.9.0")
+app = FastAPI(title="Six Sigma Labs", version="2.0.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -118,7 +119,9 @@ async def belt_level_submit(
             by_belt[q["belt"]]["correct"] += 1
     belt_key = "white"
     for candidate in BELT_ORDER:
-        if by_belt[candidate]["correct"] >= max(3, round(by_belt[candidate]["total"] * 0.75)):
+        total = by_belt[candidate]["total"]
+        required = max(1, math.ceil(total * 0.75))
+        if by_belt[candidate]["correct"] >= required:
             belt_key = candidate
         else:
             break
@@ -151,7 +154,9 @@ async def diagnostic_legacy_post(request: Request):
             by_belt[q["belt"]]["correct"] += 1
     belt_key = "white"
     for candidate in BELT_ORDER:
-        if by_belt[candidate]["correct"] >= max(3, round(by_belt[candidate]["total"] * 0.75)):
+        total = by_belt[candidate]["total"]
+        required = max(1, math.ceil(total * 0.75))
+        if by_belt[candidate]["correct"] >= required:
             belt_key = candidate
         else:
             break
@@ -161,7 +166,7 @@ async def diagnostic_legacy_post(request: Request):
 
 @app.get("/learn", response_class=HTMLResponse)
 async def learn(request: Request):
-    return templates.TemplateResponse(request=request, name="learn_index.html", context=context(request, data_curriculum=DATA_PROCESS_CURRICULUM))
+    return templates.TemplateResponse(request=request, name="learn_index.html", context=context(request))
 
 
 @app.get("/math", response_class=HTMLResponse)
