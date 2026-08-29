@@ -4,28 +4,49 @@
 <div class="container narrow">
   <header class="page-header">
     <div class="eyebrow">Belt level</div>
-    <h1>Find your Six Sigma starting level.</h1>
-    <p class="lead">Answer 10 questions about how you approach process improvement. The result suggests where to begin; it is not a certification test.</p>
+    {% if round == 1 %}
+      <h1>Find your Six Sigma starting level.</h1>
+      <p class="lead">Answer four questions first. Your responses determine the next six questions.</p>
+    {% else %}
+      <h1>Now go a little deeper.</h1>
+      <p class="lead">Your first four answers suggest a {{ branch.name }} level. These questions test depth before we recommend where to start.</p>
+    {% endif %}
   </header>
+
   <form method="post" action="{{ url_for('belt_level_submit') }}">
-    <section class="section-muted" aria-labelledby="context-heading">
-      <div class="kicker">Business context</div>
-      <h2 id="context-heading" class="sr-only">Choose a business context</h2>
-      <label for="business_area">Where would you like to apply what you learn?</label>
-      <select name="business_area" id="business_area">
-        <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
-      </select>
-    </section>
+    <input type="hidden" name="round" value="{{ round }}">
+    {% if round == 1 %}
+      <section class="section-muted" aria-labelledby="context-heading">
+        <div class="kicker">Business context</div>
+        <h2 id="context-heading" class="sr-only">Choose a business context</h2>
+        <label for="business_area">Where would you like to apply what you learn?</label>
+        <select name="business_area" id="business_area" required>
+          <option value="">Choose one</option>
+          <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
+        </select>
+      </section>
+    {% endif %}
+
+    <div class="quiz-progress" aria-live="polite">Round {{ round }} of {{ total_rounds }}</div>
     {% for q in questions %}
       <fieldset class="quiz-question">
-        <legend><span class="small">Question {{ q.id }} of {{ questions|length }}</span>{{ q.question }}</legend>
+        <legend>
+          <span class="small">Question {{ loop.index }} of {{ questions|length }} · {{ q.display_id or q.id }}</span>
+          {{ q.question }}
+        </legend>
         {% for option in q.options %}
           {% set option_id = 'q-' ~ q.id ~ '-' ~ loop.index0 %}
-          <label class="option" for="{{ option_id }}"><input id="{{ option_id }}" type="radio" name="answers" value="{{ loop.index0 }}" required> {{ option }}</label>
+          <label class="option" for="{{ option_id }}">
+            <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required>
+            <span>{{ option }}</span>
+          </label>
         {% endfor %}
       </fieldset>
     {% endfor %}
-    <button class="button" type="submit">See my starting point</button>
+
+    <button class="button" type="submit">
+      {% if round == 1 %}Continue{% else %}See my starting point{% endif %}
+    </button>
   </form>
 </div>
 {% endblock %}

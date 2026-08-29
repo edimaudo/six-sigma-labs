@@ -1,16 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Your Six Sigma starting point · Six Sigma Labs{% endblock %}
+{% block title %}Your belt level · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
   <header class="page-header">
-    <div class="eyebrow">Belt level result</div>
+    <div class="eyebrow">Belt level</div>
     <h1>Start at {{ belt.name }}.</h1>
-    <p class="lead">Your score is {{ score }}/{{ max_score }}. This is a suggested starting point, not a certification result.</p>
+    <p class="lead">You answered 10 questions. This result is a suggested starting point, not a certification result.</p>
   </header>
-  <div class="score-strip" aria-label="Overall score"><strong>{{ score }}/{{ max_score }}</strong><span>overall score</span></div>
+
+  <section class="section-muted" aria-labelledby="summary-heading">
+    <div class="kicker">Recommendation</div>
+    <h2 id="summary-heading">{{ belt.tagline }}</h2>
+    <p>{{ recommendation_note }}</p>
+    <p><strong>Depth check:</strong> {{ depth_correct }}/{{ depth_total }} ({{ depth_pct }}%).</p>
+  </section>
+
   <section class="section" aria-labelledby="level-results-heading">
-    <div class="kicker">Results</div>
-    <h2 id="level-results-heading">How you performed by level.</h2>
+    <div class="kicker">Performance</div>
+    <h2 id="level-results-heading">How the assessment broke down.</h2>
     <div class="level-results">
       {% for key in belt_order %}
       <div class="level-result {% if key == learner.belt %}selected{% endif %}">
@@ -20,6 +27,7 @@
       {% endfor %}
     </div>
   </section>
+
   <div class="button-row">
     <a class="button" href="{{ url_for('learn') }}">Explore the learning paths</a>
     <a class="button button-secondary" href="{{ url_for('case_studies') }}">Explore case studies</a>
