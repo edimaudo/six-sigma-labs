@@ -473,30 +473,338 @@ GLOSSARY = {'5S': {'definition': 'Sort, Set in Order, Shine, Standardize, Sustai
 
 
 MATH_REFERENCE = [
-    ("Mean", "x̄ = Σx / n", "Average of observed values; sensitive to extreme values."),
-    ("Median", "Middle ordered value", "Robust measure of center when data is skewed."),
-    ("Sample variance", "s² = Σ(x−x̄)² / (n−1)", "Measures squared dispersion around the sample mean."),
-    ("Sample standard deviation", "s = √s²", "Expresses process spread in the original measurement units."),
-    ("Z-score", "z = (x−μ) / σ", "Number of standard deviations an observation is from the mean."),
-    ("Standard error of mean", "SE = s / √n", "Sampling variability of the sample mean."),
-    ("95% confidence interval", "estimate ± critical value × SE", "Quantifies uncertainty around a population estimate."),
-    ("Binomial probability", "P(X=k)=C(n,k)p^k(1-p)^(n-k)", "Models counts of successes across fixed independent trials under assumptions."),
-    ("Poisson probability", "P(X=k)=e^(−λ) λ^k / k!", "Models counts over a fixed interval under Poisson assumptions."),
-    ("DPO", "defects / (units × opportunities)", "Normalizes defects by the number of defect opportunities."),
-    ("DPMO", "DPO × 1,000,000", "DPO expressed per one million opportunities."),
-    ("Yield", "good units / total units", "Share of units meeting the defined acceptance rule."),
-    ("Cp", "(USL−LSL)/(6σ)", "Potential capability assuming a stable, centered-enough process and suitable assumptions."),
-    ("Cpk", "min[(USL−μ)/(3σ),(μ−LSL)/(3σ)]", "Capability adjusted for process centering."),
-    ("Simple regression", "Y = β0 + β1X + ε", "Models a linear relationship between one predictor and a response."),
-    ("Multiple regression", "Y = β0 + ΣβjXj + ε", "Models a response using several predictors."),
-    ("CUSUM", "C_t = max(0, C_{t−1} + x_t − target − k)", "Cumulative evidence for a sustained process shift; exact form depends on the chart design."),
-    ("EWMA", "Z_t = λX_t + (1−λ)Z_{t−1}", "Exponentially weighted monitoring statistic; λ controls responsiveness to recent observations."),
-    ("Correlation", "r = cov(X,Y)/(s_X s_Y)", "Standardized linear association; correlation alone does not establish causation."),
-    ("R-squared", "R² = 1 − SSE/SST", "Proportion of sample response variation explained by the fitted regression model."),
-    ("Factorial combinations", "2^k", "Number of treatment combinations for a two-level full factorial with k factors."),
-    ("PCA variance share", "eigenvalue_j / Σ eigenvalues", "Share of total scaled variance represented by a principal component."),
-    ("NPV", "Σ CFt/(1+r)^t − initial investment", "Discounted economic value of a project."),
+    {
+        "name": "Mean",
+        "formula": "x̄ = Σx / n",
+        "explanation": "The arithmetic average of the observed values. It is sensitive to unusually large or small observations.",
+        "variables": [
+            "x = an individual observed value",
+            "x̄ = the sample mean",
+            "n = the number of observations in the sample",
+            "Σ = sum across all observations"
+        ],
+    },
+    {
+        "name": "Median",
+        "formula": "Middle ordered value",
+        "explanation": "The middle value after observations are sorted. With an even number of observations, it is the average of the two middle values.",
+        "variables": ["No algebraic variables are required for this definition."]
+    },
+    {
+        "name": "Sample variance",
+        "formula": "s² = Σ(x − x̄)² / (n − 1)",
+        "explanation": "Measures the squared dispersion of sample observations around their sample mean.",
+        "variables": [
+            "s² = sample variance",
+            "x = an individual observed value",
+            "x̄ = the sample mean",
+            "n = the number of observations in the sample",
+            "Σ = sum across all observations"
+        ],
+    },
+    {
+        "name": "Sample standard deviation",
+        "formula": "s = √s²",
+        "explanation": "The square root of sample variance; it expresses spread in the original units of measurement.",
+        "variables": [
+            "s = sample standard deviation",
+            "s² = sample variance",
+            "√ = square-root operation"
+        ],
+    },
+    {
+        "name": "Z-score",
+        "formula": "z = (x − μ) / σ",
+        "explanation": "Expresses how far an observation is from the population mean in standard-deviation units.",
+        "variables": [
+            "z = standardized score",
+            "x = observed value",
+            "μ = population mean",
+            "σ = population standard deviation"
+        ],
+    },
+    {
+        "name": "Standard error of the mean",
+        "formula": "SE = s / √n",
+        "explanation": "Estimates the sampling variability of a sample mean.",
+        "variables": [
+            "SE = standard error of the sample mean",
+            "s = sample standard deviation",
+            "n = sample size",
+            "√ = square-root operation"
+        ],
+    },
+    {
+        "name": "95% confidence interval",
+        "formula": "estimate ± critical value × SE",
+        "explanation": "Builds an interval around a sample estimate using a critical value appropriate to the chosen confidence level and statistical method.",
+        "variables": [
+            "estimate = the sample estimate of the population quantity of interest",
+            "critical value = value determined by the confidence level and statistical distribution",
+            "SE = standard error of the estimate",
+            "± = add and subtract the margin from the estimate"
+        ],
+    },
+    {
+        "name": "Binomial probability",
+        "formula": "P(X = k) = C(n,k)pᵏ(1 − p)ⁿ⁻ᵏ",
+        "explanation": "Models the probability of exactly k successes in n independent trials when each trial has the same success probability p.",
+        "variables": [
+            "P(X = k) = probability of exactly k successes",
+            "X = number of successes across the trials",
+            "k = target number of successes",
+            "n = total number of independent trials",
+            "p = probability of success on each trial",
+            "C(n,k) = number of ways to choose k successes from n trials",
+            "1 − p = probability of failure on each trial"
+        ],
+    },
+    {
+        "name": "Poisson probability",
+        "formula": "P(X = k) = e⁻λ λᵏ / k!",
+        "explanation": "Models the probability of observing exactly k events in a fixed interval when the Poisson assumptions are appropriate.",
+        "variables": [
+            "P(X = k) = probability of exactly k events",
+            "X = event count in the interval",
+            "k = observed event count of interest",
+            "λ = expected number of events in the interval",
+            "e = Euler's number, approximately 2.71828",
+            "k! = factorial of k"
+        ],
+    },
+    {
+        "name": "Defects per opportunity",
+        "formula": "DPO = defects / (units × opportunities per unit)",
+        "explanation": "Normalizes defects by the number of opportunities for a defect to occur.",
+        "variables": [
+            "DPO = defects per opportunity",
+            "defects = total counted defects",
+            "units = total units processed",
+            "opportunities per unit = number of potential defect opportunities on each unit"
+        ],
+    },
+    {
+        "name": "Defects per million opportunities",
+        "formula": "DPMO = DPO × 1,000,000",
+        "explanation": "Expresses defects per opportunity on a one-million-opportunity scale.",
+        "variables": [
+            "DPMO = defects per million opportunities",
+            "DPO = defects per opportunity",
+            "1,000,000 = scaling factor to one million opportunities"
+        ],
+    },
+    {
+        "name": "Yield",
+        "formula": "Yield = good units / total units × 100%",
+        "explanation": "The percentage of units that meet the defined acceptance rule.",
+        "variables": [
+            "Yield = percentage of units that pass the defined acceptance rule",
+            "good units = units meeting the defined acceptance rule",
+            "total units = all units considered",
+            "100% = converts the proportion to a percentage"
+        ],
+    },
+    {
+        "name": "Cp",
+        "formula": "Cp = (USL − LSL) / (6σ)",
+        "explanation": "Measures potential process capability by comparing specification width with estimated process spread, without accounting for process centering.",
+        "variables": [
+            "Cp = potential process capability index",
+            "USL = upper specification limit",
+            "LSL = lower specification limit",
+            "σ = process standard deviation",
+            "6σ = six standard deviations representing the process spread convention used in the index"
+        ],
+    },
+    {
+        "name": "Cpk",
+        "formula": "Cpk = min[(USL − μ)/(3σ), (μ − LSL)/(3σ)]",
+        "explanation": "Measures capability while accounting for the distance between the process mean and the nearest specification limit.",
+        "variables": [
+            "Cpk = centered process capability index",
+            "USL = upper specification limit",
+            "LSL = lower specification limit",
+            "μ = process mean",
+            "σ = process standard deviation",
+            "min = select the smaller of the two capability ratios"
+        ],
+    },
+    {
+        "name": "Simple regression",
+        "formula": "Y = β₀ + β₁X + ε",
+        "explanation": "Represents a linear model relating one predictor to a response.",
+        "variables": [
+            "Y = response variable being modeled",
+            "X = predictor or explanatory variable",
+            "β₀ = estimated intercept of the fitted line",
+            "β₁ = estimated slope for X",
+            "ε = model error or unexplained residual component"
+        ],
+    },
+    {
+        "name": "Multiple regression",
+        "formula": "Y = β₀ + β₁X₁ + … + βₖXₖ + ε",
+        "explanation": "Models a response using multiple predictors while estimating a coefficient for each predictor.",
+        "variables": [
+            "Y = response variable",
+            "β₀ = intercept",
+            "βⱼ = estimated coefficient for predictor j",
+            "Xⱼ = value of predictor j",
+            "k = total number of predictors",
+            "ε = model error or unexplained residual component",
+            "j = index identifying a predictor from 1 through k"
+        ],
+    },
+    {
+        "name": "CUSUM",
+        "formula": "Cₜ = max(0, Cₜ₋₁ + xₜ − target − k)",
+        "explanation": "Accumulates deviations from a target to make persistent shifts in a process easier to detect. Exact CUSUM forms vary by chart design.",
+        "variables": [
+            "Cₜ = current cumulative-sum statistic",
+            "Cₜ₋₁ = previous cumulative-sum statistic",
+            "xₜ = current observed process value",
+            "target = target or reference process value",
+            "k = reference or allowance constant used by the selected CUSUM design",
+            "t = time or observation index",
+            "max(0, …) = resets the one-sided statistic at zero when the accumulated evidence becomes negative"
+        ],
+    },
+    {
+        "name": "EWMA",
+        "formula": "Zₜ = λXₜ + (1 − λ)Zₜ₋₁",
+        "explanation": "Weights the current observation and the prior smoothed value to detect gradual shifts.",
+        "variables": [
+            "Zₜ = current EWMA statistic",
+            "Xₜ = current observed process value",
+            "Zₜ₋₁ = prior EWMA statistic",
+            "λ = smoothing constant between 0 and 1; larger values give more weight to the latest observation",
+            "t = time or observation index"
+        ],
+    },
+    {
+        "name": "Correlation",
+        "formula": "r = cov(X,Y) / (sₓsᵧ)",
+        "explanation": "Measures standardized linear association between two variables. It does not establish causation.",
+        "variables": [
+            "r = correlation coefficient",
+            "X = first variable",
+            "Y = second variable",
+            "cov(X,Y) = sample covariance between X and Y",
+            "sₓ = sample standard deviation of X",
+            "sᵧ = sample standard deviation of Y"
+        ],
+    },
+    {
+        "name": "R-squared",
+        "formula": "R² = 1 − SSE / SST",
+        "explanation": "Describes the proportion of sample response variation represented by the fitted regression model.",
+        "variables": [
+            "R² = coefficient of determination",
+            "SSE = sum of squared residual errors from the fitted model",
+            "SST = total sum of squares measuring total response variation"
+        ],
+    },
+    {
+        "name": "Two-level factorial combinations",
+        "formula": "2ᵏ",
+        "explanation": "Counts the treatment combinations in a full factorial experiment with two levels for each factor.",
+        "variables": [
+            "k = number of factors",
+            "2 = number of levels for each factor"
+        ],
+    },
+    {
+        "name": "PCA variance share",
+        "formula": "variance shareⱼ = eigenvalueⱼ / Σ eigenvalues",
+        "explanation": "Shows the share of total scaled variance represented by principal component j.",
+        "variables": [
+            "variance shareⱼ = proportion of total represented variance for component j",
+            "eigenvalueⱼ = eigenvalue associated with principal component j",
+            "j = index identifying the principal component",
+            "Σ eigenvalues = sum of the eigenvalues retained or considered"
+        ],
+    },
+    {
+        "name": "Net present value",
+        "formula": "NPV = Σ[CFₜ / (1 + r)ᵗ] − initial investment",
+        "explanation": "Measures the present value of future cash flows after discounting them and subtracting the initial investment.",
+        "variables": [
+            "NPV = net present value",
+            "CFₜ = net cash flow received in period t",
+            "t = period number",
+            "r = discount rate per period",
+            "initial investment = cash outflow at the start of the project",
+            "Σ = sum across the project periods"
+        ],
+    },
 ]
+
+# Every lesson-level math entry is normalized to the same structure used by the glossary.
+# The mapping is deliberately exact so a displayed equation always has a visible variable glossary.
+MATH_VARIABLES_BY_FORMULA = {
+    "Variation is the spread of observed process outcomes around a central tendency.": ["No algebraic variables are used; this is a conceptual definition."],
+    "A defect is a failure to meet a defined customer or process requirement.": ["No algebraic variables are used; this is a conceptual definition."],
+    "Cycle time is elapsed time from a defined start to a defined end of a process.": ["No algebraic variables are used; this is a conceptual definition."],
+    "A value-adding activity changes the product or service in a way the customer needs and is willing to pay for.": ["No algebraic variables are used; this is a conceptual definition."],
+    "Pareto percentage = category frequency / total frequency × 100.": ["category frequency = count in the selected category", "total frequency = total count across all categories", "100 = percentage conversion factor"],
+    "Mean = sum of observations / number of observations.": ["sum of observations = total of all observed values", "number of observations = sample size"],
+    "Standard deviation describes the spread of observations around the mean.": ["No algebraic variables are used; this is a conceptual definition."],
+    "P(A) is the probability of event A.": ["P(A) = probability that event A occurs", "A = the event whose probability is being evaluated"],
+    "Expected value for a discrete variable: E(X) = Σ x·P(X=x).": ["E(X) = expected value of random variable X", "X = discrete random variable", "x = a possible value of X", "P(X=x) = probability that X equals x", "Σ = sum across all possible values of X"],
+    "IQR = Q3 − Q1.": ["IQR = interquartile range", "Q3 = third quartile, the 75th percentile", "Q1 = first quartile, the 25th percentile"],
+    "Coefficient of variation = standard deviation / mean, when the ratio is meaningful.": ["coefficient of variation = standardized measure of relative spread", "standard deviation = measure of spread in the original units", "mean = arithmetic average"],
+    "Normal density: f(x)=1/(σ√(2π))·e^{-(x−μ)^2/(2σ²)}.": ["f(x) = normal probability density at x", "x = observed value", "μ = population mean", "σ = population standard deviation", "π = mathematical constant pi", "e = Euler's number, approximately 2.71828"],
+    "Binomial probability: P(X=k)=C(n,k)p^k(1-p)^{n-k}.": ["P(X=k) = probability of exactly k successes", "X = number of successes", "k = target number of successes", "n = number of trials", "p = probability of success on each trial", "C(n,k) = number of combinations of k successes among n trials"],
+    "Gauge R&R separates measurement variation from process variation for suitable measurement contexts.": ["No algebraic variables are used; this is a conceptual statement about measurement-system analysis."],
+    "Cp = (USL−LSL)/(6σ).": ["Cp = potential capability index", "USL = upper specification limit", "LSL = lower specification limit", "σ = process standard deviation"],
+    "Cpk = min[(USL−μ)/(3σ),(μ−LSL)/(3σ)].": ["Cpk = centered capability index", "USL = upper specification limit", "LSL = lower specification limit", "μ = process mean", "σ = process standard deviation", "min = the smaller of the two capability ratios"],
+    "Z-score = (x−μ)/σ.": ["Z-score = standardized distance from the mean", "x = observed value", "μ = population mean", "σ = population standard deviation"],
+    "Two-sided z statistic: z=(x̄−μ0)/(σ/√n).": ["z = standardized test statistic", "x̄ = sample mean", "μ₀ = hypothesized population mean under the null hypothesis", "σ = population standard deviation or known standard deviation used by the test", "n = sample size"],
+    "Approximate two-sided 95% CI: estimate ± 1.96×standard error.": ["estimate = sample estimate of the population quantity", "1.96 = approximate 97.5th percentile of the standard normal distribution for a two-sided 95% interval", "standard error = estimated sampling variability of the estimate"],
+    "A simple factorial model can be written Y = β0 + β1X1 + β2X2 + β12X1X2 + ε.": ["Y = response variable", "β₀ = intercept", "β₁ = coefficient for factor X₁", "β₂ = coefficient for factor X₂", "β₁₂ = interaction coefficient for X₁ and X₂", "X₁ = first factor level encoded numerically", "X₂ = second factor level encoded numerically", "ε = experimental error"],
+    "For an individuals chart, limits are typically center line ± 3×estimated process standard deviation, with chart-specific constants used in practice.": ["center line = estimated process center or mean", "3 = conventional three-sigma multiplier", "estimated process standard deviation = estimated within-process spread", "limits = control limits calculated for the selected chart method"],
+    "DPMO = defects / (units × opportunities per unit) × 1,000,000.": ["DPMO = defects per million opportunities", "defects = total counted defects", "units = total units processed", "opportunities per unit = potential defect opportunities on each unit", "1,000,000 = scaling factor"],
+    "Yield = good units / total units × 100%.": ["Yield = percentage of acceptable units", "good units = units meeting the acceptance rule", "total units = all units considered", "100% = percentage conversion factor"],
+    "Basic COPQ = frequency × cost per occurrence; extend for labor, material, customer impact, and other relevant components.": ["frequency = number of occurrences", "cost per occurrence = estimated cost of each occurrence", "COPQ = cost of poor quality under the defined scope"],
+    "Cumulative percentage is the running sum of category percentage contributions.": ["cumulative percentage = running total of category percentages", "category percentage = category contribution divided by total contribution × 100%"],
+    "DPU = defects / units.": ["DPU = defects per unit", "defects = total counted defects", "units = total units processed"],
+    "DPO = defects / (units × opportunities).": ["DPO = defects per opportunity", "defects = total counted defects", "units = total units processed", "opportunities = defect opportunities per unit"],
+    "DPMO = DPO × 1,000,000.": ["DPMO = defects per million opportunities", "DPO = defects per opportunity", "1,000,000 = scaling factor"],
+    "Improvement % = (baseline − new value) / baseline × 100% when lower is better.": ["Improvement % = percentage improvement", "baseline = starting performance level", "new value = performance after improvement", "100% = percentage conversion factor"],
+    "NPV = Σ CF_t/(1+r)^t − initial investment.": ["NPV = net present value", "CF_t = net cash flow in period t", "t = period number", "r = discount rate per period", "initial investment = starting cash outflow", "Σ = sum across periods"],
+    "Variance = Σ(x−x̄)^2/(n−1) for a sample.": ["Variance = sample variance", "x = observed value", "x̄ = sample mean", "n = sample size", "Σ = sum across observations"],
+    "Standard error of the mean = s/√n.": ["standard error of the mean = estimated sampling variability of the mean", "s = sample standard deviation", "n = sample size"],
+    "A 95% confidence interval is typically estimate ± critical value × standard error.": ["estimate = sample estimate", "critical value = value determined by confidence level and statistical distribution", "standard error = estimated sampling variability of the estimate"],
+    "Type I error = rejecting a true H0; Type II error = failing to reject a false H0.": ["H₀ = null hypothesis", "Type I error = rejecting H₀ when H₀ is true", "Type II error = failing to reject H₀ when H₀ is false"],
+    "One-sample t statistic: t=(x̄−μ0)/(s/√n).": ["t = one-sample t test statistic", "x̄ = sample mean", "μ₀ = hypothesized population mean under H₀", "s = sample standard deviation", "n = sample size"],
+    "Simple regression: Y=β0+β1X+ε.": ["Y = response variable", "β₀ = intercept", "β₁ = slope coefficient", "X = predictor variable", "ε = model error or residual"],
+    "R² is the proportion of response variation explained by the fitted model in the sample.": ["R² = coefficient of determination", "response variation = variation in the observed response values", "fitted model = estimated regression relationship"],
+    "Multiple regression: Y=β0+β1X1+...+βkXk+ε.": ["Y = response variable", "β₀ = intercept", "βⱼ = coefficient for predictor j", "Xⱼ = predictor j", "k = number of predictors", "ε = model error or residual", "j = predictor index"],
+    "A treatment effect is the estimated change in response associated with changing a factor under the experimental design.": ["treatment effect = estimated change in the response attributable to a factor change under the design", "response = measured outcome", "factor = experimental input being changed"],
+    "For two factors, interaction means the effect of one factor depends on the level of the other.": ["factor 1 = first experimental input", "factor 2 = second experimental input", "interaction = dependence of one factor's effect on the level of the other factor"],
+    "Three-sigma control limits are designed around the expected distribution of a monitored statistic under stable conditions.": ["three-sigma = three estimated standard deviations from the center under the selected chart assumptions", "control limits = statistical boundaries for identifying unusual process behavior", "monitored statistic = value plotted on the control chart"],
+}
+
+def _math_item(formula):
+    for item in MATH_REFERENCE:
+        if item["formula"] == formula:
+            return dict(item)
+    return {
+        "name": formula,
+        "formula": formula,
+        "explanation": "See the glossary for the method-specific explanation.",
+        "variables": MATH_VARIABLES_BY_FORMULA.get(formula, ["No variables are used in this statement."]),
+    }
+
+for _belt in BELTS.values():
+    for _module in _belt["modules"]:
+        _normalized_math = []
+        for _formula in _module.get("math", []):
+            _item = _math_item(_formula)
+            if _formula in MATH_VARIABLES_BY_FORMULA:
+                _item["variables"] = MATH_VARIABLES_BY_FORMULA[_formula]
+            _normalized_math.append(_item)
+        _module["math"] = _normalized_math
 
 
 # Belt-level assessment: 10 questions. It is a starting-point check, not a certification exam.
