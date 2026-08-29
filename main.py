@@ -276,13 +276,16 @@ async def case_studies(request: Request):
     q = (request.query_params.get("q") or "").strip().lower()
     belt = (request.query_params.get("belt") or "all").strip().lower()
     method = (request.query_params.get("method") or "all").strip()
+    area = (request.query_params.get("area") or "all").strip()
     filtered = [
         s for s in SCENARIOS
         if (belt == "all" or s["belt"] == belt)
         and (method == "all" or s.get("method", "DMAIC") == method)
-        and (not q or q in " ".join([s["title"], s["area"], s["prompt"], s["difficulty"], s.get("method", "DMAIC")]).lower())
+        and (area == "all" or s.get("area") == area)
+        and (not q or q in " ".join([s["title"], s["area"], s["prompt"], s["difficulty"], s.get("method", "DMAIC"), s.get("source_title", "")]).lower())
     ]
-    return templates.TemplateResponse(request=request, name="case_studies.html", context=context(request, scenarios=filtered, query=q, belt_filter=belt, method_filter=method))
+    areas = sorted({s.get("area", "") for s in SCENARIOS if s.get("area")})
+    return templates.TemplateResponse(request=request, name="case_studies.html", context=context(request, scenarios=filtered, query=q, belt_filter=belt, method_filter=method, area_filter=area, areas=areas))
 
 
 @app.get("/learn/{belt}", response_class=HTMLResponse)
