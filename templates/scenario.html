@@ -6,6 +6,7 @@
     <div class="eyebrow">Case study · {{ scenario.area }} · {{ scenario.method }}</div>
     <h1>{{ scenario.title }}</h1>
     <p class="lead">{{ scenario.prompt }}</p>
+    {% if scenario.get("source_url") %}<p class="small source-note">Based on: <a href="{{ scenario.get("source_url") }}" target="_blank" rel="noopener">{{ scenario.get("source_title", "Source case study") }}</a></p>{% endif %}
   </header>
 
   <section aria-labelledby="phase-heading">

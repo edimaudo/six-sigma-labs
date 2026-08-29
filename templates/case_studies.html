@@ -20,6 +20,11 @@
         <option value="DMAIC" {% if method_filter == 'DMAIC' %}selected{% endif %}>DMAIC</option>
         <option value="DMADV / IDOV" {% if method_filter == 'DMADV / IDOV' %}selected{% endif %}>DMADV / IDOV</option>
       </select>
+      <label class="sr-only" for="case-area">Filter by industry</label>
+      <select id="case-area" name="area">
+        <option value="all" {% if area_filter == 'all' %}selected{% endif %}>All industries</option>
+        {% for area_name in areas %}<option value="{{ area_name }}" {% if area_filter == area_name %}selected{% endif %}>{{ area_name }}</option>{% endfor %}
+      </select>
       <button class="button button-small" type="submit">Search</button>
     </form>
   </header>
@@ -32,7 +37,7 @@
         <div class="case-topline"><span class="tag">{{ scenario.belt|title }} Belt</span><span class="tag">{{ scenario.method }}</span><span class="tag">{{ scenario.area }}</span></div>
         <h2>{{ scenario.title }}</h2>
         <p>{{ scenario.prompt }}</p>
-        <a class="button button-secondary" href="/scenario?id={{ scenario.id }}">Open case</a>
+        <a class="button button-secondary" href="/scenario?id={{ scenario.id }}">Open case</a>{% if scenario.get("source_url") %}<a class="source-link" href="{{ scenario.get("source_url") }}" target="_blank" rel="noopener">Source</a>{% endif %}
       </article>
       {% else %}
       <div class="panel"><h2>No cases found.</h2><p>Try a different search or filter.</p></div>
