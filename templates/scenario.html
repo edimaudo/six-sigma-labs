@@ -1,49 +1,66 @@
 {% extends "base.html" %}
-{% block title %}{{ scenario.title }}{% endblock %}
+{% block title %}{{ scenario.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Case study · {{ scenario.area }}</div>
-  <h1>{{ scenario.title }}</h1>
-  <p class="lead">{{ scenario.prompt }}</p>
+  <header class="page-header">
+    <div class="eyebrow">Case study · {{ scenario.area }} · {{ scenario.method }}</div>
+    <h1>{{ scenario.title }}</h1>
+    <p class="lead">{{ scenario.prompt }}</p>
+  </header>
 
-  <div class="phase-bar" aria-label="Scenario phase progress">
-    {% for phase in detail.phases %}<span class="phase {% if state.phase == phase %}active{% elif detail.phases.index(state.phase) > loop.index0 %}done{% endif %}">{{ phase|title }}</span>{% endfor %}
-  </div>
+  <section aria-labelledby="phase-heading">
+    <h2 id="phase-heading" class="sr-only">Case study phases</h2>
+    <div class="phase-bar" aria-label="Case study phase progress">
+      {% for phase in detail.phases %}<span class="phase {% if state.phase == phase %}active{% elif detail.phases.index(state.phase) > loop.index0 %}done{% endif %}">{{ phase|title }}</span>{% endfor %}
+    </div>
+  </section>
 
-  <div class="metrics-grid section" aria-label="Scenario performance metrics">
-    <div class="metric-card"><strong>{{ state.reasoning_score }}/100</strong><span>reasoning score</span></div>
-    <div class="metric-card"><strong>{{ state.evidence_score }}/100</strong><span>evidence uncovered</span></div>
-    <div class="metric-card"><strong>{{ state.stakeholder_score }}/100</strong><span>stakeholder questioning</span></div>
-  </div>
+  <section class="section" aria-labelledby="metrics-heading">
+    <h2 id="metrics-heading" class="sr-only">Case study progress</h2>
+    <div class="metrics-grid">
+      <div class="metric-card"><strong>{{ state.reasoning_score }}/100</strong><span>reasoning score</span></div>
+      <div class="metric-card"><strong>{{ state.evidence_score }}/100</strong><span>evidence uncovered</span></div>
+      <div class="metric-card"><strong>{{ state.stakeholder_score }}/100</strong><span>stakeholder questioning</span></div>
+    </div>
+  </section>
 
   <section class="section" aria-labelledby="lenses-heading">
     <div class="kicker">Workplace decision lenses</div>
     <h2 id="lenses-heading">A technically sound answer can still fail at work.</h2>
-    <div class="grid-3"><article class="card"><h3>Logos</h3><p>{{ detail.reasoning_lens.logos }}</p></article><article class="card"><h3>Pathos</h3><p>{{ detail.reasoning_lens.pathos }}</p></article><article class="card"><h3>Ethos</h3><p>{{ detail.reasoning_lens.ethos }}</p></article></div>
-    <div class="grid-3"><article class="card"><div class="number">Economic</div><p>{{ detail.reasoning_lens.economic }}</p></article><article class="card"><div class="number">Political</div><p>{{ detail.reasoning_lens.political }}</p></article><article class="card"><div class="number">Social</div><p>{{ detail.reasoning_lens.social }}</p></article></div>
+    <div class="grid-3">
+      <article class="card"><h3>Logos</h3><p>{{ detail.reasoning_lens.logos }}</p></article>
+      <article class="card"><h3>Pathos</h3><p>{{ detail.reasoning_lens.pathos }}</p></article>
+      <article class="card"><h3>Ethos</h3><p>{{ detail.reasoning_lens.ethos }}</p></article>
+      <article class="card"><h3>Economic</h3><p>{{ detail.reasoning_lens.economic }}</p></article>
+      <article class="card"><h3>Political</h3><p>{{ detail.reasoning_lens.political }}</p></article>
+      <article class="card"><h3>Social</h3><p>{{ detail.reasoning_lens.social }}</p></article>
+    </div>
   </section>
 
   <div class="two-col section">
-    <section class="panel">
+    <section aria-labelledby="thinking-heading">
       <div class="kicker">First question</div>
-      <div class="question"><strong>Before diagnosing the problem, what do you need to learn?</strong><p class="small">The system will not reveal every fact up front. Your questions determine which evidence becomes available.</p></div>
+      <h2 id="thinking-heading">What do you need to learn before acting?</h2>
+      <div class="question"><strong>Before diagnosing the problem, what evidence would you want?</strong></div>
       <form method="post" action="/scenario/{{ scenario.id }}/think">
         <input type="hidden" name="session" value="{{ session_id }}">
-        <div class="form-field"><label for="thinking">Your initial hypothesis</label><textarea id="thinking" name="thinking" rows="8" required placeholder="What would you investigate first, and why?"></textarea></div>
+        <div class="form-field"><label for="thinking">Your initial reasoning</label><textarea id="thinking" name="thinking" rows="8" required placeholder="What would you investigate first, and why?"></textarea></div>
         <button class="button" type="submit">Challenge my thinking</button>
       </form>
     </section>
-    <section class="panel">
+
+    <section aria-labelledby="data-heading">
       <div class="kicker">Performance data</div>
-      <div id="scenario-chart" class="chart" role="img" aria-label="Illustrative process performance chart"></div>
-      <p class="small">Illustrative data. Treat it as evidence to investigate, not proof of cause.</p>
+      <h2 id="data-heading" class="sr-only">Illustrative process performance data</h2>
+      <div id="scenario-chart" class="chart" role="img" aria-describedby="scenario-chart-description"></div>
+      <p id="scenario-chart-description" class="small">Illustrative process performance across the observations supplied by this case. Treat the pattern as evidence to investigate, not proof of cause.</p>
     </section>
   </div>
 
   {% if state.conversation %}
-  <section class="section">
+  <section class="section" aria-labelledby="record-heading">
     <div class="kicker">Investigation record</div>
-    <h2>What you have learned so far.</h2>
+    <h2 id="record-heading">What you have learned so far.</h2>
     {% for turn in state.conversation[-5:] %}
     <article class="conversation-item">
       <div class="chat-label">{{ turn.stakeholder }} · {{ turn.score }}/100 question quality</div>
@@ -54,9 +71,9 @@
   </section>
   {% endif %}
 
-  <section class="section">
+  <section class="section" aria-labelledby="stakeholders-heading">
     <div class="kicker">Stakeholder interviews</div>
-    <h2>Interview before you diagnose.</h2>
+    <h2 id="stakeholders-heading">Interview before you diagnose.</h2>
     <div class="grid-3">
       {% for s, info in detail.stakeholders.items() %}
       <article class="card">
@@ -64,10 +81,10 @@
         <h3>{{ s }}</h3>
         <p>{{ info.opening }}</p>
         {% if s in state.visited_stakeholders %}<span class="tag tag-success">Interviewed</span>{% endif %}
-        <form method="post" action="/scenario/{{ scenario.id }}/stakeholder" class="stakeholder-form">
+        <form method="post" action="/scenario/{{ scenario.id }}/stakeholder">
           <input type="hidden" name="session" value="{{ session_id }}">
           <input type="hidden" name="stakeholder" value="{{ s }}">
-          <label class="sr-only" for="q-{{ loop.index }}">Question for {{ s }}</label>
+          <label for="q-{{ loop.index }}">Question for {{ s }}</label>
           <input id="q-{{ loop.index }}" type="text" name="question" placeholder="Ask what you need to know">
           <button class="button button-small" type="submit">Interview</button>
         </form>
@@ -76,9 +93,9 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" aria-labelledby="decision-heading">
     <div class="kicker">Make a decision</div>
-    <h2>What would you change first?</h2>
+    <h2 id="decision-heading">What would you change first?</h2>
     <div class="grid-3">
       {% for option in detail.decision_options %}
       <form method="post" action="/scenario/{{ scenario.id }}/decision" class="card card-action">

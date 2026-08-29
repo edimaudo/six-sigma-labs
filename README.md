@@ -1,39 +1,60 @@
-# Six Sigma Operations Lab — MVP v1.0
+# Six Sigma Labs v2.2
 
-Applied Six Sigma learning prototype built with FastAPI, Jinja2, Gemini, SQLite for local/demo persistence, and Plotly.js.
+Six Sigma Labs is an applied Six Sigma learning prototype built around questions, case studies, stakeholder reasoning, teach-back, reflection, and Gemini-powered feedback.
 
-## Product architecture
-- **Level check**: 16-question placement quiz across White, Yellow, Green, and Black Belt.
-- **Learn**: gated until the placement quiz is completed.
-- **Lessons**: every teaching section begins with a question, then concepts, glossary terms, math, teach-back, and reflection.
-- **Case studies**: the primary applied-learning experience. Each case starts with an operations problem and uses Gemini-powered stakeholder agents with different incentives and partial information.
-- **Glossary**: reusable Six Sigma/Lean reference definitions.
-- **Math**: formulas and plain-language explanations for the underlying quantitative methods.
-- **Journal**: reflection tied to learning activities.
-- **Display**: responsive UI, dark/light mode, Small/Medium/Large text-and-interface scale.
+## Product structure
 
-## Curriculum coverage
-The content model now includes the White Belt and Yellow Belt foundations plus the supplied Green Belt and Black Belt lesson lists, including:
-- Green Belt: organizational context, Lean, DFSS, Define, Measure, Analyze, Improve, Control, and case studies.
-- Black Belt: Define fundamentals, Six Sigma metrics, project selection and economics, Lean enterprise, Measure, Analyze, regression/DOE, and Control.
+- **Belt level** — 10-question starting-level assessment.
+- **Learn** — one integrated White, Yellow, Green, and Black Belt curriculum.
+- **Case studies** — applied business challenges with DMAIC and DMADV / IDOV cases, stakeholder agents, organizational dynamics, and evidence-driven decisions.
+- **Glossary** — searchable terms, references, and equations.
+- **Journal** — learner reflection.
 
-## Authentication status
-Signup, sign-in, and sign-out UI/routes are intentionally disabled/commented for this phase. The prototype creates/uses a local learner record so the educational flows can be tested without account friction. Re-enable real accounts when durable production persistence is introduced.
+## Design system
+
+The UI uses an editorial publication-inspired design system with serif-led typography, restrained rules, flat content rows, larger navigation, and IBM blue as the action/accent colour. It does not use IBM Carbon components or IBM Plex typography.
+
+## Accessibility
+
+The application targets WCAG 2.1 AA patterns across the rendered templates, including:
+
+- semantic landmarks and one primary H1 per page
+- skip navigation
+- explicit form labels and fieldset legends
+- visible keyboard focus indicators
+- high-contrast text/link variants
+- responsive layouts
+- reduced-motion support
+- persistent Small / Medium / Large type scaling
+- persistent light/dark theme with system preference fallback
+- descriptive chart text alternatives
+
+A full WCAG conformance claim still requires a manual audit and assistive-technology testing against the deployed build.
+
+## Run locally
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+## Gemini
+
+Set `GEMINI_API_KEY` before using Gemini-powered activities. The application uses the Google `google-genai` SDK; there is no local AI fallback.
 
 ## Vercel
-- Root-level `main.py` is the ASGI entrypoint.
-- `vercel.json` configures the Python runtime.
-- SQLite uses `/tmp` on Vercel because the deployment filesystem is not durable/writable. Use managed Postgres before paid production.
-- Required environment variables: `GEMINI_API_KEY`, optional `GEMINI_MODEL`, and `SSOL_SESSION_SECRET`.
 
+The repository is intentionally flat. `main.py` is the Vercel entrypoint and `vercel.json` routes requests to it.
 
-## Learning content update
-The DFSS curriculum explicitly covers **DMADV (also known as IDOV)** for new development, with glossary definitions for both terms.
+Required environment variables:
 
-- **Design language**: editorial, Economist-inspired visual system using serif headlines, restrained rules, paper/ink palette, and blue accent; this is an original implementation rather than a copy of proprietary brand assets.
+```text
+GEMINI_API_KEY=
+GEMINI_MODEL=gemini-3.7-flash
+SSOL_SESSION_SECRET=
+SSOL_DB_PATH=
+```
 
-
-## v2.0 learning and design notes
-- Belt level and Learn are separate routes and Learn is no longer gated by the assessment.
-- Pricing UI and route are intentionally disabled for now.
-- The interface uses an original editorial, Economist-inspired layout with blue as the accent; IBM Carbon styling is not used.
+SQLite is only suitable for the prototype. On Vercel the runtime database is stored in `/tmp` and is ephemeral. Use managed Postgres for durable learner data before production use.

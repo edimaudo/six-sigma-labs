@@ -1,23 +1,18 @@
 {% extends "base.html" %}
-{% block title %}Reasoning Feedback{% endblock %}
+{% block title %}Socratic feedback · Six Sigma Labs{% endblock %}
 {% block content %}
-{% if error %}<div class="panel section" role="alert"><div class="kicker">AI service unavailable</div><p>{{ error }}</p><p class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</p></div>{% endif %}
 <div class="container narrow">
-  <div class="eyebrow">Socratic feedback</div>
-  <h1>{{ result.label }}</h1>
-  <div class="score-strip"><strong>{{ result.score }}/5</strong><span>reasoning signal</span></div>
-  <div class="panel section">
-    <div class="kicker">What I noticed</div>
-    <p>{{ result.feedback }}</p>
-  </div>
-  <div class="question">
-    <div class="small">Go one level deeper</div>
-    <h2>{{ result.next_question }}</h2>
-  </div>
-  <section class="panel section-muted">
-    <div class="kicker">Your response</div>
-    <p>{{ response }}</p>
-  </section>
+  <header class="page-header">
+    <div class="eyebrow">Socratic feedback</div>
+    <h1>{{ result.label if result else 'Feedback unavailable.' }}</h1>
+  </header>
+  {% if error %}<div class="alert" role="alert"><strong>AI service unavailable.</strong> {{ error }}<br><span class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</span></div>{% endif %}
+  {% if result %}
+  <div class="score-strip" aria-label="Reasoning score"><strong>{{ result.score }}/5</strong><span>reasoning signal</span></div>
+  <section class="section" aria-labelledby="noticed-heading"><div class="kicker">What I noticed</div><h2 id="noticed-heading" class="sr-only">What I noticed</h2><p>{{ result.feedback }}</p></section>
+  <section class="question" aria-labelledby="deeper-heading"><div class="small">Go one level deeper</div><h2 id="deeper-heading">{{ result.next_question }}</h2></section>
+  {% endif %}
+  <section class="section section-muted" aria-labelledby="response-heading"><div class="kicker">Your response</div><h2 id="response-heading" class="sr-only">Your response</h2><p>{{ response }}</p></section>
   <a class="button" href="{{ next_url }}">Continue</a>
 </div>
 {% endblock %}

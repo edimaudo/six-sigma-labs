@@ -2,12 +2,15 @@
 {% block title %}Six Sigma Labs — Learn Six Sigma by solving real business problems{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <section aria-labelledby="landing-title">
+  <header class="page-header">
     <h1 id="landing-title">Learn Six Sigma by solving real business problems.</h1>
     <p class="lead">Learn the method. Question the evidence. Make better decisions at work.</p>
-    <div class="button-row" style="margin-top:1.4rem;">
-      <a class="button" href="/belt-level">Find my starting point</a>
-      <a class="button button-secondary" href="/case-studies">Explore case studies</a>
+  </header>
+  <section aria-labelledby="landing-actions">
+    <h2 id="landing-actions" class="sr-only">Get started</h2>
+    <div class="button-row">
+      <a class="button" href="{{ url_for('belt_level') }}">Find my starting point</a>
+      <a class="button button-secondary" href="{{ url_for('case_studies') }}">Explore case studies</a>
     </div>
   </section>
 </div>

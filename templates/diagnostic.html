@@ -2,26 +2,30 @@
 {% block title %}Belt level · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="eyebrow">Belt level</div>
-  <h1>Find your Six Sigma starting level.</h1>
-  <p class="lead">Answer a short set of questions. Your result will suggest the Six Sigma level that best matches what you already know.</p>
-  <form method="post" action="/belt-level">
-  <div class="panel section-muted">
-    <div class="kicker">Business context</div>
-    <label for="business_area">Where would you like to apply what you learn?</label>
-    <select name="business_area" id="business_area" class="select">
-      <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
-    </select>
-  </div>
-  {% for q in questions %}
-    <fieldset class="quiz-question">
-      <legend><span class="small">Question {{ q.id }}</span>{{ q.question }}</legend>
-      {% for option in q.options %}
-        <label class="option"><input type="radio" name="answers" value="{{ loop.index0 }}" required> {{ option }}</label>
-      {% endfor %}
-    </fieldset>
-  {% endfor %}
-  <button class="button" type="submit">See my result</button>
+  <header class="page-header">
+    <div class="eyebrow">Belt level</div>
+    <h1>Find your Six Sigma starting level.</h1>
+    <p class="lead">Answer 10 questions about how you approach process improvement. The result suggests where to begin; it is not a certification test.</p>
+  </header>
+  <form method="post" action="{{ url_for('belt_level_submit') }}">
+    <section class="section-muted" aria-labelledby="context-heading">
+      <div class="kicker">Business context</div>
+      <h2 id="context-heading" class="sr-only">Choose a business context</h2>
+      <label for="business_area">Where would you like to apply what you learn?</label>
+      <select name="business_area" id="business_area">
+        <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
+      </select>
+    </section>
+    {% for q in questions %}
+      <fieldset class="quiz-question">
+        <legend><span class="small">Question {{ q.id }} of {{ questions|length }}</span>{{ q.question }}</legend>
+        {% for option in q.options %}
+          {% set option_id = 'q-' ~ q.id ~ '-' ~ loop.index0 %}
+          <label class="option" for="{{ option_id }}"><input id="{{ option_id }}" type="radio" name="answers" value="{{ loop.index0 }}" required> {{ option }}</label>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    <button class="button" type="submit">See my starting point</button>
   </form>
 </div>
 {% endblock %}

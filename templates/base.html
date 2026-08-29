@@ -8,8 +8,12 @@
   <script>
     (function () {
       const root = document.documentElement;
-      const savedTheme = localStorage.getItem('ssol-theme');
-      const savedScale = localStorage.getItem('ssol-type-scale');
+      let savedTheme = null;
+      let savedScale = null;
+      try {
+        savedTheme = localStorage.getItem('ssol-theme');
+        savedScale = localStorage.getItem('ssol-type-scale');
+      } catch (e) {}
       const systemLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
       root.dataset.theme = savedTheme || (systemLight ? 'light' : 'dark');
       root.dataset.typeScale = savedScale || 'medium';
@@ -21,27 +25,27 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <div class="shell">
-<header class="header">
-  <div class="header-inner">
-    <a class="brand" href="/" aria-label="Six Sigma Labs home">Six Sigma Labs</a>
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="{% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}active{% endif %}" href="{{ url_for('belt_level') }}">Belt level</a>
-      <a class="{% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}active{% endif %}" href="{{ url_for('learn') }}">Learn</a>
-      <a class="{% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}active{% endif %}" href="{{ url_for('case_studies') }}">Case studies</a>
-      <a class="{% if request.url.path.startswith('/glossary') or request.url.path.startswith('/reference') or request.url.path.startswith('/math') %}active{% endif %}" href="{{ url_for('glossary') }}">Glossary</a>
-    </nav>
-    <div class="header-tools" aria-label="Display settings">
-      <label class="sr-only" for="type-scale">Text size</label>
-      <select id="type-scale" class="display-control" aria-label="Text size">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-      </select>
-      <button class="display-control" id="theme-toggle" type="button" aria-label="Change colour theme" aria-pressed="false">Dark mode</button>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="/" aria-label="Six Sigma Labs home">Six Sigma Labs</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="{% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}active{% endif %}" {% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}aria-current="page"{% endif %} href="{{ url_for('belt_level') }}">Belt level</a>
+        <a class="{% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}active{% endif %}" {% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}aria-current="page"{% endif %} href="{{ url_for('learn') }}">Learn</a>
+        <a class="{% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}active{% endif %}" {% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}aria-current="page"{% endif %} href="{{ url_for('case_studies') }}">Case studies</a>
+        <a class="{% if request.url.path.startswith('/glossary') or request.url.path.startswith('/reference') or request.url.path.startswith('/math') %}active{% endif %}" {% if request.url.path.startswith('/glossary') or request.url.path.startswith('/reference') or request.url.path.startswith('/math') %}aria-current="page"{% endif %} href="{{ url_for('glossary') }}">Glossary</a>
+      </nav>
+      <div class="header-tools" aria-label="Display settings">
+        <label class="sr-only" for="type-scale">Text size</label>
+        <select id="type-scale" class="display-control" aria-label="Text size">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+        <button class="display-control" id="theme-toggle" type="button" aria-label="Change colour theme" aria-pressed="false">Dark</button>
+      </div>
     </div>
-  </div>
-</header>
-<main id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
+  </header>
+  <main id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
 </div>
 <script src="{{ url_for('static', path='app.js') }}" defer></script>
 </body>

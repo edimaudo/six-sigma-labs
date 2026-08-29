@@ -1,21 +1,15 @@
 {% extends "base.html" %}
-{% block title %}Decision review{% endblock %}
+{% block title %}Decision review · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="eyebrow">Decision review · {{ scenario.title }}</div>
+  <header class="page-header">
+    <div class="eyebrow">Case study · Decision review</div>
+    <h1>{% if decision %}{{ decision.label }}{% else %}Choose a valid path.{% endif %}</h1>
+  </header>
   {% if decision %}
-  <h1>{{ decision.label }}</h1>
-  <div class="panel section"><p>{{ decision.effect }}</p></div>
-  <section class="question">
-    <div class="small">Operational reality</div>
-    <strong>What stakeholder incentive or control requirement could make this solution harder to implement than it looks?</strong>
-  </section>
-  <div class="panel section-muted">
-    <div class="kicker">Your investigation state</div>
-    <p>{{ state.visited_stakeholders|length }} stakeholder(s) interviewed · {{ state.discovered_clues|length }} clue(s) uncovered · phase: <strong>{{ state.phase|title }}</strong></p>
-  </div>
-  {% else %}
-  <h1>Choose a valid path.</h1>
+    <section class="section" aria-labelledby="effect-heading"><div class="kicker">What this changes</div><h2 id="effect-heading" class="sr-only">What this changes</h2><p>{{ decision.effect }}</p></section>
+    <section class="question section" aria-labelledby="operational-heading"><div class="small">Operational reality</div><h2 id="operational-heading">What stakeholder incentive or control requirement could make this solution harder to implement than it looks?</h2></section>
+    <section class="section section-muted" aria-labelledby="state-heading"><div class="kicker">Investigation state</div><h2 id="state-heading" class="sr-only">Investigation state</h2><p>{{ state.visited_stakeholders|length }} stakeholder(s) interviewed · {{ state.discovered_clues|length }} clue(s) uncovered · phase: <strong>{{ state.phase|title }}</strong></p></section>
   {% endif %}
   <div class="button-row">
     <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue the case</a>

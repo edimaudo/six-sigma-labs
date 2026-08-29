@@ -5,16 +5,16 @@
 
   function setScale(scale) {
     root.dataset.typeScale = scale;
-    localStorage.setItem('ssol-type-scale', scale);
+    try { localStorage.setItem('ssol-type-scale', scale); } catch (e) {}
     if (scaleSelect) scaleSelect.value = scale;
   }
 
   function setTheme(theme) {
     root.dataset.theme = theme;
-    localStorage.setItem('ssol-theme', theme);
+    try { localStorage.setItem('ssol-theme', theme); } catch (e) {}
     if (themeToggle) {
       const isDark = theme === 'dark';
-      themeToggle.textContent = isDark ? 'Dark mode' : 'Light mode';
+      themeToggle.textContent = isDark ? 'Dark' : 'Light';
       themeToggle.setAttribute('aria-label', isDark ? 'Current theme: dark. Switch to light mode' : 'Current theme: light. Switch to dark mode');
       themeToggle.setAttribute('aria-pressed', String(isDark));
     }

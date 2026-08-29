@@ -1,40 +1,45 @@
 {% extends "base.html" %}
-{% block title %}Interview · {{ stakeholder }}{% endblock %}
+{% block title %}Interview · {{ stakeholder }} · Six Sigma Labs{% endblock %}
 {% block content %}
-{% if error %}<div class="panel section" role="alert"><div class="kicker">AI service unavailable</div><p>{{ error }}</p><p class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</p></div>{% endif %}
 <div class="container narrow">
-  <div class="eyebrow">Adaptive stakeholder interview · {{ scenario.title }}</div>
-  <h1>{{ stakeholder }}</h1>
-  <p class="lead">The stakeholder does not give you the whole answer. Your question determines which evidence becomes relevant.</p>
+  <header class="page-header">
+    <div class="eyebrow">Case study · Stakeholder interview</div>
+    <h1>{{ stakeholder }}</h1>
+    <p class="lead">Ask a precise question. The response reveals only the evidence relevant to what you ask.</p>
+  </header>
+  {% if error %}<div class="alert" role="alert"><strong>AI service unavailable.</strong> {{ error }}<br><span class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</span></div>{% endif %}
 
-  <section class="panel section">
+  <section aria-labelledby="question-heading">
     <div class="kicker">Your question</div>
+    <h2 id="question-heading" class="sr-only">Your question</h2>
     <p class="quoted-question">{{ question or 'Ask a specific question about the problem, process, customer, evidence, incentive, or control.' }}</p>
     {% if question and dialogue %}<span class="tag">Question quality {{ dialogue.score }}/100</span>{% endif %}
   </section>
 
-  <section class="panel">
+  <section class="section" aria-labelledby="response-heading">
     <div class="kicker">Stakeholder response</div>
+    <h2 id="response-heading" class="sr-only">Stakeholder response</h2>
     <p>{{ dialogue.reply if dialogue else person.opening }}</p>
     {% if dialogue and dialogue.new_clues %}
-      <div class="kicker" style="margin-top:1.5rem">New evidence</div>
+      <div class="kicker">New evidence</div>
       {% for clue in dialogue.new_clues %}<div class="concept-row"><span class="concept-number">{{ '%02d'|format(loop.index) }}</span><p>{{ clue }}</p></div>{% endfor %}
     {% endif %}
   </section>
 
-  <section class="question section">
+  <section class="question section" aria-labelledby="socratic-heading">
     <div class="small">Socratic challenge</div>
-    <strong>{{ dialogue.challenge if dialogue else 'What evidence would change your mind?' }}</strong>
+    <h2 id="socratic-heading">{{ dialogue.challenge if dialogue else 'What evidence would change your mind?' }}</h2>
   </section>
 
-  <section class="panel section-muted">
-    <div class="kicker">Read the organizational signal</div>
+  <section class="section section-muted" aria-labelledby="signal-heading">
+    <div class="kicker">Organizational signal</div>
+    <h2 id="signal-heading">What may be shaping the response?</h2>
     <p>{{ person.incentive }}</p>
     {% if dialogue and dialogue.dimensions %}<p class="small">Your question touched: {{ dialogue.dimensions|join(', ') }}.</p>{% endif %}
   </section>
 
   <div class="button-row">
-    <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Return to investigation</a>
+    <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Return to case</a>
     <a class="button button-secondary" href="/journal">Reflect</a>
   </div>
 </div>

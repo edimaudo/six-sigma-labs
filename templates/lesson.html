@@ -1,26 +1,30 @@
 {% extends "base.html" %}
-{% block title %}{{ lesson.title }}{% endblock %}
+{% block title %}{{ lesson.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="eyebrow">{{ lesson.belt.name }} · Lesson {{ "%02d"|format(lesson.index) }}</div>
-  <h1>{{ lesson.title }}</h1>
+  <header class="page-header">
+    <div class="eyebrow">{{ lesson.belt.name }} · Lesson {{ "%02d"|format(lesson.index) }}</div>
+    <h1>{{ lesson.title }}</h1>
+  </header>
 
-  <section class="question hero-question">
+  <section class="question hero-question" aria-labelledby="lesson-question">
     <div class="small">Start with the question</div>
-    <h2>{{ lesson.opening_question }}</h2>
+    <h2 id="lesson-question">{{ lesson.opening_question }}</h2>
     <p>Pause before reading the explanation. What would you want to know, measure, or decide?</p>
   </section>
 
-  <section class="section">
+  <section class="section" aria-labelledby="concept-heading">
     <div class="kicker">Concept</div>
+    <h2 id="concept-heading">Work the idea.</h2>
     {% for concept in lesson.concepts %}
       <div class="concept-row"><span class="concept-number">{{ "%02d"|format(loop.index) }}</span><p>{{ concept }}</p></div>
     {% endfor %}
   </section>
 
   {% if lesson.process_data %}
-  <section class="panel section">
-    <div class="kicker">Process & data in this lesson</div>
+  <section class="section" aria-labelledby="process-data-heading">
+    <div class="kicker">Integrated process and data</div>
+    <h2 id="process-data-heading">See how the method works with evidence.</h2>
     {% for item in lesson.process_data %}
       <div class="concept-row">
         <span class="concept-number">{{ item.code }}</span>
@@ -36,28 +40,28 @@
   {% endif %}
 
   {% if lesson.terms %}
-  <section class="panel section">
-    <div class="kicker">Glossary in this lesson</div>
+  <section class="section" aria-labelledby="lesson-terms-heading">
+    <div class="kicker">Glossary</div>
+    <h2 id="lesson-terms-heading">Terms used in this lesson.</h2>
     <div class="term-grid">
       {% for term in lesson.terms %}
-      <div class="term-card"><strong>{{ term }}</strong>{% set entry = glossary.get(term) %}{% if entry %}<p>{{ entry.definition }}</p><p class="small"><strong>Use:</strong> {{ entry.use_when }}</p>{% else %}<p>See the glossary for the working definition.</p>{% endif %}</div>
+      <div class="term-card"><h3>{{ term }}</h3>{% set entry = glossary.get(term) %}{% if entry %}<p>{{ entry.definition }}</p><p class="small"><strong>Use:</strong> {{ entry.use_when }}</p>{% else %}<p>See the glossary for the working definition.</p>{% endif %}</div>
       {% endfor %}
     </div>
-    <a class="text-link" href="{{ url_for('glossary') }}">Open reference →</a>
   </section>
   {% endif %}
 
   {% if lesson.math %}
-  <section class="panel section">
-    <div class="kicker">Underlying math</div>
+  <section class="section" aria-labelledby="lesson-math-heading">
+    <div class="kicker">Equations</div>
+    <h2 id="lesson-math-heading">The mathematics behind the idea.</h2>
     {% for formula in lesson.math %}<div class="formula-row"><code>{{ formula }}</code></div>{% endfor %}
-    <a class="text-link" href="{{ url_for('glossary') }}">Open reference →</a>
   </section>
   {% endif %}
 
-  <section class="panel">
+  <section class="section" aria-labelledby="teach-back-heading">
     <div class="kicker">Teach it back</div>
-    <h2>{{ lesson.teach_back }}</h2>
+    <h2 id="teach-back-heading">{{ lesson.teach_back }}</h2>
     <form method="post" action="/teach">
       <input type="hidden" name="activity_id" value="{{ lesson.id }}">
       <input type="hidden" name="focus" value="{{ lesson.belt_key }}">
@@ -67,18 +71,19 @@
     </form>
   </section>
 
-  <section class="panel section-muted">
+  <section class="section section-muted" aria-labelledby="reflection-heading">
     <div class="kicker">Reflect</div>
+    <h2 id="reflection-heading">What changed your thinking?</h2>
     <form method="post" action="/journal">
       <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
-      <div class="form-field"><label for="reflection">What did you change your mind about?</label><textarea name="reflection" id="reflection" rows="5" placeholder="Capture the assumption or insight you want to remember."></textarea></div>
+      <div class="form-field"><label for="reflection">Reflection</label><textarea name="reflection" id="reflection" rows="5" placeholder="Capture the assumption or insight you want to remember."></textarea></div>
       <button class="button button-secondary" type="submit">Save to journal</button>
     </form>
   </section>
 
-  <div class="pager">
-    {% if lesson.index > 1 %}<a href="/lesson/{{ lesson.belt_key }}/{{ lesson.index - 1 }}">← Previous</a>{% endif %}
+  <nav class="pager" aria-label="Lesson navigation">
+    {% if lesson.index > 1 %}<a href="/lesson/{{ lesson.belt_key }}/{{ lesson.index - 1 }}">← Previous lesson</a>{% else %}<span aria-hidden="true"></span>{% endif %}
     {% if lesson.index < lesson.belt.modules|length %}<a href="/lesson/{{ lesson.belt_key }}/{{ lesson.index + 1 }}">Next lesson →</a>{% endif %}
-  </div>
+  </nav>
 </div>
 {% endblock %}

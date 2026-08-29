@@ -2,12 +2,12 @@
 {% block title %}{{ belt.name }} · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">{{ belt.name }}</div>
-  <h1>{{ belt.tagline }}</h1>
-  <p class="lead">{{ belt.description }}</p>
-  <div class="progress" aria-label="Curriculum overview"><span style="width:100%"></span></div>
-
-  <section class="section" aria-labelledby="lesson-list-heading">
+  <header class="page-header">
+    <div class="eyebrow">Learn · {{ belt.name }}</div>
+    <h1>{{ belt.tagline }}</h1>
+    <p class="lead">{{ belt.description }}</p>
+  </header>
+  <section aria-labelledby="lesson-list-heading">
     <div class="kicker">Lessons</div>
     <h2 id="lesson-list-heading">Start with the question, then work the method.</h2>
     <div class="lesson-list">
@@ -17,7 +17,7 @@
         <div class="lesson-number">{{ module.code }}</div>
         <div>
           <div class="kicker">Lesson {{ loop.index }}</div>
-          <h2>{{ module.title }}</h2>
+          <h3>{{ module.title }}</h3>
           <div class="question"><strong>{{ module.opening_question }}</strong></div>
           <div class="lesson-meta">
             <span>{{ module.concepts|length }} concept points</span>
@@ -31,6 +31,9 @@
     {% endfor %}
     </div>
   </section>
-  <a class="button" href="{{ url_for('case_studies') }}">Apply this level in a case study</a>
+  <section class="section" aria-labelledby="apply-heading">
+    <h2 id="apply-heading">Apply the level.</h2>
+    <a class="button" href="{{ url_for('case_studies') }}">Explore case studies</a>
+  </section>
 </div>
 {% endblock %}

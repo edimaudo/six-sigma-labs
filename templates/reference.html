@@ -1,3 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Glossary — Six Sigma Labs{% endblock %}
-{% block content %}<div class="container"><p>This page has moved. <a href="/glossary">Open the Glossary</a>.</p></div>{% endblock %}
+{% block title %}Glossary · Six Sigma Labs{% endblock %}
+{% block content %}
+<div class="container narrow">
+  <header class="page-header">
+    <div class="eyebrow">Glossary</div>
+    <h1>Terms, references and equations.</h1>
+    <p class="lead">The previous reference page has been consolidated into the Glossary.</p>
+  </header>
+  <p><a class="button" href="{{ url_for('glossary') }}">Open Glossary</a></p>
+</div>
+{% endblock %}

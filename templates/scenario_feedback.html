@@ -1,18 +1,17 @@
 {% extends "base.html" %}
-{% block title %}Reasoning review · {{ scenario.title }}{% endblock %}
+{% block title %}Reasoning review · {{ scenario.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
-{% if error %}<div class="panel section" role="alert"><div class="kicker">AI service unavailable</div><p>{{ error }}</p><p class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</p></div>{% endif %}
 <div class="container narrow">
-  <div class="eyebrow">Reasoning review · {{ scenario.title }}</div>
-  <h1>Your thinking, challenged.</h1>
-  {% if result %}<div class="score-strip"><strong>{{ result.score }}/100</strong><span>reasoning quality</span></div>{% endif %}
-  <section class="panel section"><div class="kicker">Your response</div><p>{{ thinking }}</p></section>
-  {% if result %}<section class="panel"><div class="kicker">Feedback</div><p>{{ result.feedback }}</p></section>{% endif %}
-  {% if result and result.missing %}
-  <section class="question section"><div class="small">Missing dimensions</div><strong>{{ result.missing|join(' · ') }}</strong></section>
-  {% endif %}
-  {% if result %}<section class="question"><div class="small">Next Socratic question</div><strong>{{ result.next_question }}</strong></section>{% endif %}
-  <div class="panel section-muted"><div class="kicker">What the system is tracking</div><p>Evidence quality, assumptions, stakeholder perspective, and DMAIC reasoning are carried forward as part of your scenario performance.</p></div>
-  <div class="button-row"><a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue investigation</a><a class="button button-secondary" href="/journal">Reflect</a></div>
+  <header class="page-header">
+    <div class="eyebrow">Case study · Reasoning review</div>
+    <h1>Your thinking, challenged.</h1>
+  </header>
+  {% if error %}<div class="alert" role="alert"><strong>AI service unavailable.</strong> {{ error }}<br><span class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</span></div>{% endif %}
+  {% if result %}<div class="score-strip" aria-label="Reasoning score"><strong>{{ result.score }}/100</strong><span>reasoning quality</span></div>{% endif %}
+  <section class="section" aria-labelledby="your-response-heading"><div class="kicker">Your response</div><h2 id="your-response-heading" class="sr-only">Your response</h2><p>{{ thinking }}</p></section>
+  {% if result %}<section class="section" aria-labelledby="feedback-heading"><div class="kicker">Feedback</div><h2 id="feedback-heading" class="sr-only">Feedback</h2><p>{{ result.feedback }}</p></section>{% endif %}
+  {% if result and result.missing %}<section class="question section" aria-labelledby="missing-heading"><div class="small">Missing dimensions</div><h2 id="missing-heading">{{ result.missing|join(' · ') }}</h2></section>{% endif %}
+  {% if result %}<section class="question" aria-labelledby="next-question-heading"><div class="small">Next Socratic question</div><h2 id="next-question-heading">{{ result.next_question }}</h2></section>{% endif %}
+  <div class="button-row"><a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue the case</a><a class="button button-secondary" href="/journal">Reflect</a></div>
 </div>
 {% endblock %}

@@ -2,29 +2,30 @@
 {% block title %}Case studies · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Case studies</div>
-  <h1>Work through business challenges.</h1>
-  <p class="lead">Choose a problem. Investigate what is known, what is missing and what the organisation stands to gain or lose.</p>
-
-  <form class="case-search" method="get" action="{{ url_for('case_studies') }}" role="search">
-    <label class="sr-only" for="case-query">Search case studies</label>
-    <input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry or method">
-    <label class="sr-only" for="case-belt">Filter by belt</label>
-    <select id="case-belt" name="belt">
-      <option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>
-      {% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}
-    </select>
-    <label class="sr-only" for="case-method">Filter by method</label>
-    <select id="case-method" name="method">
-      <option value="all" {% if method_filter == 'all' %}selected{% endif %}>All methods</option>
-      <option value="DMAIC" {% if method_filter == 'DMAIC' %}selected{% endif %}>DMAIC</option>
-      <option value="DMADV / IDOV" {% if method_filter == 'DMADV / IDOV' %}selected{% endif %}>DMADV / IDOV</option>
-    </select>
-    <button class="button button-small" type="submit">Search</button>
-  </form>
-
-  <div class="section">
-    <div class="kicker">{{ scenarios|length }} case{% if scenarios|length != 1 %}s{% endif %}</div>
+  <header class="page-header">
+    <div class="eyebrow">Case studies</div>
+    <h1>Work through business challenges.</h1>
+    <p class="lead">Choose a case and investigate the operational, economic, political and social signals before deciding what to do.</p>
+    <form class="case-search" method="get" action="{{ url_for('case_studies') }}" role="search">
+      <label class="sr-only" for="case-query">Search case studies</label>
+      <input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry or method">
+      <label class="sr-only" for="case-belt">Filter by belt</label>
+      <select id="case-belt" name="belt">
+        <option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>
+        {% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}
+      </select>
+      <label class="sr-only" for="case-method">Filter by method</label>
+      <select id="case-method" name="method">
+        <option value="all" {% if method_filter == 'all' %}selected{% endif %}>All methods</option>
+        <option value="DMAIC" {% if method_filter == 'DMAIC' %}selected{% endif %}>DMAIC</option>
+        <option value="DMADV / IDOV" {% if method_filter == 'DMADV / IDOV' %}selected{% endif %}>DMADV / IDOV</option>
+      </select>
+      <button class="button button-small" type="submit">Search</button>
+    </form>
+  </header>
+  <section aria-labelledby="case-count-heading">
+    <h2 id="case-count-heading" class="sr-only">Available case studies</h2>
+    <p class="small">{{ scenarios|length }} case{% if scenarios|length != 1 %}s{% endif %}</p>
     <div class="grid-2 case-grid">
       {% for scenario in scenarios %}
       <article class="card case-card">
@@ -37,6 +38,6 @@
       <div class="panel"><h2>No cases found.</h2><p>Try a different search or filter.</p></div>
       {% endfor %}
     </div>
-  </div>
+  </section>
 </div>
 {% endblock %}

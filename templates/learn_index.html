@@ -2,11 +2,13 @@
 {% block title %}Learn · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Learn</div>
-  <h1>Build your Six Sigma skills.</h1>
-  <p class="lead">One curriculum from White Belt through Black Belt, with process, data, statistics and design methods taught where they are used.</p>
-  <section class="section" aria-labelledby="belt-paths">
-    <div class="kicker">The learning path</div>
+  <header class="page-header">
+    <div class="eyebrow">Learn</div>
+    <h1>Build your Six Sigma skills.</h1>
+    <p class="lead">One integrated curriculum from White Belt through Black Belt, with process, data, statistics, Lean and design methods taught where they are used.</p>
+  </header>
+  <section aria-labelledby="belt-paths">
+    <div class="kicker">Learning paths</div>
     <h2 id="belt-paths">Choose a belt and start with the first question.</h2>
     <div class="lesson-list">
       {% for key in belt_order %}
@@ -15,7 +17,7 @@
         <div class="lesson-header">
           <div class="lesson-number">{{ key|upper }}</div>
           <div>
-            <h2>{{ item.name }}</h2>
+            <h3>{{ item.name }}</h3>
             <p>{{ item.tagline }}</p>
             <div class="lesson-meta"><span>{{ item.modules|length }} lessons</span><span>Six Sigma methods</span><span>Process and data integrated</span></div>
           </div>

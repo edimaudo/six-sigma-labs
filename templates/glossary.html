@@ -2,18 +2,21 @@
 {% block title %}Glossary · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Glossary</div>
-  <h1>Terms, references and equations.</h1>
-  <p class="lead">A working reference for the methods, measures and mathematics used throughout Six Sigma Labs.</p>
+  <header class="page-header">
+    <div class="eyebrow">Glossary</div>
+    <h1>Terms, references and equations.</h1>
+    <p class="lead">A working reference for the methods, measures and mathematics used throughout Six Sigma Labs.</p>
+    <label class="sr-only" for="glossary-search">Search glossary</label>
+    <input id="glossary-search" class="reference-search" type="search" placeholder="Search terms, definitions or equations" autocomplete="off" aria-describedby="glossary-search-help">
+    <p id="glossary-search-help" class="small">Search is applied across terms, definitions, explanations and formulas.</p>
+    <p id="glossary-count" class="small" aria-live="polite">{{ glossary|length + math_reference|length }} entries</p>
+  </header>
 
-  <label class="sr-only" for="glossary-search">Search glossary</label>
-  <input id="glossary-search" class="reference-search" type="search" placeholder="Search terms, definitions or equations" autocomplete="off">
-
-  <div class="section" aria-labelledby="terms-heading">
+  <section aria-labelledby="terms-heading">
     <div class="kicker">Terms</div>
     <h2 id="terms-heading">Definitions you can use at work.</h2>
     <div class="glossary-grid" id="glossary-results">
-      {% for term, entry in glossary.items() %}
+      {% for term, entry in glossary|dictsort(case_sensitive=false) %}
       <article class="term-card reference-card" data-reference="{{ (term ~ ' ' ~ entry.definition ~ ' ' ~ entry.why_it_matters ~ ' ' ~ entry.use_when ~ ' ' ~ entry.watch_out)|lower }}">
         <h3>{{ term }}</h3>
         <p><strong>Definition.</strong> {{ entry.definition }}</p>
@@ -23,13 +26,13 @@
       </article>
       {% endfor %}
     </div>
-  </div>
+  </section>
 
-  <div class="section" aria-labelledby="math-heading">
+  <section class="section" aria-labelledby="math-heading">
     <div class="kicker">Equations</div>
     <h2 id="math-heading">The mathematics behind the method.</h2>
     <div class="term-grid" id="math-results">
-      {% for name, formula, explanation in math_reference %}
+      {% for name, formula, explanation in math_reference|sort(attribute=0) %}
       <article class="term-card reference-card" data-reference="{{ (name ~ ' ' ~ formula ~ ' ' ~ explanation)|lower }}">
         <h3>{{ name }}</h3>
         <div class="formula-row"><code>{{ formula }}</code></div>
@@ -37,7 +40,7 @@
       </article>
       {% endfor %}
     </div>
-  </div>
+  </section>
   <p id="glossary-empty" class="panel" hidden>No matching entries.</p>
 </div>
 <script>
@@ -45,6 +48,7 @@
     const input = document.getElementById('glossary-search');
     const cards = Array.from(document.querySelectorAll('[data-reference]'));
     const empty = document.getElementById('glossary-empty');
+    const count = document.getElementById('glossary-count');
     input.addEventListener('input', function () {
       const query = input.value.trim().toLowerCase();
       let visible = 0;
@@ -53,6 +57,7 @@
         card.hidden = !match;
         if (match) visible += 1;
       });
+      count.textContent = visible + (visible === 1 ? ' entry' : ' entries');
       empty.hidden = visible !== 0;
     });
   });

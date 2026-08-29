@@ -1,17 +1,22 @@
 {% extends "base.html" %}
-{% block title %}Journal{% endblock %}
+{% block title %}Journal · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
-  <div class="eyebrow">Reflection</div>
-  <h1>Keep a record of your reasoning.</h1>
-  <p class="lead">The journal captures how your thinking changes as evidence, stakeholders, and constraints enter the problem.</p>
-  <form method="post" action="/journal" class="panel">
-    <div class="form-field"><label for="reflection">What did you believe initially, what evidence changed your thinking, and what would you do differently?</label><textarea id="reflection" name="reflection" rows="9" required></textarea></div>
-    <button class="button" type="submit">Save reflection</button>
-  </form>
-  <div class="section">
-    <h2>Recent reflections</h2>
-    {% for entry in entries %}<div class="panel"><p>{{ entry }}</p></div>{% else %}<p class="small">No reflections yet.</p>{% endfor %}
-  </div>
+  <header class="page-header">
+    <div class="eyebrow">Reflection</div>
+    <h1>Keep a record of your reasoning.</h1>
+    <p class="lead">Capture how your thinking changes as evidence, stakeholders, and constraints enter the problem.</p>
+  </header>
+  <section aria-labelledby="reflection-heading">
+    <h2 id="reflection-heading">Write a reflection.</h2>
+    <form method="post" action="/journal" class="section">
+      <div class="form-field"><label for="reflection">What did you believe initially, what evidence changed your thinking, and what would you do differently?</label><textarea id="reflection" name="reflection" rows="9" required></textarea></div>
+      <button class="button" type="submit">Save reflection</button>
+    </form>
+  </section>
+  <section class="section" aria-labelledby="recent-heading">
+    <h2 id="recent-heading">Recent reflections.</h2>
+    {% for entry in entries %}<article class="panel"><p>{{ entry }}</p></article>{% else %}<p class="small">No reflections yet.</p>{% endfor %}
+  </section>
 </div>
 {% endblock %}

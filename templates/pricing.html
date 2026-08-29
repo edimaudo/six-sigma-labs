@@ -2,25 +2,27 @@
 {% block title %}Pricing · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="eyebrow">Pricing</div>
-  <h1>Choose how you want to learn.</h1>
-  <p class="lead">Start free. Upgrade when you are ready for the full course.</p>
-  <section class="pricing-grid pricing-grid-two section" aria-label="Pricing options">
+  <header class="page-header">
+    <div class="eyebrow">Pricing</div>
+    <h1>Choose how you want to learn.</h1>
+    <p class="lead">Start with the foundation. Move into the full curriculum when you are ready.</p>
+  </header>
+  <section class="pricing-grid" aria-labelledby="pricing-heading">
+    <h2 id="pricing-heading" class="sr-only">Pricing options</h2>
     <article class="price-card">
       <div class="number">START</div>
       <h2>Free</h2>
-      <p>Build a foundation and find the right belt level for you.</p>
-      <ul class="clean"><li>Foundations</li><li>Belt level assessment</li><li>Selected lessons and cases</li><li>Reference library</li></ul>
+      <p>Build the foundation and find your starting level.</p>
+      <ul><li>Foundations</li><li>Belt level</li><li>Selected lessons and cases</li><li>Glossary</li></ul>
       <a class="button button-secondary" href="/belt-level">Find my starting point</a>
     </article>
-    <article class="price-card featured">
+    <article class="price-card">
       <div class="number">FULL COURSE</div>
-      <h2>$29<span class="price-period">/month</span></h2>
-      <p>Complete Six Sigma learning with applied cases and AI-guided practice.</p>
-      <ul class="clean"><li>White, Yellow, Green and Black Belt</li><li>DMAIC and DMADV / IDOV</li><li>Full case-study library</li><li>Gemini-powered stakeholder conversations</li><li>Full glossary, math and process/data reference</li></ul>
+      <h2>Full course</h2>
+      <p>Complete White, Yellow, Green and Black Belt learning with applied cases.</p>
+      <ul><li>Full curriculum</li><li>DMAIC and DMADV / IDOV</li><li>Complete case-study library</li><li>Gemini-guided practice</li><li>Full glossary and equations</li></ul>
       <a class="button" href="/belt-level">Find my starting point</a>
     </article>
   </section>
-  <p class="small pricing-note">Payments are not connected in this prototype.</p>
 </div>
 {% endblock %}

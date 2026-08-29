@@ -1,29 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Create your account · Six Sigma Operations Lab{% endblock %}
+{% block title %}Create your account · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
-  <div class="signup-layout">
-    <section>
-      <div class="eyebrow">Start learning</div>
-      <h1>Build your Six Sigma operating skillset.</h1>
-      <p class="lead">Create an account to save your diagnostic, lessons, scenario decisions, teach-back attempts, and reflections.</p>
-      <div class="panel">
-        <div class="kicker">What happens next</div>
-        <ol class="clean"><li>Take the belt diagnostic.</li><li>Choose a business context.</li><li>Start working through case studies.</li></ol>
-      </div>
-    </section>
-    <section class="panel signup-card" aria-labelledby="signup-heading">
-      <div class="eyebrow">Create account</div>
-      <h2 id="signup-heading">Sign up</h2>
-      {% if error %}<div class="alert" role="alert">{{ error }}</div>{% endif %}
-      <form method="post" action="/signup">
-        <div class="form-field"><label for="name">Name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
-        <div class="form-field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-        <div class="form-field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required><div class="small">At least 8 characters.</div></div>
-        <p class="small">Already have an account? <a href="/signin">Sign in</a>.</p>
-        <button class="button" type="submit">Create account</button>
-      </form>
-    </section>
-  </div>
+  <header class="page-header">
+    <div class="eyebrow">Account</div>
+    <h1>Create your account.</h1>
+    <p class="lead">Account creation is currently disabled while the learning experience is being validated.</p>
+  </header>
+  <p><a class="button" href="{{ url_for('belt_level') }}">Start with Belt level</a></p>
 </div>
 {% endblock %}
