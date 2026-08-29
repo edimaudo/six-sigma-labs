@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
-from content import BELTS, BELT_ORDER, DIAGNOSTIC, GLOSSARY, MATH_REFERENCE, SCENARIOS
+from content import BELTS, BELT_ORDER, DIAGNOSTIC, DIAGNOSTIC_BANK, GLOSSARY, MATH_REFERENCE, SCENARIOS
 from db import (
     add_attempt,
     add_journal,
@@ -98,70 +98,158 @@ async def landing(request: Request):
 # @app.post("/signin") ...
 # @app.post("/signout") ...
 
+BELT_LEVEL_ANCHORS = ["W1", "Y1", "G1", "B1"]
+BELT_LEVEL_BRANCHES = {
+    "black": {"questions": ["B2", "B3", "B4", "B5", "G2", "G3"], "depth": ["B1", "B2", "B3", "B4", "B5", "G2", "G3"], "stretch": None, "backstop": ["G2", "G3"]},
+    "green": {"questions": ["G2", "G3", "G4", "G5", "B2", "Y2"], "depth": ["G1", "G2", "G3", "G4", "G5", "B2", "Y2"], "stretch": "B2", "backstop": ["Y2"]},
+    "yellow": {"questions": ["Y2", "Y3", "Y4", "Y5", "G2", "W2"], "depth": ["Y1", "Y2", "Y3", "Y4", "Y5", "G2", "W2"], "stretch": "G2", "backstop": ["W2"]},
+    "white": {"questions": ["W2", "W3", "W4", "W5", "Y2", "W1"], "depth": ["W1", "W2", "W3", "W4", "W5", "Y2"], "stretch": "Y2", "backstop": []},
+}
+
+DIAGNOSTIC_BY_ID = {q["id"]: q for q in DIAGNOSTIC_BANK}
+
+def _question_set(ids: list[str], repeat_w1: bool = False):
+    out = []
+    for qid in ids:
+        q = dict(DIAGNOSTIC_BY_ID[qid])
+        if repeat_w1 and qid == "W1":
+            q = dict(q)
+            q["display_id"] = "W1 · confidence check"
+            q["id"] = "W1R"
+        else:
+            q["display_id"] = qid
+        out.append(q)
+    return out
+
+def _answer_map(form):
+    result = {}
+    for q in DIAGNOSTIC_BANK:
+        key = f"answer_{q['id']}"
+        if key in form:
+            result[q["id"]] = str(form.get(key))
+    if "answer_W1R" in form:
+        result["W1R"] = str(form.get("answer_W1R"))
+    return result
+
+def _correct(question_id: str, answer_value: str | None) -> bool:
+    source_id = "W1" if question_id == "W1R" else question_id
+    q = DIAGNOSTIC_BY_ID[source_id]
+    return answer_value == str(q["answer"])
+
+def _branch_from_anchors(answers: dict[str, str]) -> str:
+    if _correct("B1", answers.get("B1")):
+        return "black"
+    if _correct("G1", answers.get("G1")):
+        return "green"
+    if _correct("Y1", answers.get("Y1")):
+        return "yellow"
+    return "white"
+
+def _recommendation(branch: str, answers: dict[str, str]):
+    cfg = BELT_LEVEL_BRANCHES[branch]
+    depth_ids = cfg["depth"]
+    depth_correct = sum(1 for qid in depth_ids if _correct(qid, answers.get(qid)))
+    depth_total = len(depth_ids)
+    pct = depth_correct / depth_total if depth_total else 0
+    stretch_correct = cfg["stretch"] is None or _correct(cfg["stretch"], answers.get(cfg["stretch"]))
+    idx = BELT_ORDER.index(branch)
+    recommendation = branch
+    note = ""
+    if pct >= 0.8 and stretch_correct:
+        recommendation = BELT_ORDER[min(idx + 1, len(BELT_ORDER) - 1)]
+        note = "Strong performance in the branched tier suggests you are ready to begin one tier higher." if recommendation != branch else "Strong performance supports starting at this level."
+    elif pct >= 0.8 and not stretch_correct:
+        recommendation = branch
+        note = "You handled the core tier well, but the stretch question suggests starting here rather than moving up."
+    elif pct >= 0.5:
+        recommendation = branch
+        note = "You have a workable foundation at this level; the early lessons are worth reviewing."
+    else:
+        recommendation = BELT_ORDER[max(0, idx - 1)]
+        note = "The depth check suggests reinforcing the previous tier before moving ahead." if idx > 0 else "Start with the White Belt foundations and build from there."
+    return recommendation, depth_correct, depth_total, pct, stretch_correct, note
+
 @app.get("/belt-level", response_class=HTMLResponse)
 async def belt_level(request: Request):
-    return templates.TemplateResponse(request=request, name="diagnostic.html", context=context(request, questions=DIAGNOSTIC))
-
+    request.session.pop("belt_level_answers", None)
+    request.session.pop("belt_level_branch", None)
+    questions = _question_set(BELT_LEVEL_ANCHORS)
+    return templates.TemplateResponse(
+        request=request,
+        name="diagnostic.html",
+        context=context(request, questions=questions, round=1, total_rounds=2, branch=None),
+    )
 
 @app.post("/belt-level", response_class=HTMLResponse)
-async def belt_level_submit(
-    request: Request,
-    answers: Annotated[list[str] | None, Form()] = None,
-    business_area: Annotated[str, Form()] = "",
-):
-    user_id = current_user_id(request)
-    values = answers or []
-    score = sum(1 for idx, q in enumerate(DIAGNOSTIC) if idx < len(values) and values[idx] == str(q["answer"]))
-    by_belt = {belt: {"correct": 0, "total": 0} for belt in BELT_ORDER}
-    for idx, q in enumerate(DIAGNOSTIC):
-        by_belt[q["belt"]]["total"] += 1
-        if idx < len(values) and values[idx] == str(q["answer"]):
-            by_belt[q["belt"]]["correct"] += 1
-    belt_key = "white"
-    for candidate in BELT_ORDER:
-        total = by_belt[candidate]["total"]
-        required = max(1, math.ceil(total * 0.75))
-        if by_belt[candidate]["correct"] >= required:
-            belt_key = candidate
-        else:
-            break
+async def belt_level_submit(request: Request):
+    form = await request.form()
+    round_number = str(form.get("round") or "1")
+    business_area = str(form.get("business_area") or request.session.get("belt_level_business_area") or "")
+    answers = _answer_map(form)
+
+    if round_number == "1":
+        branch = _branch_from_anchors(answers)
+        request.session["belt_level_answers"] = answers
+        request.session["belt_level_branch"] = branch
+        request.session["belt_level_business_area"] = business_area
+        branch_ids = BELT_LEVEL_BRANCHES[branch]["questions"]
+        questions = _question_set(branch_ids, repeat_w1=(branch == "white"))
+        return templates.TemplateResponse(
+            request=request,
+            name="diagnostic.html",
+            context=context(request, questions=questions, round=2, total_rounds=2, branch=branch, business_area=business_area),
+        )
+
+    stored = dict(request.session.get("belt_level_answers") or {})
+    stored.update(answers)
+    branch = str(request.session.get("belt_level_branch") or "white")
+    business_area = str(request.session.get("belt_level_business_area") or business_area)
+    recommendation, depth_correct, depth_total, depth_pct, stretch_correct, note = _recommendation(branch, stored)
+    total_correct = sum(1 for q in DIAGNOSTIC_BANK if q["id"] in stored and _correct(q["id"], stored[q["id"]]))
+    # W1 confidence check is intentionally not a new bank item and is excluded from the 20-question count.
+    if "W1R" in stored and _correct("W1R", stored["W1R"]):
+        total_correct += 1
     request.session["diagnostic_complete"] = True
-    update_learner(user_id, business_area=business_area, belt=belt_key, diagnostic_score=score, diagnostic_total=len(DIAGNOSTIC))
+    request.session["belt_level_answers"] = stored
+    update_learner(
+        current_user_id(request),
+        business_area=business_area,
+        belt=recommendation,
+        diagnostic_score=total_correct,
+        diagnostic_total=10,
+    )
+    by_belt = {belt: {"correct": 0, "total": 0} for belt in BELT_ORDER}
+    for q in DIAGNOSTIC_BANK:
+        if q["id"] in stored:
+            by_belt[q["belt"]]["total"] += 1
+            if _correct(q["id"], stored[q["id"]]):
+                by_belt[q["belt"]]["correct"] += 1
     return templates.TemplateResponse(
         request=request,
         name="diagnostic_result.html",
-        context=context(request, score=score, max_score=len(DIAGNOSTIC), belt=BELTS[belt_key], by_belt=by_belt),
+        context=context(
+            request,
+            score=total_correct,
+            max_score=10,
+            belt=BELTS[recommendation],
+            branch=BELTS[branch],
+            depth_correct=depth_correct,
+            depth_total=depth_total,
+            depth_pct=round(depth_pct * 100),
+            stretch_correct=stretch_correct,
+            recommendation_note=note,
+            by_belt=by_belt,
+        ),
     )
 
-
-# Backward-compatible aliases for the previous diagnostic URL.
+# Backward-compatible alias for the previous diagnostic URL.
 @app.get("/diagnostic", response_class=HTMLResponse)
 async def diagnostic_legacy(request: Request):
     return RedirectResponse("/belt-level", status_code=303)
 
-
 @app.post("/diagnostic", response_class=HTMLResponse)
 async def diagnostic_legacy_post(request: Request):
-    form = await request.form()
-    values = form.getlist("answers")
-    business_area = str(form.get("business_area") or "")
-    user_id = current_user_id(request)
-    score = sum(1 for idx, q in enumerate(DIAGNOSTIC) if idx < len(values) and values[idx] == str(q["answer"]))
-    by_belt = {belt: {"correct": 0, "total": 0} for belt in BELT_ORDER}
-    for idx, q in enumerate(DIAGNOSTIC):
-        by_belt[q["belt"]]["total"] += 1
-        if idx < len(values) and values[idx] == str(q["answer"]):
-            by_belt[q["belt"]]["correct"] += 1
-    belt_key = "white"
-    for candidate in BELT_ORDER:
-        total = by_belt[candidate]["total"]
-        required = max(1, math.ceil(total * 0.75))
-        if by_belt[candidate]["correct"] >= required:
-            belt_key = candidate
-        else:
-            break
-    update_learner(user_id, business_area=business_area, belt=belt_key, diagnostic_score=score, diagnostic_total=len(DIAGNOSTIC))
-    return templates.TemplateResponse(request=request, name="diagnostic_result.html", context=context(request, score=score, max_score=len(DIAGNOSTIC), belt=BELTS[belt_key], by_belt=by_belt))
+    return RedirectResponse("/belt-level", status_code=307)
 
 
 @app.get("/learn", response_class=HTMLResponse)

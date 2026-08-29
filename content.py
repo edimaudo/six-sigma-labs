@@ -473,353 +473,226 @@ GLOSSARY = {'5S': {'definition': 'Sort, Set in Order, Shine, Standardize, Sustai
 
 
 MATH_REFERENCE = [
-    {
-        "name": "Mean",
-        "formula": "x̄ = Σx / n",
-        "explanation": "The arithmetic average of the observed values. It is sensitive to unusually large or small observations.",
-        "variables": [
-            "x = an individual observed value",
-            "x̄ = the sample mean",
-            "n = the number of observations in the sample",
-            "Σ = sum across all observations"
-        ],
-    },
-    {
-        "name": "Median",
-        "formula": "Middle ordered value",
-        "explanation": "The middle value after observations are sorted. With an even number of observations, it is the average of the two middle values.",
-        "variables": ["No algebraic variables are required for this definition."]
-    },
-    {
-        "name": "Sample variance",
-        "formula": "s² = Σ(x − x̄)² / (n − 1)",
-        "explanation": "Measures the squared dispersion of sample observations around their sample mean.",
-        "variables": [
-            "s² = sample variance",
-            "x = an individual observed value",
-            "x̄ = the sample mean",
-            "n = the number of observations in the sample",
-            "Σ = sum across all observations"
-        ],
-    },
-    {
-        "name": "Sample standard deviation",
-        "formula": "s = √s²",
-        "explanation": "The square root of sample variance; it expresses spread in the original units of measurement.",
-        "variables": [
-            "s = sample standard deviation",
-            "s² = sample variance",
-            "√ = square-root operation"
-        ],
-    },
-    {
-        "name": "Z-score",
-        "formula": "z = (x − μ) / σ",
-        "explanation": "Expresses how far an observation is from the population mean in standard-deviation units.",
-        "variables": [
-            "z = standardized score",
-            "x = observed value",
-            "μ = population mean",
-            "σ = population standard deviation"
-        ],
-    },
-    {
-        "name": "Standard error of the mean",
-        "formula": "SE = s / √n",
-        "explanation": "Estimates the sampling variability of a sample mean.",
-        "variables": [
-            "SE = standard error of the sample mean",
-            "s = sample standard deviation",
-            "n = sample size",
-            "√ = square-root operation"
-        ],
-    },
-    {
-        "name": "95% confidence interval",
-        "formula": "estimate ± critical value × SE",
-        "explanation": "Builds an interval around a sample estimate using a critical value appropriate to the chosen confidence level and statistical method.",
-        "variables": [
-            "estimate = the sample estimate of the population quantity of interest",
-            "critical value = value determined by the confidence level and statistical distribution",
-            "SE = standard error of the estimate",
-            "± = add and subtract the margin from the estimate"
-        ],
-    },
-    {
-        "name": "Binomial probability",
-        "formula": "P(X = k) = C(n,k)pᵏ(1 − p)ⁿ⁻ᵏ",
-        "explanation": "Models the probability of exactly k successes in n independent trials when each trial has the same success probability p.",
-        "variables": [
-            "P(X = k) = probability of exactly k successes",
-            "X = number of successes across the trials",
-            "k = target number of successes",
-            "n = total number of independent trials",
-            "p = probability of success on each trial",
-            "C(n,k) = number of ways to choose k successes from n trials",
-            "1 − p = probability of failure on each trial"
-        ],
-    },
-    {
-        "name": "Poisson probability",
-        "formula": "P(X = k) = e⁻λ λᵏ / k!",
-        "explanation": "Models the probability of observing exactly k events in a fixed interval when the Poisson assumptions are appropriate.",
-        "variables": [
-            "P(X = k) = probability of exactly k events",
-            "X = event count in the interval",
-            "k = observed event count of interest",
-            "λ = expected number of events in the interval",
-            "e = Euler's number, approximately 2.71828",
-            "k! = factorial of k"
-        ],
-    },
-    {
-        "name": "Defects per opportunity",
-        "formula": "DPO = defects / (units × opportunities per unit)",
-        "explanation": "Normalizes defects by the number of opportunities for a defect to occur.",
-        "variables": [
-            "DPO = defects per opportunity",
-            "defects = total counted defects",
-            "units = total units processed",
-            "opportunities per unit = number of potential defect opportunities on each unit"
-        ],
-    },
-    {
-        "name": "Defects per million opportunities",
-        "formula": "DPMO = DPO × 1,000,000",
-        "explanation": "Expresses defects per opportunity on a one-million-opportunity scale.",
-        "variables": [
-            "DPMO = defects per million opportunities",
-            "DPO = defects per opportunity",
-            "1,000,000 = scaling factor to one million opportunities"
-        ],
-    },
-    {
-        "name": "Yield",
-        "formula": "Yield = good units / total units × 100%",
-        "explanation": "The percentage of units that meet the defined acceptance rule.",
-        "variables": [
-            "Yield = percentage of units that pass the defined acceptance rule",
-            "good units = units meeting the defined acceptance rule",
-            "total units = all units considered",
-            "100% = converts the proportion to a percentage"
-        ],
-    },
-    {
-        "name": "Cp",
-        "formula": "Cp = (USL − LSL) / (6σ)",
-        "explanation": "Measures potential process capability by comparing specification width with estimated process spread, without accounting for process centering.",
-        "variables": [
-            "Cp = potential process capability index",
-            "USL = upper specification limit",
-            "LSL = lower specification limit",
-            "σ = process standard deviation",
-            "6σ = six standard deviations representing the process spread convention used in the index"
-        ],
-    },
-    {
-        "name": "Cpk",
-        "formula": "Cpk = min[(USL − μ)/(3σ), (μ − LSL)/(3σ)]",
-        "explanation": "Measures capability while accounting for the distance between the process mean and the nearest specification limit.",
-        "variables": [
-            "Cpk = centered process capability index",
-            "USL = upper specification limit",
-            "LSL = lower specification limit",
-            "μ = process mean",
-            "σ = process standard deviation",
-            "min = select the smaller of the two capability ratios"
-        ],
-    },
-    {
-        "name": "Simple regression",
-        "formula": "Y = β₀ + β₁X + ε",
-        "explanation": "Represents a linear model relating one predictor to a response.",
-        "variables": [
-            "Y = response variable being modeled",
-            "X = predictor or explanatory variable",
-            "β₀ = estimated intercept of the fitted line",
-            "β₁ = estimated slope for X",
-            "ε = model error or unexplained residual component"
-        ],
-    },
-    {
-        "name": "Multiple regression",
-        "formula": "Y = β₀ + β₁X₁ + … + βₖXₖ + ε",
-        "explanation": "Models a response using multiple predictors while estimating a coefficient for each predictor.",
-        "variables": [
-            "Y = response variable",
-            "β₀ = intercept",
-            "βⱼ = estimated coefficient for predictor j",
-            "Xⱼ = value of predictor j",
-            "k = total number of predictors",
-            "ε = model error or unexplained residual component",
-            "j = index identifying a predictor from 1 through k"
-        ],
-    },
-    {
-        "name": "CUSUM",
-        "formula": "Cₜ = max(0, Cₜ₋₁ + xₜ − target − k)",
-        "explanation": "Accumulates deviations from a target to make persistent shifts in a process easier to detect. Exact CUSUM forms vary by chart design.",
-        "variables": [
-            "Cₜ = current cumulative-sum statistic",
-            "Cₜ₋₁ = previous cumulative-sum statistic",
-            "xₜ = current observed process value",
-            "target = target or reference process value",
-            "k = reference or allowance constant used by the selected CUSUM design",
-            "t = time or observation index",
-            "max(0, …) = resets the one-sided statistic at zero when the accumulated evidence becomes negative"
-        ],
-    },
-    {
-        "name": "EWMA",
-        "formula": "Zₜ = λXₜ + (1 − λ)Zₜ₋₁",
-        "explanation": "Weights the current observation and the prior smoothed value to detect gradual shifts.",
-        "variables": [
-            "Zₜ = current EWMA statistic",
-            "Xₜ = current observed process value",
-            "Zₜ₋₁ = prior EWMA statistic",
-            "λ = smoothing constant between 0 and 1; larger values give more weight to the latest observation",
-            "t = time or observation index"
-        ],
-    },
-    {
-        "name": "Correlation",
-        "formula": "r = cov(X,Y) / (sₓsᵧ)",
-        "explanation": "Measures standardized linear association between two variables. It does not establish causation.",
-        "variables": [
-            "r = correlation coefficient",
-            "X = first variable",
-            "Y = second variable",
-            "cov(X,Y) = sample covariance between X and Y",
-            "sₓ = sample standard deviation of X",
-            "sᵧ = sample standard deviation of Y"
-        ],
-    },
-    {
-        "name": "R-squared",
-        "formula": "R² = 1 − SSE / SST",
-        "explanation": "Describes the proportion of sample response variation represented by the fitted regression model.",
-        "variables": [
-            "R² = coefficient of determination",
-            "SSE = sum of squared residual errors from the fitted model",
-            "SST = total sum of squares measuring total response variation"
-        ],
-    },
-    {
-        "name": "Two-level factorial combinations",
-        "formula": "2ᵏ",
-        "explanation": "Counts the treatment combinations in a full factorial experiment with two levels for each factor.",
-        "variables": [
-            "k = number of factors",
-            "2 = number of levels for each factor"
-        ],
-    },
-    {
-        "name": "PCA variance share",
-        "formula": "variance shareⱼ = eigenvalueⱼ / Σ eigenvalues",
-        "explanation": "Shows the share of total scaled variance represented by principal component j.",
-        "variables": [
-            "variance shareⱼ = proportion of total represented variance for component j",
-            "eigenvalueⱼ = eigenvalue associated with principal component j",
-            "j = index identifying the principal component",
-            "Σ eigenvalues = sum of the eigenvalues retained or considered"
-        ],
-    },
-    {
-        "name": "Net present value",
-        "formula": "NPV = Σ[CFₜ / (1 + r)ᵗ] − initial investment",
-        "explanation": "Measures the present value of future cash flows after discounting them and subtracting the initial investment.",
-        "variables": [
-            "NPV = net present value",
-            "CFₜ = net cash flow received in period t",
-            "t = period number",
-            "r = discount rate per period",
-            "initial investment = cash outflow at the start of the project",
-            "Σ = sum across the project periods"
-        ],
-    },
+    ("Mean", "x̄ = Σx / n", "Average of observed values; sensitive to extreme values."),
+    ("Median", "Middle ordered value", "Robust measure of center when data is skewed."),
+    ("Sample variance", "s² = Σ(x−x̄)² / (n−1)", "Measures squared dispersion around the sample mean."),
+    ("Sample standard deviation", "s = √s²", "Expresses process spread in the original measurement units."),
+    ("Z-score", "z = (x−μ) / σ", "Number of standard deviations an observation is from the mean."),
+    ("Standard error of mean", "SE = s / √n", "Sampling variability of the sample mean."),
+    ("95% confidence interval", "estimate ± critical value × SE", "Quantifies uncertainty around a population estimate."),
+    ("Binomial probability", "P(X=k)=C(n,k)p^k(1-p)^(n-k)", "Models counts of successes across fixed independent trials under assumptions."),
+    ("Poisson probability", "P(X=k)=e^(−λ) λ^k / k!", "Models counts over a fixed interval under Poisson assumptions."),
+    ("DPO", "defects / (units × opportunities)", "Normalizes defects by the number of defect opportunities."),
+    ("DPMO", "DPO × 1,000,000", "DPO expressed per one million opportunities."),
+    ("Yield", "good units / total units", "Share of units meeting the defined acceptance rule."),
+    ("Cp", "(USL−LSL)/(6σ)", "Potential capability assuming a stable, centered-enough process and suitable assumptions."),
+    ("Cpk", "min[(USL−μ)/(3σ),(μ−LSL)/(3σ)]", "Capability adjusted for process centering."),
+    ("Simple regression", "Y = β0 + β1X + ε", "Models a linear relationship between one predictor and a response."),
+    ("Multiple regression", "Y = β0 + ΣβjXj + ε", "Models a response using several predictors."),
+    ("CUSUM", "C_t = max(0, C_{t−1} + x_t − target − k)", "Cumulative evidence for a sustained process shift; exact form depends on the chart design."),
+    ("EWMA", "Z_t = λX_t + (1−λ)Z_{t−1}", "Exponentially weighted monitoring statistic; λ controls responsiveness to recent observations."),
+    ("Correlation", "r = cov(X,Y)/(s_X s_Y)", "Standardized linear association; correlation alone does not establish causation."),
+    ("R-squared", "R² = 1 − SSE/SST", "Proportion of sample response variation explained by the fitted regression model."),
+    ("Factorial combinations", "2^k", "Number of treatment combinations for a two-level full factorial with k factors."),
+    ("PCA variance share", "eigenvalue_j / Σ eigenvalues", "Share of total scaled variance represented by a principal component."),
+    ("NPV", "Σ CFt/(1+r)^t − initial investment", "Discounted economic value of a project."),
 ]
 
-# Every lesson-level math entry is normalized to the same structure used by the glossary.
-# The mapping is deliberately exact so a displayed equation always has a visible variable glossary.
-MATH_VARIABLES_BY_FORMULA = {
-    "Variation is the spread of observed process outcomes around a central tendency.": ["No algebraic variables are used; this is a conceptual definition."],
-    "A defect is a failure to meet a defined customer or process requirement.": ["No algebraic variables are used; this is a conceptual definition."],
-    "Cycle time is elapsed time from a defined start to a defined end of a process.": ["No algebraic variables are used; this is a conceptual definition."],
-    "A value-adding activity changes the product or service in a way the customer needs and is willing to pay for.": ["No algebraic variables are used; this is a conceptual definition."],
-    "Pareto percentage = category frequency / total frequency × 100.": ["category frequency = count in the selected category", "total frequency = total count across all categories", "100 = percentage conversion factor"],
-    "Mean = sum of observations / number of observations.": ["sum of observations = total of all observed values", "number of observations = sample size"],
-    "Standard deviation describes the spread of observations around the mean.": ["No algebraic variables are used; this is a conceptual definition."],
-    "P(A) is the probability of event A.": ["P(A) = probability that event A occurs", "A = the event whose probability is being evaluated"],
-    "Expected value for a discrete variable: E(X) = Σ x·P(X=x).": ["E(X) = expected value of random variable X", "X = discrete random variable", "x = a possible value of X", "P(X=x) = probability that X equals x", "Σ = sum across all possible values of X"],
-    "IQR = Q3 − Q1.": ["IQR = interquartile range", "Q3 = third quartile, the 75th percentile", "Q1 = first quartile, the 25th percentile"],
-    "Coefficient of variation = standard deviation / mean, when the ratio is meaningful.": ["coefficient of variation = standardized measure of relative spread", "standard deviation = measure of spread in the original units", "mean = arithmetic average"],
-    "Normal density: f(x)=1/(σ√(2π))·e^{-(x−μ)^2/(2σ²)}.": ["f(x) = normal probability density at x", "x = observed value", "μ = population mean", "σ = population standard deviation", "π = mathematical constant pi", "e = Euler's number, approximately 2.71828"],
-    "Binomial probability: P(X=k)=C(n,k)p^k(1-p)^{n-k}.": ["P(X=k) = probability of exactly k successes", "X = number of successes", "k = target number of successes", "n = number of trials", "p = probability of success on each trial", "C(n,k) = number of combinations of k successes among n trials"],
-    "Gauge R&R separates measurement variation from process variation for suitable measurement contexts.": ["No algebraic variables are used; this is a conceptual statement about measurement-system analysis."],
-    "Cp = (USL−LSL)/(6σ).": ["Cp = potential capability index", "USL = upper specification limit", "LSL = lower specification limit", "σ = process standard deviation"],
-    "Cpk = min[(USL−μ)/(3σ),(μ−LSL)/(3σ)].": ["Cpk = centered capability index", "USL = upper specification limit", "LSL = lower specification limit", "μ = process mean", "σ = process standard deviation", "min = the smaller of the two capability ratios"],
-    "Z-score = (x−μ)/σ.": ["Z-score = standardized distance from the mean", "x = observed value", "μ = population mean", "σ = population standard deviation"],
-    "Two-sided z statistic: z=(x̄−μ0)/(σ/√n).": ["z = standardized test statistic", "x̄ = sample mean", "μ₀ = hypothesized population mean under the null hypothesis", "σ = population standard deviation or known standard deviation used by the test", "n = sample size"],
-    "Approximate two-sided 95% CI: estimate ± 1.96×standard error.": ["estimate = sample estimate of the population quantity", "1.96 = approximate 97.5th percentile of the standard normal distribution for a two-sided 95% interval", "standard error = estimated sampling variability of the estimate"],
-    "A simple factorial model can be written Y = β0 + β1X1 + β2X2 + β12X1X2 + ε.": ["Y = response variable", "β₀ = intercept", "β₁ = coefficient for factor X₁", "β₂ = coefficient for factor X₂", "β₁₂ = interaction coefficient for X₁ and X₂", "X₁ = first factor level encoded numerically", "X₂ = second factor level encoded numerically", "ε = experimental error"],
-    "For an individuals chart, limits are typically center line ± 3×estimated process standard deviation, with chart-specific constants used in practice.": ["center line = estimated process center or mean", "3 = conventional three-sigma multiplier", "estimated process standard deviation = estimated within-process spread", "limits = control limits calculated for the selected chart method"],
-    "DPMO = defects / (units × opportunities per unit) × 1,000,000.": ["DPMO = defects per million opportunities", "defects = total counted defects", "units = total units processed", "opportunities per unit = potential defect opportunities on each unit", "1,000,000 = scaling factor"],
-    "Yield = good units / total units × 100%.": ["Yield = percentage of acceptable units", "good units = units meeting the acceptance rule", "total units = all units considered", "100% = percentage conversion factor"],
-    "Basic COPQ = frequency × cost per occurrence; extend for labor, material, customer impact, and other relevant components.": ["frequency = number of occurrences", "cost per occurrence = estimated cost of each occurrence", "COPQ = cost of poor quality under the defined scope"],
-    "Cumulative percentage is the running sum of category percentage contributions.": ["cumulative percentage = running total of category percentages", "category percentage = category contribution divided by total contribution × 100%"],
-    "DPU = defects / units.": ["DPU = defects per unit", "defects = total counted defects", "units = total units processed"],
-    "DPO = defects / (units × opportunities).": ["DPO = defects per opportunity", "defects = total counted defects", "units = total units processed", "opportunities = defect opportunities per unit"],
-    "DPMO = DPO × 1,000,000.": ["DPMO = defects per million opportunities", "DPO = defects per opportunity", "1,000,000 = scaling factor"],
-    "Improvement % = (baseline − new value) / baseline × 100% when lower is better.": ["Improvement % = percentage improvement", "baseline = starting performance level", "new value = performance after improvement", "100% = percentage conversion factor"],
-    "NPV = Σ CF_t/(1+r)^t − initial investment.": ["NPV = net present value", "CF_t = net cash flow in period t", "t = period number", "r = discount rate per period", "initial investment = starting cash outflow", "Σ = sum across periods"],
-    "Variance = Σ(x−x̄)^2/(n−1) for a sample.": ["Variance = sample variance", "x = observed value", "x̄ = sample mean", "n = sample size", "Σ = sum across observations"],
-    "Standard error of the mean = s/√n.": ["standard error of the mean = estimated sampling variability of the mean", "s = sample standard deviation", "n = sample size"],
-    "A 95% confidence interval is typically estimate ± critical value × standard error.": ["estimate = sample estimate", "critical value = value determined by confidence level and statistical distribution", "standard error = estimated sampling variability of the estimate"],
-    "Type I error = rejecting a true H0; Type II error = failing to reject a false H0.": ["H₀ = null hypothesis", "Type I error = rejecting H₀ when H₀ is true", "Type II error = failing to reject H₀ when H₀ is false"],
-    "One-sample t statistic: t=(x̄−μ0)/(s/√n).": ["t = one-sample t test statistic", "x̄ = sample mean", "μ₀ = hypothesized population mean under H₀", "s = sample standard deviation", "n = sample size"],
-    "Simple regression: Y=β0+β1X+ε.": ["Y = response variable", "β₀ = intercept", "β₁ = slope coefficient", "X = predictor variable", "ε = model error or residual"],
-    "R² is the proportion of response variation explained by the fitted model in the sample.": ["R² = coefficient of determination", "response variation = variation in the observed response values", "fitted model = estimated regression relationship"],
-    "Multiple regression: Y=β0+β1X1+...+βkXk+ε.": ["Y = response variable", "β₀ = intercept", "βⱼ = coefficient for predictor j", "Xⱼ = predictor j", "k = number of predictors", "ε = model error or residual", "j = predictor index"],
-    "A treatment effect is the estimated change in response associated with changing a factor under the experimental design.": ["treatment effect = estimated change in the response attributable to a factor change under the design", "response = measured outcome", "factor = experimental input being changed"],
-    "For two factors, interaction means the effect of one factor depends on the level of the other.": ["factor 1 = first experimental input", "factor 2 = second experimental input", "interaction = dependence of one factor's effect on the level of the other factor"],
-    "Three-sigma control limits are designed around the expected distribution of a monitored statistic under stable conditions.": ["three-sigma = three estimated standard deviations from the center under the selected chart assumptions", "control limits = statistical boundaries for identifying unusual process behavior", "monitored statistic = value plotted on the control chart"],
-}
 
-def _math_item(formula):
-    for item in MATH_REFERENCE:
-        if item["formula"] == formula:
-            return dict(item)
-    return {
-        "name": formula,
-        "formula": formula,
-        "explanation": "See the glossary for the method-specific explanation.",
-        "variables": MATH_VARIABLES_BY_FORMULA.get(formula, ["No variables are used in this statement."]),
-    }
+# Belt-level assessment: 20-question adaptive bank.
+# The session presents 4 anchors first, then routes to a 6-question branch.
+DIAGNOSTIC_BANK = [
+    {"id": "W1", "belt": "white", "tier": 1, "anchor": True, "topic": "Six Sigma & Org",
+     "question": "What is the primary goal of Six Sigma as a business methodology?",
+     "options": [
+         "To eliminate all variation and defects in a process, improving customer satisfaction and reducing costs",
+         "To increase the number of employees trained in statistics",
+         "To guarantee zero customer complaints within one year",
+         "To replace all manual processes with automation",
+     ], "answer": 0,
+     "rationale": "Six Sigma centers on reducing variation and defects to improve quality and business performance — it is not a training quota or a guarantee.",
+     "socratic": "If a process has very little variation but still produces defects, has Six Sigma succeeded?"},
+    {"id": "W2", "belt": "white", "tier": 1, "topic": "Lean Principles",
+     "question": "In simple terms, what does waste mean in a Lean environment?",
+     "options": [
+         "Any activity that consumes resources but adds no value from the customer's perspective",
+         "Any material left over after production",
+         "Only physical scrap or damaged product",
+         "Time employees spend on breaks",
+     ], "answer": 0,
+     "rationale": "Lean defines waste (muda) broadly as non-value-adding activity — much wider than physical scrap alone.",
+     "socratic": "Can you think of an activity in your own work that feels necessary but might not add value to the customer?"},
+    {"id": "W3", "belt": "white", "tier": 1, "topic": "Voice of the Customer",
+     "question": "Which of the following best describes Voice of the Customer (VOC)?",
+     "options": [
+         "Feedback and requirements gathered directly or indirectly from customers about their needs and expectations",
+         "A survey sent only to unhappy customers",
+         "The company's internal quality standards",
+         "A single customer's opinion used to set project priorities",
+     ], "answer": 0,
+     "rationale": "VOC is a structured, ongoing process of capturing needs and expectations — not a complaints inbox or one person's opinion.",
+     "socratic": "How might the voice of an internal customer differ from an external one?"},
+    {"id": "W4", "belt": "white", "tier": 1, "topic": "Six Sigma & Org",
+     "question": "What is a defect in Six Sigma terms?",
+     "options": [
+         "Any output that fails to meet a specified customer requirement or specification",
+         "Any product returned by a customer",
+         "A cosmetic flaw only",
+         "An error made by an employee",
+     ], "answer": 0,
+     "rationale": "A defect is defined against specification, regardless of whether it results in a return or is visually obvious.",
+     "socratic": "If a product meets specification but the customer is still unhappy, is that a defect?"},
+    {"id": "W5", "belt": "white", "tier": 1, "topic": "Team Dynamics",
+     "question": "Why is teamwork important in continuous improvement efforts?",
+     "options": [
+         "Diverse perspectives and cross-functional knowledge lead to better root-cause identification and more sustainable solutions",
+         "It ensures management approval is not required",
+         "It reduces the total time spent on paperwork",
+         "It is mainly to distribute blame if the project fails",
+     ], "answer": 0,
+     "rationale": "Cross-functional input surfaces causes and constraints a single person would likely miss.",
+     "socratic": "What might go wrong on an improvement project run by just one person working alone?"},
 
-for _belt in BELTS.values():
-    for _module in _belt["modules"]:
-        _normalized_math = []
-        for _formula in _module.get("math", []):
-            _item = _math_item(_formula)
-            if _formula in MATH_VARIABLES_BY_FORMULA:
-                _item["variables"] = MATH_VARIABLES_BY_FORMULA[_formula]
-            _normalized_math.append(_item)
-        _module["math"] = _normalized_math
+    {"id": "Y1", "belt": "yellow", "tier": 2, "anchor": True, "topic": "Define Phase / DMAIC",
+     "question": "What does the acronym DMAIC stand for?",
+     "options": [
+         "Define, Measure, Analyze, Improve, Control",
+         "Design, Manage, Analyze, Implement, Check",
+         "Define, Model, Assess, Improve, Confirm",
+         "Determine, Measure, Act, Investigate, Correct",
+     ], "answer": 0,
+     "rationale": "DMAIC is the standard Six Sigma project structure.",
+     "socratic": "Why do you think Define comes before Measure rather than the other way around?"},
+    {"id": "Y2", "belt": "yellow", "tier": 2, "topic": "Analyze — Root Cause Tools",
+     "question": "What tool would you use to identify the vital few causes contributing to most of a problem (the 80/20 rule)?",
+     "options": ["Pareto Chart", "Control Chart", "Scatter Diagram", "Histogram"], "answer": 0,
+     "rationale": "The Pareto chart is specifically built to visualize the 80/20 relationship between causes and effect.",
+     "socratic": "If your Pareto chart shows one cause responsible for 90% of defects, how should that change your project's priorities?"},
+    {"id": "Y3", "belt": "yellow", "tier": 2, "topic": "Root Cause Analysis",
+     "question": "What is the purpose of a fishbone (Ishikawa) diagram?",
+     "options": [
+         "To organize potential causes of a problem into categories to explore root causes systematically",
+         "To rank causes by financial impact only",
+         "To track defects over time",
+         "To calculate process capability",
+     ], "answer": 0,
+     "rationale": "It is a brainstorming and organizing tool for causes, not a statistical or financial calculation.",
+     "socratic": "Why might grouping causes into categories like Method, Machine, or People help a team brainstorm more completely?"},
+    {"id": "Y4", "belt": "yellow", "tier": 2, "topic": "Lean Tools — 5S",
+     "question": "In 5S, what does the Sort step involve?",
+     "options": [
+         "Removing unnecessary items from the workspace, keeping only what is needed",
+         "Cleaning the workspace daily",
+         "Labelling all items alphabetically",
+         "Creating a maintenance schedule",
+     ], "answer": 0,
+     "rationale": "Sort (Seiri) is specifically about removing what is not needed, before organizing what remains.",
+     "socratic": "What is a risk of skipping the Sort step and going straight to organizing everything neatly?"},
+    {"id": "Y5", "belt": "yellow", "tier": 2, "topic": "Six Sigma Roles",
+     "question": "What is the role of a Yellow Belt on a Six Sigma project team?",
+     "options": [
+         "Supports projects as a team member, providing local process knowledge and helping with data collection",
+         "Leads complex, cross-functional projects independently",
+         "Trains Black Belts on advanced statistics",
+         "Approves project charters and allocates budget",
+     ], "answer": 0,
+     "rationale": "Yellow Belts are typically subject-matter contributors, not project leads or approvers.",
+     "socratic": "How does a Yellow Belt's role differ from a Green Belt's role on the same project?"},
 
+    {"id": "G1", "belt": "green", "tier": 3, "anchor": True, "topic": "Measure — MSA",
+     "question": "What is the purpose of a Measurement System Analysis (MSA)?",
+     "options": [
+         "To determine how much of the observed variation in data comes from the measurement system itself versus the actual process",
+         "To calculate the financial return of a project",
+         "To identify which employees need more training",
+         "To set the specification limits for a process",
+     ], "answer": 0,
+     "rationale": "MSA isolates measurement-system variation from true process variation — a prerequisite for trusting any data collected afterward.",
+     "socratic": "If your measurement system contributes 40% of the variation you are seeing, can you trust your process data?"},
+    {"id": "G2", "belt": "green", "tier": 3, "topic": "Measure — Process Capability",
+     "question": "Which statistical concept describes the spread of a process relative to its specification limits?",
+     "options": ["Process Capability (e.g., Cp/Cpk)", "Correlation coefficient", "Standard deviation alone", "Sample size"], "answer": 0,
+     "rationale": "Cp/Cpk specifically relate process spread to the specification width, unlike standard deviation on its own.",
+     "socratic": "What does it mean if a process has a Cpk below 1.0?"},
+    {"id": "G3", "belt": "green", "tier": 3, "topic": "Analyze — Hypothesis Testing",
+     "question": "What does a p-value in hypothesis testing help you determine?",
+     "options": [
+         "The probability of observing your data (or something more extreme) if the null hypothesis is true",
+         "The probability that your hypothesis is correct",
+         "The percentage of defects in your sample",
+         "The confidence level you should report to stakeholders",
+     ], "answer": 0,
+     "rationale": "This is the precise statistical definition — a very common point of confusion worth reinforcing.",
+     "socratic": "If a p-value is 0.03, and your significance level is 0.05, what conclusion would you draw about the null hypothesis?"},
+    {"id": "G4", "belt": "green", "tier": 3, "topic": "Control — Control Plan",
+     "question": "What is the primary purpose of a Control Plan in the Control phase?",
+     "options": [
+         "To document how key process variables will be monitored and controlled so improvements are sustained after the project ends",
+         "To list every employee assigned to the process",
+         "To calculate the project's return on investment",
+         "To replace the need for standard operating procedures",
+     ], "answer": 0,
+     "rationale": "The Control Plan exists specifically to sustain gains after the project team disbands.",
+     "socratic": "What might happen to your project's gains six months after closure if there is no control plan in place?"},
+    {"id": "G5", "belt": "green", "tier": 3, "topic": "Define — Project Management",
+     "question": "Which tool is used in the Define phase to establish project scope, goals, and business case?",
+     "options": ["Project Charter", "Fishbone Diagram", "Control Chart", "DOE Matrix"], "answer": 0,
+     "rationale": "The charter is the foundational Define-phase document; the other tools belong to later phases.",
+     "socratic": "Why is a clearly defined problem statement in the charter important before a team starts collecting data?"},
 
-# Belt-level assessment: 10 questions. It is a starting-point check, not a certification exam.
-DIAGNOSTIC = [
-    {"id": 1, "belt": "white", "question": "A team says a process is broken. What should happen first?", "options": ["Buy a new system", "Define the problem and desired outcome", "Run a hypothesis test", "Train employees"], "answer": 1},
-    {"id": 2, "belt": "white", "question": "Which statement best describes process thinking?", "options": ["Problems are usually caused by one person", "A process transforms inputs into outputs for a customer or stakeholder", "Every process problem requires advanced statistics", "A written procedure is always the same as the actual process"], "answer": 1},
-    {"id": 3, "belt": "yellow", "question": "What does SIPOC provide?", "options": ["A regression model", "A high-level view of process boundaries, inputs and outputs", "A control chart", "A project financial forecast"], "answer": 1},
-    {"id": 4, "belt": "yellow", "question": "A Pareto chart primarily helps a team do what?", "options": ["Prove causation", "Prioritize categories contributing to the observed problem", "Calculate process capability", "Replace measurement"], "answer": 1},
-    {"id": 5, "belt": "green", "question": "Why assess a measurement system before analyzing process data?", "options": ["To make dashboards look better", "To establish whether the measurement can be trusted for the decision", "To eliminate process variation", "To avoid defining the problem"], "answer": 1},
-    {"id": 6, "belt": "green", "question": "Which statement about process capability is correct?", "options": ["Capability ignores specification limits", "Capability compares a stable process with defined specifications", "Capability is the same as a control limit", "Capability proves root cause"], "answer": 1},
-    {"id": 7, "belt": "green", "question": "What is the strongest evidence for a root cause?", "options": ["A manager's opinion", "A plausible story", "Evidence showing a repeatable relationship and response when the factor changes", "A Pareto chart alone"], "answer": 2},
-    {"id": 8, "belt": "black", "question": "What is a key advantage of a designed experiment?", "options": ["It avoids the need for a response variable", "It deliberately varies factors to learn about effects and interactions", "It guarantees a positive business result", "It eliminates stakeholder management"], "answer": 1},
-    {"id": 9, "belt": "black", "question": "Why can a statistically significant result still be a poor business decision?", "options": ["Statistical analysis is never useful", "Statistical significance and practical significance are different", "A p-value guarantees implementation success", "Control is unnecessary after significance"], "answer": 1},
-    {"id": 10, "belt": "black", "question": "When is DMADV/IDOV more appropriate than DMAIC?", "options": ["When an existing process only needs routine monitoring", "When a new product or process must be designed or substantially redesigned", "When a control chart has a special-cause signal", "When the team wants to avoid customer requirements"], "answer": 1},
+    {"id": "B1", "belt": "black", "tier": 4, "anchor": True, "topic": "Improve — Factorial Experiments",
+     "question": "In Design of Experiments (DOE), what is a factorial experiment used for?",
+     "options": [
+         "To study the effects of multiple input factors and their interactions on an output simultaneously",
+         "To test one variable at a time for simplicity",
+         "To replace the need for hypothesis testing",
+         "To measure only the main effect of a single factor",
+     ], "answer": 0,
+     "rationale": "Factorial designs are specifically valued for detecting interaction effects that one-factor-at-a-time testing would miss.",
+     "socratic": "Why might testing one factor at a time miss an important interaction effect between two variables?"},
+    {"id": "B2", "belt": "black", "tier": 4, "topic": "Define — Sigma Shift",
+     "question": "What does the 1.5 sigma shift account for in long-term Six Sigma calculations?",
+     "options": [
+         "It accounts for the fact that process means tend to drift over the long term, so short-term capability studies are adjusted to better estimate long-term defect rates",
+         "It corrects for measurement error only",
+         "It is a rounding convention used only in reporting",
+         "It applies only to attribute (discrete) data, never continuous data",
+     ], "answer": 0,
+     "rationale": "The shift bridges short-term and long-term process performance estimates.",
+     "socratic": "Why might a process that looks capable in a short-term study still produce more defects than expected over a year?"},
+    {"id": "B3", "belt": "black", "tier": 4, "topic": "Analyze — Hypothesis Testing with Non-Normal Data",
+     "question": "When should you use a non-parametric (non-normal) hypothesis test instead of a standard t-test?",
+     "options": [
+         "When the data significantly violates the assumption of normality and sample sizes are small, or the data is ordinal/ranked rather than continuous",
+         "Whenever you have more than 30 data points",
+         "Only when analyzing attribute data",
+         "Non-parametric tests should never be used in Six Sigma",
+     ], "answer": 0,
+     "rationale": "Non-parametric tests exist precisely for cases where normality assumptions do not hold.",
+     "socratic": "If a Shapiro-Wilk test shows your data is non-normal and you cannot transform it, what does that mean for choosing between a t-test and a Mann-Whitney test?"},
+    {"id": "B4", "belt": "black", "tier": 4, "topic": "Improve — Multiple Regression",
+     "question": "In multiple regression analysis, what does a high VIF (variance inflation factor) indicate?",
+     "options": [
+         "High multicollinearity among predictor variables, meaning they are highly correlated with each other, making individual coefficient estimates unreliable",
+         "That the regression model has a very high R-squared and is highly accurate",
+         "That the sample size is too large for the model",
+         "That the residuals are normally distributed",
+     ], "answer": 0,
+     "rationale": "VIF flags multicollinearity specifically — a common source of misleading coefficient estimates.",
+     "socratic": "If two of your predictors are highly correlated, how would you decide which one to keep in the model?"},
+    {"id": "B5", "belt": "black", "tier": 4, "topic": "Define — COPQ Calculation",
+     "question": "How is Cost of Poor Quality (COPQ) typically calculated?",
+     "options": [
+         "By summing costs of prevention, appraisal, and internal/external failure related to poor quality",
+         "By dividing total revenue by number of defects",
+         "By calculating only the cost of scrapped material",
+         "By multiplying headcount by average salary",
+     ], "answer": 0,
+     "rationale": "This is the standard prevention-appraisal-failure model used to calculate COPQ.",
+     "socratic": "Which of the four COPQ cost categories do you think is most often underestimated by organizations, and why?"},
 ]
+
+DIAGNOSTIC = DIAGNOSTIC_BANK
 
 
 SCENARIOS = [{'area': 'Retail',
