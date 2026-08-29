@@ -32,15 +32,12 @@
     <div class="kicker">Equations</div>
     <h2 id="math-heading">The mathematics behind the method.</h2>
     <div class="term-grid" id="math-results">
-      {% for item in math_reference|sort(attribute='name') %}
-      <article class="term-card reference-card" data-reference="{{ (item.name ~ ' ' ~ item.formula ~ ' ' ~ item.explanation ~ ' ' ~ (item.variables|join(' ')))|lower }}">
+      {% for item in math_reference|sort(attribute="name") %}
+      <article class="term-card reference-card" data-reference="{{ (item.name ~ ' ' ~ item.formula ~ ' ' ~ item.explanation ~ ' ' ~ item.variables)|lower }}">
         <h3>{{ item.name }}</h3>
-        <div class="formula-row" aria-label="Equation"><code>{{ item.formula }}</code></div>
+        <div class="formula-row" aria-label="Equation for {{ item.name }}"><code>{{ item.formula }}</code></div>
         <p>{{ item.explanation }}</p>
-        <h4>Variables</h4>
-        <ul class="variable-list">
-          {% for variable in item.variables %}<li>{{ variable }}</li>{% endfor %}
-        </ul>
+        <p><strong>Variables.</strong> {{ item.variables }}</p>
       </article>
       {% endfor %}
     </div>

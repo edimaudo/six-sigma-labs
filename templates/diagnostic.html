@@ -4,13 +4,8 @@
 <div class="container narrow">
   <header class="page-header">
     <div class="eyebrow">Belt level</div>
-    {% if round == 1 %}
-      <h1>Find your Six Sigma starting level.</h1>
-      <p class="lead">Answer four questions first. Your responses determine the next six questions.</p>
-    {% else %}
-      <h1>Now go a little deeper.</h1>
-      <p class="lead">Your first four answers suggest a {{ branch.name }} level. These questions test depth before we recommend where to start.</p>
-    {% endif %}
+    <h1>Find your Six Sigma starting level.</h1>
+    <p class="lead">Answer 10 questions. Your answers are used to suggest the most useful starting point.</p>
   </header>
 
   <form method="post" action="{{ url_for('belt_level_submit') }}">
@@ -27,11 +22,10 @@
       </section>
     {% endif %}
 
-    <div class="quiz-progress" aria-live="polite">Round {{ round }} of {{ total_rounds }}</div>
     {% for q in questions %}
       <fieldset class="quiz-question">
         <legend>
-          <span class="small">Question {{ loop.index }} of {{ questions|length }} · {{ q.display_id or q.id }}</span>
+          <span class="small">Question {{ loop.index + question_number_offset }} of 10</span>
           {{ q.question }}
         </legend>
         {% for option in q.options %}

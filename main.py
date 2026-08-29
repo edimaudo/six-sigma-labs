@@ -177,7 +177,7 @@ async def belt_level(request: Request):
     return templates.TemplateResponse(
         request=request,
         name="diagnostic.html",
-        context=context(request, questions=questions, round=1, total_rounds=2, branch=None),
+        context=context(request, questions=questions, round=1, total_rounds=2, branch=None, question_number_offset=0),
     )
 
 @app.post("/belt-level", response_class=HTMLResponse)
@@ -197,7 +197,7 @@ async def belt_level_submit(request: Request):
         return templates.TemplateResponse(
             request=request,
             name="diagnostic.html",
-            context=context(request, questions=questions, round=2, total_rounds=2, branch=branch, business_area=business_area),
+            context=context(request, questions=questions, round=2, total_rounds=2, branch=branch, business_area=business_area, question_number_offset=4),
         )
 
     stored = dict(request.session.get("belt_level_answers") or {})
