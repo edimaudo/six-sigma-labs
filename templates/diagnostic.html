@@ -1,47 +1,132 @@
 {% extends "base.html" %}
 {% block title %}Belt level · Six Sigma Labs{% endblock %}
 {% block content %}
-<div class="container narrow">
+<div class="container">
   <header class="page-header">
     <div class="eyebrow">Belt level</div>
     <h1>Find your Six Sigma starting level.</h1>
-    <p class="lead">Answer 10 questions. Your responses will suggest where to start.</p>
+    <p class="lead">Answer 10 questions. Your responses determine where to start.</p>
     {% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
   </header>
 
-  <form method="post" action="{{ url_for('belt_level_submit') }}">
-    <input type="hidden" name="round" value="{{ round }}">
-    {% if round == 1 %}
-      <section class="section-muted" aria-labelledby="context-heading">
-        <div class="kicker">Business context</div>
-        <h2 id="context-heading" class="sr-only">Choose a business context</h2>
-        <label for="business_area">Where would you like to apply what you learn?</label>
-        <select name="business_area" id="business_area" required>
-          <option value="">Choose one</option>
-          <option value="Banking">Banking</option><option value="Insurance">Insurance</option><option value="Technology">Technology</option><option value="Healthcare">Healthcare</option><option value="Manufacturing">Manufacturing</option><option value="Retail">Retail</option><option value="Government">Government</option><option value="Professional Services">Professional services</option>
-        </select>
-      </section>
-    {% endif %}
+  <form method="post" action="{{ url_for('belt_level_submit') }}" id="belt-level-form">
+    <section aria-labelledby="questions-heading">
+      <h2 id="questions-heading" class="sr-only">Belt level questions</h2>
 
-    {% for q in questions %}
-      <fieldset class="quiz-question">
+      {% for q in questions %}
+      <fieldset class="quiz-question" data-question-id="{{ q.id }}">
         <legend>
-          <span class="small">Question {{ question_offset + loop.index }} of 10</span>
+          <span class="small">Question {{ loop.index }} of 10</span>
           {{ q.question }}
         </legend>
         {% for option in q.options %}
           {% set option_id = 'q-' ~ q.id ~ '-' ~ loop.index0 %}
           <label class="option" for="{{ option_id }}">
-            <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required>
+            <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required data-correct="{{ 'true' if loop.index0 == q.answer else 'false' }}">
             <span>{{ option }}</span>
           </label>
         {% endfor %}
       </fieldset>
-    {% endfor %}
+      {% endfor %}
 
-    <button class="button" type="submit">
-      {% if round == 1 %}Continue{% else %}See my starting point{% endif %}
-    </button>
+      <div id="adaptive-questions" aria-live="polite" aria-label="Additional questions" hidden></div>
+    </section>
+
+    <div class="button-row">
+      <button class="button" type="submit" id="belt-submit" disabled>See my starting level</button>
+    </div>
+
+    <noscript>
+      <p class="panel" role="note">JavaScript is required to display the adaptive questions on this page.</p>
+    </noscript>
   </form>
+
+  <template id="question-bank">
+    {% for q in question_bank %}
+    <fieldset class="quiz-question" data-question-id="{{ q.id }}">
+      <legend>
+        <span class="small"></span>
+        {{ q.question }}
+      </legend>
+      {% for option in q.options %}
+        {% set option_id = 'bank-q-' ~ q.id ~ '-' ~ loop.index0 %}
+        <label class="option" for="{{ option_id }}">
+          <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required data-correct="{{ 'true' if loop.index0 == q.answer else 'false' }}">
+          <span>{{ option }}</span>
+        </label>
+      {% endfor %}
+    </fieldset>
+    {% endfor %}
+  </template>
 </div>
+
+<script>
+(function () {
+  const form = document.getElementById('belt-level-form');
+  const adaptive = document.getElementById('adaptive-questions');
+  const submit = document.getElementById('belt-submit');
+  const bank = document.getElementById('question-bank');
+  const anchors = ['W1', 'Y1', 'G1', 'B1'];
+  const branchQuestions = {
+    black: ['B2', 'B3', 'B4', 'B5', 'G2', 'G3'],
+    green: ['G2', 'G3', 'G4', 'G5', 'B2', 'Y2'],
+    yellow: ['Y2', 'Y3', 'Y4', 'Y5', 'G2', 'W2'],
+    white: ['W2', 'W3', 'W4', 'W5', 'Y2', 'W1R']
+  };
+
+  function selected(qid) {
+    return document.querySelector('input[name="answer_' + qid + '"]:checked');
+  }
+
+  function allAnchorsAnswered() {
+    return anchors.every(function (qid) { return !!selected(qid); });
+  }
+
+  function anchorCorrect(qid) {
+    const input = selected(qid);
+    return !!input && input.dataset.correct === 'true';
+  }
+
+  function branchFromAnchors() {
+    if (anchorCorrect('B1')) return 'black';
+    if (anchorCorrect('G1')) return 'green';
+    if (anchorCorrect('Y1')) return 'yellow';
+    return 'white';
+  }
+
+  function renderAdaptiveQuestions() {
+    if (!allAnchorsAnswered()) {
+      adaptive.hidden = true;
+      adaptive.innerHTML = '';
+      submit.disabled = true;
+      return;
+    }
+
+    const branch = branchFromAnchors();
+    const ids = branchQuestions[branch];
+    adaptive.hidden = false;
+    adaptive.innerHTML = '';
+
+    ids.forEach(function (qid, index) {
+      const source = bank.content.querySelector('[data-question-id="' + qid + '"]');
+      if (!source) return;
+      const clone = source.cloneNode(true);
+      const counter = clone.querySelector('.small');
+      if (counter) counter.textContent = 'Question ' + (index + 5) + ' of 10';
+      adaptive.appendChild(clone);
+    });
+
+    submit.disabled = false;
+  }
+
+  form.addEventListener('change', function (event) {
+    if (!event.target.matches('input[type="radio"]')) return;
+    if (anchors.includes(event.target.name.replace('answer_', ''))) {
+      renderAdaptiveQuestions();
+    }
+  });
+
+  renderAdaptiveQuestions();
+})();
+</script>
 {% endblock %}
