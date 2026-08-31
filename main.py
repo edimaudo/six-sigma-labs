@@ -28,7 +28,7 @@ from db import (
 from scenarios import SCENARIO_DETAIL
 
 BASE_DIR = Path(__file__).resolve().parent
-app = FastAPI(title="Six Sigma Labs", version="2.4.0")
+app = FastAPI(title="Six Sigma Labs", version="2.2.0")
 app.add_middleware(SessionMiddleware, secret_key=os.getenv("SSOL_SESSION_SECRET", "local-development-secret-change-me"), same_site="lax", https_only=False)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=BASE_DIR / "templates")
@@ -101,9 +101,9 @@ async def landing(request: Request):
 BELT_LEVEL_ANCHORS = ["W1", "Y1", "G1", "B1"]
 
 # The learner completes one 10-question assessment on a single page.
-# Four anchors establish the starting branch; six additional questions are selected
-# from the 20-question bank using the supplied adaptive routing rules. The learner
-# never sees internal branch names or tier-scoring mechanics.
+# Four anchors establish the likely depth; six additional questions are selected
+# adaptively on the client once the four anchors are answered. The server recomputes
+# the branch from the submitted anchors and never trusts client-side branch state.
 BELT_LEVEL_BRANCHES = {
     "black": {
         "questions": ["B2", "B3", "B4", "B5", "G2", "G3"],
@@ -129,17 +129,18 @@ BELT_LEVEL_BRANCHES = {
 
 DIAGNOSTIC_BY_ID = {q["id"]: q for q in DIAGNOSTIC_BANK}
 
-
 def _question_set(ids: list[str]):
     out = []
     for qid in ids:
-        source_id = "W1" if qid == "W1R" else qid
-        q = dict(DIAGNOSTIC_BY_ID[source_id])
-        q["options"] = list(q["options"])
-        q["display_id"] = ""
-        q["id"] = qid
-        q["source_id"] = source_id
-        out.append(q)
+        if qid == "W1R":
+            source = dict(DIAGNOSTIC_BY_ID["W1"])
+            source["id"] = "W1R"
+            source["display_id"] = ""
+            out.append(source)
+        else:
+            q = dict(DIAGNOSTIC_BY_ID[qid])
+            q["display_id"] = ""
+            out.append(q)
     return out
 
 
@@ -189,27 +190,24 @@ def _recommendation(branch: str, answers: dict[str, str]):
         recommendation = branch
     else:
         recommendation = BELT_ORDER[max(0, idx - 1)]
-
     return recommendation, depth_correct, depth_total, pct, stretch_correct
 
 
 @app.get("/belt-level", response_class=HTMLResponse)
 async def belt_level(request: Request):
-    request.session.pop("belt_level_answers", None)
-    request.session.pop("belt_level_branch", None)
-    request.session.pop("belt_level_round1_ids", None)
-    request.session.pop("belt_level_round2_ids", None)
-    anchor_questions = _question_set(BELT_LEVEL_ANCHORS)
-    bank_ids = [q["id"] for q in DIAGNOSTIC_BANK] + ["W1R"]
-    question_bank = _question_set(bank_ids)
+    # All 20 bank questions are available to the page; JavaScript selects the six
+    # adaptive follow-ups after the learner answers the four anchors, without leaving
+    # the page. The submitted answers are validated again server-side.
+    anchors = _question_set(BELT_LEVEL_ANCHORS)
+    branches = {key: _question_set(value["questions"]) for key, value in BELT_LEVEL_BRANCHES.items()}
     return templates.TemplateResponse(
         request=request,
         name="diagnostic.html",
         context=context(
             request,
-            questions=anchor_questions,
-            question_bank=question_bank,
-            question_offset=0,
+            anchors=anchors,
+            branches=branches,
+            branch_configs=BELT_LEVEL_BRANCHES,
         ),
     )
 
@@ -220,49 +218,37 @@ async def belt_level_submit(request: Request):
     answers = _answer_map(form)
 
     if not all(qid in answers for qid in BELT_LEVEL_ANCHORS):
-        anchor_questions = _question_set(BELT_LEVEL_ANCHORS)
-        question_bank = _question_set([q["id"] for q in DIAGNOSTIC_BANK] + ["W1R"])
+        anchors = _question_set(BELT_LEVEL_ANCHORS)
+        branches = {key: _question_set(value["questions"]) for key, value in BELT_LEVEL_BRANCHES.items()}
         return templates.TemplateResponse(
             request=request,
             name="diagnostic.html",
-            context=context(
-                request,
-                questions=anchor_questions,
-                question_bank=question_bank,
-                question_offset=0,
-                error="Please answer all four starting questions.",
-            ),
+            context=context(request, anchors=anchors, branches=branches, branch_configs=BELT_LEVEL_BRANCHES, error="Please answer all 10 questions."),
             status_code=400,
         )
 
     branch = _branch_from_anchors(answers)
-    expected_ids = list(BELT_LEVEL_BRANCHES[branch]["questions"])
-    if not all(qid in answers for qid in expected_ids):
-        anchor_questions = _question_set(BELT_LEVEL_ANCHORS)
-        question_bank = _question_set([q["id"] for q in DIAGNOSTIC_BANK] + ["W1R"])
+    displayed_ids = BELT_LEVEL_ANCHORS + BELT_LEVEL_BRANCHES[branch]["questions"]
+    required_ids = [qid for qid in displayed_ids]
+
+    if not all(qid in answers for qid in required_ids):
+        anchors = _question_set(BELT_LEVEL_ANCHORS)
+        branches = {key: _question_set(value["questions"]) for key, value in BELT_LEVEL_BRANCHES.items()}
         return templates.TemplateResponse(
             request=request,
             name="diagnostic.html",
-            context=context(
-                request,
-                questions=anchor_questions,
-                question_bank=question_bank,
-                question_offset=0,
-                error="Please answer all 10 questions.",
-            ),
+            context=context(request, anchors=anchors, branches=branches, branch_configs=BELT_LEVEL_BRANCHES, error="Please answer all 10 questions."),
             status_code=400,
         )
 
-    stored = {qid: answers[qid] for qid in BELT_LEVEL_ANCHORS + expected_ids}
-    recommendation, depth_correct, depth_total, depth_pct, stretch_correct = _recommendation(branch, stored)
-    displayed_ids = BELT_LEVEL_ANCHORS + expected_ids
-    total_correct = sum(1 for qid in displayed_ids if _correct(qid, stored.get(qid)))
+    recommendation, depth_correct, depth_total, depth_pct, stretch_correct = _recommendation(branch, answers)
+    total_correct = sum(1 for qid in displayed_ids if _correct(qid, answers.get(qid)))
 
     request.session["diagnostic_complete"] = True
-    request.session["belt_level_answers"] = stored
-    request.session["belt_level_branch"] = branch
+    request.session["belt_level_answers"] = {qid: answers[qid] for qid in displayed_ids}
     update_learner(
         current_user_id(request),
+        business_area="",
         belt=recommendation,
         diagnostic_score=total_correct,
         diagnostic_total=10,
@@ -278,6 +264,7 @@ async def belt_level_submit(request: Request):
             belt=BELTS[recommendation],
         ),
     )
+
 
 # Backward-compatible alias for the previous diagnostic URL.
 @app.get("/diagnostic", response_class=HTMLResponse)

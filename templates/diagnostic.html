@@ -4,17 +4,17 @@
 <div class="container">
   <header class="page-header">
     <div class="eyebrow">Belt level</div>
-    <h1>Find your Six Sigma starting level.</h1>
-    <p class="lead">Answer 10 questions. Your responses determine where to start.</p>
+    <h1>Find your starting level.</h1>
+    <p class="lead">Answer 10 questions about how you approach process improvement. The last six questions adapt to your answers.</p>
     {% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
   </header>
 
   <form method="post" action="{{ url_for('belt_level_submit') }}" id="belt-level-form">
-    <section aria-labelledby="questions-heading">
-      <h2 id="questions-heading" class="sr-only">Belt level questions</h2>
-
-      {% for q in questions %}
-      <fieldset class="quiz-question" data-question-id="{{ q.id }}">
+    <section id="anchor-questions" aria-labelledby="anchor-heading">
+      <div class="kicker">Starting questions</div>
+      <h2 id="anchor-heading" class="sr-only">Questions 1 through 4</h2>
+      {% for q in anchors %}
+      <fieldset class="quiz-question">
         <legend>
           <span class="small">Question {{ loop.index }} of 10</span>
           {{ q.question }}
@@ -22,40 +22,42 @@
         {% for option in q.options %}
           {% set option_id = 'q-' ~ q.id ~ '-' ~ loop.index0 %}
           <label class="option" for="{{ option_id }}">
-            <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required data-correct="{{ 'true' if loop.index0 == q.answer else 'false' }}">
+            <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required>
             <span>{{ option }}</span>
           </label>
         {% endfor %}
       </fieldset>
       {% endfor %}
-
-      <div id="adaptive-questions" aria-live="polite" aria-label="Additional questions" hidden></div>
     </section>
 
-    <div class="button-row">
-      <button class="button" type="submit" id="belt-submit" disabled>See my starting level</button>
-    </div>
+    <section id="adaptive-followups" aria-labelledby="adaptive-heading" hidden>
+      <div class="kicker">Continue</div>
+      <h2 id="adaptive-heading" class="sr-only">Questions 5 through 10</h2>
+      <p class="small adaptive-note">Questions 5 through 10 are selected from the same question bank based on your first four answers.</p>
+    </section>
 
-    <noscript>
-      <p class="panel" role="note">JavaScript is required to display the adaptive questions on this page.</p>
-    </noscript>
+    <button class="button" type="submit">See my starting point</button>
   </form>
 
-  <template id="question-bank">
-    {% for q in question_bank %}
-    <fieldset class="quiz-question" data-question-id="{{ q.id }}">
-      <legend>
-        <span class="small"></span>
-        {{ q.question }}
-      </legend>
-      {% for option in q.options %}
-        {% set option_id = 'bank-q-' ~ q.id ~ '-' ~ loop.index0 %}
-        <label class="option" for="{{ option_id }}">
-          <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required data-correct="{{ 'true' if loop.index0 == q.answer else 'false' }}">
-          <span>{{ option }}</span>
-        </label>
-      {% endfor %}
-    </fieldset>
+  <template id="followup-template">
+    {% for belt_key, qs in branches.items() %}
+      <div data-branch="{{ belt_key }}" hidden>
+        {% for q in qs %}
+        <fieldset class="quiz-question followup-question" data-question-id="{{ q.id }}">
+          <legend>
+            <span class="small"></span>
+            {{ q.question }}
+          </legend>
+          {% for option in q.options %}
+            {% set option_id = 'q-' ~ q.id ~ '-' ~ belt_key ~ '-' ~ loop.index0 %}
+            <label class="option" for="{{ option_id }}">
+              <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" disabled>
+              <span>{{ option }}</span>
+            </label>
+          {% endfor %}
+        </fieldset>
+        {% endfor %}
+      </div>
     {% endfor %}
   </template>
 </div>
@@ -63,70 +65,67 @@
 <script>
 (function () {
   const form = document.getElementById('belt-level-form');
-  const adaptive = document.getElementById('adaptive-questions');
-  const submit = document.getElementById('belt-submit');
-  const bank = document.getElementById('question-bank');
-  const anchors = ['W1', 'Y1', 'G1', 'B1'];
-  const branchQuestions = {
-    black: ['B2', 'B3', 'B4', 'B5', 'G2', 'G3'],
-    green: ['G2', 'G3', 'G4', 'G5', 'B2', 'Y2'],
-    yellow: ['Y2', 'Y3', 'Y4', 'Y5', 'G2', 'W2'],
-    white: ['W2', 'W3', 'W4', 'W5', 'Y2', 'W1R']
-  };
+  const followups = document.getElementById('adaptive-followups');
+  const template = document.getElementById('followup-template');
+  const anchors = {{ anchors | tojson }};
 
-  function selected(qid) {
-    return document.querySelector('input[name="answer_' + qid + '"]:checked');
+  const holder = document.createElement('div');
+  holder.innerHTML = template.innerHTML;
+  while (holder.firstElementChild) followups.appendChild(holder.firstElementChild);
+
+  function selected(id) {
+    const node = form.querySelector('input[name="answer_' + id + '"]:checked');
+    return node ? Number(node.value) : null;
   }
 
-  function allAnchorsAnswered() {
-    return anchors.every(function (qid) { return !!selected(qid); });
-  }
-
-  function anchorCorrect(qid) {
-    const input = selected(qid);
-    return !!input && input.dataset.correct === 'true';
-  }
-
-  function branchFromAnchors() {
-    if (anchorCorrect('B1')) return 'black';
-    if (anchorCorrect('G1')) return 'green';
-    if (anchorCorrect('Y1')) return 'yellow';
+  function branchForAnchors() {
+    const byId = {};
+    anchors.forEach(q => { byId[q.id] = q; });
+    const correct = id => {
+      const value = selected(id);
+      return value !== null && String(value) === String(byId[id].answer);
+    };
+    if (correct('B1')) return 'black';
+    if (correct('G1')) return 'green';
+    if (correct('Y1')) return 'yellow';
     return 'white';
   }
 
-  function renderAdaptiveQuestions() {
-    if (!allAnchorsAnswered()) {
-      adaptive.hidden = true;
-      adaptive.innerHTML = '';
-      submit.disabled = true;
-      return;
-    }
+  function updateFollowups() {
+    const complete = anchors.every(q => selected(q.id) !== null);
+    const groups = followups.querySelectorAll('[data-branch]');
 
-    const branch = branchFromAnchors();
-    const ids = branchQuestions[branch];
-    adaptive.hidden = false;
-    adaptive.innerHTML = '';
+    groups.forEach(group => {
+      const active = complete && group.dataset.branch === branchForAnchors();
+      group.hidden = !active;
+      group.querySelectorAll('input').forEach(input => {
+        input.disabled = !active;
+        input.required = active;
+      });
 
-    ids.forEach(function (qid, index) {
-      const source = bank.content.querySelector('[data-question-id="' + qid + '"]');
-      if (!source) return;
-      const clone = source.cloneNode(true);
-      const counter = clone.querySelector('.small');
-      if (counter) counter.textContent = 'Question ' + (index + 5) + ' of 10';
-      adaptive.appendChild(clone);
+      if (active) {
+        group.querySelectorAll('.followup-question').forEach((question, i) => {
+          const label = question.querySelector('legend .small');
+          if (label) label.textContent = 'Question ' + (i + 5) + ' of 10';
+        });
+      }
     });
 
-    submit.disabled = false;
+    followups.hidden = !complete;
   }
 
-  form.addEventListener('change', function (event) {
-    if (!event.target.matches('input[type="radio"]')) return;
-    if (anchors.includes(event.target.name.replace('answer_', ''))) {
-      renderAdaptiveQuestions();
+  form.addEventListener('change', updateFollowups);
+  form.addEventListener('submit', function (event) {
+    updateFollowups();
+    const activeInputs = [...form.querySelectorAll('input[type="radio"]')].filter(input => !input.disabled);
+    const names = [...new Set(activeInputs.map(input => input.name))];
+    if (!names.every(name => form.querySelector('input[name="' + name + '"]:checked'))) {
+      event.preventDefault();
+      form.reportValidity();
     }
   });
 
-  renderAdaptiveQuestions();
+  updateFollowups();
 })();
 </script>
 {% endblock %}

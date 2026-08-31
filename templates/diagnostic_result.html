@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Your Six Sigma starting point · Six Sigma Labs{% endblock %}
+{% block title %}Your starting level · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container">
   <header class="page-header">
     <div class="eyebrow">Belt level</div>
     <h1>Start at {{ belt.name }}.</h1>
-    <p class="lead">This is a suggested starting level, not a certification result.</p>
+    <p class="lead">This is your recommended starting level. You can move through the learning paths at your own pace.</p>
   </header>
   <div class="button-row">
     <a class="button" href="{{ url_for('learn') }}">Explore the learning paths</a>
