@@ -9,7 +9,9 @@
     {% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
   </header>
 
-  <form method="post" action="{{ url_for('belt_level_submit') }}" id="belt-level-form">
+  <div id="quiz-error" class="form-error" role="alert" aria-live="assertive" aria-atomic="true" tabindex="-1" hidden></div>
+
+  <form method="post" action="{{ url_for('belt_level_submit') }}" id="belt-level-form" novalidate>
     {% for q in questions %}
     <fieldset class="quiz-question">
       <legend>
@@ -19,7 +21,7 @@
       {% for option in q.options %}
         {% set option_id = 'q-' ~ q.id ~ '-' ~ loop.index0 %}
         <label class="option" for="{{ option_id }}">
-          <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}" required>
+          <input id="{{ option_id }}" type="radio" name="answer_{{ q.id }}" value="{{ loop.index0 }}">
           <span>{{ option }}</span>
         </label>
       {% endfor %}
@@ -30,5 +32,44 @@
       <button class="button" type="submit">See my starting level</button>
     </div>
   </form>
+
+  <script>
+    (() => {
+      const form = document.getElementById("belt-level-form");
+      const error = document.getElementById("quiz-error");
+      if (!form || !error) return;
+
+      form.addEventListener("submit", (event) => {
+        const questions = Array.from(form.querySelectorAll("fieldset.quiz-question"));
+        const unanswered = questions.filter((question) => !question.querySelector('input[type="radio"]:checked'));
+
+        questions.forEach((question) => {
+          question.removeAttribute("aria-invalid");
+          question.classList.remove("quiz-question--error");
+          question.querySelectorAll('input[type="radio"]').forEach((input) => input.removeAttribute("aria-invalid"));
+        });
+
+        if (!unanswered.length) {
+          error.hidden = true;
+          error.textContent = "";
+          return;
+        }
+
+        event.preventDefault();
+        const remaining = unanswered.length;
+        error.textContent = `Please answer all 10 questions before seeing your starting level. ${remaining} ${remaining === 1 ? "question remains" : "questions remain"}.`;
+        error.hidden = false;
+
+        unanswered.forEach((question) => {
+          question.setAttribute("aria-invalid", "true");
+          question.classList.add("quiz-question--error");
+          question.querySelectorAll('input[type="radio"]').forEach((input) => input.setAttribute("aria-invalid", "true"));
+        });
+
+        error.focus({ preventScroll: true });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    })();
+  </script>
 </div>
 {% endblock %}
