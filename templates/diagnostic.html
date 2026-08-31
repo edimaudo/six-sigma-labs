@@ -5,7 +5,8 @@
   <header class="page-header">
     <div class="eyebrow">Belt level</div>
     <h1>Find your Six Sigma starting level.</h1>
-    <p class="lead">Answer 10 questions. Your answers are used to suggest the most useful starting point.</p>
+    <p class="lead">Answer 10 questions. Your responses will suggest where to start.</p>
+    {% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
   </header>
 
   <form method="post" action="{{ url_for('belt_level_submit') }}">
@@ -25,7 +26,7 @@
     {% for q in questions %}
       <fieldset class="quiz-question">
         <legend>
-          <span class="small">Question {{ loop.index + question_number_offset }} of 10</span>
+          <span class="small">Question {{ question_offset + loop.index }} of 10</span>
           {{ q.question }}
         </legend>
         {% for option in q.options %}
