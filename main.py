@@ -99,11 +99,32 @@ async def landing(request: Request):
 # @app.post("/signout") ...
 
 BELT_LEVEL_ANCHORS = ["W1", "Y1", "G1", "B1"]
+
+# The learner always sees 10 questions: four anchors plus six adaptive questions.
+# The branch is based only on the four anchors; the recommendation is then based on
+# performance across the full seven-question depth set for that branch (anchor +
+# core questions + stretch/backstop).
 BELT_LEVEL_BRANCHES = {
-    "black": {"questions": ["B2", "B3", "B4", "B5", "G2", "G3"], "depth": ["B1", "B2", "B3", "B4", "B5", "G2", "G3"], "stretch": None, "backstop": ["G2", "G3"]},
-    "green": {"questions": ["G2", "G3", "G4", "G5", "B2", "Y2"], "depth": ["G1", "G2", "G3", "G4", "G5", "B2", "Y2"], "stretch": "B2", "backstop": ["Y2"]},
-    "yellow": {"questions": ["Y2", "Y3", "Y4", "Y5", "G2", "W2"], "depth": ["Y1", "Y2", "Y3", "Y4", "Y5", "G2", "W2"], "stretch": "G2", "backstop": ["W2"]},
-    "white": {"questions": ["W2", "W3", "W4", "W5", "Y2", "W1"], "depth": ["W1", "W2", "W3", "W4", "W5", "Y2"], "stretch": "Y2", "backstop": []},
+    "black": {
+        "questions": ["B2", "B3", "B4", "B5", "G2", "G3"],
+        "depth": ["B1", "B2", "B3", "B4", "B5", "G2", "G3"],
+        "stretch": None,
+    },
+    "green": {
+        "questions": ["G2", "G3", "G4", "G5", "B2", "Y2"],
+        "depth": ["G1", "G2", "G3", "G4", "G5", "B2", "Y2"],
+        "stretch": "B2",
+    },
+    "yellow": {
+        "questions": ["Y2", "Y3", "Y4", "Y5", "G2", "W2"],
+        "depth": ["Y1", "Y2", "Y3", "Y4", "Y5", "G2", "W2"],
+        "stretch": "G2",
+    },
+    "white": {
+        "questions": ["W2", "W3", "W4", "W5", "Y2", "W1"],
+        "depth": ["W1", "W2", "W3", "W4", "W5", "Y2"],
+        "stretch": "Y2",
+    },
 }
 
 DIAGNOSTIC_BY_ID = {q["id"]: q for q in DIAGNOSTIC_BANK}
@@ -112,12 +133,12 @@ def _question_set(ids: list[str], repeat_w1: bool = False):
     out = []
     for qid in ids:
         q = dict(DIAGNOSTIC_BY_ID[qid])
+        q["options"] = list(q["options"])
         if repeat_w1 and qid == "W1":
-            q = dict(q)
-            q["display_id"] = "W1 · confidence check"
+            q["display_id"] = ""
             q["id"] = "W1R"
         else:
-            q["display_id"] = qid
+            q["display_id"] = ""
         out.append(q)
     return out
 
@@ -134,9 +155,11 @@ def _answer_map(form):
 def _correct(question_id: str, answer_value: str | None) -> bool:
     source_id = "W1" if question_id == "W1R" else question_id
     q = DIAGNOSTIC_BY_ID[source_id]
-    return answer_value == str(q["answer"])
+    return answer_value is not None and answer_value == str(q["answer"])
 
 def _branch_from_anchors(answers: dict[str, str]) -> str:
+    # Highest anchor passed determines the branch. Do not allow a stale session value
+    # to influence placement.
     if _correct("B1", answers.get("B1")):
         return "black"
     if _correct("G1", answers.get("G1")):
@@ -150,34 +173,43 @@ def _recommendation(branch: str, answers: dict[str, str]):
     depth_ids = cfg["depth"]
     depth_correct = sum(1 for qid in depth_ids if _correct(qid, answers.get(qid)))
     depth_total = len(depth_ids)
-    pct = depth_correct / depth_total if depth_total else 0
-    stretch_correct = cfg["stretch"] is None or _correct(cfg["stretch"], answers.get(cfg["stretch"]))
+    pct = depth_correct / depth_total if depth_total else 0.0
+    stretch_id = cfg.get("stretch")
+    stretch_correct = True if stretch_id is None else _correct(stretch_id, answers.get(stretch_id))
+
     idx = BELT_ORDER.index(branch)
-    recommendation = branch
-    note = ""
-    if pct >= 0.8 and stretch_correct:
-        recommendation = BELT_ORDER[min(idx + 1, len(BELT_ORDER) - 1)]
-        note = "Strong performance in the branched tier suggests you are ready to begin one tier higher." if recommendation != branch else "Strong performance supports starting at this level."
-    elif pct >= 0.8 and not stretch_correct:
-        recommendation = branch
-        note = "You handled the core tier well, but the stretch question suggests starting here rather than moving up."
+    if pct >= 0.8:
+        # A branch can move up only when the stretch question exists and was answered
+        # correctly. Black Belt is already the ceiling, so it stays Black.
+        if stretch_id is not None and stretch_correct and idx < len(BELT_ORDER) - 1:
+            recommendation = BELT_ORDER[idx + 1]
+            note = "Strong performance at this level, including the stretch question, suggests you are ready to start one tier higher."
+        elif stretch_id is None:
+            recommendation = branch
+            note = "Strong performance across the advanced questions supports starting at this level."
+        else:
+            recommendation = branch
+            note = "You handled the core questions well, but the stretch question suggests starting at this level."
     elif pct >= 0.5:
         recommendation = branch
-        note = "You have a workable foundation at this level; the early lessons are worth reviewing."
+        note = "Your results support starting at this level; review the early lessons as you begin."
     else:
         recommendation = BELT_ORDER[max(0, idx - 1)]
-        note = "The depth check suggests reinforcing the previous tier before moving ahead." if idx > 0 else "Start with the White Belt foundations and build from there."
+        note = "Your results suggest reinforcing the previous tier before moving ahead." if idx > 0 else "Start with the White Belt foundations and build from there."
+
     return recommendation, depth_correct, depth_total, pct, stretch_correct, note
 
 @app.get("/belt-level", response_class=HTMLResponse)
 async def belt_level(request: Request):
     request.session.pop("belt_level_answers", None)
     request.session.pop("belt_level_branch", None)
+    request.session.pop("belt_level_round1_ids", None)
+    request.session.pop("belt_level_round2_ids", None)
     questions = _question_set(BELT_LEVEL_ANCHORS)
     return templates.TemplateResponse(
         request=request,
         name="diagnostic.html",
-        context=context(request, questions=questions, round=1, total_rounds=2, branch=None, question_number_offset=0),
+        context=context(request, questions=questions, question_offset=0, branch=None),
     )
 
 @app.post("/belt-level", response_class=HTMLResponse)
@@ -188,42 +220,80 @@ async def belt_level_submit(request: Request):
     answers = _answer_map(form)
 
     if round_number == "1":
+        # Only the four anchors are accepted in round one. Missing anchors are invalid.
+        if not all(qid in answers for qid in BELT_LEVEL_ANCHORS) or not business_area:
+            questions = _question_set(BELT_LEVEL_ANCHORS)
+            return templates.TemplateResponse(
+                request=request,
+                name="diagnostic.html",
+                context=context(request, questions=questions, question_offset=0, branch=None, error="Please answer all four questions and choose a business context."),
+                status_code=400,
+            )
+
         branch = _branch_from_anchors(answers)
-        request.session["belt_level_answers"] = answers
+        branch_ids = BELT_LEVEL_BRANCHES[branch]["questions"]
+        request.session["belt_level_answers"] = {qid: answers[qid] for qid in BELT_LEVEL_ANCHORS}
         request.session["belt_level_branch"] = branch
         request.session["belt_level_business_area"] = business_area
-        branch_ids = BELT_LEVEL_BRANCHES[branch]["questions"]
+        request.session["belt_level_round1_ids"] = list(BELT_LEVEL_ANCHORS)
+        request.session["belt_level_round2_ids"] = list(branch_ids)
         questions = _question_set(branch_ids, repeat_w1=(branch == "white"))
         return templates.TemplateResponse(
             request=request,
             name="diagnostic.html",
-            context=context(request, questions=questions, round=2, total_rounds=2, branch=branch, business_area=business_area, question_number_offset=4),
+            context=context(request, questions=questions, question_offset=4, branch=None, business_area=business_area),
         )
 
     stored = dict(request.session.get("belt_level_answers") or {})
-    stored.update(answers)
-    branch = str(request.session.get("belt_level_branch") or "white")
-    business_area = str(request.session.get("belt_level_business_area") or business_area)
+    branch = _branch_from_anchors(stored) if all(qid in stored for qid in BELT_LEVEL_ANCHORS) else "white"
+    expected_ids = list(request.session.get("belt_level_round2_ids") or BELT_LEVEL_BRANCHES[branch]["questions"])
+    expected_ids_for_answers = list(expected_ids)
+    if branch == "white":
+        expected_ids_for_answers = [qid for qid in expected_ids if qid != "W1"] + ["W1R"]
+
+    # Require exactly the six displayed round-two answers. This prevents stale or
+    # unrelated session values from participating in the score.
+    if not all(qid in answers for qid in expected_ids_for_answers):
+        questions = _question_set(expected_ids, repeat_w1=(branch == "white"))
+        return templates.TemplateResponse(
+            request=request,
+            name="diagnostic.html",
+            context=context(request, questions=questions, question_offset=4, branch=None, business_area=request.session.get("belt_level_business_area", ""), error="Please answer all six questions before continuing."),
+            status_code=400,
+        )
+
+    for qid in expected_ids_for_answers:
+        stored[qid] = answers[qid]
+
+    # Recompute the branch from the four anchor answers every time.
+    branch = _branch_from_anchors(stored)
+    expected_depth = set(BELT_LEVEL_BRANCHES[branch]["depth"])
     recommendation, depth_correct, depth_total, depth_pct, stretch_correct, note = _recommendation(branch, stored)
-    total_correct = sum(1 for q in DIAGNOSTIC_BANK if q["id"] in stored and _correct(q["id"], stored[q["id"]]))
-    # W1 confidence check is intentionally not a new bank item and is excluded from the 20-question count.
-    if "W1R" in stored and _correct("W1R", stored["W1R"]):
-        total_correct += 1
+
+    # Overall score is exactly the ten questions displayed. W1R is the tenth item
+    # on the White branch and is scored once as that displayed question.
+    displayed_ids = BELT_LEVEL_ANCHORS + ([qid for qid in BELT_LEVEL_BRANCHES[branch]["questions"]])
+    if branch == "white":
+        displayed_ids = BELT_LEVEL_ANCHORS + ["W2", "W3", "W4", "W5", "Y2", "W1R"]
+    total_correct = sum(1 for qid in displayed_ids if _correct(qid, stored.get(qid)))
+
     request.session["diagnostic_complete"] = True
     request.session["belt_level_answers"] = stored
     update_learner(
         current_user_id(request),
-        business_area=business_area,
+        business_area=str(request.session.get("belt_level_business_area") or business_area),
         belt=recommendation,
         diagnostic_score=total_correct,
         diagnostic_total=10,
     )
     by_belt = {belt: {"correct": 0, "total": 0} for belt in BELT_ORDER}
-    for q in DIAGNOSTIC_BANK:
-        if q["id"] in stored:
-            by_belt[q["belt"]]["total"] += 1
-            if _correct(q["id"], stored[q["id"]]):
-                by_belt[q["belt"]]["correct"] += 1
+    for qid in displayed_ids:
+        source_id = "W1" if qid == "W1R" else qid
+        q = DIAGNOSTIC_BY_ID[source_id]
+        by_belt[q["belt"]]["total"] += 1
+        if _correct(qid, stored.get(qid)):
+            by_belt[q["belt"]]["correct"] += 1
+
     return templates.TemplateResponse(
         request=request,
         name="diagnostic_result.html",
