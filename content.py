@@ -2,6 +2,24 @@ BELT_ORDER = ["white", "yellow", "green", "black"]
 
 
 def lesson(code, title, question, concepts, terms=None, math=None, teach_back="Teach the approach back to me in your own words."):
+    resolved_math = []
+    if math:
+        for item in math:
+            matched = False
+            # Check against your existing MATH_REFERENCE list of tuples
+            for ref_name, equation, description in MATH_REFERENCE:
+                if ref_name.lower() in item.lower():
+                    resolved_math.append({
+                        "name": ref_name,
+                        "equation": equation,
+                        "description": description,
+                        "raw": item
+                    })
+                    matched = True
+                    break
+            if not matched:
+                resolved_math.append(item)
+    
     return {
         "code": code,
         "title": title,
@@ -499,8 +517,7 @@ MATH_REFERENCE = [
 ]
 
 
-# Belt-level assessment: 20-question adaptive bank.
-# The session presents 4 anchors first, then routes to a 6-question branch.
+# Belt-level assessment: 20-question adaptive Questions.
 DIAGNOSTIC_BANK = [
     {"id": "W1", "belt": "white", "tier": 1, "anchor": True, "topic": "Six Sigma & Org",
      "question": "What is the primary goal of Six Sigma as a business methodology?",
