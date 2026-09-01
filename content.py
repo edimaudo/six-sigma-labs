@@ -16,7 +16,7 @@ def lesson(code, title, question, concepts, terms=None, math=None, teach_back="T
 BELTS = {
     "white": {
         "name": "White Belt",
-        "tagline": "Learn the core language and mindset used in Six Sigma work.",
+        "tagline": "Understand the language of improvement.",
         "description": "Learn the core language, mindset, process thinking, and DMAIC logic used in Six Sigma work.",
         "modules": [
             lesson("W01", "What is Six Sigma?", "Why do organizations care about variation, defects, and process performance?", [
@@ -499,19 +499,200 @@ MATH_REFERENCE = [
 ]
 
 
-# Belt-level assessment: 10 questions. It is a starting-point check, not a certification exam.
-DIAGNOSTIC = [
-    {"id": 1, "belt": "white", "question": "A team says a process is broken. What should happen first?", "options": ["Buy a new system", "Define the problem and desired outcome", "Run a hypothesis test", "Train employees"], "answer": 1},
-    {"id": 2, "belt": "white", "question": "Which statement best describes process thinking?", "options": ["Problems are usually caused by one person", "A process transforms inputs into outputs for a customer or stakeholder", "Every process problem requires advanced statistics", "A written procedure is always the same as the actual process"], "answer": 1},
-    {"id": 3, "belt": "yellow", "question": "What does SIPOC provide?", "options": ["A regression model", "A high-level view of process boundaries, inputs and outputs", "A control chart", "A project financial forecast"], "answer": 1},
-    {"id": 4, "belt": "yellow", "question": "A Pareto chart primarily helps a team do what?", "options": ["Prove causation", "Prioritize categories contributing to the observed problem", "Calculate process capability", "Replace measurement"], "answer": 1},
-    {"id": 5, "belt": "green", "question": "Why assess a measurement system before analyzing process data?", "options": ["To make dashboards look better", "To establish whether the measurement can be trusted for the decision", "To eliminate process variation", "To avoid defining the problem"], "answer": 1},
-    {"id": 6, "belt": "green", "question": "Which statement about process capability is correct?", "options": ["Capability ignores specification limits", "Capability compares a stable process with defined specifications", "Capability is the same as a control limit", "Capability proves root cause"], "answer": 1},
-    {"id": 7, "belt": "green", "question": "What is the strongest evidence for a root cause?", "options": ["A manager's opinion", "A plausible story", "Evidence showing a repeatable relationship and response when the factor changes", "A Pareto chart alone"], "answer": 2},
-    {"id": 8, "belt": "black", "question": "What is a key advantage of a designed experiment?", "options": ["It avoids the need for a response variable", "It deliberately varies factors to learn about effects and interactions", "It guarantees a positive business result", "It eliminates stakeholder management"], "answer": 1},
-    {"id": 9, "belt": "black", "question": "Why can a statistically significant result still be a poor business decision?", "options": ["Statistical analysis is never useful", "Statistical significance and practical significance are different", "A p-value guarantees implementation success", "Control is unnecessary after significance"], "answer": 1},
-    {"id": 10, "belt": "black", "question": "When is DMADV/IDOV more appropriate than DMAIC?", "options": ["When an existing process only needs routine monitoring", "When a new product or process must be designed or substantially redesigned", "When a control chart has a special-cause signal", "When the team wants to avoid customer requirements"], "answer": 1},
+# Belt-level assessment: 20-question adaptive bank.
+# The session presents 4 anchors first, then routes to a 6-question branch.
+DIAGNOSTIC_BANK = [
+    {"id": "W1", "belt": "white", "tier": 1, "anchor": True, "topic": "Six Sigma & Org",
+     "question": "What is the primary goal of Six Sigma as a business methodology?",
+     "options": [
+         "To eliminate all variation and defects in a process, improving customer satisfaction and reducing costs",
+         "To increase the number of employees trained in statistics",
+         "To guarantee zero customer complaints within one year",
+         "To replace all manual processes with automation",
+     ], "answer": 0,
+     "rationale": "Six Sigma centers on reducing variation and defects to improve quality and business performance — it is not a training quota or a guarantee.",
+     "socratic": "If a process has very little variation but still produces defects, has Six Sigma succeeded?"},
+    {"id": "W2", "belt": "white", "tier": 1, "topic": "Lean Principles",
+     "question": "In simple terms, what does waste mean in a Lean environment?",
+     "options": [
+         "Any activity that consumes resources but adds no value from the customer's perspective",
+         "Any material left over after production",
+         "Only physical scrap or damaged product",
+         "Time employees spend on breaks",
+     ], "answer": 0,
+     "rationale": "Lean defines waste (muda) broadly as non-value-adding activity — much wider than physical scrap alone.",
+     "socratic": "Can you think of an activity in your own work that feels necessary but might not add value to the customer?"},
+    {"id": "W3", "belt": "white", "tier": 1, "topic": "Voice of the Customer",
+     "question": "Which of the following best describes Voice of the Customer (VOC)?",
+     "options": [
+         "Feedback and requirements gathered directly or indirectly from customers about their needs and expectations",
+         "A survey sent only to unhappy customers",
+         "The company's internal quality standards",
+         "A single customer's opinion used to set project priorities",
+     ], "answer": 0,
+     "rationale": "VOC is a structured, ongoing process of capturing needs and expectations — not a complaints inbox or one person's opinion.",
+     "socratic": "How might the voice of an internal customer differ from an external one?"},
+    {"id": "W4", "belt": "white", "tier": 1, "topic": "Six Sigma & Org",
+     "question": "What is a defect in Six Sigma terms?",
+     "options": [
+         "Any output that fails to meet a specified customer requirement or specification",
+         "Any product returned by a customer",
+         "A cosmetic flaw only",
+         "An error made by an employee",
+     ], "answer": 0,
+     "rationale": "A defect is defined against specification, regardless of whether it results in a return or is visually obvious.",
+     "socratic": "If a product meets specification but the customer is still unhappy, is that a defect?"},
+    {"id": "W5", "belt": "white", "tier": 1, "topic": "Team Dynamics",
+     "question": "Why is teamwork important in continuous improvement efforts?",
+     "options": [
+         "Diverse perspectives and cross-functional knowledge lead to better root-cause identification and more sustainable solutions",
+         "It ensures management approval is not required",
+         "It reduces the total time spent on paperwork",
+         "It is mainly to distribute blame if the project fails",
+     ], "answer": 0,
+     "rationale": "Cross-functional input surfaces causes and constraints a single person would likely miss.",
+     "socratic": "What might go wrong on an improvement project run by just one person working alone?"},
+
+    {"id": "Y1", "belt": "yellow", "tier": 2, "anchor": True, "topic": "Define Phase / DMAIC",
+     "question": "What does the acronym DMAIC stand for?",
+     "options": [
+         "Define, Measure, Analyze, Improve, Control",
+         "Design, Manage, Analyze, Implement, Check",
+         "Define, Model, Assess, Improve, Confirm",
+         "Determine, Measure, Act, Investigate, Correct",
+     ], "answer": 0,
+     "rationale": "DMAIC is the standard Six Sigma project structure.",
+     "socratic": "Why do you think Define comes before Measure rather than the other way around?"},
+    {"id": "Y2", "belt": "yellow", "tier": 2, "topic": "Analyze — Root Cause Tools",
+     "question": "What tool would you use to identify the vital few causes contributing to most of a problem (the 80/20 rule)?",
+     "options": ["Pareto Chart", "Control Chart", "Scatter Diagram", "Histogram"], "answer": 0,
+     "rationale": "The Pareto chart is specifically built to visualize the 80/20 relationship between causes and effect.",
+     "socratic": "If your Pareto chart shows one cause responsible for 90% of defects, how should that change your project's priorities?"},
+    {"id": "Y3", "belt": "yellow", "tier": 2, "topic": "Root Cause Analysis",
+     "question": "What is the purpose of a fishbone (Ishikawa) diagram?",
+     "options": [
+         "To organize potential causes of a problem into categories to explore root causes systematically",
+         "To rank causes by financial impact only",
+         "To track defects over time",
+         "To calculate process capability",
+     ], "answer": 0,
+     "rationale": "It is a brainstorming and organizing tool for causes, not a statistical or financial calculation.",
+     "socratic": "Why might grouping causes into categories like Method, Machine, or People help a team brainstorm more completely?"},
+    {"id": "Y4", "belt": "yellow", "tier": 2, "topic": "Lean Tools — 5S",
+     "question": "In 5S, what does the Sort step involve?",
+     "options": [
+         "Removing unnecessary items from the workspace, keeping only what is needed",
+         "Cleaning the workspace daily",
+         "Labelling all items alphabetically",
+         "Creating a maintenance schedule",
+     ], "answer": 0,
+     "rationale": "Sort (Seiri) is specifically about removing what is not needed, before organizing what remains.",
+     "socratic": "What is a risk of skipping the Sort step and going straight to organizing everything neatly?"},
+    {"id": "Y5", "belt": "yellow", "tier": 2, "topic": "Six Sigma Roles",
+     "question": "What is the role of a Yellow Belt on a Six Sigma project team?",
+     "options": [
+         "Supports projects as a team member, providing local process knowledge and helping with data collection",
+         "Leads complex, cross-functional projects independently",
+         "Trains Black Belts on advanced statistics",
+         "Approves project charters and allocates budget",
+     ], "answer": 0,
+     "rationale": "Yellow Belts are typically subject-matter contributors, not project leads or approvers.",
+     "socratic": "How does a Yellow Belt's role differ from a Green Belt's role on the same project?"},
+
+    {"id": "G1", "belt": "green", "tier": 3, "anchor": True, "topic": "Measure — MSA",
+     "question": "What is the purpose of a Measurement System Analysis (MSA)?",
+     "options": [
+         "To determine how much of the observed variation in data comes from the measurement system itself versus the actual process",
+         "To calculate the financial return of a project",
+         "To identify which employees need more training",
+         "To set the specification limits for a process",
+     ], "answer": 0,
+     "rationale": "MSA isolates measurement-system variation from true process variation — a prerequisite for trusting any data collected afterward.",
+     "socratic": "If your measurement system contributes 40% of the variation you are seeing, can you trust your process data?"},
+    {"id": "G2", "belt": "green", "tier": 3, "topic": "Measure — Process Capability",
+     "question": "Which statistical concept describes the spread of a process relative to its specification limits?",
+     "options": ["Process Capability (e.g., Cp/Cpk)", "Correlation coefficient", "Standard deviation alone", "Sample size"], "answer": 0,
+     "rationale": "Cp/Cpk specifically relate process spread to the specification width, unlike standard deviation on its own.",
+     "socratic": "What does it mean if a process has a Cpk below 1.0?"},
+    {"id": "G3", "belt": "green", "tier": 3, "topic": "Analyze — Hypothesis Testing",
+     "question": "What does a p-value in hypothesis testing help you determine?",
+     "options": [
+         "The probability of observing your data (or something more extreme) if the null hypothesis is true",
+         "The probability that your hypothesis is correct",
+         "The percentage of defects in your sample",
+         "The confidence level you should report to stakeholders",
+     ], "answer": 0,
+     "rationale": "This is the precise statistical definition — a very common point of confusion worth reinforcing.",
+     "socratic": "If a p-value is 0.03, and your significance level is 0.05, what conclusion would you draw about the null hypothesis?"},
+    {"id": "G4", "belt": "green", "tier": 3, "topic": "Control — Control Plan",
+     "question": "What is the primary purpose of a Control Plan in the Control phase?",
+     "options": [
+         "To document how key process variables will be monitored and controlled so improvements are sustained after the project ends",
+         "To list every employee assigned to the process",
+         "To calculate the project's return on investment",
+         "To replace the need for standard operating procedures",
+     ], "answer": 0,
+     "rationale": "The Control Plan exists specifically to sustain gains after the project team disbands.",
+     "socratic": "What might happen to your project's gains six months after closure if there is no control plan in place?"},
+    {"id": "G5", "belt": "green", "tier": 3, "topic": "Define — Project Management",
+     "question": "Which tool is used in the Define phase to establish project scope, goals, and business case?",
+     "options": ["Project Charter", "Fishbone Diagram", "Control Chart", "DOE Matrix"], "answer": 0,
+     "rationale": "The charter is the foundational Define-phase document; the other tools belong to later phases.",
+     "socratic": "Why is a clearly defined problem statement in the charter important before a team starts collecting data?"},
+
+    {"id": "B1", "belt": "black", "tier": 4, "anchor": True, "topic": "Improve — Factorial Experiments",
+     "question": "In Design of Experiments (DOE), what is a factorial experiment used for?",
+     "options": [
+         "To study the effects of multiple input factors and their interactions on an output simultaneously",
+         "To test one variable at a time for simplicity",
+         "To replace the need for hypothesis testing",
+         "To measure only the main effect of a single factor",
+     ], "answer": 0,
+     "rationale": "Factorial designs are specifically valued for detecting interaction effects that one-factor-at-a-time testing would miss.",
+     "socratic": "Why might testing one factor at a time miss an important interaction effect between two variables?"},
+    {"id": "B2", "belt": "black", "tier": 4, "topic": "Define — Sigma Shift",
+     "question": "What does the 1.5 sigma shift account for in long-term Six Sigma calculations?",
+     "options": [
+         "It accounts for the fact that process means tend to drift over the long term, so short-term capability studies are adjusted to better estimate long-term defect rates",
+         "It corrects for measurement error only",
+         "It is a rounding convention used only in reporting",
+         "It applies only to attribute (discrete) data, never continuous data",
+     ], "answer": 0,
+     "rationale": "The shift bridges short-term and long-term process performance estimates.",
+     "socratic": "Why might a process that looks capable in a short-term study still produce more defects than expected over a year?"},
+    {"id": "B3", "belt": "black", "tier": 4, "topic": "Analyze — Hypothesis Testing with Non-Normal Data",
+     "question": "When should you use a non-parametric (non-normal) hypothesis test instead of a standard t-test?",
+     "options": [
+         "When the data significantly violates the assumption of normality and sample sizes are small, or the data is ordinal/ranked rather than continuous",
+         "Whenever you have more than 30 data points",
+         "Only when analyzing attribute data",
+         "Non-parametric tests should never be used in Six Sigma",
+     ], "answer": 0,
+     "rationale": "Non-parametric tests exist precisely for cases where normality assumptions do not hold.",
+     "socratic": "If a Shapiro-Wilk test shows your data is non-normal and you cannot transform it, what does that mean for choosing between a t-test and a Mann-Whitney test?"},
+    {"id": "B4", "belt": "black", "tier": 4, "topic": "Improve — Multiple Regression",
+     "question": "In multiple regression analysis, what does a high VIF (variance inflation factor) indicate?",
+     "options": [
+         "High multicollinearity among predictor variables, meaning they are highly correlated with each other, making individual coefficient estimates unreliable",
+         "That the regression model has a very high R-squared and is highly accurate",
+         "That the sample size is too large for the model",
+         "That the residuals are normally distributed",
+     ], "answer": 0,
+     "rationale": "VIF flags multicollinearity specifically — a common source of misleading coefficient estimates.",
+     "socratic": "If two of your predictors are highly correlated, how would you decide which one to keep in the model?"},
+    {"id": "B5", "belt": "black", "tier": 4, "topic": "Define — COPQ Calculation",
+     "question": "How is Cost of Poor Quality (COPQ) typically calculated?",
+     "options": [
+         "By summing costs of prevention, appraisal, and internal/external failure related to poor quality",
+         "By dividing total revenue by number of defects",
+         "By calculating only the cost of scrapped material",
+         "By multiplying headcount by average salary",
+     ], "answer": 0,
+     "rationale": "This is the standard prevention-appraisal-failure model used to calculate COPQ.",
+     "socratic": "Which of the four COPQ cost categories do you think is most often underestimated by organizations, and why?"},
 ]
+
+DIAGNOSTIC = DIAGNOSTIC_BANK
 
 
 SCENARIOS = [{'area': 'Retail',
@@ -814,6 +995,14 @@ SCENARIOS = [{'area': 'Retail',
   'method': 'DMAIC'}]
 
 
+
+
+# Source-based case studies added in the expanded case library.
+ADDITIONAL_CASE_STUDIES = [{'id': 'cs-praxie-production-waste', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Production scrap reduction', 'prompt': 'A manufacturing line is producing more scrap than expected. The team suspects machine settings, material handling and operator practices, but the baseline is not yet clear.', 'source_url': 'https://praxie.com/dmaic-project-examples-in-manufacturing/', 'source_title': 'DMAIC Project Success Stories & Cases in Manufacturing'}, {'id': 'cs-praxie-product-quality', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Product defect reduction', 'prompt': 'Final-product defects are above target. Supplier material quality and inspection practices are both being blamed, but the team needs evidence to distinguish the causes.', 'source_url': 'https://praxie.com/dmaic-project-examples-in-manufacturing/', 'source_title': 'DMAIC Project Success Stories & Cases in Manufacturing'}, {'id': 'cs-praxie-supply-chain', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Supply-chain lead-time reduction', 'prompt': 'Production is being delayed by long supply-chain lead times. Inventory practices and vendor communication are both potential drivers, and the team needs to establish where delay accumulates.', 'source_url': 'https://praxie.com/dmaic-project-examples-in-manufacturing/', 'source_title': 'DMAIC Project Success Stories & Cases in Manufacturing'}, {'id': 'cs-praxie-equipment-efficiency', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Equipment efficiency and downtime', 'prompt': 'A plant is operating below its expected equipment efficiency, with recurring downtime. Maintenance schedules and aging parts are competing explanations.', 'source_url': 'https://praxie.com/dmaic-project-examples-in-manufacturing/', 'source_title': 'DMAIC Project Success Stories & Cases in Manufacturing'}, {'id': 'cs-pump-ovality', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Pump stage-casing ovality', 'prompt': 'A submersible-pump manufacturer is seeing ovality in a stage-casing component. The team must separate casting, machining and process-setting effects before selecting a solution.', 'source_url': 'https://www.researchgate.net/publication/264819873_Six_Sigma_implementation_through_DMAIC_a_case_study', 'source_title': 'Six Sigma implementation through DMAIC: a case study'}, {'id': 'cs-hospital-admin', 'belt': 'white', 'difficulty': 'White Belt', 'area': 'Healthcare', 'method': 'DMAIC', 'title': 'On-time completion of resident administrative tasks', 'prompt': 'A hospital wants more resident administrative tasks completed on time. Leaders see a performance problem, but the process, workload and incentives have not been defined clearly.', 'source_url': 'https://www.isixsigma.com/case-studies/case-study-dmaic-project-improves-hospitals-on-time-completion-of-administrative-tasks/', 'source_title': "DMAIC Project Improves Hospital's On-time Completion of Administrative Tasks"}, {'id': 'cs-cricket-batting', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Sports', 'method': 'DMAIC', 'title': 'Batting consistency and performance', 'prompt': 'A cricket team wants to improve a key batter’s consistency. The team has performance data by pitch, bowling style and batting position, but they disagree about which factors matter most.', 'source_url': 'https://www.slideshare.net/slideshow/six-sigma-dmaic-case-study/27088799', 'source_title': 'Six Sigma DMAIC Case Study'}, {'id': 'cs-router-config', 'belt': 'white', 'difficulty': 'White Belt', 'area': 'Telecommunications', 'method': 'DMAIC', 'title': 'Incorrect router configurations', 'prompt': 'Field installations are being delayed because routers arrive with configuration errors. Engineering, provisioning and field teams each see a different point of failure.', 'source_url': 'https://goleansixsigma.com/reducing-incorrect-router-installations-call-one/', 'source_title': 'Call One Reduced Router Configuration Time By 55%'}, {'id': 'cs-software-bug', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Technology', 'method': 'DMAIC', 'title': 'Software bug-fix lead time', 'prompt': 'Bug fixes take too long to reach the official branch. The team must distinguish productive engineering work from queue time, extra reviews and handoffs.', 'source_url': 'https://goleansixsigma.com/project-storyboard-reducing-software-bug-fix-lead-time-from-25-to-15-days/', 'source_title': 'Telecommunications Company Reduced Software Bug Fix Lead Time By 40%'}, {'id': 'cs-offshore-inspection', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Oil & Gas', 'method': 'DMAIC', 'title': 'Critical-equipment inspection and risk monitoring', 'prompt': 'An offshore operator has inconsistent monitoring of critical equipment failures. The improvement team must clarify indicators, acceptance criteria and the connection between inspection data and operational risk.', 'source_url': 'https://jpt.spe.org/twa/analysis-method-and-continuous-improvement-of-the-critical-equipment-inspection-process-in-the-offshore-sector', 'source_title': 'Analysis Method and Continuous Improvement of the Critical Equipment Inspection Process in the Offshore Sector'}, {'id': 'cs-drillbit-inventory', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Oil & Gas', 'method': 'DMAIC', 'title': 'Drill-bit inventory and lease management', 'prompt': 'Drill-bit inventory is spread across warehouses, field locations and clients. Poor visibility and manual records are creating waste, errors and underutilization.', 'source_url': 'https://jpt.spe.org/twa/lean-six-sigma-applications-in-the-oil-and-gas-industry-drill-bit-inventory-and-lease-management', 'source_title': 'Lean Six Sigma Applications in the Oil and Gas Industry: Drill-Bit Inventory and Lease Management'}, {'id': 'cs-underwriting-resubmits', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Financial Services', 'method': 'DMAIC', 'title': 'Commercial-loan underwriting resubmits', 'prompt': 'More than half of commercial-loan packages are being resubmitted. Bankers and analysts disagree on why, and early hypotheses do not yet explain the rework.', 'source_url': 'https://goleansixsigma.com/project-storyboard-reducing-underwriting-resubmits-by-over-20/', 'source_title': 'Reducing Underwriting Resubmits by Over 20%'}, {'id': 'cs-la-county-filing', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Government', 'method': 'DMAIC', 'title': 'Business filing rejection rates', 'prompt': 'A county registrar wants fewer business filings rejected and shorter customer waits. Frontline teams have ideas for removing unnecessary steps, but ownership crosses bureau boundaries.', 'source_url': 'https://goleansixsigma.com/a-call-to-change-pioneering-lean-six-sigma-in-los-angeles-county/', 'source_title': 'LA County Reduced Business Filing Rejection Rates By 30%'}, {'id': 'cs-kern-helpdesk', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Government', 'method': 'DMAIC', 'title': 'Government IT help-desk resolution time', 'prompt': 'IT help-desk requests take far longer to resolve than the actual work time suggests. Multiple handoffs and unclear intake requirements are suspected contributors.', 'source_url': 'https://goleansixsigma.com/project-example-lean-six-sigma-delivers-64-improvement-in-government-help-desk-resolution-time/', 'source_title': 'Kern County Improved Government Help Desk Resolution Time By 64%'}, {'id': 'cs-san-antonio-payments', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Government', 'method': 'DMAIC', 'title': 'Street-maintenance payment processing', 'prompt': 'Contractors report long delays before street-maintenance invoices are paid. Rejected quantities, documentation and approval handoffs are competing explanations.', 'source_url': 'https://goleansixsigma.com/black-belt-project-storyboard-example-task-order-invoicing-process-timing-city-san-antonio/', 'source_title': 'City of San Antonio Improved Street Maintenance Payments By 20%'}, {'id': 'cs-stlouis-bid-tab', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Government', 'method': 'DMAIC', 'title': 'Bid-tabulation cycle time', 'prompt': 'Procurement bid tabs take longer than customers expect, especially for complex bids. Buyers hesitate to escalate roadblocks because of hierarchy and concerns about involving management.', 'source_url': 'https://goleansixsigma.com/project-storyboard-reducing-bid-tab-creation-cycle-time-by-22/', 'source_title': 'City of St. Louis Reduced Bid Tab Creation Cycle Time By 22%'}, {'id': 'cs-fema-disaster', 'belt': 'green', 'difficulty': 'Green Belt', 'area': 'Emergency Response', 'method': 'DMAIC', 'title': 'Natural-disaster response cycle time', 'prompt': 'Emergency-response work is slowed by bottlenecks at distribution centres and relief sites. Staffing shortages and weak coordination across agencies compound the delay.', 'source_url': 'https://goleansixsigma.com/project-storyboard-reducing-cycle-time-for-natural-disaster-response-by-50/', 'source_title': 'Reducing Cycle Time for Natural Disaster Response by 50%'}, {'id': 'cs-food-pantry', 'belt': 'white', 'difficulty': 'White Belt', 'area': 'Nonprofit', 'method': 'DMAIC', 'title': 'Food-box packing flow', 'prompt': 'A food pantry wants to assemble boxes faster without creating congestion. Volunteers, food locations and changing box contents are all affecting flow.', 'source_url': 'https://goleansixsigma.com/lean-six-sigma-helps-feed-people-in-need-45-faster/', 'source_title': 'Lean Six Sigma Helps Feed People In Need 45% Faster'}, {'id': 'cs-first-run-parts', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'First-run parts yield', 'prompt': 'Only 60% of new parts are right the first time. Operators report confusing steps and disorganization, but the business case depends on identifying where the process actually fails.', 'source_url': 'https://goleansixsigma.com/increasing-first-run-parts-60-90/', 'source_title': 'Manufacturer Increased First Run Parts By 30%'}, {'id': 'cs-bsd-scrap', 'belt': 'black', 'difficulty': 'Black Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Bent, scratched and damaged material scrap', 'prompt': 'A material-handling operation is facing rising scrap cost. The team must use defect data, layout analysis and control methods to determine which interventions will change the economics of the process.', 'source_url': 'https://goleansixsigma.com/single-black-belt-project-jump-starts-successful-lean-six-sigma-effort/', 'source_title': 'Manufacturer Reduced Scrap Money Costs By 76%'}, {'id': 'cs-replacement-parts', 'belt': 'white', 'difficulty': 'White Belt', 'area': 'Healthcare', 'method': 'DMAIC', 'title': 'Customer replacement-part lead time', 'prompt': 'Customers are waiting too long for replacement parts. Inventory availability, workload balance and non-value-added checks are all possible sources of delay.', 'source_url': 'https://goleansixsigma.com/reducing-lead-time-customer-replacement-part-orders-41/', 'source_title': 'Reducing Lead Time in Customer Replacement Part Orders By 41%'}, {'id': 'cs-temp-learning', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Manufacturing', 'method': 'DMAIC', 'title': 'Temporary-worker learning curve', 'prompt': 'New temporary workers take too long to reach the expected productivity level. Training, workstation design and follow-up support may all shape the learning curve.', 'source_url': 'https://goleansixsigma.com/reducing-learning-curve-ramp-for-temp-employees-by-2-weeks/', 'source_title': 'Reducing Learning Curve Ramp for Temp Employees by 2 Weeks'}, {'id': 'cs-stuff-sack', 'belt': 'yellow', 'difficulty': 'Yellow Belt', 'area': 'Nonprofit / Manufacturing', 'method': 'DMAIC', 'title': 'Capacity in a parallel production process', 'prompt': 'A mission-driven production operation must increase output while several work streams run in parallel. The challenge is to expose capacity constraints without disrupting the social mission.', 'source_url': 'https://goleansixsigma.com/herding-cats-using-lean-six-sigma-plan-manage-chaos-parallel-processes/', 'source_title': 'Herding Cats Using Lean Six Sigma: How to Plan for and Manage the Chaos of Parallel Processes'}, {'id': 'cs-meat-production', 'belt': 'white', 'difficulty': 'White Belt', 'area': 'Food Processing', 'method': 'DMAIC', 'title': 'Daily meat-production throughput', 'prompt': 'A food-processing plant wants more daily output without losing control of quality or creating unsafe working conditions. The team needs to see the process rather than jump straight to capacity fixes.', 'source_url': 'https://goleansixsigma.com/lean-six-sigma-increases-daily-meat-production-25/', 'source_title': 'Lean Six Sigma Increases Daily Meat Production by 25%'}, {'id': 'cs-miami-housing', 'belt': 'black', 'difficulty': 'Black Belt', 'area': 'Construction / Education', 'method': 'DMADV / IDOV', 'title': 'Designing new student housing', 'prompt': 'A university is designing a new residential concept rather than improving an existing facility. Customer requirements, design choices, cost and verification must be balanced from the outset.', 'source_url': 'https://asq.org/quality-resources/articles/case-studies/designing-new-housing-at-the-university-of-miami-a-six-sigmac-dmadvdfss-case-study', 'source_title': 'Designing New Housing at the University of Miami: A Six Sigma DMADV/DFSS Case Study'}, {'id': 'cs-fishery-procurement', 'belt': 'black', 'difficulty': 'Black Belt', 'area': 'Fisheries / Supply Chain', 'method': 'DMADV / IDOV', 'title': 'Designing a procurement-management tool', 'prompt': 'A fishery company needs a new procurement-management capability that improves material visibility and reliability. The challenge is to define requirements, design the tool and verify it in operations.', 'source_url': 'https://www.researchgate.net/publication/377499925_A_Design_of_Procurement_Managing_Tool_Based_on_the_Lean_Six_Sigma-DMADV_A_Case_Study_of_an_Indonesian_Fishery_Company', 'source_title': 'A Design of Procurement Managing Tool Based on Lean Six Sigma-DMADV'}, {'id': 'cs-hospital-surgical-dmadv', 'belt': 'black', 'difficulty': 'Black Belt', 'area': 'Healthcare', 'method': 'DMADV / IDOV', 'title': 'Designing surgical-instrument picking and staffing', 'prompt': 'A hospital has redesigned surgical-instrument picking and transport and now needs to determine the right human-resource allocation. Process time, workload, staffing and quality must be considered together.', 'source_url': 'https://pubmed.ncbi.nlm.nih.gov/40781857/', 'source_title': 'Improving Hospital Surgical Instrument Picking Processes Through Six Sigma DMADV'}, {'id': 'cs-performance-system-dmadv', 'belt': 'black', 'difficulty': 'Black Belt', 'area': 'Financial Services', 'method': 'DMADV / IDOV', 'title': 'Redesigning performance management', 'prompt': 'A financial-services department cannot achieve its goals with incremental tweaks to the existing performance-management system. The team must redesign the system around stakeholder needs and organizational alignment.', 'source_url': 'https://www.isixsigma.com/case-studies/dmadv-case-study-performance-management-system-redesign/', 'source_title': 'DMADV Case Study: Performance Management System Redesign'}, {'id': 'cs-aerospace-dmadv', 'belt': 'black', 'difficulty': 'Black Belt', 'area': 'Aerospace Manufacturing', 'method': 'DMADV / IDOV', 'title': 'Deploying DMADV in aerospace manufacturing', 'prompt': 'An aerospace manufacturer is introducing a new operating approach and must design for performance, digital integration, sustainability and compliance rather than optimize an established process.', 'source_url': 'https://flevy.com/topic/dmadv/case-dmadv-deployment-leading-aerospace-firms-manufacturing-operations', 'source_title': "DMADV Deployment in a Leading Aerospace Firm's Manufacturing Operations"}]
+SCENARIOS.extend(ADDITIONAL_CASE_STUDIES)
+# Illustrative chart series used by the interactive case view; these are not source-study measurements.
+for _case in ADDITIONAL_CASE_STUDIES:
+    _case.setdefault('metrics', {'x': list(range(1, 11)), 'y': [10, 11, 9, 12, 13, 11, 14, 13, 15, 14]})
 
 
 # Keep glossary presentation deterministic and alphabetical.
