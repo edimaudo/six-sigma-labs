@@ -2,6 +2,7 @@
 {% block title %}{{ lesson.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow">
+  <p><a class="button button-secondary" href="{{ url_for('learn') }}">← Back to belt levels</a></p>
   <header class="page-header">
     <div class="eyebrow">{{ lesson.belt.name }} · Lesson {{ "%02d"|format(lesson.index) }}</div>
     <h1>{{ lesson.title }}</h1>
@@ -27,7 +28,6 @@
     <h2 id="process-data-heading">See how the method works with evidence.</h2>
     {% for item in lesson.process_data %}
       <div class="concept-row">
-        <span class="concept-number">{{ item.code }}</span>
         <div>
           <h3>{{ item.title }}</h3>
           <p><strong>{{ item.question }}</strong></p>
@@ -55,16 +55,7 @@
   <section class="section" aria-labelledby="lesson-math-heading">
     <div class="kicker">Equations</div>
     <h2 id="lesson-math-heading">The mathematics behind the idea.</h2>
-    {% for item in lesson.math %}
-      <div class="math-block">
-        <div class="formula-row" aria-label="Equation"><code>{{ item.formula }}</code></div>
-        <p>{{ item.explanation }}</p>
-        <h3>Variables</h3>
-        <ul class="variable-list">
-          {% for variable in item.variables %}<li>{{ variable }}</li>{% endfor %}
-        </ul>
-      </div>
-    {% endfor %}
+    {% for formula in lesson.math %}<div class="formula-row"><code>{{ formula }}</code></div>{% endfor %}
   </section>
   {% endif %}
 
