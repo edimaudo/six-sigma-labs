@@ -16,7 +16,7 @@
 
   <!-- Belt Filter -->
   <div class="form-group">
-    <label for="case-belt">Belt</label>
+    <label for="case-belt"></label>
     <select id="case-belt" name="belt">
       <option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>
       {% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}
@@ -25,7 +25,7 @@
 
   <!-- Method Filter -->
   <div class="form-group">
-    <label for="case-method">Method</label>
+    <label for="case-method"></label>
     <select id="case-method" name="method">
       <option value="all" {% if method_filter == 'all' %}selected{% endif %}>All methods</option>
       <option value="DMAIC" {% if method_filter == 'DMAIC' %}selected{% endif %}>DMAIC</option>
