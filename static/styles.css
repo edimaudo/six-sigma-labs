@@ -554,3 +554,86 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
   .landing-card h2 { max-width: none; }
   .landing-card p { max-width: 60ch; }
 }
+
+/* Learn: four equal-height belt cards */
+.learn-path-section { margin-top: 3.25rem; }
+.learn-belt-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+}
+.learn-belt-card {
+  min-width: 0;
+  min-height: 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.5rem 1.35rem 1.35rem;
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--blue);
+  background: var(--surface);
+}
+.learn-belt-card:hover {
+  background: var(--paper-alt);
+}
+.learn-belt-content h3 {
+  margin: 0 0 .7rem;
+  font-size: clamp(1.75rem, 2.45vw, 2.35rem);
+  line-height: 1.05;
+}
+.learn-belt-subtitle {
+  max-width: 26ch;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+.learn-belt-lessons {
+  display: flex;
+  align-items: baseline;
+  gap: .5rem;
+  margin: 2rem 0 0;
+  color: var(--muted);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .88rem;
+}
+.learn-belt-lessons strong {
+  color: var(--ink);
+  font-size: 2rem;
+  line-height: 1;
+}
+.learn-belt-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.learn-belt-link:hover,
+.learn-belt-link:focus-visible {
+  color: var(--blue-text);
+  text-decoration: underline;
+}
+.learn-belt-arrow {
+  flex: 0 0 auto;
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+@media (max-width: 1000px) {
+  .learn-belt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 620px) {
+  .learn-belt-grid { grid-template-columns: 1fr; }
+  .learn-belt-card { min-height: 18rem; }
+}
