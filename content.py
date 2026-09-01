@@ -31,9 +31,9 @@ def lesson(code, title, question, concepts, terms=None, math=None, teach_back="T
     if math:
         for item in math:
             matched = False
-            # Check against your existing MATH_REFERENCE list of tuples
             for ref_name, equation, description in MATH_REFERENCE:
-                if ref_name.lower() in item.lower():
+                # Match if the reference name matches the item (case-insensitive)
+                if ref_name.lower() == item.strip().lower() or item.strip().lower() in ref_name.lower():
                     resolved_math.append({
                         "name": ref_name,
                         "equation": equation,
@@ -42,8 +42,14 @@ def lesson(code, title, question, concepts, terms=None, math=None, teach_back="T
                     })
                     matched = True
                     break
+            
             if not matched:
-                resolved_math.append(item)
+                resolved_math.append({
+                    "name": item,
+                    "equation": "",
+                    "description": "",
+                    "raw": item
+                })
     
     return {
         "code": code,
