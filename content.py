@@ -29,13 +29,11 @@ MATH_REFERENCE = [
 def lesson(code, title, question, concepts, terms=None, math=None, teach_back="Teach the approach back to me in your own words."):
     resolved_math = []
     if math:
-            # math expects a list of strings, e.g., ["Mean", "Z-score"]
-            for math_name in math:
-                # Grab the exact, unmodified tuple from MATH_REFERENCE
-                for ref_tuple in MATH_REFERENCE:
-                    if ref_tuple[0] == math_name:
-                        resolved_math.append(ref_tuple)
-                        break
+        for math_name in math:
+            for ref_tuple in MATH_REFERENCE:
+                if ref_tuple[0] == math_name:
+                    resolved_math.append(ref_tuple)
+                    break
         
         return {
             "code": code,
