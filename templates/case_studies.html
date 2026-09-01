@@ -8,7 +8,7 @@
     <p class="lead">Choose a case and investigate the operational, economic, political and social signals before deciding what to do.</p>
     <form class="case-search" method="get" action="{{ url_for('case_studies') }}" role="search">
       <div class="case-search-field">
-        <label for="case-query">Search case studies</label>
+        <label class="sr-only" for="case-query">Search case studies</label>
         <input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry or method">
       </div>
       <div class="case-filter-row">
