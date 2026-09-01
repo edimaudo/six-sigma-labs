@@ -12,7 +12,7 @@ from fastapi.templating import Jinja2Templates
 from starlette.middleware.sessions import SessionMiddleware
 
 from adaptive import GeminiConfigError, GeminiResponseError, evaluate_reasoning, evaluate_teach_back, stakeholder_response
-from content import BELTS, BELT_ORDER, DIAGNOSTIC, DIAGNOSTIC_BANK, GLOSSARY, MATH_REFERENCE, SCENARIOS
+from content import BELT_ORDER, DIAGNOSTIC, DIAGNOSTIC_BANK, GLOSSARY, MATH_REFERENCE, SCENARIOS #BELTS
 from db import (
     add_attempt,
     add_journal,
