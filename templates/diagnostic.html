@@ -9,7 +9,7 @@
     {% if error %}<p class="form-error" role="alert">{{ error }}</p>{% endif %}
   </header>
 
-  <div id="quiz-error" class="form-error form-error--quiz" role="alert" aria-live="assertive" aria-atomic="true" tabindex="-1" hidden></div>
+  <div id="quiz-error" class="form-error form-error--quiz" role="alert" aria-live="assertive" aria-atomic="true" tabindex="-1" hidden></div><br>
 
   <form method="post" action="{{ url_for('belt_level_submit') }}" id="belt-level-form" novalidate>
     {% for q in questions %}
