@@ -367,7 +367,10 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
 .math-row > * { margin: 0; }
 .math-row p { color: var(--muted); }
 
-.case-search { display: grid; grid-template-columns: minmax(0, 1fr) 10rem 11rem auto; gap: .6rem; margin: 1.75rem 0 .7rem; }
+.case-search { display: block; margin: 1.75rem 0 .7rem; }
+.case-filter-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; align-items: end; margin-top: .8rem; }
+.case-filter-row > div { min-width: 0; }
+.case-search-button { width: 100%; }
 .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .case-card { display: flex; flex-direction: column; padding-right: 1.5rem; }
 .case-card .button { align-self: flex-start; margin-top: auto; }
@@ -418,7 +421,7 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
   .grid-2, .grid-3, .grid-4, .case-grid, .glossary-grid, .pricing-grid, .two-col, .signup-layout { grid-template-columns: 1fr; }
   .metrics-grid { grid-template-columns: 1fr; }
   .math-row { grid-template-columns: 1fr; gap: .35rem; }
-  .case-search { grid-template-columns: 1fr; }
+  .case-filter-row { grid-template-columns: 1fr; }
   .lesson-header { grid-template-columns: 3.25rem 1fr; gap: .8rem; }
   .button-row { align-items: stretch; }
   .button-row .button { width: 100%; }
@@ -637,3 +640,6 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
   .learn-belt-grid { grid-template-columns: 1fr; }
   .learn-belt-card { min-height: 18rem; }
 }
+/* Scoped belt-page alignment */
+.belt-page .lesson-card { padding-right: 0; }
+.belt-page .lesson-list { width: 100%; }
