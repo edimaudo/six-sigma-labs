@@ -1,36 +1,5 @@
 BELT_ORDER = ["white", "yellow", "green", "black"]
 
-
-def lesson(code, title, question, concepts, terms=None, math=None, teach_back="Teach the approach back to me in your own words."):
-    resolved_math = []
-    if math:
-        for item in math:
-            matched = False
-            # Check against your existing MATH_REFERENCE list of tuples
-            for ref_name, equation, description in MATH_REFERENCE:
-                if ref_name.lower() in item.lower():
-                    resolved_math.append({
-                        "name": ref_name,
-                        "equation": equation,
-                        "description": description,
-                        "raw": item
-                    })
-                    matched = True
-                    break
-            if not matched:
-                resolved_math.append(item)
-    
-    return {
-        "code": code,
-        "title": title,
-        "opening_question": question,
-        "concepts": concepts,
-        "terms": terms or [],
-        "math": math or [],
-        "teach_back": teach_back,
-    }
-
-
 BELTS = {
     "white": {
         "name": "White Belt",
@@ -1024,3 +993,32 @@ for _case in ADDITIONAL_CASE_STUDIES:
 
 # Keep glossary presentation deterministic and alphabetical.
 GLOSSARY = dict(sorted(GLOSSARY.items(), key=lambda item: item[0].lower()))
+
+def lesson(code, title, question, concepts, terms=None, math=None, teach_back="Teach the approach back to me in your own words."):
+    resolved_math = []
+    if math:
+        for item in math:
+            matched = False
+            # Check against your existing MATH_REFERENCE list of tuples
+            for ref_name, equation, description in MATH_REFERENCE:
+                if ref_name.lower() in item.lower():
+                    resolved_math.append({
+                        "name": ref_name,
+                        "equation": equation,
+                        "description": description,
+                        "raw": item
+                    })
+                    matched = True
+                    break
+            if not matched:
+                resolved_math.append(item)
+    
+    return {
+        "code": code,
+        "title": title,
+        "opening_question": question,
+        "concepts": concepts,
+        "terms": terms or [],
+        "math": math or [],
+        "teach_back": teach_back,
+    }
