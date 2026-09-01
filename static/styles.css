@@ -706,55 +706,56 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
    CASE STUDIES — SEARCH + FILTERS
    ========================================================= */
 
-/* Search input gets its own row */
-
+/* Main Form Container */
 .case-search {
-  display: block;
-  margin: 1.75rem 0 .7rem;
+  display: flex;
+  flex-wrap: wrap;        /* Allows wrapping on smaller screens */
+  gap: 1rem;              /* Adequate spacing between all items */
+  align-items: flex-end;  /* Anchors the bottom of the inputs/button together */
+  margin: 1.75rem 0 0.7rem;
 }
 
-
-/* Belt / Method / Search sit below the search field */
-
-.case-search-controls {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-
-  margin-top: 1rem;
-  align-items: end;
-}
-
-.case-search-controls > * {
-  min-width: 0;
-}
-
-.case-search-button {
-  width: 100%;
-}
-
-
-/* Case-study results */
-
-.case-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.case-card {
+/* Individual wrappers for labels + inputs */
+.case-search .form-group {
   display: flex;
   flex-direction: column;
-  padding-right: 1.5rem;
+  gap: 0.35rem;           /* Space between the label and the input */
 }
 
+/* Let the search bar take up the majority of the remaining row space */
+.case-search .search-group {
+  flex: 1 1 250px; 
+}
+
+/* Ensure dropdowns and buttons only take up the space they need */
+.case-search .form-group:not(.search-group) {
+  flex: 0 1 auto;
+}
+
+/* 
+ * ENFORCE IDENTICAL HEIGHTS 
+ * Inputs, selects, and buttons have different default box models in browsers. 
+ * We force them to match here.
+ */
+.case-search input[type="search"],
+.case-search select,
+.case-search button {
+  height: 42px;           /* Set your desired uniform height here */
+  box-sizing: border-box; 
+  padding: 0.5rem 1rem;
+  margin: 0;
+}
 
 /* Case-study responsive behavior */
-
 @media (max-width: 760px) {
-  .case-search-controls {
-    grid-template-columns: 1fr;
+  /* Stack everything vertically on mobile */
+  .case-search {
+    flex-direction: column;
+    align-items: stretch; /* Makes all elements stretch to 100% width */
   }
-
-  .case-grid {
-    grid-template-columns: 1fr;
+  
+  /* Reset flex properties for mobile grid */
+  .case-search .search-group {
+    flex: 1 1 auto;
   }
 }
