@@ -1,14 +1,14 @@
 # Six Sigma Labs 
 
-Six Sigma Labs is an applied socratic learning built around questions, case studies, stakeholder reasoning, teach-back and reflection
+Six Sigma Labs is a learning tool to help users level up their six sigma knowledge.  It leverages the 3 appeals (ethos, logos, pathos), user reflection, stakeholder reasoning, teach-back and case studies.
 
 ## Product structure
 
-- **Belt level** — 10-question starting-level assessment.
-- **Learn** — one integrated White, Yellow, Green, and Black Belt curriculum.
+- **Belt level** — Uses a level assessment quiz to find the right starting point for you.
+- **Learn** — integrated White, Yellow, Green, and Black Belt curriculum.
 - **Case studies** — applied business challenges with DMAIC and DMADV / IDOV cases, stakeholder agents, organizational dynamics, and evidence-driven decisions.
 - **Glossary** — searchable terms, references, and equations.
-- **Journal** — learner reflection.
+~~- **Journal** — learner reflection.~~
 
 ## Run locally
 
