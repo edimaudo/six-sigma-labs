@@ -6,19 +6,24 @@
     <div class="eyebrow">Case studies</div>
     <h1>Work through business challenges.</h1>
     <p class="lead">Choose a case and investigate the operational, economic, political and social signals before deciding what to do.</p>
-    <form class="case-search" method="get" action="{{ url_for('case_studies') }}" role="search">
-      <div class="case-search-field">
+
+    <form method="get" action="{{ url_for('case_studies') }}" role="search" aria-label="Case study search">
+      <div class="reference-search">
         <label class="sr-only" for="case-query">Search case studies</label>
         <input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry or method">
       </div>
-      <div class="case-filter-row">
+
+      <div class="grid-3">
         <div>
           <label for="case-belt">Belt</label>
           <select id="case-belt" name="belt">
             <option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>
-            {% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}
+            {% for b in ['white','yellow','green','black'] %}
+            <option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>
+            {% endfor %}
           </select>
         </div>
+
         <div>
           <label for="case-method">Method</label>
           <select id="case-method" name="method">
@@ -27,17 +32,26 @@
             <option value="DMADV / IDOV" {% if method_filter == 'DMADV / IDOV' %}selected{% endif %}>DMADV / IDOV</option>
           </select>
         </div>
-        <button class="button button-small case-search-button" type="submit">Search</button>
+
+        <div style="display:flex;align-items:flex-end;">
+          <button class="button button-small" type="submit">Search</button>
+        </div>
       </div>
     </form>
   </header>
+
   <section aria-labelledby="case-count-heading">
     <h2 id="case-count-heading" class="sr-only">Available case studies</h2>
     <p class="small">{{ scenarios|length }} case{% if scenarios|length != 1 %}s{% endif %}</p>
+
     <div class="grid-2 case-grid">
       {% for scenario in scenarios %}
       <article class="card case-card">
-        <div class="case-topline"><span class="tag">{{ scenario.belt|title }} Belt</span><span class="tag">{{ scenario.method }}</span><span class="tag">{{ scenario.area }}</span></div>
+        <div class="case-topline">
+          <span class="tag">{{ scenario.belt|title }} Belt</span>
+          <span class="tag">{{ scenario.method }}</span>
+          <span class="tag">{{ scenario.area }}</span>
+        </div>
         <h2>{{ scenario.title }}</h2>
         <p>{{ scenario.prompt }}</p>
         <a class="button button-secondary" href="/scenario?id={{ scenario.id }}">Open case</a>
