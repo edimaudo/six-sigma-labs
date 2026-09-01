@@ -29,37 +29,23 @@ MATH_REFERENCE = [
 def lesson(code, title, question, concepts, terms=None, math=None, teach_back="Teach the approach back to me in your own words."):
     resolved_math = []
     if math:
-        for item in math:
-            matched = False
-            for ref_name, equation, description in MATH_REFERENCE:
-                # Match if the reference name matches the item (case-insensitive)
-                if ref_name.lower() == item.strip().lower() or item.strip().lower() in ref_name.lower():
-                    resolved_math.append({
-                        "name": ref_name,
-                        "equation": equation,
-                        "description": description,
-                        "raw": item
-                    })
-                    matched = True
-                    break
-            
-            if not matched:
-                resolved_math.append({
-                    "name": item,
-                    "equation": "",
-                    "description": "",
-                    "raw": item
-                })
-    
-    return {
-        "code": code,
-        "title": title,
-        "opening_question": question,
-        "concepts": concepts,
-        "terms": terms or [],
-        "math": math or [],
-        "teach_back": teach_back,
-    }
+            # math expects a list of strings, e.g., ["Mean", "Z-score"]
+            for math_name in math:
+                # Grab the exact, unmodified tuple from MATH_REFERENCE
+                for ref_tuple in MATH_REFERENCE:
+                    if ref_tuple[0] == math_name:
+                        resolved_math.append(ref_tuple)
+                        break
+        
+        return {
+            "code": code,
+            "title": title,
+            "opening_question": question,
+            "concepts": concepts,
+            "terms": terms or [],
+            "math": math or [],
+            "teach_back": teach_back,
+        }
 
 BELTS = {
     "white": {
