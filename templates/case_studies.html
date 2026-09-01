@@ -6,30 +6,39 @@
     <div class="eyebrow">Case studies</div>
     <h1>Work through business challenges.</h1>
     <p class="lead">Choose a case and investigate the operational, economic, political and social signals before deciding what to do.</p>
-    <form class="case-search" method="get" action="{{ url_for('case_studies') }}" role="search" aria-label="Search case studies">
-      <div class="case-search-field">
-        <label class="sr-only" for="case-query">Search case studies</label>
-        <input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry or method">
-      </div>
-      <div class="case-filter-row">
-        <div>
-          <label for="case-belt">Belt</label>
-          <select id="case-belt" name="belt">
-            <option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>
-            {% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}
-          </select>
-        </div>
-        <div>
-          <label for="case-method">Method</label>
-          <select id="case-method" name="method">
-            <option value="all" {% if method_filter == 'all' %}selected{% endif %}>All methods</option>
-            <option value="DMAIC" {% if method_filter == 'DMAIC' %}selected{% endif %}>DMAIC</option>
-            <option value="DMADV / IDOV" {% if method_filter == 'DMADV / IDOV' %}selected{% endif %}>DMADV / IDOV</option>
-          </select>
-        </div>
-        <button class="button button-small case-search-button" type="submit">Search</button>
-      </div>
-    </form>
+ <form class="case-search" method="get" action="{{ url_for('case_studies') }}" role="search" aria-label="Search case studies">
+  
+  <!-- Search Bar: Will stretch to fill available space -->
+  <div class="form-group search-group">
+    <label class="sr-only" for="case-query">Search case studies</label>
+    <input id="case-query" type="search" name="q" value="{{ query }}" placeholder="Search cases by problem, industry or method">
+  </div>
+
+  <!-- Belt Filter -->
+  <div class="form-group">
+    <label for="case-belt">Belt</label>
+    <select id="case-belt" name="belt">
+      <option value="all" {% if belt_filter == 'all' %}selected{% endif %}>All belts</option>
+      {% for b in ['white','yellow','green','black'] %}<option value="{{ b }}" {% if belt_filter == b %}selected{% endif %}>{{ b|title }} Belt</option>{% endfor %}
+    </select>
+  </div>
+
+  <!-- Method Filter -->
+  <div class="form-group">
+    <label for="case-method">Method</label>
+    <select id="case-method" name="method">
+      <option value="all" {% if method_filter == 'all' %}selected{% endif %}>All methods</option>
+      <option value="DMAIC" {% if method_filter == 'DMAIC' %}selected{% endif %}>DMAIC</option>
+      <option value="DMADV / IDOV" {% if method_filter == 'DMADV / IDOV' %}selected{% endif %}>DMADV / IDOV</option>
+    </select>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="form-group button-group">
+    <button class="button button-small case-search-button" type="submit">Search</button>
+  </div>
+
+</form>
   </header>
   <section aria-labelledby="case-count-heading">
     <h2 id="case-count-heading" class="sr-only">Available case studies</h2>
