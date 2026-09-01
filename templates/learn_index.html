@@ -4,93 +4,31 @@
 <div class="container">
   <header class="page-header">
     <div class="eyebrow">Learn</div>
-    <h1>Build your Six Sigma skills.</h1>
-    <p class="lead">Learn the right skills based on your belt level</p>
+    <h1>Learn the right skills based on your belt level</h1>
   </header>
 
   <section aria-labelledby="belt-levels-heading" class="learn-path-section">
-    <div class="kicker">Belt levels</div>
-    <h2 id="belt-levels-heading">Choose a belt level.</h2>
+    <h2 id="belt-levels-heading" class="sr-only">Belt levels</h2>
 
-    <div class="belt-tabs" role="tablist" aria-label="Belt level curriculum">
+    <div class="learn-belt-grid">
       {% for key in belt_order %}
       {% set item = belts[key] %}
-      <button
-        class="belt-tab{% if loop.first %} is-active{% endif %}"
-        id="tab-{{ key }}"
-        type="button"
-        role="tab"
-        aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
-        aria-controls="panel-{{ key }}"
-        tabindex="{% if loop.first %}0{% else %}-1{% endif %}"
-        data-belt-tab="{{ key }}"
-      >{{ item.name }}</button>
+      <article class="learn-belt-card">
+        <div class="learn-belt-content">
+          <h3>{{ item.name }}</h3>
+          <p class="learn-belt-subtitle">{{ item.tagline }}</p>
+          <p class="learn-belt-lessons">
+            <strong>{{ item.modules|length }}</strong>
+            <span>lessons</span>
+          </p>
+        </div>
+        <a class="learn-belt-link" href="{{ url_for('belt_page', belt=key) }}">
+          <span>View {{ item.name }} lessons</span>
+          <span aria-hidden="true" class="learn-belt-arrow">→</span>
+        </a>
+      </article>
       {% endfor %}
     </div>
-
-    {% for key in belt_order %}
-    {% set item = belts[key] %}
-    <div
-      class="belt-tab-panel{% if loop.first %} is-active{% endif %}"
-      id="panel-{{ key }}"
-      role="tabpanel"
-      aria-labelledby="tab-{{ key }}"
-      {% if not loop.first %}hidden{% endif %}
-      data-belt-panel="{{ key }}"
-    >
-      <div class="belt-panel-content">
-        <div>
-          <h3>{{ item.name }}</h3>
-          <p class="belt-subtitle">{{ item.tagline }}</p>
-        </div>
-        <div class="belt-lesson-count">
-          <strong>{{ item.modules|length }}</strong>
-          <span>lessons</span>
-        </div>
-      </div>
-      <div class="button-row">
-        <a class="button" href="{{ url_for('belt_page', belt=key) }}">View {{ item.name }} lessons</a>
-      </div>
-    </div>
-    {% endfor %}
   </section>
 </div>
-
-<script>
-(function () {
-  const tabs = Array.from(document.querySelectorAll('[data-belt-tab]'));
-  const panels = Array.from(document.querySelectorAll('[data-belt-panel]'));
-  if (!tabs.length) return;
-
-  function activate(key, moveFocus) {
-    tabs.forEach((tab) => {
-      const active = tab.dataset.beltTab === key;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', active ? 'true' : 'false');
-      tab.tabIndex = active ? 0 : -1;
-    });
-    panels.forEach((panel) => {
-      const active = panel.dataset.beltPanel === key;
-      panel.classList.toggle('is-active', active);
-      panel.hidden = !active;
-    });
-    if (moveFocus) document.getElementById('tab-' + key)?.focus();
-  }
-
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(tab.dataset.beltTab, false));
-    tab.addEventListener('keydown', (event) => {
-      let nextIndex = null;
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') nextIndex = (index + 1) % tabs.length;
-      if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') nextIndex = (index - 1 + tabs.length) % tabs.length;
-      if (event.key === 'Home') nextIndex = 0;
-      if (event.key === 'End') nextIndex = tabs.length - 1;
-      if (nextIndex !== null) {
-        event.preventDefault();
-        activate(tabs[nextIndex].dataset.beltTab, true);
-      }
-    });
-  });
-}());
-</script>
 {% endblock %}
