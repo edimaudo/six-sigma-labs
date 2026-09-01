@@ -12,9 +12,6 @@
   --blue-dark: #0043ce;
   --blue-soft: #dbe8ff;
   --focus: #0043ce;
-  --error: #a61b24;
-  --error-border: #a61b24;
-  --error-bg: #fae8e9;
   --type-scale: 1;
   color-scheme: light;
 }
@@ -33,9 +30,6 @@ html[data-theme="dark"] {
   --blue-dark: #9fc3ff;
   --blue-soft: #253e69;
   --focus: #9fc3ff;
-  --error: #ff7b84;
-  --error-border: #ff7b84;
-  --error-bg: #351d20;
   color-scheme: dark;
 }
 
@@ -446,7 +440,7 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
 /* Landing page: editorial landing system */
 .landing-page { width: min(78rem, calc(100% - 2rem)); margin: 0 auto; padding: 4.5rem 0 5.5rem; }
 .landing-hero { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(23rem, .78fr); gap: 4.5rem; align-items: center; }
-.landing-hero-copy {max-width: none; grid-column: 1 / -1; } /*.landing-hero-copy { max-width: 47rem; }*/
+.landing-hero-copy { max-width: 47rem; }
 .landing-kicker { margin: 0 0 .7rem; color: var(--blue-text); font-family: Helvetica, Arial, sans-serif; font-size: .86rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .landing-hero h1 { margin: 0 0 1.25rem; max-width: 13ch; font-size: clamp(3.35rem, 6.3vw, 5.9rem); line-height: .95; letter-spacing: -.045em; }
 .landing-dek { max-width: 59ch; margin: 0; color: var(--ink-soft); font-size: 1.18rem; line-height: 1.55; }
@@ -559,25 +553,4 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
   .landing-card:last-child { border-bottom: 0; }
   .landing-card h2 { max-width: none; }
   .landing-card p { max-width: 60ch; }
-}
-
-/* Belt level validation */
-.form-error {
-  margin: 1rem 0 0;
-  padding: .85rem 1rem;
-  border: 1px solid var(--error-border);
-  border-left: .35rem solid var(--error);
-  background: var(--error-bg);
-  color: var(--error);
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.45;
-}
-.form-error:focus {
-  outline: .18rem solid var(--focus);
-  outline-offset: .18rem;
-}
-.quiz-question--error {
-  border-color: var(--error);
 }
