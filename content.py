@@ -486,7 +486,7 @@ _DATA_BY_CODE = {item["code"]: item for item in DATA_PROCESS_CURRICULUM}
 for _belt in BELTS.values():
     for _module in _belt["modules"]:
         _haystack = " ".join([
-            _module.get("title", ""),
+            _module.get("title", "") if _module is not None else "",
             _module.get("opening_question", ""),
             " ".join(_module.get("concepts", [])),
             " ".join(_module.get("terms", [])),
