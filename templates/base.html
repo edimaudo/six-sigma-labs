@@ -28,12 +28,42 @@
   <header class="header">
     <div class="header-inner">
       <a class="brand" href="/" aria-label="Six Sigma Labs home">Six Sigma Labs</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a class="{% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}active{% endif %}" {% if request.url.path.startswith('/belt-level') or request.url.path.startswith('/diagnostic') %}aria-current="page"{% endif %} href="{{ url_for('belt_level') }}">Belt level</a>
-        <a class="{% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}active{% endif %}" {% if request.url.path.startswith('/learn') or request.url.path.startswith('/lesson') %}aria-current="page"{% endif %} href="{{ url_for('learn') }}">Learn</a>
-        <a class="{% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}active{% endif %}" {% if request.url.path.startswith('/case-studies') or request.url.path.startswith('/scenario') %}aria-current="page"{% endif %} href="{{ url_for('case_studies') }}">Case studies</a>
-        <a class="{% if request.url.path.startswith('/glossary') or request.url.path.startswith('/reference') or request.url.path.startswith('/math') %}active{% endif %}" {% if request.url.path.startswith('/glossary') or request.url.path.startswith('/reference') or request.url.path.startswith('/math') %}aria-current="page"{% endif %} href="{{ url_for('glossary') }}">Glossary</a>
-      </nav>
+<nav class="nav" aria-label="Primary navigation">
+  {% set route = request.scope.get("route") %}
+  {% set route_name = route.name if route else "" %}
+
+  <a
+    class="{% if route_name == 'belt_level' %}active{% endif %}"
+    {% if route_name == 'belt_level' %}aria-current="page"{% endif %}
+    href="{{ url_for('belt_level') }}"
+  >
+    Belt level
+  </a>
+
+  <a
+    class="{% if route_name in ['learn', 'lesson'] %}active{% endif %}"
+    {% if route_name in ['learn', 'lesson'] %}aria-current="page"{% endif %}
+    href="{{ url_for('learn') }}"
+  >
+    Learn
+  </a>
+
+  <a
+    class="{% if route_name in ['case_studies', 'scenario'] %}active{% endif %}"
+    {% if route_name in ['case_studies', 'scenario'] %}aria-current="page"{% endif %}
+    href="{{ url_for('case_studies') }}"
+  >
+    Case studies
+  </a>
+
+  <a
+    class="{% if route_name == 'glossary' %}active{% endif %}"
+    {% if route_name == 'glossary' %}aria-current="page"{% endif %}
+    href="{{ url_for('glossary') }}"
+  >
+    Glossary
+  </a>
+</nav>
       <div class="header-tools" aria-label="Display settings">
         <label class="sr-only" for="type-scale">Text size</label>
         <select id="type-scale" class="display-control" aria-label="Text size">
