@@ -1,49 +1,49 @@
 BELT_ORDER = ["white", "yellow", "green", "black"]
 
 MATH_REFERENCE = [
-    ("Mean", "x̄ = Σx / n", "Average of observed values; sensitive to extreme values."),
-    ("Median", "Middle ordered value", "Robust measure of center when data is skewed."),
-    ("Sample variance", "s² = Σ(x−x̄)² / (n−1)", "Measures squared dispersion around the sample mean."),
-    ("Sample standard deviation", "s = √s²", "Expresses process spread in the original measurement units."),
-    ("Z-score", "z = (x−μ) / σ", "Number of standard deviations an observation is from the mean."),
-    ("Standard error of mean", "SE = s / √n", "Sampling variability of the sample mean."),
-    ("95% confidence interval", "estimate ± critical value × SE", "Quantifies uncertainty around a population estimate."),
-    ("Binomial probability", "P(X=k)=C(n,k)p^k(1-p)^(n-k)", "Models counts of successes across fixed independent trials under assumptions."),
-    ("Poisson probability", "P(X=k)=e^(−λ) λ^k / k!", "Models counts over a fixed interval under Poisson assumptions."),
-    ("DPO", "defects / (units × opportunities)", "Normalizes defects by the number of defect opportunities."),
-    ("DPMO", "DPO × 1,000,000", "DPO expressed per one million opportunities."),
-    ("Yield", "good units / total units", "Share of units meeting the defined acceptance rule."),
-    ("Cp", "(USL−LSL)/(6σ)", "Potential capability assuming a stable, centered-enough process and suitable assumptions."),
-    ("Cpk", "min[(USL−μ)/(3σ),(μ−LSL)/(3σ)]", "Capability adjusted for process centering."),
-    ("Simple regression", "Y = β0 + β1X + ε", "Models a linear relationship between one predictor and a response."),
-    ("Multiple regression", "Y = β0 + ΣβjXj + ε", "Models a response using several predictors."),
-    ("CUSUM", "C_t = max(0, C_{t−1} + x_t − target − k)", "Cumulative evidence for a sustained process shift; exact form depends on the chart design."),
-    ("EWMA", "Z_t = λX_t + (1−λ)Z_{t−1}", "Exponentially weighted monitoring statistic; λ controls responsiveness to recent observations."),
-    ("Correlation", "r = cov(X,Y)/(s_X s_Y)", "Standardized linear association; correlation alone does not establish causation."),
-    ("R-squared", "R² = 1 − SSE/SST", "Proportion of sample response variation explained by the fitted regression model."),
-    ("Factorial combinations", "2^k", "Number of treatment combinations for a two-level full factorial with k factors."),
-    ("PCA variance share", "eigenvalue_j / Σ eigenvalues", "Share of total scaled variance represented by a principal component."),
-    ("NPV", "Σ CFt/(1+r)^t − initial investment", "Discounted economic value of a project."),
+    {"name":"Mean","formula":"x̄ = Σx / n","explanation":"Average of observed values; sensitive to extreme values.","variables":"x = each observed value; n = number of observations; Σ = sum of all observed values; x̄ = sample mean."},
+    {"name":"Median","formula":"Median = middle value of ordered observations","explanation":"Robust measure of center when data is skewed.","variables":"n = number of observations; observations are ordered from smallest to largest. For even n, the median is the average of the two middle observations."},
+    {"name":"Sample variance","formula":"s² = Σ(x − x̄)² / (n − 1)","explanation":"Measures squared dispersion around the sample mean.","variables":"x = each observed value; x̄ = sample mean; n = number of observations; Σ = sum across observations; s² = sample variance."},
+    {"name":"Sample standard deviation","formula":"s = √s²","explanation":"Expresses process spread in the original measurement units.","variables":"s = sample standard deviation; s² = sample variance; √ = square-root operation."},
+    {"name":"Z-score","formula":"z = (x − μ) / σ","explanation":"Number of standard deviations an observation is from the population mean.","variables":"z = standardized score; x = observed value; μ = population mean; σ = population standard deviation."},
+    {"name":"Standard error of mean","formula":"SE = s / √n","explanation":"Estimates the sampling variability of the sample mean.","variables":"SE = standard error of the sample mean; s = sample standard deviation; n = sample size."},
+    {"name":"95% confidence interval","formula":"estimate ± critical value × SE","explanation":"Quantifies uncertainty around a population estimate under the specified confidence level and statistical method.","variables":"estimate = sample-based point estimate; critical value = value from the relevant reference distribution; SE = standard error; ± = lower and upper interval bounds."},
+    {"name":"Binomial probability","formula":"P(X = k) = C(n, k) p^k (1 − p)^(n − k)","explanation":"Models the probability of exactly k successes across n fixed independent trials with constant success probability.","variables":"X = number of successes; k = specified successes; n = number of trials; p = probability of success; C(n,k) = combinations of n items taken k at a time; 1 − p = probability of failure."},
+    {"name":"Poisson probability","formula":"P(X = k) = e^(−λ) λ^k / k!","explanation":"Models counts occurring over a fixed interval when a Poisson process is an appropriate assumption.","variables":"X = event count; k = specified count; λ = expected event count in the interval; e = Euler's number; k! = factorial of k."},
+    {"name":"DPO","formula":"DPO = defects / (units × opportunities)","explanation":"Normalizes defects by the number of defect opportunities.","variables":"DPO = defects per opportunity; defects = number of defects; units = units processed; opportunities = defect opportunities per unit."},
+    {"name":"DPMO","formula":"DPMO = DPO × 1,000,000","explanation":"Expresses defects per opportunity on a one-million-opportunity basis.","variables":"DPMO = defects per million opportunities; DPO = defects per opportunity; 1,000,000 = one million opportunities."},
+    {"name":"Yield","formula":"Yield = good units / total units","explanation":"Share of units meeting the defined acceptance rule.","variables":"Yield = proportion of acceptable units; good units = units meeting the acceptance requirement; total units = all units evaluated."},
+    {"name":"Cp","formula":"Cp = (USL − LSL) / (6σ)","explanation":"Potential process capability based on specification width relative to process variation, without accounting for centering.","variables":"Cp = potential capability index; USL = upper specification limit; LSL = lower specification limit; σ = process standard deviation."},
+    {"name":"Cpk","formula":"Cpk = min[(USL − μ)/(3σ), (μ − LSL)/(3σ)]","explanation":"Capability index that accounts for both process spread and process centering.","variables":"Cpk = centered capability index; USL = upper specification limit; LSL = lower specification limit; μ = process mean; σ = process standard deviation; min = smaller of the two one-sided capability values."},
+    {"name":"Simple regression","formula":"Y = β₀ + β₁X + ε","explanation":"Models a linear relationship between one predictor and a response.","variables":"Y = response variable; β₀ = intercept; β₁ = slope coefficient; X = predictor variable; ε = random error term."},
+    {"name":"Multiple regression","formula":"Y = β₀ + ΣβⱼXⱼ + ε","explanation":"Models a response using multiple predictors.","variables":"Y = response; β₀ = intercept; βⱼ = coefficient for predictor j; Xⱼ = predictor j; ε = random error; Σ = sum across predictors."},
+    {"name":"CUSUM","formula":"Cₜ = max(0, Cₜ₋₁ + xₜ − target − k)","explanation":"Cumulative evidence for a sustained process shift; exact form depends on the chart design.","variables":"Cₜ = current cumulative sum; Cₜ₋₁ = previous cumulative sum; xₜ = current observation or subgroup statistic; target = process target; k = reference/allowance value."},
+    {"name":"EWMA","formula":"Zₜ = λXₜ + (1 − λ)Zₜ₋₁","explanation":"Exponentially weighted monitoring statistic that gives more weight to recent observations.","variables":"Zₜ = current EWMA statistic; λ = smoothing constant between 0 and 1; Xₜ = current observation; Zₜ₋₁ = previous EWMA value."},
+    {"name":"Correlation","formula":"r = cov(X, Y) / (sₓ sᵧ)","explanation":"Standardized measure of linear association; correlation alone does not establish causation.","variables":"r = correlation coefficient; cov(X,Y) = covariance between X and Y; sₓ = sample standard deviation of X; sᵧ = sample standard deviation of Y."},
+    {"name":"R-squared","formula":"R² = 1 − SSE / SST","explanation":"Proportion of sample response variation explained by the fitted regression model.","variables":"R² = coefficient of determination; SSE = sum of squared errors; SST = total sum of squares."},
+    {"name":"Factorial combinations","formula":"Number of combinations = 2^k","explanation":"Number of treatment combinations in a two-level full factorial experiment with k factors.","variables":"k = number of factors; 2 = number of levels per factor; 2^k = total treatment combinations."},
+    {"name":"PCA variance share","formula":"Variance shareⱼ = eigenvalueⱼ / Σ eigenvalues","explanation":"Share of total scaled variance represented by principal component j.","variables":"Variance shareⱼ = proportion represented by component j; eigenvalueⱼ = eigenvalue for component j; Σ eigenvalues = sum of all included eigenvalues."},
+    {"name":"NPV","formula":"NPV = Σ[CFₜ / (1 + r)^t] − initial investment","explanation":"Discounted economic value of a project based on the timing of cash flows.","variables":"NPV = net present value; CFₜ = cash flow in period t; r = discount rate per period; t = time period; initial investment = upfront cash outflow; Σ = sum across periods."},
 ]
 
 def lesson(code, title, question, concepts, terms=None, math=None, teach_back="Teach the approach back to me in your own words."):
     resolved_math = []
     if math:
         for math_name in math:
-            for ref_tuple in MATH_REFERENCE:
-                if ref_tuple[0] == math_name:
-                    resolved_math.append(ref_tuple)
+            for ref in MATH_REFERENCE:
+                if ref["name"] == math_name:
+                    resolved_math.append(ref)
                     break
-        
+
     return {
-            "code": code,
-            "title": title,
-            "opening_question": question,
-            "concepts": concepts,
-            "terms": terms or [],
-            "math": math or [],
-            "teach_back": teach_back,
-      }
+        "code": code,
+        "title": title,
+        "opening_question": question,
+        "concepts": concepts,
+        "terms": terms or [],
+        "math": resolved_math,
+        "teach_back": teach_back,
+    }
 
 BELTS = {
     "white": {
