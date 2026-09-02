@@ -1,12 +1,16 @@
 {% extends "base.html" %}
-{% block title %}404 · Six Sigma Labs{% endblock %}
-
+{% block title %}404 · Page not found · Six Sigma Labs{% endblock %}
 {% block content %}
 <div class="container narrow not-found">
-  <div class="eyebrow">404</div>
-
-  <h1>based on my analysis I'm 100% confident this page does not exist</h1>
-
+  <header class="page-header">
+    <div class="eyebrow">404</div>
+    <h1>based on my analysis I'm 100% confident this page does not exist</h1>
+    <p class="lead">The requested path could not be found.</p>
+  </header>
+  <section class="question" aria-labelledby="not-found-next-step">
+    <!-- <div class="small">Next step</div>
+    <h2 id="not-found-next-step">Return to a known path and continue.</h2> -->
+  </section>
   <div class="button-row">
     <a class="button" href="/">Return home</a>
     <a class="button button-secondary" href="/learn">View learning paths</a>
