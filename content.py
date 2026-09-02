@@ -35,7 +35,7 @@ def lesson(code, title, question, concepts, terms=None, math=None, teach_back="T
                     resolved_math.append(ref_tuple)
                     break
         
-        return {
+    return {
             "code": code,
             "title": title,
             "opening_question": question,
@@ -43,7 +43,7 @@ def lesson(code, title, question, concepts, terms=None, math=None, teach_back="T
             "terms": terms or [],
             "math": math or [],
             "teach_back": teach_back,
-        }
+      }
 
 BELTS = {
     "white": {
