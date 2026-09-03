@@ -1,119 +1,149 @@
 {% extends "base.html" %}
 {% block title %}{{ scenario.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
-<div class="container">
-  <header class="page-header">
-    <div class="eyebrow">Case study · {{ scenario.area }} · {{ scenario.method }}</div>
+<div class="container scenario-page">
+  <header class="page-header scenario-header">
+    <div class="eyebrow">{{ scenario.area }}</div>
     <h1>{{ scenario.title }}</h1>
-    <p class="lead">{{ scenario.prompt }}</p>
-    {% if scenario.get("source_url") %}<p class="small source-note">Based on: <a href="{{ scenario.get("source_url") }}" target="_blank" rel="noopener">{{ scenario.get("source_title", "Source case study") }}</a></p>{% endif %}
   </header>
 
-  <section aria-labelledby="phase-heading">
-    <h2 id="phase-heading" class="sr-only">Case study phases</h2>
-    <div class="phase-bar" aria-label="Case study phase progress">
-      {% for phase in detail.phases %}<span class="phase {% if state.phase == phase %}active{% elif detail.phases.index(state.phase) > loop.index0 %}done{% endif %}">{{ phase|title }}</span>{% endfor %}
+  <section class="scenario-problem" aria-labelledby="problem-heading">
+    <div class="kicker">The problem</div>
+    <h2 id="problem-heading">What is happening?</h2>
+    <div class="scenario-problem-text">
+      <p>{{ scenario.prompt }}</p>
+    </div>
+    {% if scenario.get("source_url") %}
+    <p class="small source-note">
+      Based on:
+      <a href="{{ scenario.get('source_url') }}" target="_blank" rel="noopener">
+        {{ scenario.get("source_title", "Source case study") }}
+      </a>
+    </p>
+    {% endif %}
+  </section>
+
+  <section class="section scenario-lenses" aria-labelledby="lenses-heading">
+    <div class="kicker">Workplace decision lens</div>
+    <h2 id="lenses-heading">What else should shape the decision?</h2>
+    <ul class="scenario-lens-list">
+      <li>
+        <strong>Economic.</strong>
+        What cost, capacity, service, revenue or risk consequence makes the {{ scenario.title|lower }} problem important enough to change?
+      </li>
+      <li>
+        <strong>Political.</strong>
+        Who owns the outcome, who controls the resources, and where might competing priorities affect a decision about {{ scenario.title|lower }}?
+      </li>
+      <li>
+        <strong>Social.</strong>
+        What workload, incentives, workarounds, trust or customer experience may be keeping the {{ scenario.title|lower }} problem in place?
+      </li>
+    </ul>
+  </section>
+
+  <section class="section scenario-question" aria-labelledby="first-question-heading">
+    <div class="kicker">Start with the problem</div>
+    <h2 id="first-question-heading">
+      {% if scenario.method.startswith('DMADV') %}
+        What must you establish before designing a response?
+      {% else %}
+        What must you establish before changing the process?
+      {% endif %}
+    </h2>
+    <div class="question">
+      <strong>
+        {% if scenario.method.startswith('DMADV') %}
+          What requirements, constraints and trade-offs would you establish before designing a response to {{ scenario.title|lower }}?
+        {% else %}
+          What evidence would you collect first to determine where {{ scenario.title|lower }} is breaking down and what is driving it?
+        {% endif %}
+      </strong>
     </div>
   </section>
 
-  <section class="section" aria-labelledby="metrics-heading">
-    <h2 id="metrics-heading" class="sr-only">Case study progress</h2>
-    <div class="metrics-grid">
-      <div class="metric-card"><strong>{{ state.reasoning_score }}/100</strong><span>reasoning score</span></div>
-      <div class="metric-card"><strong>{{ state.evidence_score }}/100</strong><span>evidence uncovered</span></div>
-      <div class="metric-card"><strong>{{ state.stakeholder_score }}/100</strong><span>stakeholder questioning</span></div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="lenses-heading">
-    <div class="kicker">Workplace decision lenses</div>
-    <h2 id="lenses-heading">A technically sound answer can still fail at work.</h2>
+  <section class="section scenario-stakeholders" aria-labelledby="stakeholders-heading">
+    <div class="kicker">Stakeholders to interview</div>
+    <h2 id="stakeholders-heading">Ask the people closest to the problem.</h2>
     <div class="grid-3">
-      <article class="card"><h3>Logos</h3><p>{{ detail.reasoning_lens.logos }}</p></article>
-      <article class="card"><h3>Pathos</h3><p>{{ detail.reasoning_lens.pathos }}</p></article>
-      <article class="card"><h3>Ethos</h3><p>{{ detail.reasoning_lens.ethos }}</p></article>
-      <article class="card"><h3>Economic</h3><p>{{ detail.reasoning_lens.economic }}</p></article>
-      <article class="card"><h3>Political</h3><p>{{ detail.reasoning_lens.political }}</p></article>
-      <article class="card"><h3>Social</h3><p>{{ detail.reasoning_lens.social }}</p></article>
+      {% for s in scenario.stakeholders %}
+        {% if s == 'Executive Sponsor' %}
+          {% set display_name = scenario.area ~ ' business sponsor' %}
+          {% set role_label = 'Sponsor' %}
+          {% set opening = 'What outcome makes this problem important now, and what constraint cannot move?' %}
+        {% elif s == 'Process Owner' %}
+          {% set display_name = scenario.title ~ ' process owner' %}
+          {% set role_label = 'Process owner' %}
+          {% set opening = 'Where in this process do you believe the problem enters, and what evidence supports that view?' %}
+        {% elif s == 'Frontline Representative' %}
+          {% set display_name = 'Frontline team handling ' ~ scenario.title|lower %}
+          {% set role_label = 'Frontline' %}
+          {% set opening = 'What actually happens in the day-to-day work, including workarounds or exceptions that the formal process misses?' %}
+        {% elif s == 'Customer Representative' %}
+          {% set display_name = 'Customer or end user affected by ' ~ scenario.title|lower %}
+          {% set role_label = 'Customer voice' %}
+          {% set opening = 'What does the affected customer or user experience, and what would convince you that the problem is actually resolved?' %}
+        {% elif s == 'Risk & Controls' %}
+          {% set display_name = 'Risk and controls for ' ~ scenario.title|lower %}
+          {% set role_label = 'Risk & controls' %}
+          {% set opening = 'What control, policy, safety, regulatory or risk requirement constrains the response to this problem?' %}
+        {% else %}
+          {% set display_name = 'Finance partner for ' ~ scenario.title|lower %}
+          {% set role_label = 'Finance' %}
+          {% set opening = 'What economic or capacity impact would make this problem material enough to justify action?' %}
+        {% endif %}
+        <article class="card scenario-stakeholder-card">
+          <div class="number">{{ role_label }}</div>
+          <h3>{{ display_name }}</h3>
+          <p>{{ opening }}</p>
+          {% if s in state.visited_stakeholders %}
+            <span class="tag tag-success">Interviewed</span>
+          {% endif %}
+          <form method="post" action="/scenario/{{ scenario.id }}/stakeholder" class="scenario-interview-form">
+            <input type="hidden" name="session" value="{{ session_id }}">
+            <input type="hidden" name="stakeholder" value="{{ s }}">
+            <label for="q-{{ loop.index }}">Your question</label>
+            <input id="q-{{ loop.index }}" type="text" name="question" placeholder="Ask what you need to know">
+            <button class="button button-small" type="submit">Interview</button>
+          </form>
+        </article>
+      {% endfor %}
     </div>
   </section>
-
-  <div class="two-col section">
-    <section aria-labelledby="thinking-heading">
-      <div class="kicker">First question</div>
-      <h2 id="thinking-heading">What do you need to learn before acting?</h2>
-      <div class="question"><strong>Before diagnosing the problem, what evidence would you want?</strong></div>
-      <form method="post" action="/scenario/{{ scenario.id }}/think">
-        <input type="hidden" name="session" value="{{ session_id }}">
-        <div class="form-field"><label for="thinking">Your initial reasoning</label><textarea id="thinking" name="thinking" rows="8" required placeholder="What would you investigate first, and why?"></textarea></div>
-        <button class="button" type="submit">Challenge my thinking</button>
-      </form>
-    </section>
-
-    <section aria-labelledby="data-heading">
-      <div class="kicker">Performance data</div>
-      <h2 id="data-heading" class="sr-only">Illustrative process performance data</h2>
-      <div id="scenario-chart" class="chart" role="img" aria-describedby="scenario-chart-description"></div>
-      <p id="scenario-chart-description" class="small">Illustrative process performance across the observations supplied by this case. Treat the pattern as evidence to investigate, not proof of cause.</p>
-    </section>
-  </div>
 
   {% if state.conversation %}
-  <section class="section" aria-labelledby="record-heading">
+  <section class="section scenario-record" aria-labelledby="record-heading">
     <div class="kicker">Investigation record</div>
     <h2 id="record-heading">What you have learned so far.</h2>
     {% for turn in state.conversation[-5:] %}
-    <article class="conversation-item">
-      <div class="chat-label">{{ turn.stakeholder }} · {{ turn.score }}/100 question quality</div>
-      <p><strong>You:</strong> {{ turn.question or 'No specific question asked.' }}</p>
-      <p><strong>Stakeholder:</strong> {{ turn.response }}</p>
-    </article>
+      <article class="conversation-item">
+        <div class="chat-label">{{ turn.stakeholder }}</div>
+        <p><strong>You:</strong> {{ turn.question or 'No specific question asked.' }}</p>
+        <p><strong>Stakeholder:</strong> {{ turn.response }}</p>
+      </article>
     {% endfor %}
   </section>
   {% endif %}
 
-  <section class="section" aria-labelledby="stakeholders-heading">
-    <div class="kicker">Stakeholder interviews</div>
-    <h2 id="stakeholders-heading">Interview before you diagnose.</h2>
-    <div class="grid-3">
-      {% for s, info in detail.stakeholders.items() %}
-      <article class="card">
-        <div class="number">{{ info.role }}</div>
-        <h3>{{ s }}</h3>
-        <p>{{ info.opening }}</p>
-        {% if s in state.visited_stakeholders %}<span class="tag tag-success">Interviewed</span>{% endif %}
-        <form method="post" action="/scenario/{{ scenario.id }}/stakeholder">
-          <input type="hidden" name="session" value="{{ session_id }}">
-          <input type="hidden" name="stakeholder" value="{{ s }}">
-          <label for="q-{{ loop.index }}">Question for {{ s }}</label>
-          <input id="q-{{ loop.index }}" type="text" name="question" placeholder="Ask what you need to know">
-          <button class="button button-small" type="submit">Interview</button>
-        </form>
-      </article>
-      {% endfor %}
+  <section class="section scenario-final" aria-labelledby="final-approach-heading">
+    <div class="kicker">Finalize your approach</div>
+    <h2 id="final-approach-heading">Write down the approach you would take.</h2>
+    <p>
+      Before you submit it, interrogate your own reasoning: what do you know, what do you still need to establish,
+      which stakeholder could disprove your view, and what evidence would make you change course?
+    </p>
+    <div class="scenario-socratic-prompt" aria-label="Socratic prompt">
+      <strong>What would you do, why, what evidence supports it, and what would make you change your mind?</strong>
     </div>
-  </section>
-
-  <section class="section" aria-labelledby="decision-heading">
-    <div class="kicker">Make a decision</div>
-    <h2 id="decision-heading">What would you change first?</h2>
-    <div class="grid-3">
-      {% for option in detail.decision_options %}
-      <form method="post" action="/scenario/{{ scenario.id }}/decision" class="card card-action">
-        <input type="hidden" name="session" value="{{ session_id }}">
-        <input type="hidden" name="decision" value="{{ option.id }}">
-        <div class="number">Decision path</div>
-        <h3>{{ option.label }}</h3>
-        <p>{{ option.effect }}</p>
-        <button class="button button-small" type="submit">Choose this path</button>
-      </form>
-      {% endfor %}
-    </div>
+    <form method="post" action="/scenario/{{ scenario.id }}/think" class="scenario-final-form">
+      <input type="hidden" name="session" value="{{ session_id }}">
+      <input type="hidden" name="stage" value="final">
+      <div class="form-field">
+        <label for="final-approach">Finalized approach</label>
+        <textarea id="final-approach" name="thinking" rows="12" required placeholder="State the problem, your proposed approach, the evidence you would rely on, the stakeholders you would involve, and the trade-offs you would manage."></textarea>
+      </div>
+      <button class="button" type="submit">Analyze my final approach</button>
+    </form>
   </section>
 </div>
-<script>
-window.addEventListener('load', function () {
-  renderScenarioChart('scenario-chart', {{ scenario.metrics.x|tojson }}, {{ scenario.metrics.y|tojson }});
-});
-</script>
 {% endblock %}

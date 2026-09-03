@@ -1,17 +1,64 @@
 {% extends "base.html" %}
-{% block title %}Reasoning review · {{ scenario.title }} · Six Sigma Labs{% endblock %}
+{% block title %}Final approach review · {{ scenario.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
-<div class="container narrow">
+<div class="container narrow scenario-review">
   <header class="page-header">
-    <div class="eyebrow">Case study · Reasoning review</div>
-    <h1>Your thinking, challenged.</h1>
+    <div class="eyebrow">{{ scenario.area }}</div>
+    <h1>Your approach, challenged.</h1>
   </header>
-  {% if error %}<div class="alert" role="alert"><strong>AI service unavailable.</strong> {{ error }}<br><span class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</span></div>{% endif %}
-  {% if result %}<div class="score-strip" aria-label="Reasoning score"><strong>{{ result.score }}/100</strong><span>reasoning quality</span></div>{% endif %}
-  <section class="section" aria-labelledby="your-response-heading"><div class="kicker">Your response</div><h2 id="your-response-heading" class="sr-only">Your response</h2><p>{{ thinking }}</p></section>
-  {% if result %}<section class="section" aria-labelledby="feedback-heading"><div class="kicker">Feedback</div><h2 id="feedback-heading" class="sr-only">Feedback</h2><p>{{ result.feedback }}</p></section>{% endif %}
-  {% if result and result.missing %}<section class="question section" aria-labelledby="missing-heading"><div class="small">Missing dimensions</div><h2 id="missing-heading">{{ result.missing|join(' · ') }}</h2></section>{% endif %}
-  {% if result %}<section class="question" aria-labelledby="next-question-heading"><div class="small">Next Socratic question</div><h2 id="next-question-heading">{{ result.next_question }}</h2></section>{% endif %}
-  <div class="button-row"><a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue the case</a><a class="button button-secondary" href="/journal">Reflect</a></div>
+
+  {% if error %}
+  <div class="alert" role="alert">
+    <strong>AI service unavailable.</strong> {{ error }}<br>
+    <span class="small">Set <code>GEMINI_API_KEY</code> in the deployment environment and try again.</span>
+  </div>
+  {% endif %}
+
+  {% if result %}
+  <div class="scenario-review-scores" aria-label="Final approach assessment">
+    <div class="scenario-review-score">
+      <strong>{{ result.score }}/100</strong>
+      <span>reasoning score</span>
+    </div>
+    {% if result.evidence_score is defined %}
+    <div class="scenario-review-score">
+      <strong>{{ result.evidence_score }}/100</strong>
+      <span>evidence uncovered</span>
+    </div>
+    {% endif %}
+    {% if result.stakeholder_score is defined %}
+    <div class="scenario-review-score">
+      <strong>{{ result.stakeholder_score }}/100</strong>
+      <span>stakeholder questioning</span>
+    </div>
+    {% endif %}
+  </div>
+  {% endif %}
+
+  <section class="section" aria-labelledby="your-response-heading">
+    <div class="kicker">Your finalized approach</div>
+    <h2 id="your-response-heading" class="sr-only">Your finalized approach</h2>
+    <p>{{ thinking }}</p>
+  </section>
+
+  {% if result %}
+  <section class="section" aria-labelledby="feedback-heading">
+    <div class="kicker">Assessment</div>
+    <h2 id="feedback-heading">What the evidence says about your approach.</h2>
+    <p>{{ result.feedback }}</p>
+  </section>
+
+  {% if result.missing %}
+  <section class="scenario-review-missing" aria-labelledby="missing-heading">
+    <div class="kicker">Areas to strengthen</div>
+    <h2 id="missing-heading">{{ result.missing|join(' · ') }}</h2>
+  </section>
+  {% endif %}
+  {% endif %}
+
+  <div class="button-row">
+    <a class="button" href="/scenario?id={{ scenario.id }}&session={{ session_id }}">Continue the case</a>
+    <a class="button button-secondary" href="/journal">Reflect</a>
+  </div>
 </div>
 {% endblock %}
