@@ -759,3 +759,143 @@ textarea::placeholder, input::placeholder { color: var(--muted); opacity: 1; }
     flex: 1 1 auto;
   }
 }
+
+/* Scenario page only: no global component changes. */
+.scenario-page .scenario-header {
+  margin-bottom: 2.25rem;
+}
+
+.scenario-page .scenario-problem {
+  max-width: 68rem;
+}
+
+.scenario-problem-text {
+  margin-top: 1rem;
+  padding: 1.25rem 1.35rem;
+  border-left: 4px solid var(--blue);
+  background: var(--paper-alt);
+}
+
+.scenario-problem-text p {
+  max-width: 72ch;
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.6;
+}
+
+.scenario-lens-list {
+  max-width: 76ch;
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.scenario-lens-list li {
+  margin: .8rem 0;
+  padding-left: .3rem;
+}
+
+.scenario-question .question {
+  margin-top: 1.35rem;
+}
+
+.scenario-stakeholder-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.scenario-stakeholder-card .tag-success {
+  align-self: flex-start;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.scenario-interview-form {
+  margin-top: 1.25rem;
+}
+
+.scenario-interview-form label {
+  margin-bottom: .4rem;
+}
+
+.scenario-interview-form input[type="text"] {
+  margin-bottom: 1rem;
+}
+
+.scenario-interview-form .button {
+  margin-top: .15rem;
+}
+
+.scenario-final {
+  max-width: 68rem;
+}
+
+.scenario-socratic-prompt {
+  margin: 1.25rem 0 1.5rem;
+  padding: 1rem 1.15rem;
+  border-left: 3px solid var(--blue);
+  color: var(--ink-soft);
+  font-size: 1.08rem;
+  line-height: 1.5;
+}
+
+.scenario-final-form .button {
+  margin-top: .5rem;
+}
+
+.scenario-review-scores {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 2px solid var(--rule-strong);
+  border-bottom: 1px solid var(--rule);
+}
+
+.scenario-review-score {
+  padding: 1rem 1rem 1rem 0;
+  border-right: 1px solid var(--rule);
+}
+
+.scenario-review-score + .scenario-review-score {
+  padding-left: 1rem;
+}
+
+.scenario-review-score:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.scenario-review-score strong {
+  display: block;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1.8rem;
+}
+
+.scenario-review-score span {
+  color: var(--muted);
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: .82rem;
+}
+
+.scenario-review-missing {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule);
+}
+
+@media (max-width: 760px) {
+  .scenario-review-scores {
+    grid-template-columns: 1fr;
+  }
+
+  .scenario-review-score,
+  .scenario-review-score + .scenario-review-score {
+    padding: .9rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .scenario-review-score:last-child {
+    border-bottom: 0;
+  }
+}
