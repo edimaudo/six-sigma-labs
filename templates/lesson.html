@@ -118,20 +118,14 @@
       <input type="hidden" name="focus" value="{{ lesson.belt_key }}">
       <input type="hidden" name="next_url" value="/lesson/{{ lesson.belt_key }}/{{ lesson.index }}">
       <div class="form-field"><label for="response">Your explanation</label><textarea name="response" id="response" rows="9" required placeholder="Explain the idea in your own words. Use the lesson example or describe a decision you would make."></textarea></div>
-      <button class="button" type="submit">Challenge my reasoning with Gemini</button>
+      {% if error %}
+        <div class="alert" role="alert">Could not generate output due to API issue.</div>
+      {% endif %}
+      <button class="button" type="submit">Review thought process</button>
     </form>
   </section>
 
-  <section class="section section-muted lesson-reflection" aria-labelledby="reflection-heading">
-    <div class="kicker">Apply it</div>
-    <h2 id="reflection-heading">Where would you use this idea?</h2>
-    <p class="lesson-reflection-prompt">Think about a real process, decision, or problem you have seen. What part of this lesson would help you understand or address it?</p>
-    <form method="post" action="/journal">
-      <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
-      <div class="form-field"><label for="reflection">Your application note</label><textarea name="reflection" id="reflection" rows="5" placeholder="Describe the situation and the lesson idea you would apply."></textarea></div>
-      <button class="button button-secondary" type="submit">Save to journal</button>
-    </form>
-  </section>
+
 
   <nav class="pager" aria-label="Lesson navigation">
     {% if lesson.index > 1 %}<a href="/lesson/{{ lesson.belt_key }}/{{ lesson.index - 1 }}">← Previous lesson</a>{% else %}<span aria-hidden="true"></span>{% endif %}
