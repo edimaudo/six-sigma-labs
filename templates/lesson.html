@@ -1,82 +1,134 @@
 {% extends "base.html" %}
 {% block title %}{{ lesson.title }} · Six Sigma Labs{% endblock %}
 {% block content %}
-<div class="container narrow">
+<div class="container narrow lesson-page">
   <p><a class="button button-secondary" href="{{ url_for('learn') }}">← Back to belt levels</a></p>
-  <header class="page-header">
+
+  <header class="page-header lesson-page-header">
     <div class="eyebrow">{{ lesson.belt.name }} · Lesson {{ "%02d"|format(lesson.index) }}</div>
     <h1>{{ lesson.title }}</h1>
   </header>
 
-  <section class="question hero-question" aria-labelledby="lesson-question">
-    <div class="small">Start with the question</div>
+  <section class="lesson-opening" aria-labelledby="lesson-question">
+    <div class="kicker">Opening question</div>
     <h2 id="lesson-question">{{ lesson.opening_question }}</h2>
-    <p>Pause before reading the explanation. What would you want to know, measure, or decide?</p>
   </section>
 
-  <section class="section" aria-labelledby="concept-heading">
+  {% if lesson.full_explanation %}
+  <section class="section lesson-explanation" aria-labelledby="explanation-heading">
+    <div class="kicker">Explanation</div>
+    <h2 id="explanation-heading">Here is the reasoning behind the idea.</h2>
+    <div class="lesson-prose">
+      {% for paragraph in lesson.full_explanation.split('\n\n') %}
+        {% if paragraph.strip() %}
+          {% if paragraph.lstrip().startswith('- ') %}
+            <ul>
+              {% for line in paragraph.split('\n') if line.strip() %}
+                <li>
+                  {% set parts = line.strip()[2:].split('**') %}
+                  {% for part in parts %}{% if loop.index is odd %}{{ part }}{% else %}<strong>{{ part }}</strong>{% endif %}{% endfor %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <p>
+              {% set parts = paragraph.strip().split('**') %}
+              {% for part in parts %}{% if loop.index is odd %}{{ part }}{% else %}<strong>{{ part }}</strong>{% endif %}{% endfor %}
+            </p>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="section lesson-concepts" aria-labelledby="concept-heading">
     <div class="kicker">Concept</div>
     <h2 id="concept-heading">Work the idea.</h2>
     {% for concept in lesson.concepts %}
-      <div class="concept-row"><span class="concept-number">{{ "%02d"|format(loop.index) }}</span><p>{{ concept }}</p></div>
+      <div class="concept-row">
+        <span class="concept-number">{{ "%02d"|format(loop.index) }}</span>
+        <p>
+          {% set parts = concept.split('**') %}
+          {% for part in parts %}{% if loop.index is odd %}{{ part }}{% else %}<strong>{{ part }}</strong>{% endif %}{% endfor %}
+        </p>
+      </div>
     {% endfor %}
   </section>
 
   {% if lesson.process_data %}
-  <section class="section" aria-labelledby="process-data-heading">
+  <section class="section lesson-integrated" aria-labelledby="process-data-heading">
     <div class="kicker">Integrated process and data</div>
     <h2 id="process-data-heading">See how the method works with evidence.</h2>
-    {% for item in lesson.process_data %}
-      <div class="concept-row">
-        <div>
-          <h3>{{ item.title }}</h3>
-          <p><strong>{{ item.question }}</strong></p>
-          {% for concept in item.concepts %}<p>{{ concept }}</p>{% endfor %}
-          <p class="small"><strong>Methods:</strong> {{ item.tools|join(', ') }}</p>
-        </div>
-      </div>
-    {% endfor %}
+    <div class="lesson-integrated-list">
+      {% for item in lesson.process_data %}
+        <article class="lesson-integrated-item">
+          <div class="concept-number">{{ "%02d"|format(loop.index) }}</div>
+          <div class="lesson-integrated-content">
+            <h3>{{ item.title }}</h3>
+            <p class="lesson-data-question"><strong>{{ item.question }}</strong></p>
+            {% for concept in item.concepts %}
+              <p>
+                {% set parts = concept.split('**') %}
+                {% for part in parts %}{% if loop.index is odd %}{{ part }}{% else %}<strong>{{ part }}</strong>{% endif %}{% endfor %}
+              </p>
+            {% endfor %}
+            {% if item.tools %}<p class="small"><strong>Methods:</strong> {{ item.tools|join(', ') }}</p>{% endif %}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
   </section>
   {% endif %}
 
   {% if lesson.terms %}
-  <section class="section" aria-labelledby="lesson-terms-heading">
-    <div class="kicker">Glossary</div>
-    <h2 id="lesson-terms-heading">Terms used in this lesson.</h2>
-    <div class="term-grid">
+  <section class="section lesson-glossary" aria-labelledby="lesson-terms-heading">
+    <div class="kicker">Key terms</div>
+    <h2 id="lesson-terms-heading">Terms to understand as you work through this lesson.</h2>
+    <div class="term-grid lesson-term-grid">
       {% for term in lesson.terms %}
-      <div class="term-card"><h3>{{ term }}</h3>{% set entry = glossary.get(term) %}{% if entry %}<p>{{ entry.definition }}</p><p class="small"><strong>Use:</strong> {{ entry.use_when }}</p>{% else %}<p>See the glossary for the working definition.</p>{% endif %}</div>
+      <article class="term-card">
+        <h3>{{ term }}</h3>
+        {% set entry = glossary.get(term) %}
+        {% if entry %}
+          <p>{{ entry.definition }}</p>
+          <p class="small"><strong>Use:</strong> {{ entry.use_when }}</p>
+        {% else %}
+          <p>See the glossary for the working definition.</p>
+        {% endif %}
+      </article>
       {% endfor %}
     </div>
   </section>
   {% endif %}
 
   {% if lesson.math %}
-  <section class="section" aria-labelledby="lesson-math-heading">
+  <section class="section lesson-math" aria-labelledby="lesson-math-heading">
     <div class="kicker">Equations</div>
     <h2 id="lesson-math-heading">The mathematics behind the idea.</h2>
     {% for formula in lesson.math %}<div class="formula-row"><code>{{ formula }}</code></div>{% endfor %}
   </section>
   {% endif %}
 
-  <section class="section" aria-labelledby="teach-back-heading">
+  <section class="section lesson-teach-back" aria-labelledby="teach-back-heading">
     <div class="kicker">Teach it back</div>
     <h2 id="teach-back-heading">{{ lesson.teach_back }}</h2>
     <form method="post" action="/teach">
       <input type="hidden" name="activity_id" value="{{ lesson.id }}">
       <input type="hidden" name="focus" value="{{ lesson.belt_key }}">
       <input type="hidden" name="next_url" value="/lesson/{{ lesson.belt_key }}/{{ lesson.index }}">
-      <div class="form-field"><label for="response">Your explanation</label><textarea name="response" id="response" rows="9" required placeholder="Explain it in your own words. Include an example or decision you would make."></textarea></div>
+      <div class="form-field"><label for="response">Your explanation</label><textarea name="response" id="response" rows="9" required placeholder="Explain the idea in your own words. Use the lesson example or describe a decision you would make."></textarea></div>
       <button class="button" type="submit">Challenge my reasoning with Gemini</button>
     </form>
   </section>
 
-  <section class="section section-muted" aria-labelledby="reflection-heading">
-    <div class="kicker">Reflect</div>
-    <h2 id="reflection-heading">What changed your thinking?</h2>
+  <section class="section section-muted lesson-reflection" aria-labelledby="reflection-heading">
+    <div class="kicker">Apply it</div>
+    <h2 id="reflection-heading">Where would you use this idea?</h2>
+    <p class="lesson-reflection-prompt">Think about a real process, decision, or problem you have seen. What part of this lesson would help you understand or address it?</p>
     <form method="post" action="/journal">
       <input type="hidden" name="lesson_id" value="{{ lesson.id }}">
-      <div class="form-field"><label for="reflection">Reflection</label><textarea name="reflection" id="reflection" rows="5" placeholder="Capture the assumption or insight you want to remember."></textarea></div>
+      <div class="form-field"><label for="reflection">Your application note</label><textarea name="reflection" id="reflection" rows="5" placeholder="Describe the situation and the lesson idea you would apply."></textarea></div>
       <button class="button button-secondary" type="submit">Save to journal</button>
     </form>
   </section>
