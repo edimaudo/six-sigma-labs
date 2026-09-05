@@ -54,13 +54,13 @@ BELTS = {'white': {'name': 'White Belt',
                                             "didn't work the way it was supposed to. Why do you think that happened?",
                         'concepts': ['**Six Sigma** is a structured way of finding the real cause of a mistake and '
                                      "fixing it so it doesn't keep happening.",
-                                     "A **defect** is simply anything that doesn't meet what the customer expects — it "
+                                     "A **defect** is simply anything that doesn't meet what the customer expects. It "
                                      "doesn't have to be dramatic to count.",
                                      "Quality isn't an accident. It comes from understanding how work actually gets "
                                      'done, not just hoping people are careful.',
-                                     '**Socratic prompt:** If a mistake happens once, is it bad luck? What if it '
+                                     '**Think it through:** If a mistake happens once, is it bad luck? What if it '
                                      'happens the same way, over and over?',
-                                     "You don't need a technical title to notice a problem — everyone doing the work "
+                                     "You don't need a technical title to notice a problem. Everyone doing the work "
                                      'sees things that "experts" often miss.'],
                         'terms': ['Six Sigma', 'Defect', 'Quality'],
                         'math': [],
@@ -70,18 +70,18 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'inconsistency',
                                                 'Recognize that Six Sigma is a way of thinking about work, not just a '
                                                 'toolkit for specialists'],
-                        'full_explanation': 'Most people have a story like the one in the opening question — an order '
+                        'full_explanation': 'Most people have a story like the one in the opening question: an order '
                                             'that came out wrong, a form that had to be resubmitted three times, a '
                                             "delivery that showed up late without warning. These aren't random bad "
                                             'luck. Somewhere in the process that produced that outcome, something '
-                                            "happened consistently enough to cause the problem — a step that's "
+                                            "happened consistently enough to cause the problem: a step that's "
                                             'confusing, a handoff that loses information, a machine that drifts out of '
                                             'adjustment. Six Sigma exists because most quality problems are not '
                                             "one-off accidents; they're the predictable output of how a process is "
                                             'actually built and run.\n'
                                             '\n'
-                                            'The name "Six Sigma" comes from a statistical idea — you don\'t need the '
-                                            'math to get the point — that says: the more consistent a process is, the '
+                                            'The name "Six Sigma" comes from a statistical idea. You don\'t need the '
+                                            'math to get the point. That says: the more consistent a process is, the '
                                             "fewer defects it produces. A company committed to Six Sigma isn't just "
                                             "hoping employees try harder. It's committing to actually study its "
                                             'processes, find out where and why things go wrong, and fix the real cause '
@@ -92,7 +92,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'process are treated as useful information, not something to just '
                                             "tolerate. And you're often the person best positioned to notice the "
                                             "problem in the first place, because you're the one actually doing the "
-                                            'work — not reading about it in a report.',
+                                            'work. It is not reading about it in a report.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What is a "defect" in Six Sigma terms?',
                                              'options': [{'key': 'a',
@@ -147,7 +147,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': 'a'}],
                         'summary': ['Six Sigma is a structured way to find and fix the real cause of mistakes.',
-                                    'A defect is anything that fails to meet customer expectations — not just dramatic '
+                                    'A defect is anything that fails to meet customer expectations. It is not just dramatic '
                                     'failures.',
                                     'Quality comes from understanding the process, not just asking people to try '
                                     'harder.',
@@ -157,16 +157,16 @@ BELTS = {'white': {'name': 'White Belt',
                         'module_title': 'Module 1: Six Sigma Foundations'},
                        {'code': 'W02',
                         'title': 'What Is Lean? Waste and Value in Everyday Work',
-                        'opening_question': 'Have you ever spent more time looking for something — a tool, a form, an '
-                                            'email — than you actually spent using it once you found it? What did that '
+                        'opening_question': 'Have you ever spent more time looking for something: a tool, a form, an '
+                                            'email; than you actually spent using it once you found it? What did that '
                                             'feel like?',
                         'concepts': ['**Value** is anything the customer actually wants and would be willing to pay '
                                      'for (directly or indirectly).',
-                                     "**Waste** is everything else — time, effort, or motion that doesn't move the "
+                                     "**Waste** is everything else; time, effort, or motion that doesn't move the "
                                      'work forward.',
                                      'Common everyday waste: waiting for something, searching for something, redoing '
                                      'something that was done wrong, and doing more than what was actually needed.',
-                                     '**Socratic prompt:** Is being busy the same thing as being productive?'],
+                                     '**Think it through:** Is being busy the same thing as being productive?'],
                         'terms': ['Value', 'Waste'],
                         'math': [],
                         'teach_back': 'Teach the approach back to me in your own words.',
@@ -176,23 +176,23 @@ BELTS = {'white': {'name': 'White Belt',
                         'full_explanation': '"Lean" is a way of looking at work and asking one simple question: does '
                                             'this step actually help the customer, or is it just something we do '
                                             "because that's how it's always been done? Anything that doesn't help the "
-                                            'customer is waste — even if it looks like effort, and even if everyone '
+                                            'customer is waste. Even if it looks like effort, and even if everyone '
                                             'involved is genuinely busy doing it.\n'
                                             '\n'
                                             'You\'ve probably experienced this without calling it "Lean." Searching '
-                                            "for a misplaced tool or file is waste — the customer doesn't care that "
+                                            "for a misplaced tool or file is waste: the customer doesn't care that "
                                             'you had to search, they just want the result. Waiting for an approval, a '
-                                            'delivery, or someone else to finish their part is waste — nothing is '
+                                            'delivery, or someone else to finish their part is waste; nothing is '
                                             'being added to the product or service during that wait. Redoing something '
-                                            'because it was done incorrectly the first time is waste — the customer is '
+                                            'because it was done incorrectly the first time is waste: the customer is '
                                             'paying (in time, cost, or trust) for the same work twice. And doing more '
-                                            'than what was actually asked for — extra steps, extra approvals, extra '
-                                            'polish nobody requested — is waste too, even though it can feel like '
+                                            'than what was actually asked for; extra steps, extra approvals, extra '
+                                            'polish nobody requested. Is waste too, even though it can feel like '
                                             '"going above and beyond."\n'
                                             '\n'
                                             "Here's the key mindset shift: removing waste isn't about making people "
                                             "work harder or faster. It's usually about making the work itself simpler "
-                                            '— fewer unnecessary steps, less searching, fewer redos — which tends to '
+                                            '; fewer unnecessary steps, less searching, fewer redos, which tends to '
                                             'make the job less frustrating for the person doing it, not more '
                                             'demanding. A calmer, simpler process that removes waste is often better '
                                             'for the employee and the customer at the same time, which is part of why '
@@ -254,7 +254,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'summary': ['Value is what the customer actually wants; waste is everything else.',
                                     'Everyday waste includes waiting, searching, redoing work, and doing more than '
                                     'needed.',
-                                    "Removing waste usually simplifies the work itself — it's not about working "
+                                    "Removing waste usually simplifies the work itself; it's not about working "
                                     'harder.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
@@ -263,7 +263,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Understanding the Voice of the Customer',
                         'opening_question': 'If your manager asked you to improve a process, but never asked the '
                                             'people actually using it what they wanted, what might go wrong?',
-                        'concepts': ['A **customer** is anyone receiving the result of your work — this can be an '
+                        'concepts': ['A **customer** is anyone receiving the result of your work. This can be an '
                                      'external, paying customer, or an **internal customer** (the next person or '
                                      'department in line).',
                                      '**Voice of the Customer (VOC)** means finding out what people actually need, '
@@ -271,23 +271,23 @@ BELTS = {'white': {'name': 'White Belt',
                                      'Simple ways VOC gets collected: asking directly, listening to complaints, '
                                      "observing how something is actually used, or reviewing feedback that's already "
                                      'been recorded.',
-                                     '**Socratic prompt:** If you never see the end buyer of the product, who is your '
+                                     '**Think it through:** If you never see the end buyer of the product, who is your '
                                      'customer?'],
                         'terms': ['Customer', 'Internal Customer', 'Voice of the Customer (VOC)'],
                         'math': [],
                         'teach_back': 'Teach the approach back to me in your own words.',
                         'learning_objectives': ['Explain what "Voice of the Customer" means at a basic level',
-                                                'Recognize why listening to customers — internal or external — matters '
+                                                'Recognize why listening to customers, internal or external, matters '
                                                 'before making changes',
                                                 'Identify a few simple ways an organization gathers the Voice of the '
                                                 'Customer'],
                         'full_explanation': "It's easy to assume you already know what the people relying on your work "
-                                            "actually want — especially if you've done the job for a while. But "
+                                            "actually want. Especially if you've done the job for a while. But "
                                             'assumptions are exactly what "Voice of the Customer" is designed to '
                                             'replace with real information.\n'
                                             '\n'
                                             "A customer doesn't have to be an outside buyer. If you hand off paperwork "
-                                            'to another department, that department is your **internal customer** — '
+                                            'to another department, that department is your **internal customer**; '
                                             'and if what you hand them is incomplete or hard to use, they experience '
                                             'that the same way an external customer experiences a bad product. Six '
                                             'Sigma treats both kinds of customers seriously, because a process can '
@@ -299,7 +299,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'paying attention to recurring complaints instead of dismissing them as '
                                             'one-offs, watching how a form or tool is actually used (which is often '
                                             'different from how it was designed to be used), or reviewing feedback '
-                                            "that's already been written down somewhere — a returns log, a help-desk "
+                                            "that's already been written down somewhere: a returns log, a help-desk "
                                             "ticket queue, a suggestion box. The point isn't the sophistication of the "
                                             "method; it's making sure changes are based on what people actually need, "
                                             'rather than what seems reasonable from a distance.',
@@ -357,7 +357,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'surface',
                                                           'correct': False}],
                                              'answer': 'a'}],
-                        'summary': ['A customer can be external or internal — anyone receiving the result of your '
+                        'summary': ['A customer can be external or internal. Anyone receiving the result of your '
                                     'work.',
                                     'VOC means finding out real needs instead of assuming you already know them.',
                                     'Simple, everyday methods (asking, listening, observing, reviewing existing '
@@ -367,16 +367,16 @@ BELTS = {'white': {'name': 'White Belt',
                         'module_title': 'Module 1: Six Sigma Foundations'},
                        {'code': 'W04',
                         'title': 'A Quick Look at DMAIC',
-                        'opening_question': 'If you wanted to improve something at home — say, your morning routine — '
+                        'opening_question': 'If you wanted to improve something at home, say, your morning routine, '
                                             'would you just guess at a fix, or would you first figure out exactly '
                                             "what's slowing you down?",
-                        'concepts': ['**Define** — what exactly is the problem, and why does it matter?',
-                                     '**Measure** — how big is the problem, really, and how do we know?',
-                                     '**Analyze** — why is this actually happening?',
-                                     '**Improve** — what change will fix the real cause?',
-                                     '**Control** — how do we make sure the fix sticks?',
-                                     '**Socratic prompt:** Why might jumping straight to "Improve" — skipping Define, '
-                                     "Measure, and Analyze — lead to a fix that doesn't actually work?"],
+                        'concepts': ['**Define**: what exactly is the problem, and why does it matter?',
+                                     '**Measure**: how big is the problem, really, and how do we know?',
+                                     '**Analyze**: why is this actually happening?',
+                                     '**Improve**: what change will fix the real cause?',
+                                     '**Control**: how do we make sure the fix sticks?',
+                                     '**Think it through:** Why might jumping straight to "Improve"; skipping Define, '
+                                     "Measure, and Analyze; lead to a fix that doesn't actually work?"],
                         'terms': ['DMAIC', 'Define', 'Measure', 'Analyze', 'Improve', 'Control'],
                         'math': [],
                         'teach_back': 'Teach the approach back to me in your own words.',
@@ -385,28 +385,28 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Understand DMAIC as a structured way to solve problems, without '
                                                 'needing statistics at this level'],
                         'full_explanation': 'Imagine you decide your morning routine is too rushed and you want to fix '
-                                            'it. If you skip straight to a "fix" — say, waking up 20 minutes earlier — '
+                                            'it. If you skip straight to a "fix", say, waking up 20 minutes earlier, '
                                             'you might solve nothing, because you never actually figured out *why* '
                                             'mornings feel rushed in the first place. Maybe the real problem is that '
                                             'you spend 15 minutes every morning looking for your keys. DMAIC is a '
                                             'structured way to avoid that kind of guessing.\n'
                                             '\n'
                                             '**Define** means getting specific about the problem before doing anything '
-                                            'else — not "mornings are stressful," but "I\'m consistently 10 minutes '
+                                            'else. It is not "mornings are stressful," but "I\'m consistently 10 minutes '
                                             'late leaving the house on weekdays." **Measure** means confirming how big '
-                                            'the problem actually is with real information, not just a feeling — '
+                                            'the problem actually is with real information, not just a feeling; '
                                             'tracking your actual departure time for two weeks, for example. '
-                                            "**Analyze** means digging into *why* it's happening — maybe every late "
+                                            "**Analyze** means digging into *why* it's happening; maybe every late "
                                             "day involves searching for keys, and every on-time day doesn't. "
-                                            '**Improve** means making a change aimed at that specific cause — putting '
+                                            '**Improve** means making a change aimed at that specific cause; putting '
                                             'a hook by the door for your keys, rather than a generic "try harder" fix. '
-                                            '**Control** means making sure the fix actually holds up over time — '
+                                            '**Control** means making sure the fix actually holds up over time; '
                                             "checking in a month later to confirm you're still using the hook, not "
                                             'slipping back into old habits.\n'
                                             '\n'
-                                            "You'll notice each phase builds on the one before it. Skipping ahead — "
+                                            "You'll notice each phase builds on the one before it. Skipping ahead; "
                                             'especially jumping straight to "Improve" without Define, Measure, and '
-                                            'Analyze — is exactly how organizations end up implementing fixes that '
+                                            'Analyze. Is exactly how organizations end up implementing fixes that '
                                             "don't actually address the real cause, and the original problem quietly "
                                             'comes back a few months later.',
                         'knowledge_check': [{'number': 1,
@@ -456,19 +456,19 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'text': 'It only works for very small problems',
                                                           'correct': False}],
                                              'answer': 'a'}],
-                        'summary': ['DMAIC: Define, Measure, Analyze, Improve, Control — in that order.',
+                        'summary': ['DMAIC: Define, Measure, Analyze, Improve, Control; in that order.',
                                     'Each phase builds on the one before it; skipping ahead risks fixing the wrong '
                                     'thing.',
-                                    "You don't need statistics to understand the logic of DMAIC at this level — just "
+                                    "You don't need statistics to understand the logic of DMAIC at this level; just "
                                     'the discipline of defining and confirming before fixing.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
                         'module_title': 'Module 1: Six Sigma Foundations'},
                        {'code': 'W05',
                         'title': 'Your Role as a White Belt',
-                        'opening_question': "You don't run projects as a White Belt — so why would an organization "
+                        'opening_question': "You don't run projects as a White Belt. So why would an organization "
                                             'still want you trained in these basics?',
-                        'concepts': ['A **White Belt** provides broad organizational awareness — not project '
+                        'concepts': ['A **White Belt** provides broad organizational awareness. It is not project '
                                      'leadership.',
                                      'Concrete contributions: reporting problems you notice, participating honestly in '
                                      'VOC interviews or surveys, following new standard work created by an improvement '
@@ -476,7 +476,7 @@ BELTS = {'white': {'name': 'White Belt',
                                      'The **belt hierarchy**, from broadest awareness to deepest expertise: White → '
                                      'Yellow → Green → Black Belt → Master Black Belt, with a Champion sponsoring '
                                      'projects from a leadership seat.',
-                                     '**Socratic prompt:** If a company trained only a handful of Black Belts and '
+                                     '**Think it through:** If a company trained only a handful of Black Belts and '
                                      'nobody else understood basic Six Sigma vocabulary, what might go wrong when '
                                      'those projects try to roll out changes?'],
                         'terms': ['White Belt', 'Belt Hierarchy', 'Champion'],
@@ -488,7 +488,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain, at a basic level, where White Belt fits in the overall belt '
                                                 'hierarchy'],
                         'full_explanation': "It might seem like White Belt training is only useful if you're going to "
-                                            'lead a project — but the opposite is usually true. Six Sigma projects '
+                                            'lead a project. But the opposite is usually true. Six Sigma projects '
                                             'succeed or fail based on whether the rest of the organization actually '
                                             "understands and supports the change, not just on whether the Black Belt's "
                                             'statistics were correct.\n'
@@ -497,7 +497,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'out to the wider team. If nobody outside the project team understands '
                                             'basic terms like "root cause" or "standard work," the new process can '
                                             'feel like an arbitrary rule imposed from above, rather than something '
-                                            "people understand the reason for — and it's much easier to quietly "
+                                            "people understand the reason for. it's much easier to quietly "
                                             "abandon a rule you don't understand than one you do. This is exactly the "
                                             'gap White Belt training closes: broad, shared vocabulary and awareness '
                                             'across the organization, so improvements actually stick once the project '
@@ -509,12 +509,12 @@ BELTS = {'white': {'name': 'White Belt',
                                             'someone gathers VOC or VOE input (rather than telling them what you think '
                                             'they want to hear), actually following new standard work instead of '
                                             'reverting to the old way out of habit, and helping a Green or Black Belt '
-                                            'collect accurate data when they ask — because inaccurate data from an '
+                                            'collect accurate data when they ask. This is because inaccurate data from an '
                                             "uninterested frontline contributor can quietly derail an entire project's "
                                             'analysis.\n'
                                             '\n'
-                                            'In the belt hierarchy, White sits at the base — broadest reach, lightest '
-                                            'depth — building up through Yellow (part-time team member), Green '
+                                            'In the belt hierarchy, White sits at the base; broadest reach, lightest '
+                                            'depth; building up through Yellow (part-time team member), Green '
                                             '(project co-lead), Black (project lead), and Master Black Belt (expert '
                                             'coach across many projects), with a Champion sponsoring projects from a '
                                             "leadership position. You're not expected to master statistics or run a "
@@ -561,7 +561,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             {'number': 3,
                                              'question': 'In the belt hierarchy, where does White Belt sit?',
                                              'options': [{'key': 'a',
-                                                          'text': 'At the base — broadest awareness, lightest depth, '
+                                                          'text': 'At the base; broadest awareness, lightest depth, '
                                                                   'no project leadership expectation',
                                                           'correct': False},
                                                          {'key': 'b',
@@ -572,7 +572,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'text': "It isn't part of the hierarchy at all",
                                                           'correct': False}],
                                              'answer': 'a'}],
-                        'summary': ['White Belt provides broad awareness, not project leadership — and that awareness '
+                        'summary': ['White Belt provides broad awareness, not project leadership. that awareness '
                                     'is exactly what helps improvements survive after a project ends.',
                                     'Concrete contributions: reporting problems, honest VOC/VOE input, following new '
                                     'standard work, supporting data collection.',
@@ -583,18 +583,18 @@ BELTS = {'white': {'name': 'White Belt',
                         'module_title': 'Module 1: Six Sigma Foundations'},
                        {'code': 'W06',
                         'title': "When You're Building Something New: A First Look at DMADV",
-                        'opening_question': "You've learned DMAIC — a way to fix something that already exists, like a "
+                        'opening_question': "You've learned DMAIC: a way to fix something that already exists, like a "
                                             'rushed morning routine. But imagine you just moved into a brand new '
                                             'apartment and have no morning routine at all yet, because nothing has '
-                                            'ever been established there. Would DMAIC even apply here — can you '
+                                            'ever been established there. Would DMAIC even apply here; can you '
                                             '"improve" something that doesn\'t exist yet?',
-                        'concepts': ["**DMADV**: Define, Measure, Analyze, Design, Verify — used when there's no "
+                        'concepts': ["**DMADV**: Define, Measure, Analyze, Design, Verify: used when there's no "
                                      'existing process or product to improve, only something new to build.',
-                                     "**Socratic prompt:** If you're building a morning routine from scratch in a new "
+                                     "**Think it through:** If you're building a morning routine from scratch in a new "
                                      'apartment, does it make sense to talk about "improving" it before it\'s ever '
                                      'existed once?',
                                      'The first three letters (Define, Measure, Analyze) are similar in spirit to '
-                                     'DMAIC — the last two change, because there\'s nothing existing yet to "Improve" '
+                                     'DMAIC: the last two change, because there\'s nothing existing yet to "Improve" '
                                      'or "Control."'],
                         'terms': ['DMADV', 'Design', 'Verify'],
                         'math': [],
@@ -604,7 +604,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Name the five letters of DMADV, in order',
                                                 'Recognize, at a basic level, when a workplace situation calls for '
                                                 'DMADV instead of DMAIC'],
-                        'full_explanation': 'DMAIC assumes something is already happening, just not well enough — a '
+                        'full_explanation': 'DMAIC assumes something is already happening, just not well enough: a '
                                             "rushed morning routine, a delivery that's often late. DMADV assumes the "
                                             "opposite: there's nothing there yet at all. Moving into a brand new "
                                             'apartment with no established routine is a genuinely different situation '
@@ -616,15 +616,15 @@ BELTS = {'white': {'name': 'White Belt',
                                             'look like in real numbers (leaving by a specific time, with specific '
                                             'tasks done), and **Analyze** what options exist for getting there '
                                             '(different orders of getting ready, different routes to a new commute). '
-                                            'But instead of **Improve** and **Control** — which assume something '
-                                            'already running that just needs adjustment — DMADV shifts to **Design** '
+                                            'But instead of **Improve** and **Control**, which assume something '
+                                            'already running that just needs adjustment; DMADV shifts to **Design** '
                                             '(actually building the new routine, step by step) and **Verify** (trying '
                                             'it for real and confirming it actually works, before treating it as your '
                                             'new normal).\n'
                                             '\n'
                                             'In a workplace, this same distinction shows up whenever a company '
-                                            'launches something brand new — a new product, a new service, a new '
-                                            'location — rather than fixing something that already exists. The letters '
+                                            'launches something brand new: a new product, a new service, a new '
+                                            'location. Rather than fixing something that already exists. The letters '
                                             'change because the starting point is fundamentally different: nothing to '
                                             'improve, only something to build correctly from the start.',
                         'knowledge_check': [{'number': 1,
@@ -675,7 +675,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'options': [{'key': 'a',
                                                           'text': 'Both situations still require clearly defining the '
                                                                   'goal, measuring what "good" looks like, and '
-                                                                  'analyzing options — whether something already '
+                                                                  'analyzing options; whether something already '
                                                                   'exists or not *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -693,7 +693,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ['DMAIC fixes something that already exists; DMADV designs something brand new.',
-                                    'DMADV: Define, Measure, Analyze, Design, Verify — sharing its first three letters '
+                                    'DMADV: Define, Measure, Analyze, Design, Verify; sharing its first three letters '
                                     'with DMAIC, replacing Improve/Control with Design/Verify.',
                                     'Workplaces use DMADV when launching something new rather than fixing something '
                                     'old.'],
@@ -707,7 +707,7 @@ BELTS = {'white': {'name': 'White Belt',
             'modules': [{'code': 'Y01',
                          'title': "DMAIC in Practice: A Team Member's View",
                          'opening_question': "As a Yellow Belt, you won't write the project charter or run the "
-                                             'statistics — so why do you still need to understand what happens in all '
+                                             'statistics. So why do you still need to understand what happens in all '
                                              'five DMAIC phases?',
                          'concepts': ["**Define**: the Green/Black Belt writes the charter, but a Yellow Belt's local "
                                       'knowledge often helps scope the problem correctly.',
@@ -719,7 +719,7 @@ BELTS = {'white': {'name': 'White Belt',
                                       'rolled out further.',
                                       '**Control**: Yellow Belts frequently become the ones monitoring the new '
                                       'standard work day to day, long after the project team disbands.',
-                                      '**Socratic prompt:** If nobody who actually performs the process is asked '
+                                      '**Think it through:** If nobody who actually performs the process is asked '
                                       "what's happening during the Measure phase, how reliable is the resulting data "
                                       'likely to be?'],
                          'terms': ['DMAIC (recap)', 'Team Member Contribution'],
@@ -737,18 +737,18 @@ BELTS = {'white': {'name': 'White Belt',
                                              'any of them.\n'
                                              '\n'
                                              'During **Define**, the charter gets written by whoever leads the project '
-                                             "— but a Yellow Belt who's actually done the job for years can catch a "
+                                             ". But a Yellow Belt who's actually done the job for years can catch a "
                                              'problem statement that\'s subtly wrong (e.g., "orders are late" when the '
                                              'real pattern is "orders are late only on Mondays") before the team '
                                              'wastes weeks measuring the wrong thing. During **Measure**, someone has '
-                                             'to physically record data — timestamps, defect counts, wait times — and '
+                                             'to physically record data, timestamps, defect counts, wait times, and '
                                              "that's very often a Yellow Belt's responsibility; sloppy or inconsistent "
                                              "data collection here can quietly derail the entire project's analysis "
                                              'later. During **Analyze**, a Yellow Belt\'s honest answer to "what do '
                                              'you think is actually causing this?" is frequently more accurate than an '
                                              "outside analyst's best guess, because the Yellow Belt has watched the "
                                              'failure happen repeatedly. During **Improve**, new solutions are often '
-                                             'piloted with a small group before a full rollout — and Yellow Belts are '
+                                             'piloted with a small group before a full rollout. Yellow Belts are '
                                              'typically the ones actually running the pilot and reporting back whether '
                                              'it worked in real conditions, not just on paper. During **Control**, '
                                              "once the project team moves on to other work, it's frequently the Yellow "
@@ -806,7 +806,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                            'text': 'Only the Master Black Belt',
                                                            'correct': False},
                                                           {'key': 'c',
-                                                           'text': 'Nobody — Control phase ends the moment the charter '
+                                                           'text': 'Nobody; Control phase ends the moment the charter '
                                                                    'closes',
                                                            'correct': False},
                                                           {'key': 'd',
@@ -814,7 +814,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                            'correct': False}],
                                               'answer': 'a'}],
                          'summary': ["Yellow Belts shape DMAIC's success through accurate data, honest input, and "
-                                     'follow-through — not by owning the analysis.',
+                                     'follow-through. It is not by owning the analysis.',
                                      'Define benefits from local knowledge that catches scoping errors early.',
                                      'Control frequently depends on Yellow Belts sustaining the new standard work '
                                      'long-term.'],
@@ -823,7 +823,7 @@ BELTS = {'white': {'name': 'White Belt',
                          'module_title': 'Module 1: Team Member Toolkit'},
                         {'code': 'Y02',
                          'title': 'Understanding a Process: Process Mapping Basics',
-                         'opening_question': 'Before you can improve a process, can you draw out — step by step — '
+                         'opening_question': 'Before you can improve a process, can you draw out, step by step, '
                                              'exactly what happens today? Try it in your head for a task you do daily. '
                                              'Is it harder than you expected?',
                          'concepts': ['A **process map** is a visual, step-by-step picture of how work actually flows, '
@@ -833,7 +833,7 @@ BELTS = {'white': {'name': 'White Belt',
                                       'a yes/no or condition).',
                                       'An **"as-is" map** documents the process as it actually runs today; a **"to-be" '
                                       'map** documents the proposed future state after improvement.',
-                                      '**Socratic prompt:** Why might two people who both "do the same job" draw '
+                                      '**Think it through:** Why might two people who both "do the same job" draw '
                                       'slightly different process maps of it?'],
                          'terms': ['Process Map', 'As-Is Map', 'To-Be Map'],
                          'math': [],
@@ -844,7 +844,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                  'Explain why an "as-is" map often reveals surprises, even to people '
                                                  'who perform the process daily'],
                          'full_explanation': 'Most people assume they already know exactly how their own process works '
-                                             "— until they're asked to draw it out step by step, in order, including "
+                                             "; until they're asked to draw it out step by step, in order, including "
                                              'every decision point and handoff. This exercise is deceptively '
                                              'difficult, and that difficulty is exactly the point: a written procedure '
                                              'often describes an idealized version of the process, while a **process '
@@ -853,7 +853,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              '\n'
                                              'The basic symbols are simple by design. An **oval** marks where the '
                                              'process begins and ends. A **rectangle** represents a single step or '
-                                             'action. A **diamond** represents a decision point — a place where the '
+                                             'action. A **diamond** represents a decision point: a place where the '
                                              'process branches depending on a condition (e.g., "Is the form complete? '
                                              'Yes → continue. No → return to sender"). Connecting these with arrows in '
                                              "the correct order produces a map anyone can follow, even someone who's "
@@ -861,14 +861,14 @@ BELTS = {'white': {'name': 'White Belt',
                                              '\n'
                                              'This is why building an **"as-is" map** (the process as it genuinely '
                                              'runs today, warts and all) is usually the first real step of process '
-                                             "improvement — you can't fix a process you haven't honestly mapped. It's "
+                                             "improvement. You can't fix a process you haven't honestly mapped. It's "
                                              'common, and useful, for this exercise to surface disagreement: two '
                                              'experienced employees doing "the same job" often turn out to handle a '
                                              'particular exception differently, or skip a step the written procedure '
-                                             "says is mandatory. That disagreement isn't a failure of the exercise — "
+                                             "says is mandatory. That disagreement isn't a failure of the exercise; "
                                              "it's exactly the kind of hidden inconsistency Six Sigma is looking for. "
                                              'Only after the as-is map is honestly captured does a team move on to '
-                                             'designing a **"to-be" map** — the proposed future version, once the '
+                                             'designing a **"to-be" map**: the proposed future version, once the '
                                              'inconsistencies and unnecessary steps have been addressed.',
                          'knowledge_check': [{'number': 1,
                                               'question': 'What does an "as-is" process map represent?',
@@ -932,7 +932,7 @@ BELTS = {'white': {'name': 'White Belt',
                         {'code': 'Y03',
                          'title': 'Finding Root Causes: Fishbone Diagrams and the 5 Whys',
                          'opening_question': 'If you ask "why" about a problem only once, do you usually land on the '
-                                             'real root cause — or just the first convenient excuse?',
+                                             'real root cause; or just the first convenient excuse?',
                          'concepts': ['A **fishbone (Ishikawa) diagram** organizes potential causes of a problem into '
                                       'categories, commonly: Method, Machine, Material, Manpower (People), '
                                       'Measurement, and Environment (the "6 Ms").',
@@ -940,7 +940,7 @@ BELTS = {'white': {'name': 'White Belt',
                                       'move past the first, surface-level answer and reach a deeper cause.',
                                       'A **symptom** is what you initially observe; a **root cause** is the underlying '
                                       'reason the symptom keeps occurring.',
-                                      '**Socratic prompt:** If your first answer to "why did this happen" is "the '
+                                      '**Think it through:** If your first answer to "why did this happen" is "the '
                                       'employee made a mistake," is that a root cause, or just a place most root-cause '
                                       'digging incorrectly stops?'],
                          'terms': ['Fishbone (Ishikawa) Diagram', '5 Whys', 'Root Cause vs. Symptom'],
@@ -952,7 +952,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                  'cause',
                                                  'Distinguish a symptom from a genuine root cause'],
                          'full_explanation': 'When a problem happens, the fastest explanation is often the shallowest '
-                                             'one — "the machine broke," "someone forgot a step," "the part was '
+                                             'one; "the machine broke," "someone forgot a step," "the part was '
                                              'defective." These are usually **symptoms**, not root causes, and '
                                              "stopping there tends to produce a fix that doesn't actually prevent the "
                                              'problem from recurring.\n'
@@ -979,7 +979,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'priority during onboarding. Notice how the first answer ("wasn\'t packed '
                                              'on time") is a symptom, while the fifth answer (a gap in onboarding '
                                              'priorities) is something you can actually fix in a way that prevents the '
-                                             'problem from recurring — not just patches this one instance of it.\n'
+                                             'problem from recurring. It is not just patches this one instance of it.\n'
                                              '\n'
                                              'Fishbone diagrams and 5 Whys work well together: the fishbone widens the '
                                              'search across categories so nothing gets overlooked, and the 5 Whys '
@@ -1054,10 +1054,10 @@ BELTS = {'white': {'name': 'White Belt',
                          'concepts': ['A **Pareto chart** sorts causes by frequency (or cost) from largest to '
                                       'smallest, usually with a cumulative percentage line overlaid.',
                                       'The **80/20 rule** observes that, in most defect data, roughly 80% of the '
-                                      'problem traces back to roughly 20% of the causes — the "vital few."',
-                                      'The remaining causes are sometimes called the "trivial many" — not because they '
+                                      'problem traces back to roughly 20% of the causes: the "vital few."',
+                                      'The remaining causes are sometimes called the "trivial many". It is not because they '
                                       "don't matter at all, but because they matter far less than the top few.",
-                                      '**Socratic prompt:** If 80% of your defects trace back to just 15% of your '
+                                      '**Think it through:** If 80% of your defects trace back to just 15% of your '
                                       'causes, why would spreading improvement effort evenly across *all* causes be a '
                                       'poor use of limited time?'],
                          'terms': ['Pareto Chart', '80/20 Rule', 'Vital Few / Trivial Many'],
@@ -1071,15 +1071,15 @@ BELTS = {'white': {'name': 'White Belt',
                                              'to fix everything at once. In practice, most defect data follows a '
                                              'predictable pattern: a small number of causes account for the large '
                                              'majority of the problem, while a long list of other causes each '
-                                             'contribute only a little. This is the **80/20 rule** — not a strict law, '
+                                             'contribute only a little. This is the **80/20 rule**. It is not a strict law, '
                                              'but a pattern reliable enough to build a prioritization tool around.\n'
                                              '\n'
                                              'A **Pareto chart** makes this pattern visible. Causes are listed along '
                                              'the bottom, sorted from most frequent (or most costly) to least, as bars '
-                                             'in descending order — visually, the chart looks like a staircase going '
+                                             'in descending order; visually, the chart looks like a staircase going '
                                              'down. A cumulative percentage line is often overlaid on top, climbing '
                                              'toward 100% as you move across the bars, which makes it easy to see '
-                                             'exactly where the "vital few" cutoff falls — for example, the chart '
+                                             'exactly where the "vital few" cutoff falls; for example, the chart '
                                              'might show that the first three causes (out of fifteen total) already '
                                              'account for 78% of all defects.\n'
                                              '\n'
@@ -1087,7 +1087,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'everyone\'s favorite theory about what\'s "really" causing the problem, '
                                              'the Pareto chart lets the actual frequency data settle the argument '
                                              'about where to start. Tackling the tallest bars first produces the '
-                                             'biggest improvement for the effort spent — attacking the '
+                                             'biggest improvement for the effort spent; attacking the '
                                              'fifteenth-largest cause first, while ignoring the largest one, is a poor '
                                              "use of a team's limited time, even if that fifteenth cause happens to be "
                                              'the one someone feels most strongly about.',
@@ -1161,8 +1161,8 @@ BELTS = {'white': {'name': 'White Belt',
                                       "first three steps don't quietly decay.",
                                       '**Sustain (Shitsuke)**: build habits and periodic checks that keep 5S part of '
                                       'daily practice, not a one-time event.',
-                                      '**Socratic prompt:** Of the five steps, which one has no dramatic '
-                                      '"before/after" photo — and why might that make it the easiest step to neglect?'],
+                                      '**Think it through:** Of the five steps, which one has no dramatic '
+                                      '"before/after" photo. why might that make it the easiest step to neglect?'],
                          'terms': ['5S (Seiri/Seiton/Seiso/Seiketsu/Shitsuke)', 'Red-Tagging'],
                          'math': [],
                          'teach_back': 'Teach the approach back to me in your own words.',
@@ -1176,30 +1176,30 @@ BELTS = {'white': {'name': 'White Belt',
                                              'looks. Each step builds on the one before it.\n'
                                              '\n'
                                              "**Sort (Seiri)** starts by removing anything that isn't actually needed "
-                                             'for the work currently being done — a common technique is "red-tagging" '
+                                             'for the work currently being done: a common technique is "red-tagging" '
                                              'uncertain items (marking them, then relocating or discarding them after '
                                              'a set period if nobody claims them) rather than agonizing over every '
                                              'item individually. **Set in Order (Seiton)** takes what remains and '
-                                             'gives it a clear, marked, logical home — the guiding principle is that a '
+                                             'gives it a clear, marked, logical home: the guiding principle is that a '
                                              "tool used constantly should be within arm's reach, while something used "
                                              'rarely can be stored further away. **Shine (Seiso)** means cleaning the '
                                              "area thoroughly, which isn't just cosmetic: a clean machine makes a "
                                              'small oil leak or a loose bolt immediately visible, while a dirty one '
                                              'hides the same problem until it becomes a bigger failure. **Standardize '
-                                             '(Seiketsu)** turns the first three steps into a repeatable standard — '
+                                             '(Seiketsu)** turns the first three steps into a repeatable standard; '
                                              'labels, floor markings, checklists, and "how it should look" reference '
-                                             "photos — so the workspace doesn't quietly drift back to its old, "
+                                             "photos. So the workspace doesn't quietly drift back to its old, "
                                              'cluttered state within a few weeks. **Sustain (Shitsuke)** is the '
                                              'ongoing discipline of actually maintaining all of this: periodic audits, '
                                              'shared accountability, and making 5S part of how the team normally '
                                              'operates rather than something done once for an inspection.\n'
                                              '\n'
                                              "Here's the honest challenge worth naming directly: Sort, Set in Order, "
-                                             'and Shine produce a satisfying, visible "before and after" — anyone can '
+                                             'and Shine produce a satisfying, visible "before and after". Anyone can '
                                              'see the difference in a single afternoon. Standardize and especially '
                                              "Sustain produce no such dramatic moment; they're just quiet, ongoing "
                                              'discipline with no obvious payoff photo. This is exactly why most 5S '
-                                             'initiatives that fail, fail at Sustain — not because the first three '
+                                             'initiatives that fail, fail at Sustain. It is not because the first three '
                                              'steps were done poorly, but because nothing was built to keep them from '
                                              'fading once the initial enthusiasm wore off.',
                          'knowledge_check': [{'number': 1,
@@ -1253,7 +1253,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                            'text': 'It happens before Sort in the sequence',
                                                            'correct': False}],
                                               'answer': 'a'}],
-                         'summary': ['5S: Sort, Set in Order, Shine, Standardize, Sustain — each step builds on the '
+                         'summary': ['5S: Sort, Set in Order, Shine, Standardize, Sustain. Each step builds on the '
                                      'last.',
                                      'Shine doubles as an early-warning inspection, not just cleaning.',
                                      'Sustain is the hardest step because it has no dramatic "before/after" moment, '
@@ -1271,8 +1271,8 @@ BELTS = {'white': {'name': 'White Belt',
                                       'making trends and patterns visible that a memory or gut feeling can easily miss '
                                       'or exaggerate.',
                                       '**Anecdote** ("it feels like a lot") is not the same as **data** (an actual '
-                                      'recorded pattern) — and Six Sigma consistently favors the latter before acting.',
-                                      '**Socratic prompt:** If you remember every time a problem happened, but never '
+                                      'recorded pattern). Six Sigma consistently favors the latter before acting.',
+                                      '**Think it through:** If you remember every time a problem happened, but never '
                                       "notice all the times it didn't, how might your memory alone give you a "
                                       'distorted picture of how often it actually occurs?'],
                          'terms': ['Check Sheet', 'Run Chart', 'Data vs. Anecdote'],
@@ -1283,7 +1283,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                  'Explain the difference between an anecdote ("I feel like it happens '
                                                  'a lot") and an actual data pattern'],
                          'full_explanation': 'Human memory is a poor substitute for actual data, and not because '
-                                             "people are dishonest — it's because memory is naturally biased toward "
+                                             "people are dishonest; it's because memory is naturally biased toward "
                                              'whatever stood out emotionally. A single dramatic failure tends to be '
                                              'remembered far more vividly than dozens of ordinary successes, which can '
                                              'make a rare problem feel far more common than it actually is (or, just '
@@ -1293,24 +1293,24 @@ BELTS = {'white': {'name': 'White Belt',
                                              "A **check sheet** solves this simply: it's a form with the possible "
                                              'issue types listed down the side, where someone makes a tally mark each '
                                              "time one occurs, over a defined period. There's no complicated "
-                                             'statistics involved — just an honest, real-time count instead of a '
+                                             'statistics involved; just an honest, real-time count instead of a '
                                              'memory reconstructed after the fact. Over a week or two, this produces a '
                                              'genuine picture of frequency: which problem actually happens most, not '
                                              'which one is most memorable.\n'
                                              '\n'
                                              'A **run chart** takes this a step further by plotting a measurement over '
-                                             'time — for example, daily defect counts across a month, connected point '
+                                             'time; for example, daily defect counts across a month, connected point '
                                              'to point on a simple line graph. This reveals patterns invisible to '
                                              'memory alone: maybe defects spike every Monday, or climb steadily over '
                                              "the month, or actually stay flat despite everyone's impression that "
                                              '"it\'s been getting worse lately." None of this requires statistical '
-                                             'formulas to be useful — simply seeing the plotted pattern is often '
+                                             'formulas to be useful; simply seeing the plotted pattern is often '
                                              'enough to point a team in the right direction for the Analyze phase that '
                                              'follows.\n'
                                              '\n'
                                              'The core habit this lesson is building: when someone says "I think this '
                                              'happens all the time," the appropriate Six Sigma response isn\'t to '
-                                             'argue — it\'s to ask, "let\'s find out — can we track it for two weeks '
+                                             'argue, it\'s to ask, "let\'s find out, can we track it for two weeks '
                                              'and see?"',
                          'knowledge_check': [{'number': 1,
                                               'question': 'Why might memory alone give a distorted picture of how '
@@ -1363,7 +1363,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                            'text': 'It only works for financial data',
                                                            'correct': False}],
                                               'answer': 'a'}],
-                         'summary': ['Memory is a poor substitute for data — it overweights dramatic events and misses '
+                         'summary': ['Memory is a poor substitute for data. It overweights dramatic events and misses '
                                      'ordinary patterns.',
                                      'Check sheets provide a simple, real-time tally of how often something actually '
                                      'happens.',
@@ -1377,7 +1377,7 @@ BELTS = {'white': {'name': 'White Belt',
                          'opening_question': 'A Green Belt asks you to track defects on your line for two weeks. Why '
                                              "might your accuracy in doing that matter more than you'd initially "
                                              'think?',
-                         'concepts': ['A **Yellow Belt** is an active, part-time team member — not just broadly aware '
+                         'concepts': ['A **Yellow Belt** is an active, part-time team member. It is not just broadly aware '
                                       '(White Belt), and not co-leading the analysis (Green Belt).',
                                       'Typical duties: collecting data accurately, providing subject-matter input, '
                                       'testing pilot changes on the floor, and following (and reporting on) new '
@@ -1385,7 +1385,7 @@ BELTS = {'white': {'name': 'White Belt',
                                       'Constructive pushback: raising a concern with specifics ("this step doesn\'t '
                                       'match what actually happens on second shift") is far more useful than silent '
                                       'compliance or vague complaint.',
-                                      '**Socratic prompt:** If a Yellow Belt notices a flaw in a proposed fix but says '
+                                      '**Think it through:** If a Yellow Belt notices a flaw in a proposed fix but says '
                                       'nothing to avoid seeming difficult, who ultimately bears the cost of that '
                                       'silence?'],
                          'terms': ['Yellow Belt Role', 'Team Member Responsibilities', 'Constructive Pushback'],
@@ -1402,24 +1402,24 @@ BELTS = {'white': {'name': 'White Belt',
                                              "isn't expected to be an active participant in a specific project. A "
                                              'Green Belt (and above) leads the deeper analysis, owns the charter, and '
                                              "is accountable for the project's outcome. A Yellow Belt is neither "
-                                             "purely passive nor fully in charge — they're an active contributor whose "
+                                             "purely passive nor fully in charge; they're an active contributor whose "
                                              'reliability directly affects whether the project succeeds.\n'
                                              '\n'
                                              'In practice, this means a few concrete responsibilities carry real '
                                              'weight. **Data collection** is often delegated to Yellow Belts precisely '
-                                             "because they're closest to the process — but data collected carelessly, "
+                                             "because they're closest to the process. But data collected carelessly, "
                                              'or "cleaned up" to look better than reality, can send an entire analysis '
                                              'in the wrong direction without anyone realizing it until much later. '
-                                             '**Subject-matter input** — genuinely knowing how the process behaves day '
-                                             'to day — is something a Yellow Belt often has and an outside analyst '
+                                             '**Subject-matter input**; genuinely knowing how the process behaves day '
+                                             'to day. Is something a Yellow Belt often has and an outside analyst '
                                              "doesn't; withholding that knowledge (out of habit, distrust, or simply "
                                              'not being asked directly) deprives the project of exactly the insight it '
                                              'needs most. **Piloting changes** means a Yellow Belt is frequently the '
                                              'first person actually trying a proposed fix under real conditions, and '
                                              "honest feedback about what worked and what didn't is far more valuable "
                                              'to the project than polite agreement that everything went fine. '
-                                             "**Following new standard work** — and reporting honestly if it isn't "
-                                             'working as intended — is what determines whether a Control phase '
+                                             "**Following new standard work**. reporting honestly if it isn't "
+                                             'working as intended. Is what determines whether a Control phase '
                                              'actually holds, long after the project team has moved on to other '
                                              'things.\n'
                                              '\n'
@@ -1428,8 +1428,8 @@ BELTS = {'white': {'name': 'White Belt',
                                              'tend to get dismissed. Specific, concrete observations ("this new step '
                                              "doesn't account for what actually happens on second shift, and here's "
                                              'what goes wrong when it doesn\'t") are far more likely to get taken '
-                                             'seriously and actually improve the outcome — and staying silent about a '
-                                             "real flaw to avoid seeming difficult doesn't protect the project; it "
+                                             'seriously and actually improve the outcome. staying silent about a '
+                                             "real flaw to avoid seeming difficult doesn't protect the project. It "
                                              'just delays the cost of that flaw until it surfaces later, usually at a '
                                              'worse time.',
                          'knowledge_check': [{'number': 1,
@@ -1490,11 +1490,11 @@ BELTS = {'white': {'name': 'White Belt',
                                                            'text': 'Avoiding mentioning any concerns at all',
                                                            'correct': False}],
                                               'answer': 'a'}],
-                         'summary': ['Yellow Belt sits between White Belt (aware) and Green Belt (co-leads) — an '
+                         'summary': ['Yellow Belt sits between White Belt (aware) and Green Belt (co-leads): an '
                                      'active, part-time contributor.',
                                      'Accurate data, honest subject-matter input, real pilot feedback, and '
                                      "follow-through on standard work are the Yellow Belt's core contributions.",
-                                     'Specific, concrete pushback is far more useful — and more likely to be heard — '
+                                     'Specific, concrete pushback is far more useful, and more likely to be heard, '
                                      'than silence or vague complaint.'],
                          'hands_on_activity': '',
                          'worked_solution': '',
@@ -1502,19 +1502,19 @@ BELTS = {'white': {'name': 'White Belt',
                         {'code': 'Y08',
                          'title': "A First Look at DMADV: When There's No Existing Process to Fix",
                          'opening_question': "Golden Crust's leadership decides to launch a brand-new stuffed-crust "
-                                             "flatbread — a product line that's never existed at the company before. "
+                                             "flatbread: a product line that's never existed at the company before. "
                                              'There\'s no "flatbread process" for you to walk onto, observe, and '
                                              'collect data on, the way you would tally defects on an existing line. '
                                              "Does everything you've learned about being a good DMAIC team member "
-                                             'still apply here — or does something fundamentally change?',
-                         'concepts': ['**DMADV**: Define, Measure, Analyze, Design, Verify — used to build a new '
+                                             'still apply here; or does something fundamentally change?',
+                         'concepts': ['**DMADV**: Define, Measure, Analyze, Design, Verify: used to build a new '
                                       'product, service, or process, rather than fix an existing one.',
-                                      "**Socratic prompt:** In DMAIC, you're often the one collecting real data from "
+                                      "**Think it through:** In DMAIC, you're often the one collecting real data from "
                                       "an existing process. In DMADV, there's no existing process to collect data from "
-                                      'yet — so what kind of information would a Yellow Belt actually be gathering '
+                                      'yet. So what kind of information would a Yellow Belt actually be gathering '
                                       'during Define and Measure instead?',
                                       "A Yellow Belt's honest, practical feedback matters just as much in DMADV as "
-                                      'DMAIC — what changes is *when* it happens: reacting to early concepts and '
+                                      'DMAIC: what changes is *when* it happens: reacting to early concepts and '
                                       "prototypes before they're locked in, rather than reacting to problems in an "
                                       'existing process.'],
                          'terms': ['DMADV (Team Member View)', 'Prototype Feedback', 'Pilot Testing'],
@@ -1526,29 +1526,29 @@ BELTS = {'white': {'name': 'White Belt',
                                                  'phase',
                                                  'Recognize which of your existing DMAIC team-member habits transfer '
                                                  'directly to a DMADV project'],
-                         'full_explanation': 'The core habits that make you a good DMAIC team member — giving honest '
+                         'full_explanation': 'The core habits that make you a good DMAIC team member; giving honest '
                                              'input, paying attention to floor-level reality, not staying quiet when '
-                                             "something looks like it won't work — transfer directly to DMADV. What "
+                                             "something looks like it won't work; transfer directly to DMADV. What "
                                              "changes is the *timing and type* of what you're contributing, since "
                                              "there's no existing process to observe or historical data to collect.\n"
                                              '\n'
                                              'In **Define** and **Measure**, instead of helping verify an existing '
                                              'baseline, you might be asked for input during early concept discussions '
-                                             '— what do you think customers actually want from a stuffed-crust '
+                                             '; what do you think customers actually want from a stuffed-crust '
                                              'flatbread, based on what you hear from customers or coworkers? In '
                                              '**Analyze**, instead of a fishbone session digging into why an existing '
-                                             'process fails, you might help compare early prototype concepts — tasting '
+                                             'process fails, you might help compare early prototype concepts; tasting '
                                              'samples, commenting on which feels more "Golden Crust" in style. In '
                                              '**Design**, you might pilot a proposed new production method on a small '
                                              "scale, flagging practical problems (a recipe step that's genuinely hard "
                                              'to execute consistently on the actual equipment, not just in a test '
                                              "kitchen). In **Verify**, you're often the one running or supporting the "
                                              'pilot batch that confirms the new process actually works at real '
-                                             'production scale — reporting honestly if something that looked fine on '
+                                             'production scale; reporting honestly if something that looked fine on '
                                              "paper doesn't hold up on the floor.\n"
                                              '\n'
-                                             "The underlying discipline — don't guess, get real information, speak up "
-                                             "early rather than staying quiet — is identical to DMAIC. It's simply "
+                                             "The underlying discipline; don't guess, get real information, speak up "
+                                             "early rather than staying quiet. Is identical to DMAIC. It's simply "
                                              'applied to something being built for the first time, rather than '
                                              'something being fixed.',
                          'knowledge_check': [{'number': 1,
@@ -1563,7 +1563,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           {'key': 'b',
                                                            'text': 'Yellow Belts have no role at all in DMADV projects '
                                                                    '*(their honest, practical input remains just as '
-                                                                   'valuable — only the timing and content shift)*',
+                                                                   'valuable; only the timing and content shift)*',
                                                            'correct': False},
                                                           {'key': 'c',
                                                            'text': 'DMADV requires a Yellow Belt to perform '
@@ -1626,7 +1626,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                    'most)*',
                                                            'correct': False}],
                                               'answer': ''}],
-                         'summary': ['DMADV builds something new; DMAIC improves something existing — but a Yellow '
+                         'summary': ['DMADV builds something new; DMAIC improves something existing. But a Yellow '
                                      "Belt's core habits transfer directly to both.",
                                      'In DMADV, contributions shift toward concept feedback, prototype input, and '
                                      "pilot testing, since there's no existing process or historical data yet.",
@@ -1644,28 +1644,28 @@ BELTS = {'white': {'name': 'White Belt',
                         'opening_question': 'Golden Crust Bakeries just lost its largest grocery contract after '
                                             'inspectors found repeated loaves under the labeled weight. The CEO '
                                             'announces the company is adopting Six Sigma. The operations director '
-                                            'mutters afterward: *"We already have a quality control department — '
+                                            'mutters afterward: *"We already have a quality control department; '
                                             'what\'s actually different about this?"* If you were advising the CEO, '
                                             'what would you say is genuinely different about Six Sigma versus the '
                                             'quality control department Golden Crust already has?',
                         'concepts': ['Sigma level converts directly to a defect rate. Approximate DPMO by level: **1σ '
                                      '≈ 690,000**, **2σ ≈ 308,000**, **3σ ≈ 66,800**, **4σ ≈ 6,210**, **5σ ≈ 233**, '
                                      '**6σ ≈ 3.4**.',
-                                     "**Socratic prompt:** Golden Crust's packaging line needs to hold loaf weight "
+                                     "**Think it through:** Golden Crust's packaging line needs to hold loaf weight "
                                      'within a 2-gram tolerance. If that process is currently running at roughly 4 '
                                      'sigma, about how many loaves per million fall outside tolerance? Given that '
                                      'Golden Crust bakes 2 million loaves a year, roughly how many mis-weighted loaves '
-                                     'does that represent — and does "4 sigma" still sound acceptable once it\'s a '
+                                     'does that represent. does "4 sigma" still sound acceptable once it\'s a '
                                      'real number instead of a percentage?',
-                                     'Traditional "quality control" is typically **appraisal** — inspecting output '
+                                     'Traditional "quality control" is typically **appraisal**; inspecting output '
                                      "after it's made and catching what's already wrong. Six Sigma pushes further "
                                      'upstream: finding *why* the process drifts out of tolerance in the first place '
                                      'and fixing that.',
-                                     "**Socratic prompt:** If Golden Crust's inspectors are already catching some "
+                                     "**Think it through:** If Golden Crust's inspectors are already catching some "
                                      'underweight loaves before shipping, why did enough still slip through to cost '
                                      'them a major contract?',
                                      'Six Sigma originated at Motorola (1986) and was popularized enterprise-wide by '
-                                     'GE under Jack Welch (1995) — largely as a response to competitive quality '
+                                     'GE under Jack Welch (1995); largely as a response to competitive quality '
                                      'pressure, not academic interest in statistics.'],
                         'terms': ['Sigma Level', 'DPMO', 'Appraisal vs. Prevention', 'Six Sigma (origin)'],
                         'math': [{'name': 'DPMO',
@@ -1680,29 +1680,29 @@ BELTS = {'white': {'name': 'White Belt',
                                                 "Distinguish Six Sigma's prevention-focused approach from traditional "
                                                 'after-the-fact quality inspection',
                                                 'Describe the historical origin and business case for Six Sigma'],
-                        'full_explanation': 'The operations director\'s objection — "we already have quality control" '
-                                            '— is exactly the objection Six Sigma was built to move past. A quality '
+                        'full_explanation': 'The operations director\'s objection; "we already have quality control" '
+                                            '. Is exactly the objection Six Sigma was built to move past. A quality '
                                             'control department, in most organizations, catches defective output '
                                             "*after* it's produced: someone inspects loaves, weighs samples, pulls out "
                                             "obvious rejects. That's valuable, but it's fundamentally reactive. It "
                                             "doesn't change the underlying rate at which the process produces bad "
-                                            'loaves in the first place — it just tries to catch more of them before '
+                                            'loaves in the first place. It just tries to catch more of them before '
                                             'they leave the building.\n'
                                             '\n'
                                             'This is where sigma level becomes a genuinely useful number rather than a '
                                             "technical curiosity. If Golden Crust's weight-control process is running "
                                             'at roughly 4 sigma, that corresponds to about 6,210 defects per million '
-                                            'opportunities — which sounds small as a percentage (0.62%) but translates '
+                                            'opportunities, which sounds small as a percentage (0.62%) but translates '
                                             "to roughly 12,420 mis-weighted loaves a year at Golden Crust's volume. "
                                             'Inspectors sampling a fraction of output will inevitably miss some of '
-                                            'those, especially if inspection itself is inconsistent or understaffed — '
+                                            'those, especially if inspection itself is inconsistent or understaffed; '
                                             'which is exactly how enough bad loaves reached a grocery auditor to cost '
                                             'the company a contract.\n'
                                             '\n'
                                             'Six Sigma\'s answer isn\'t "inspect harder." It\'s to treat the 12,420 '
-                                            'defective loaves as a symptom of a process that drifts — a scale that '
+                                            'defective loaves as a symptom of a process that drifts: a scale that '
                                             "isn't calibrated often enough, a mixing step that's inconsistent batch to "
-                                            "batch, packaging equipment that isn't monitored for drift — and to find "
+                                            "batch, packaging equipment that isn't monitored for drift. to find "
                                             'and fix that root cause so the defect rate itself drops, not just the '
                                             'fraction that gets caught. This mirrors why Motorola developed the '
                                             'discipline in the 1980s under real competitive pressure from Japanese '
@@ -1717,16 +1717,16 @@ BELTS = {'white': {'name': 'White Belt',
                                              'options': [{'key': 'a', 'text': '≈6,210 *(correct)*', 'correct': True},
                                                          {'key': 'b',
                                                           'text': '≈3.4 *(This is the six sigma figure, not four sigma '
-                                                                  '— a common mix-up between the *target* level and '
+                                                                  '; a common mix-up between the *target* level and '
                                                                   "this process's *current* level.)*",
                                                           'correct': False},
                                                          {'key': 'c',
-                                                          'text': '≈66,800 *(This is closer to 3 sigma — a full sigma '
+                                                          'text': '≈66,800 *(This is closer to 3 sigma: a full sigma '
                                                                   'level lower than described.)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': '0 *(No real process, however well-run, produces '
-                                                                  "zero defects — that's the entire reason DPMO is "
+                                                                  "zero defects; that's the entire reason DPMO is "
                                                                   'measured rather than assumed.)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -1740,13 +1740,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Quality control departments serve no purpose once a '
-                                                                  'defect rate is known *(inspection still matters — '
+                                                                  'defect rate is known *(inspection still matters; '
                                                                   "it's Appraisal, one piece of the picture, just not "
                                                                   'sufficient alone)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'The inspectors were not trained in Six Sigma *(the '
-                                                                  "issue isn't inspector training — it's that "
+                                                                  "issue isn't inspector training; it's that "
                                                                   "inspection alone doesn't fix a drifting process)*",
                                                           'correct': False},
                                                          {'key': 'd',
@@ -1776,7 +1776,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'example, not a real historical originator)*',
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ['Sigma level converts directly to a real defect count — a small-sounding '
+                        'summary': ['Sigma level converts directly to a real defect count: a small-sounding '
                                     'percentage can represent thousands of actual defective units at scale.',
                                     'Inspection (Appraisal) catches some defects after the fact; Six Sigma targets the '
                                     'process itself so fewer defects are created in the first place.',
@@ -1788,29 +1788,29 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'G02',
                         'title': 'Six Sigma and Organizational Goals',
                         'opening_question': "Golden Crust's CEO has three candidate Six Sigma projects on the table: "
-                                            '(1) reduce changeover time on the sandwich-bread line — projected savings '
+                                            '(1) reduce changeover time on the sandwich-bread line; projected savings '
                                             '**$18,000/year**; (2) fix the weight-consistency problem that cost the '
-                                            'grocery contract — projected savings **$650,000/year** in recovered '
+                                            'grocery contract; projected savings **$650,000/year** in recovered '
                                             'contract revenue; (3) redesign the online ordering site to look more '
                                             'modern, championed by the marketing director, with no clear savings '
-                                            "figure at all. Which should be greenlit first — and is the CEO's decision "
+                                            "figure at all. Which should be greenlit first. is the CEO's decision "
                                             'really just about which number is biggest?',
                         'concepts': ['**Strategic alignment**: a project earns funding and staffing because it moves a '
-                                     'metric leadership recognizes — not merely because the number sounds impressive '
+                                     'metric leadership recognizes. It is not merely because the number sounds impressive '
                                      'in isolation.',
-                                     '**Socratic prompt:** The website redesign has real support (the marketing '
+                                     '**Think it through:** The website redesign has real support (the marketing '
                                      'director wants it) but no clear savings figure and no connection to a '
                                      'leadership-tracked metric. Should that disqualify it from being a Six Sigma '
-                                     'project — even though someone senior wants it done?',
+                                     'project; even though someone senior wants it done?',
                                      '**Goal cascading**: a high-level goal ("stop losing contracts over quality") '
                                      'cascades into a specific, measurable project target ("bring loaf-weight '
                                      'variation within tolerance to recover the grocery contract").',
-                                     '**Socratic prompt:** Project 1 (changeover time, $18,000/year) is a legitimate, '
+                                     '**Think it through:** Project 1 (changeover time, $18,000/year) is a legitimate, '
                                      'clean Six Sigma project. Project 2 (weight consistency, $650,000/year) is '
                                      'dramatically larger. Beyond the size of the number, what else makes Project 2 '
                                      'more strategically urgent than Project 1 right now?',
-                                     'A **project champion** — typically a senior leader with authority over the '
-                                     'affected process — secures resources and removes obstacles; project completion '
+                                     'A **project champion**; typically a senior leader with authority over the '
+                                     'affected process; secures resources and removes obstacles; project completion '
                                      'rates are consistently higher when a champion is genuinely engaged, not just '
                                      'nominally assigned.'],
                         'terms': ['Strategic Alignment', 'Goal Cascading', 'Project Champion'],
@@ -1823,10 +1823,10 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Identify why an engaged project champion matters as much as the '
                                                 'financial case'],
                         'full_explanation': 'On dollar figures alone, Project 2 (weight consistency, $650,000/year) '
-                                            'dwarfs Project 1 ($18,000/year) by more than 35 times — but the real case '
+                                            'dwarfs Project 1 ($18,000/year) by more than 35 times. But the real case '
                                             "for prioritizing it isn't just the size of the number. It's that Project "
                                             '2 directly addresses the exact failure that already cost Golden Crust a '
-                                            'named, contracted customer — a failure the CEO is personally accountable '
+                                            'named, contracted customer: a failure the CEO is personally accountable '
                                             'for explaining to the board. Project 1 is a legitimate efficiency gain, '
                                             "but it doesn't trace back to any urgent, board-visible pain point the way "
                                             'Project 2 does. This is what "strategic alignment" means in practice: not '
@@ -1834,13 +1834,13 @@ BELTS = {'white': {'name': 'White Belt',
                                             'leadership is already watching, for a reason leadership already cares '
                                             'about."\n'
                                             '\n'
-                                            'Project 3 — the website redesign — illustrates the opposite case clearly. '
+                                            'Project 3, the website redesign, illustrates the opposite case clearly. '
                                             'It has real internal support (the marketing director wants it), but it '
                                             'has no measurable goal, no clear connection to a strategic metric '
                                             'leadership tracks, and no obvious problem statement beyond "it looks '
                                             'dated." Enthusiasm from a stakeholder isn\'t the same thing as strategic '
                                             'alignment; without a goal statement that cascades from an actual '
-                                            "organizational priority, this isn't really a Six Sigma project — it's a "
+                                            "organizational priority, this isn't really a Six Sigma project; it's a "
                                             "design preference wearing Six Sigma's structure as a costume.\n"
                                             '\n'
                                             "Goal cascading is what turns Golden Crust's broad strategic pain "
@@ -1849,7 +1849,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             '"reduce loaf-weight variance on the packaging line so that 99.9% of '
                                             'loaves fall within ±2 grams of target weight by Q3." And because this '
                                             "project is tied to an already-lost, named contract, it's very likely to "
-                                            'attract a genuinely engaged **project champion** — probably the VP '
+                                            'attract a genuinely engaged **project champion**; probably the VP '
                                             'overseeing that customer relationship, who has direct personal incentive '
                                             'to see it succeed, not just a nominal name on the charter.',
                         'knowledge_check': [{'number': 1,
@@ -1858,7 +1858,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'larger dollar figure?',
                                              'options': [{'key': 'a',
                                                           'text': 'It directly addresses a specific, already-realized '
-                                                                  'failure the CEO is accountable for — a '
+                                                                  'failure the CEO is accountable for: a '
                                                                   'board-visible strategic pain point, not just a '
                                                                   'generic efficiency gain *(correct)*',
                                                           'correct': True},
@@ -1871,12 +1871,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Project 1 is not a legitimate Six Sigma project at '
-                                                                  "all *(it is legitimate — it's just less urgent, not "
+                                                                  "all *(it is legitimate; it's just less urgent, not "
                                                                   'illegitimate)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'Changeover time projects are never worth pursuing '
-                                                                  '*(this overstates the case — smaller, well-scoped '
+                                                                  '*(this overstates the case; smaller, well-scoped '
                                                                   'projects are often worthwhile, just not always the '
                                                                   'top priority)*',
                                                           'correct': False}],
@@ -1892,18 +1892,18 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'The marketing director is not senior enough to '
                                                                   "sponsor any project *(seniority isn't the stated "
-                                                                  'issue — the missing goal/metric connection is)*',
+                                                                  'issue: the missing goal/metric connection is)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Website projects can never be valid Six Sigma '
-                                                                  'projects under any circumstances *(too absolute — a '
+                                                                  'projects under any circumstances *(too absolute: a '
                                                                   'website project *could* qualify if tied to a '
                                                                   'measurable, strategically relevant goal, such as '
                                                                   'cart abandonment rate tied to lost revenue)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'It costs too much money to be worth considering '
-                                                                  '*(no cost figure was even given — the issue is the '
+                                                                  '*(no cost figure was even given: the issue is the '
                                                                   'missing measurable goal, not cost)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -1935,7 +1935,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ['Prioritize projects that trace back to a strategic goal leadership already tracks '
-                                    '— not simply the largest number or the loudest internal advocate.',
+                                    '; not simply the largest number or the loudest internal advocate.',
                                     'Goal cascading turns broad strategic pain into a specific, measurable, executable '
                                     'project target.',
                                     'An engaged project champion, with a real personal stake, meaningfully improves a '
@@ -1949,16 +1949,16 @@ BELTS = {'white': {'name': 'White Belt',
                                             '**40 trips per shift** to a supply closet 80 feet away for more packaging '
                                             'tape, and boxes routinely pile up waiting for a single, often-overloaded '
                                             'labeling machine. Using the eight categories of waste (TIMWOODS), which '
-                                            'categories do you suspect are present here — and how would you actually '
+                                            'categories do you suspect are present here. how would you actually '
                                             'confirm your guess with data, rather than just trusting your first '
                                             'impression?',
                         'concepts': ['**TIMWOODS**: Transportation, Inventory, Motion, Waiting, Overproduction, '
                                      'Overprocessing, Defects, Skills.',
-                                     '**Socratic prompt:** The 40 daily trips to the supply closet look like '
+                                     '**Think it through:** The 40 daily trips to the supply closet look like '
                                      '**Motion** waste. But is it actually waste, or could it be necessary? What would '
                                      "you need to measure before concluding it's genuinely non-value-added?",
-                                     '**Socratic prompt:** Boxes piling up in front of an overloaded labeling machine '
-                                     '— is this **Waiting** waste for the boxes, or could it also point to a deeper '
+                                     '**Think it through:** Boxes piling up in front of an overloaded labeling machine '
+                                     '. Is this **Waiting** waste for the boxes, or could it also point to a deeper '
                                      '**Overproduction** problem upstream? What would distinguish the two?',
                                      'Value-added activity meets three tests: the customer would pay for it, it '
                                      "transforms the product, and it's done correctly the first time. A trip to a "
@@ -1972,50 +1972,50 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain why confirming an observed waste with data matters before '
                                                 'acting on it'],
                         'full_explanation': "It's tempting to walk a floor, spot something that looks inefficient, and "
-                                            'declare it "waste" on the spot — but Lean thinking requires confirming '
+                                            'declare it "waste" on the spot. But Lean thinking requires confirming '
                                             'that instinct with real observation before acting on it, the same way Six '
                                             'Sigma requires data before concluding a root cause. The 40 daily trips to '
                                             'the supply closet are a strong candidate for **Motion** waste: workers '
                                             'spending time walking rather than actually packaging bread. But '
-                                            'confirming it means asking a specific question — how much total time does '
+                                            'confirming it means asking a specific question: how much total time does '
                                             'this consume across a shift, and is there a real constraint preventing '
                                             'the tape from being stored closer to the point of use? If a simple change '
                                             '(moving a tape dispenser 75 feet closer) eliminates the trips with no '
                                             "meaningful downside, the original setup was pure waste. If there's a "
-                                            'genuine reason for the distance — limited counter space, a safety '
-                                            'separation rule — then the "waste" is more nuanced than it first '
+                                            'genuine reason for the distance; limited counter space, a safety '
+                                            'separation rule; then the "waste" is more nuanced than it first '
                                             'appeared, and jumping to "just move it closer" without checking could '
                                             'create a new problem.\n'
                                             '\n'
                                             'The boxes piling up in front of the labeling machine illustrate a '
                                             'similarly easy-to-misdiagnose situation. On the surface, this looks like '
-                                            '**Waiting** waste — boxes sitting idle rather than moving through the '
+                                            '**Waiting** waste; boxes sitting idle rather than moving through the '
                                             "process. But it's worth asking whether the real issue is upstream: if the "
                                             'packaging step is producing boxes faster than the labeling machine can '
-                                            "process them, the pile isn't really the labeling machine's fault — it's "
+                                            "process them, the pile isn't really the labeling machine's fault; it's "
                                             '**Overproduction** upstream creating a bottleneck downstream. Speeding up '
                                             'or adding a second labeling machine would treat the symptom (the pile) '
                                             'without addressing the actual mismatch in production rates between the '
-                                            'two steps — a classic case of a visible waste hiding a less visible root '
+                                            'two steps: a classic case of a visible waste hiding a less visible root '
                                             'cause.\n'
                                             '\n'
                                             'This is the practical value of TIMWOODS as a checklist rather than a '
                                             'diagnosis in itself: it tells you *where to look*, not automatically '
-                                            "*what's true*. Confirming which categories are genuinely present — and "
-                                            'which cause is upstream of which symptom — is exactly the kind of '
+                                            "*what's true*. Confirming which categories are genuinely present. "
+                                            'which cause is upstream of which symptom. Is exactly the kind of '
                                             'measurement discipline that separates Lean thinking from simply '
                                             'eyeballing a floor and guessing.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'The 40 daily trips to the supply closet are a candidate for '
                                                          'which TIMWOODS category?',
                                              'options': [{'key': 'a',
-                                                          'text': 'Motion *(correct — unnecessary movement by people)*',
+                                                          'text': 'Motion *(correct; unnecessary movement by people)*',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Transportation *(Transportation refers to '
                                                                   'unnecessary movement of materials/information '
                                                                   'between process steps, not a person walking to '
-                                                                  'retrieve a single item — Motion is the closer fit '
+                                                                  'retrieve a single item; Motion is the closer fit '
                                                                   'here)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -2040,7 +2040,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Waiting waste never has an upstream cause *(it '
-                                                                  'frequently does — this is exactly why root-cause '
+                                                                  'frequently does. This is exactly why root-cause '
                                                                   'thinking matters instead of fixing the visible '
                                                                   'symptom)*',
                                                           'correct': False},
@@ -2084,10 +2084,10 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'both examples above)*',
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ['TIMWOODS is a checklist for where to look for waste — not an automatic diagnosis; '
+                        'summary': ['TIMWOODS is a checklist for where to look for waste. It is not an automatic diagnosis; '
                                     'confirm with real data before acting.',
                                     'A visible waste (like boxes waiting) can be a symptom of a different, upstream '
-                                    "root cause (like overproduction) — fixing the visible symptom alone doesn't fix "
+                                    "root cause (like overproduction); fixing the visible symptom alone doesn't fix "
                                     'the mismatch.',
                                     "Value-added activity must pass the customer's test: would they pay for it, does "
                                     'it transform the product, and is it done right the first time.'],
@@ -2101,22 +2101,22 @@ BELTS = {'white': {'name': 'White Belt',
                                             'based on customer taste-test feedback as problems come up. The COO '
                                             'instead wants to run this as a formal Design for Six Sigma project before '
                                             'a single test batch is baked. Six months from now, what practical '
-                                            'difference will this decision actually make — assuming both paths '
+                                            'difference will this decision actually make; assuming both paths '
                                             'eventually produce a bread that tastes good?',
                         'concepts': ['**DFSS** designs a new product/process to meet quality targets from the start; '
                                      '**DMAIC** improves an existing one. Golden Crust has no existing protein bread '
-                                     'process to improve — this is a DFSS situation by definition.',
-                                     '**Socratic prompt:** R&D\'s "bake first, adjust based on feedback" approach will '
+                                     'process to improve. This is a DFSS situation by definition.',
+                                     '**Think it through:** R&D\'s "bake first, adjust based on feedback" approach will '
                                      "eventually produce a bread people like. So what does the COO's DFSS approach "
                                      'actually add, if both paths get there eventually?',
                                      '**DMADV**: Define (goals, customer requirements) → Measure (translate needs into '
                                      'measurable CTQs) → Analyze (evaluate design alternatives against those CTQs) → '
                                      'Design (build and predict performance) → Verify (confirm performance via pilot '
                                      'before full launch).',
-                                     '**Socratic prompt:** If Golden Crust skips straight to baking test batches '
+                                     '**Think it through:** If Golden Crust skips straight to baking test batches '
                                      'without first defining measurable CTQs (shelf life, cost per loaf, protein '
                                      "content per serving, allergen cross-contamination risk), what's most likely to "
-                                     'go wrong later — even if the taste tests all go well?'],
+                                     'go wrong later. Even if the taste tests all go well?'],
                         'terms': ['DFSS', 'DMADV', 'Critical to Quality (CTQ)'],
                         'math': [],
                         'teach_back': 'Teach the approach back to me in your own words.',
@@ -2125,11 +2125,11 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'down',
                                                 'Explain why fixing a design flaw becomes dramatically more expensive '
                                                 "the later it's caught"],
-                        'full_explanation': "The R&D team's instinct — bake something, get feedback, adjust — isn't "
+                        'full_explanation': "The R&D team's instinct, bake something, get feedback, adjust, isn't "
                                             "wrong exactly, it's just optimizing for the wrong variable first: taste, "
                                             'in isolation, before anything else is defined. Design for Six Sigma '
                                             'exists precisely for situations like this new protein bread line, where '
-                                            "there's no existing process to improve — only a blank slate that needs to "
+                                            "there's no existing process to improve; only a blank slate that needs to "
                                             'be built correctly from the start, because retrofitting quality into a '
                                             'product after launch is dramatically more expensive than designing it in '
                                             'from day one.\n'
@@ -2137,23 +2137,23 @@ BELTS = {'white': {'name': 'White Belt',
                                             'DMADV formalizes this. **Define** would establish not just "make a '
                                             'protein bread people like" but specific goals: target launch date, target '
                                             'margin, target customer segment. **Measure** translates vague goals into '
-                                            'measurable **Critical to Quality (CTQ)** requirements — a minimum shelf '
+                                            'measurable **Critical to Quality (CTQ)** requirements: a minimum shelf '
                                             'life (say, 10 days unrefrigerated), a maximum cost per loaf to hit a '
                                             'target retail price, a minimum protein content per serving to support the '
                                             'marketing claim, and an allergen cross-contamination limit given Golden '
                                             "Crust's shared equipment with wheat-based products. **Analyze** would "
                                             'then evaluate different recipe and process concepts against those CTQs '
-                                            '*before* committing to one — for instance, comparing two protein sources '
+                                            '*before* committing to one; for instance, comparing two protein sources '
                                             'on cost, taste, and shelf-life trade-offs, rather than falling in love '
                                             'with the first version that tastes good. **Design** builds out the chosen '
                                             'concept in detail, including predicting how it will perform against every '
-                                            'CTQ. **Verify** confirms it actually holds up — through a real pilot '
-                                            'production run, not just a test kitchen batch — before full-scale '
+                                            'CTQ. **Verify** confirms it actually holds up; through a real pilot '
+                                            'production run, not just a test kitchen batch; before full-scale '
                                             'launch.\n'
                                             '\n'
                                             'This matters because of exactly the scenario the Socratic prompt raises: '
                                             "R&D's test batches could produce a delicious bread that fails every other "
-                                            'CTQ at once — spoiling in 4 days instead of 10, costing more per loaf '
+                                            'CTQ at once; spoiling in 4 days instead of 10, costing more per loaf '
                                             'than the target retail price allows, or risking allergen '
                                             "cross-contamination that wasn't checked until a customer complaint or, "
                                             'worse, a recall. A design flaw caught during the Analyze phase, on paper, '
@@ -2165,7 +2165,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'question': "Why is Golden Crust's new protein bread line a DFSS "
                                                          'situation rather than a DMAIC situation?',
                                              'options': [{'key': 'a',
-                                                          'text': 'There is no existing process to improve — a new '
+                                                          'text': 'There is no existing process to improve: a new '
                                                                   'product/process is being designed from scratch '
                                                                   '*(correct)*',
                                                           'correct': True},
@@ -2182,8 +2182,8 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'The COO simply prefers DFSS regardless of the '
-                                                                  'situation *(the case for DFSS here is structural — '
-                                                                  'no existing process exists — not a matter of '
+                                                                  'situation *(the case for DFSS here is structural; '
+                                                                  'no existing process exists. It is not a matter of '
                                                                   'preference)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -2222,13 +2222,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'Flaws caught during Analyze are always minor, while '
                                                                   'flaws caught after launch are always major '
-                                                                  "*(severity isn't guaranteed by timing alone — but "
+                                                                  "*(severity isn't guaranteed by timing alone. But "
                                                                   'the cost of fixing a given flaw reliably increases '
                                                                   "the later it's caught)*",
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'DMADV guarantees no flaws will ever reach launch '
-                                                                  '*(no framework guarantees zero flaws — DFSS reduces '
+                                                                  '*(no framework guarantees zero flaws; DFSS reduces '
                                                                   'the risk and cost of flaws reaching launch, it '
                                                                   "doesn't eliminate it)*",
                                                           'correct': False},
@@ -2239,9 +2239,9 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'risk as CTQs beyond taste)*',
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ["DFSS applies when there's no existing process to improve — a new product or "
+                        'summary': ["DFSS applies when there's no existing process to improve: a new product or "
                                     'process is being designed from the ground up.',
-                                    'DMADV: Define, Measure, Analyze, Design, Verify — CTQs get locked in before '
+                                    'DMADV: Define, Measure, Analyze, Design, Verify; CTQs get locked in before '
                                     'anything is built at scale.',
                                     'A flaw caught early (on paper, during Analyze) is dramatically cheaper to fix '
                                     'than the same flaw caught after launch.'],
@@ -2256,9 +2256,9 @@ BELTS = {'white': {'name': 'White Belt',
                                             'asks: "Which SKU is this fixing, and how much variance are we actually '
                                             'trying to eliminate?" Nobody on the team can answer precisely. What went '
                                             'wrong, and at what point should it have been caught?',
-                        'concepts': ['Define exists to lock in specifics — which product, which measurement, which '
-                                     'timeframe, what "done" looks like — before any solution is chosen.',
-                                     '**Socratic prompt:** The team skipped straight to "buy new scales." What '
+                        'concepts': ['Define exists to lock in specifics, which product, which measurement, which '
+                                     'timeframe, what "done" looks like; before any solution is chosen.',
+                                     '**Think it through:** The team skipped straight to "buy new scales." What '
                                      'decision did that skip past, and why does skipping it tend to surface as a '
                                      'problem *later* rather than immediately?',
                                      'A vague charter (no named SKU, no specific tolerance) leaves the team unable to '
@@ -2273,7 +2273,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'statement, scope, charter',
                                                 'Recognize the risk of jumping to a perceived solution before the '
                                                 'problem is actually defined'],
-                        'full_explanation': "Researching new scales wasn't an unreasonable instinct — but it "
+                        'full_explanation': "Researching new scales wasn't an unreasonable instinct. But it "
                                             'substituted a guessed solution for an actual problem definition, which is '
                                             'exactly what Define exists to prevent. Before choosing any fix, the team '
                                             'needs to agree, in writing, on specifics: which product (the whole-wheat '
@@ -2282,8 +2282,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             'correlating with a shift change), and what success looks like (99.9% of '
                                             'loaves within tolerance, verified over a full production month).\n'
                                             '\n'
-                                            'Without this, new scales might genuinely help — old scales could be part '
-                                            'of the problem — or the team might completely miss the real driver, for '
+                                            'Without this, new scales might genuinely help; old scales could be part '
+                                            'of the problem; or the team might completely miss the real driver, for '
                                             'instance if the actual cause is a mixing-time inconsistency introduced by '
                                             "a new night-shift operator, something no new scale would touch. The CEO's "
                                             'question three weeks in is exactly the question a completed Define phase '
@@ -2291,8 +2291,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             'began.\n'
                                             '\n'
                                             "This is why Define's deliverables aren't paperwork for its own sake: a "
-                                            'specific problem and goal statement are what let the team — and '
-                                            'leadership — verify later whether the project solved the right problem, '
+                                            'specific problem and goal statement are what let the team. '
+                                            'leadership; verify later whether the project solved the right problem, '
                                             'rather than discovering, after money is already spent on new scales, that '
                                             'the defect rate never moved because the real cause was never identified.',
                         'knowledge_check': [{'number': 1,
@@ -2304,7 +2304,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Getting CEO approval for the project *(already '
-                                                                  'approved — the issue is what happened after)*',
+                                                                  'approved: the issue is what happened after)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Hiring a Black Belt to lead the project *(the issue '
@@ -2319,8 +2319,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             {'number': 2,
                                              'question': 'Why might new scales fail to fix the defect rate?',
                                              'options': [{'key': 'a',
-                                                          'text': 'If the real cause is something else — like '
-                                                                  "mixing-time variation — new scales wouldn't touch "
+                                                          'text': 'If the real cause is something else; like '
+                                                                  "mixing-time variation; new scales wouldn't touch "
                                                                   'it *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -2359,7 +2359,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': ''}],
                         'summary': ['Define locks in problem statement, goal statement, and scope before any solution '
                                     'is picked.',
-                                    'Skipping to a perceived fix risks solving the wrong problem — discovered '
+                                    'Skipping to a perceived fix risks solving the wrong problem; discovered '
                                     'expensively, later.',
                                     'A specific charter is what lets the team prove, afterward, that the real problem '
                                     'was actually solved.'],
@@ -2376,9 +2376,9 @@ BELTS = {'white': {'name': 'White Belt',
                                             'whoever argues loudest in the room?',
                         'concepts': ['Common criteria: financial impact, strategic alignment, feasibility, data '
                                      'availability, risk.',
-                                     '**Socratic prompt:** The website redesign has real internal support but no '
+                                     '**Think it through:** The website redesign has real internal support but no '
                                      'financial figure and no measurable goal. Scored honestly against these five '
-                                     "criteria, where does it likely rank — and does that ranking depend on who's "
+                                     "criteria, where does it likely rank. does that ranking depend on who's "
                                      'asking?',
                                      'A weighted matrix assigns each criterion a weight (e.g., financial impact 40%, '
                                      'alignment 25%, feasibility 20%, data availability 10%, risk 5%) and scores each '
@@ -2396,11 +2396,11 @@ BELTS = {'white': {'name': 'White Belt',
                                             'data already exists), data availability 4/5 (daily line data already '
                                             'collected). Changeover-time scores respectably but without urgency '
                                             '(impact 2/5, alignment 3/5). The website redesign scores poorly on impact '
-                                            '(1/5 — no figure exists) and alignment (1/5 — no tracked metric), '
+                                            '(1/5, no figure exists) and alignment (1/5, no tracked metric), '
                                             "regardless of how loudly it's championed in the room.\n"
                                             '\n'
                                             'The weighted math confirms what intuition suggests, but now with a '
-                                            'documented, defensible number attached — which matters the next time '
+                                            'documented, defensible number attached, which matters the next time '
                                             'someone in leadership asks why weight-consistency got priority over a '
                                             'popular internal request. Without a formal method, project selection '
                                             'tends to reward whoever has the most organizational influence, not '
@@ -2414,7 +2414,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'It always produces a surprising result *(often '
-                                                                  'confirms intuition — the value is defensibility)*',
+                                                                  'confirms intuition: the value is defensibility)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'It removes the need for leadership approval '
@@ -2439,7 +2439,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Website projects are always excluded *(too absolute '
-                                                                  '— one tied to a real tracked metric could score '
+                                                                  '. One tied to a real tracked metric could score '
                                                                   'well)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -2462,12 +2462,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'universally true)*',
                                                           'correct': False},
                                                          {'key': 'd',
-                                                          'text': 'A matrix guarantees success *(it improves odds; it '
+                                                          'text': 'A matrix guarantees success *(it improves odds. It '
                                                                   "doesn't guarantee outcomes)*",
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ['Score candidates on financial impact, alignment, feasibility, data availability, '
-                                    'and risk — not gut feeling.',
+                                    'and risk. It is not gut feeling.',
                                     'A weighted matrix makes selection defensible and limits the influence of whoever '
                                     'argues loudest.',
                                     "Internal enthusiasm isn't the same as strategic alignment."],
@@ -2476,14 +2476,14 @@ BELTS = {'white': {'name': 'White Belt',
                         'module_title': 'Define Phase (Full Module, 8 Lessons)'},
                        {'code': 'G07',
                         'title': 'Voice of the Customer',
-                        'opening_question': "Golden Crust's grocery client didn't just reject loaves informally — "
+                        'opening_question': "Golden Crust's grocery client didn't just reject loaves informally; "
                                             'their contract specifies "500g ± 2g, verified by random audit, maximum '
                                             '0.5% failure rate before penalty clauses apply." If the project team only '
                                             'interviews their own shift supervisors about the problem, what critical '
                                             'requirement source are they missing entirely?',
-                        'concepts': ['The contract itself is a VOC source — arguably the most authoritative one '
+                        'concepts': ['The contract itself is a VOC source; arguably the most authoritative one '
                                      "available, since it's already documented and negotiated.",
-                                     '**Socratic prompt:** Shift supervisors believe "a gram or two doesn\'t matter." '
+                                     '**Think it through:** Shift supervisors believe "a gram or two doesn\'t matter." '
                                      'The contract specifies a 0.5% failure threshold with real financial penalties. '
                                      'Whose definition of "acceptable" should the project target?',
                                      'CTQ tree: broad need ("meet contract terms") → driver ("consistent loaf weight") '
@@ -2495,24 +2495,24 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'internal assumptions',
                                                 'Translate a customer requirement into a specific CTQ',
                                                 'Identify multiple VOC sources beyond a single interview'],
-                        'full_explanation': 'If the team only interviews internal shift supervisors — who may '
+                        'full_explanation': 'If the team only interviews internal shift supervisors, who may '
                                             "genuinely believe small variances don't matter, based on years of "
-                                            'informal practice — they risk designing the project around an assumption '
+                                            'informal practice. They risk designing the project around an assumption '
                                             "that directly contradicts the customer's documented standard. Translating "
                                             'the contract into a CTQ tree makes the target unambiguous: broad need → '
                                             '"loaf weight must be tightly controlled" → specific spec: 500g ± 2g, '
                                             '≤0.5% out-of-tolerance. Every later phase should trace back to this exact '
                                             'number, not a looser internal sense of "close enough."\n'
                                             '\n'
-                                            "It's still worth gathering other VOC sources beyond the contract — prior "
+                                            "It's still worth gathering other VOC sources beyond the contract; prior "
                                             "complaint history, the failed audit report, and the shift supervisors' "
-                                            'input — not to redefine "acceptable," but because supervisors may know '
+                                            'input. It is not to redefine "acceptable," but because supervisors may know '
                                             'something about *why* the variance happens that the contract document '
                                             "can't reveal on its own.",
                         'knowledge_check': [{'number': 1,
                                              'question': 'Why is the contract language a strong VOC source?',
                                              'options': [{'key': 'a',
-                                                          'text': "It's a documented, already-negotiated requirement — "
+                                                          'text': "It's a documented, already-negotiated requirement; "
                                                                   'more authoritative than an informal internal '
                                                                   'assumption *(correct)*',
                                                           'correct': True},
@@ -2544,7 +2544,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': "Interviews aren't a legitimate VOC method *(they "
-                                                                  'are — the issue is which source sets the standard)*',
+                                                                  'are: the issue is which source sets the standard)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'Supervisors must sign the charter *(not the issue '
@@ -2581,12 +2581,12 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Project Management Basics',
                         'opening_question': "The project has a hard deadline: the grocery client's contract review is "
                                             'in 12 weeks. With five DMAIC phases ahead, how would you divide 12 weeks '
-                                            'across them — and what happens to the whole timeline if Measure alone '
+                                            'across them. what happens to the whole timeline if Measure alone '
                                             'quietly runs three weeks over?',
                         'concepts': ['Rough 12-week allocation: Define (1 week), Measure (3), Analyze (3), Improve '
                                      '(3), Control (2).',
-                                     "**Socratic prompt:** If Measure runs three weeks over and the deadline doesn't "
-                                     "move, which later phase absorbs it — and what's likely to suffer?",
+                                     "**Think it through:** If Measure runs three weeks over and the deadline doesn't "
+                                     "move, which later phase absorbs it. what's likely to suffer?",
                                      '**Scope control**: keeping boundaries fixed (this SKU, this line, these shifts) '
                                      'prevents scope creep from silently extending the timeline.'],
                         'terms': ['DMAIC Timeline', 'Milestones', 'Scope Control'],
@@ -2596,8 +2596,8 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'project',
                                                 'Explain why scope control protects the schedule',
                                                 'Identify the practical risk of one phase running over'],
-                        'full_explanation': 'If Measure runs three weeks over — say, because the team discovers the '
-                                            'data collection process itself is unreliable and has to fix that first — '
+                        'full_explanation': 'If Measure runs three weeks over; say, because the team discovers the '
+                                            'data collection process itself is unreliable and has to fix that first; '
                                             "the deadline doesn't move just because one phase took longer. Something "
                                             'downstream absorbs it: most commonly Control gets compressed to almost '
                                             'nothing, meaning a fix goes live without a real monitoring plan, or '
@@ -2605,8 +2605,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             'under time pressure.\n'
                                             '\n'
                                             'This is why scope control matters as much as scheduling. If the team lets '
-                                            'scope quietly expand mid-project — deciding to "also check a second '
-                                            'product line while we\'re at it" — that consumes time that was never '
+                                            'scope quietly expand mid-project; deciding to "also check a second '
+                                            'product line while we\'re at it". That consumes time that was never '
                                             'budgeted, without ever appearing as an explicit decision anyone approved. '
                                             'Holding scope to exactly what the charter specifies is one of the most '
                                             'effective, low-cost ways to protect an already-tight schedule.',
@@ -2679,13 +2679,13 @@ BELTS = {'white': {'name': 'White Belt',
                         'module_title': 'Define Phase (Full Module, 8 Lessons)'},
                        {'code': 'G09',
                         'title': 'Management and Planning Tools',
-                        'opening_question': 'The team has gathered dozens of loose comments — "the scale in bay 3 '
+                        'opening_question': 'The team has gathered dozens of loose comments; "the scale in bay 3 '
                                             'seems off," "night shift mixes dough differently," "boxes sometimes '
                                             'underfilled." Before jumping to root-cause analysis, how would you '
                                             'organize this pile into something actionable?',
                         'concepts': ['**Affinity diagram**: sorts unstructured observations into natural groupings '
                                      'that emerge from the data, rather than a predetermined category list.',
-                                     '**Socratic prompt:** A fishbone diagram sorts causes into predetermined '
+                                     '**Think it through:** A fishbone diagram sorts causes into predetermined '
                                      'categories. An affinity diagram lets groupings emerge. Which fits better as a '
                                      '*first* step for this messy list?',
                                      '**Prioritization matrix**: scores competing clusters against weighted criteria '
@@ -2699,13 +2699,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'fishbone diagram'],
                         'full_explanation': "The comments don't obviously sort into fixed fishbone categories without "
                                             'some forcing. An affinity diagram lets the team cluster related '
-                                            'observations organically — here, likely into "equipment/calibration" (the '
+                                            'observations organically; here, likely into "equipment/calibration" (the '
                                             'scale), "shift-to-shift process variation" (night-shift mixing), and '
-                                            '"packaging line issues" (underfilled boxes) — a structure that emerged '
+                                            '"packaging line issues" (underfilled boxes): a structure that emerged '
                                             'from the data, not one imposed in advance.\n'
                                             '\n'
-                                            'Once those clusters exist, a prioritization matrix — scoring each against '
-                                            'weighted impact and feasibility — gives the team a defensible next step, '
+                                            'Once those clusters exist, a prioritization matrix; scoring each against '
+                                            'weighted impact and feasibility; gives the team a defensible next step, '
                                             'rather than chasing whichever comment was mentioned most recently. Use an '
                                             "affinity diagram when categories aren't yet obvious; use a fishbone "
                                             'diagram once a specific effect and known categories are already in hand.',
@@ -2782,7 +2782,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'results verifiable enough to answer that with confidence?',
                         'concepts': ["**Hard savings**: verifiable, like the actual renewed contract's revenue.",
                                      '**Soft savings**: real but harder to verify, like "reduced supervisor stress."',
-                                     '**Socratic prompt:** If loaf-weight variance is now within tolerance but the '
+                                     '**Think it through:** If loaf-weight variance is now within tolerance but the '
                                      "contract still isn't renewed, has the project delivered its claimed $650,000?"],
                         'terms': ['Hard Savings', 'Soft Savings', 'Benefits Verification'],
                         'math': [],
@@ -2792,16 +2792,16 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'self-reported',
                                                 'Connect a technical metric to an actual business result'],
                         'full_explanation': "A technical win (weight within tolerance) doesn't automatically guarantee "
-                                            'the claimed business result, if renewal depends on more than one factor — '
+                                            'the claimed business result, if renewal depends on more than one factor; '
                                             'say, a separate delivery-reliability dispute. This is why business '
                                             'results should be tracked as distinct from the technical metric. The '
                                             "CFO's skepticism is legitimate, and the way to answer it is joint "
                                             'verification with Finance, using standards Finance already trusts: did '
                                             'the contract actually renew, at what value, and does the fix hold up a '
-                                            'full quarter later — not just at the moment the team declares victory.\n'
+                                            'full quarter later. It is not just at the moment the team declares victory.\n'
                                             '\n'
                                             'A renewed contract is about as clean a hard saving as exists. A soft '
-                                            "benefit — like reduced supervisor stress — may be real, but shouldn't be "
+                                            "benefit, like reduced supervisor stress, may be real, but shouldn't be "
                                             'added to the $650,000 headline as if equally verifiable; doing so risks '
                                             'the whole claim looking inflated on close examination.',
                         'knowledge_check': [{'number': 1,
@@ -2816,7 +2816,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Finance always overturns estimates *(not the point '
-                                                                  '— independent verification is)*',
+                                                                  '; independent verification is)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'It removes the need for a charter *(unrelated)*',
@@ -2876,8 +2876,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             'should the Green Belt actually do about this?',
                         'concepts': ['A team member who feels blamed tends to quietly withhold information rather than '
                                      'object openly.',
-                                     '**Socratic prompt:** If she knows something relevant about night-shift mixing '
-                                     'but stays quiet, what does that cost the project — and would anyone even know '
+                                     '**Think it through:** If she knows something relevant about night-shift mixing '
+                                     'but stays quiet, what does that cost the project. would anyone even know '
                                      'something was missing?',
                                      'Reset: explicitly separate "understanding what happened" from "assigning blame," '
                                      'led by the Green Belt directly, since it needs organizational weight behind it.'],
@@ -2890,10 +2890,10 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain why team dynamics directly affect data quality, not just '
                                                 'morale'],
                         'full_explanation': "A team member who feels blamed doesn't announce she's withholding "
-                                            'information — she simply stops volunteering it, and the gap is invisible '
+                                            'information; she simply stops volunteering it, and the gap is invisible '
                                             "because there's no obvious place it would have appeared. The fix is a "
                                             'deliberate reset, not a vague team-building gesture: the Green Belt '
-                                            'explicitly separating understanding from blame, directly — "we\'re not '
+                                            'explicitly separating understanding from blame, directly; "we\'re not '
                                             "here to find fault, we're here because you know things about that shift "
                                             'nobody else does, and we need that."\n'
                                             '\n'
@@ -2910,7 +2910,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': "She'll openly refuse to attend meetings *(the risk "
-                                                                  'is subtler — quiet disengagement)*',
+                                                                  'is subtler; quiet disengagement)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'The charter must be rewritten *(unrelated to this '
@@ -2997,7 +2997,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'quality auditor, the maintenance lead (for the scale-calibration lead '
                                             "from Lesson 05's affinity diagram).\n"
                                             '\n'
-                                            '**Selection rationale:** Highest weighted score from Lesson 02 — impact '
+                                            '**Selection rationale:** Highest weighted score from Lesson 02; impact '
                                             '5/5, alignment 5/5, feasibility 4/5, data availability 4/5.\n'
                                             '\n'
                                             '**Exercise:** Review this charter and identify one thing a rigorous '
@@ -3006,7 +3006,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'maintenance lead specifically was included, given the affinity diagram '
                                             'grouped calibration separately from shift-related causes? A strong '
                                             "charter should connect each team member's presence to a specific, "
-                                            'already-identified thread of the investigation — not just "seemed '
+                                            'already-identified thread of the investigation. It is not just "seemed '
                                             'relevant.")',
                         'knowledge_check': [],
                         'summary': [],
@@ -3017,16 +3017,16 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Measure Phase',
                         'opening_question': "The Define charter set a goal: get SKU #4021's out-of-tolerance rate "
                                             'below 0.1%. But nobody yet knows what the *current* out-of-tolerance rate '
-                                            'actually is — only that it was "high enough to lose a contract." Before '
+                                            'actually is; only that it was "high enough to lose a contract." Before '
                                             'Golden Crust can prove any improvement, what does the team need to '
                                             "establish first, and why can't Analyze or Improve begin without it?",
                         'concepts': ['**Baseline**: a confirmed, current-state measurement of the CTQ metric, using '
-                                     'real collected data — not an estimate or impression.',
-                                     '**Socratic prompt:** If the team estimates the current out-of-tolerance rate '
+                                     'real collected data. It is not an estimate or impression.',
+                                     '**Think it through:** If the team estimates the current out-of-tolerance rate '
                                      'from memory ("feels like maybe 2%") instead of measuring it, what happens if the '
                                      "real number turns out to be 4%, or 0.8%? Does the project's urgency, or its "
                                      'later "improvement," mean the same thing either way?',
-                                     'Measure\'s deliverable answers "how big is the problem, really" — without it, no '
+                                     'Measure\'s deliverable answers "how big is the problem, really"; without it, no '
                                      "later claim of improvement can be verified, since there's no confirmed starting "
                                      'point to compare against.'],
                         'terms': ['Baseline', 'Measure Phase Deliverable'],
@@ -3038,7 +3038,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'a verified baseline',
                                                 'Identify what "verified" data collection means in this context'],
                         'full_explanation': 'It\'s tempting to treat the Define-phase goal ("below 0.1%") as enough to '
-                                            'start fixing things — but without a verified baseline, the team has no '
+                                            'start fixing things. But without a verified baseline, the team has no '
                                             'way to prove, later, that anything actually improved. If the real '
                                             'starting point turns out to be 4% (a serious problem) rather than the '
                                             'assumed 2%, the team may be underestimating how much work Analyze and '
@@ -3050,7 +3050,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'the project, when the team reports "we reduced the out-of-tolerance rate '
                                             'from X% to 0.08%," that claim is only as credible as the verified X% '
                                             "baseline it's being compared against. A baseline based on memory or "
-                                            'impression can be challenged by anyone skeptical of the results — '
+                                            'impression can be challenged by anyone skeptical of the results; '
                                             'including, eventually, the CFO from the Define-phase Lesson 06 case, who '
                                             'already made clear he expects verifiable numbers, not confident-sounding '
                                             'claims.',
@@ -3073,7 +3073,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'The CEO must personally approve the baseline number '
-                                                                  '*(not a stated requirement — the issue is '
+                                                                  '*(not a stated requirement: the issue is '
                                                                   'verification, not sign-off)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -3091,7 +3091,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Memory-based estimates are required by the DMAIC '
-                                                                  'method *(not required — DMAIC specifically calls '
+                                                                  'method *(not required; DMAIC specifically calls '
                                                                   'for measured data)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -3121,7 +3121,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   "fact isn't a real baseline)*",
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ['A baseline is a confirmed, measured starting point — not an estimate.',
+                        'summary': ['A baseline is a confirmed, measured starting point. It is not an estimate.',
                                     'Later claims of improvement are only as credible as the verified baseline behind '
                                     'them.',
                                     'Measure answers "how big is the problem, really," setting up everything that '
@@ -3133,19 +3133,19 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Process Analysis and Documentation',
                         'opening_question': 'When the team walks packaging Line 2 to map the process step by step, '
                                             'they discover the official process document says loaves are weighed '
-                                            'automatically at the end of the line — but night shift, due to a broken '
+                                            'automatically at the end of the line. But night shift, due to a broken '
                                             'auto-weigher, has been manually re-checking every tenth loaf for the past '
                                             'two months instead, a workaround nobody documented or told day shift '
                                             'about. What does this discovery reveal about the value of process mapping '
                                             'over trusting official documentation alone?',
                         'concepts': ['**Process mapping**: walking and documenting what actually happens, step by '
                                      'step, rather than relying on what a procedure document says should happen.',
-                                     '**Socratic prompt:** If this gap between "documented process" and "actual '
+                                     '**Think it through:** If this gap between "documented process" and "actual '
                                      'process" existed for two full months without anyone flagging it upward, what '
                                      'does that suggest about what else might be undocumented across the other two '
                                      'shifts?',
                                      "A workaround like manual re-checking of every tenth loaf isn't inherently wrong "
-                                     "— but if it's inconsistent, undocumented, and not equally applied across shifts, "
+                                     ". But if it's inconsistent, undocumented, and not equally applied across shifts, "
                                      "it becomes a hidden source of variation the team wouldn't find just by reading a "
                                      'procedure manual.'],
                         'terms': ['Process Mapping', 'Documented vs. Actual Process'],
@@ -3163,14 +3163,14 @@ BELTS = {'white': {'name': 'White Belt',
                                             "substitute for two months, invisible to anyone who didn't actually walk "
                                             "the floor and ask what's really happening. If the team had instead relied "
                                             'only on the written procedure, they would have proceeded assuming full '
-                                            'automated coverage across all three shifts — a false assumption that '
+                                            'automated coverage across all three shifts: a false assumption that '
                                             'could derail every subsequent Measure-phase calculation.\n'
                                             '\n'
                                             'The discovery also raises an important question before any further data '
                                             'collection: if this significant a gap went unreported for two months, '
                                             "what else might differ shift to shift that nobody's mentioned yet? This "
                                             'is precisely why process mapping happens early in Measure, before '
-                                            'finalizing a data collection plan — a plan built on the documented '
+                                            'finalizing a data collection plan: a plan built on the documented '
                                             'process alone might unintentionally collect inconsistent data (some '
                                             'loaves fully weighed, some only 1-in-10 checked) without the team '
                                             'realizing the sampling itself is uneven across shifts.',
@@ -3211,12 +3211,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'It confirms the documented process is accurate *(it '
-                                                                  'shows the opposite — a real gap between documented '
+                                                                  'shows the opposite: a real gap between documented '
                                                                   'and actual process)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'It means data collection should be skipped entirely '
-                                                                  '*(the opposite — it makes careful data collection '
+                                                                  '*(the opposite. It makes careful data collection '
                                                                   'more important, not less)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -3234,7 +3234,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Night shift staff should be immediately disciplined '
-                                                                  '*(not the stated concern — the issue is '
+                                                                  '*(not the stated concern: the issue is '
                                                                   'documentation and process consistency)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -3256,12 +3256,12 @@ BELTS = {'white': {'name': 'White Belt',
                         'opening_question': 'A quality auditor pulls 30 loaves from Line 2 and finds an average weight '
                                             'of 501.2g with a standard deviation of 3.1g. The contract tolerance is '
                                             '500g ± 2g (i.e., 498g–502g). Just from the average alone, does this '
-                                            'process look fine — and what does the standard deviation actually tell '
+                                            'process look fine. what does the standard deviation actually tell '
                                             "you that the average can't?",
                         'concepts': ['**Mean**: the average value. **Standard deviation**: a measure of how spread out '
                                      'individual values are around that average.',
-                                     '**Socratic prompt:** The tolerance width is only 4g total (498–502g), and the '
-                                     'standard deviation here is 3.1g — larger than half the tolerance width. What '
+                                     '**Think it through:** The tolerance width is only 4g total (498–502g), and the '
+                                     'standard deviation here is 3.1g; larger than half the tolerance width. What '
                                      'does that suggest about how much of the distribution likely falls outside spec, '
                                      'even though the average (501.2g) looks deceptively close to the 500g target?',
                                      'The empirical rule (for roughly normal data): about 68% of values fall within 1 '
@@ -3281,7 +3281,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'learning_objectives': ['Explain mean and standard deviation as basic descriptive statistics',
                                                 'Understand why the average alone can hide variation risk',
                                                 'Apply basic probability reasoning to a real sample'],
-                        'full_explanation': "An average of 501.2g looks reassuring at first glance — it's only 1.2g "
+                        'full_explanation': "An average of 501.2g looks reassuring at first glance; it's only 1.2g "
                                             'off the 500g target, well within the ±2g tolerance on its own. But the '
                                             'average describes only the center of the distribution, not its spread, '
                                             "and the standard deviation here (3.1g) is doing the real damage: it's "
@@ -3291,7 +3291,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             'Using the empirical rule roughly: if the true mean is 501.2g and standard '
                                             'deviation is 3.1g, one standard deviation below the mean is already at '
-                                            '498.1g — right at the edge of the lower tolerance limit — and one '
+                                            '498.1g, right at the edge of the lower tolerance limit, and one '
                                             'standard deviation above is 504.3g, already outside the upper limit. This '
                                             'means significantly more than half the distribution is likely landing '
                                             'outside tolerance on the high side alone, once you account for the full '
@@ -3352,7 +3352,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'kind of data?',
                                              'options': [{'key': 'a',
                                                           'text': 'Report both the average and the spread (standard '
-                                                                  'deviation) — the average alone can hide a serious '
+                                                                  'deviation): the average alone can hide a serious '
                                                                   'tolerance problem *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -3371,7 +3371,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   '04)*',
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ['The mean describes the center; the standard deviation describes the spread — both '
+                        'summary': ['The mean describes the center; the standard deviation describes the spread. Both '
                                     'are needed to understand real risk against a tolerance.',
                                     'A tight-looking average can still hide a large share of individual values falling '
                                     'outside spec.',
@@ -3384,14 +3384,14 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Collecting and Summarizing Data',
                         'opening_question': 'Building on the 30-loaf sample from Lesson 03, the auditor now wants a '
                                             "full baseline. Should she sample from just day shift, since it's most "
-                                            'convenient, or does the plan need to include all three shifts — and why '
+                                            'convenient, or does the plan need to include all three shifts. why '
                                             "does it matter, given what Lesson 02 already revealed about night shift's "
                                             'workaround?',
                         'concepts': ['**Stratified sampling**: deliberately sampling across known subgroups (here, all '
                                      "three shifts) rather than sampling only where it's convenient.",
-                                     '**Socratic prompt:** If data is only collected from day shift, and the real '
+                                     '**Think it through:** If data is only collected from day shift, and the real '
                                      'problem is concentrated on night shift (given the broken auto-weigher workaround '
-                                     'from Lesson 02), what would the baseline look like — falsely reassuring, or '
+                                     'from Lesson 02), what would the baseline look like; falsely reassuring, or '
                                      'accurately alarming?',
                                      '**Operational definition**: agreeing exactly what counts as "out of tolerance" '
                                      '(which scale, what rounding rule, measured at what point in the process) so '
@@ -3408,7 +3408,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain the role of an operational definition in data collection',
                                                 'Summarize collected data descriptively (mean, range, and basic '
                                                 'shape)'],
-                        'full_explanation': 'Sampling only from day shift would be more convenient — but given Lesson '
+                        'full_explanation': 'Sampling only from day shift would be more convenient. But given Lesson '
                                             "02's discovery that night shift has been operating under a two-month "
                                             'undocumented workaround, a day-shift-only baseline would almost certainly '
                                             'understate the real problem, since it would miss exactly the shift most '
@@ -3424,15 +3424,15 @@ BELTS = {'white': {'name': 'White Belt',
                                             '498–502g, or with some rounding allowance), and at what point in the '
                                             'process the loaf is weighed (immediately after baking, or after cooling, '
                                             'since loaves can lose moisture weight as they cool). Without this '
-                                            'agreement, two different people collecting data — say, one auditor and '
-                                            'one shift supervisor — could reasonably produce different counts from the '
+                                            'agreement, two different people collecting data; say, one auditor and '
+                                            'one shift supervisor; could reasonably produce different counts from the '
                                             'exact same physical loaves, simply because they were applying different '
                                             'unstated rules.\n'
                                             '\n'
                                             'Once collected consistently, the data can be summarized descriptively: '
                                             'not just the overall mean and standard deviation, but broken out by '
                                             'shift, which is exactly what will let the team confirm or rule out the '
-                                            "suspicion that night shift's workaround is a major driver — setting up "
+                                            "suspicion that night shift's workaround is a major driver; setting up "
                                             'the distribution check in the very next lesson.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'Why would a day-shift-only sample likely understate the real '
@@ -3473,7 +3473,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'It replaces the need for a sampling plan *(it '
-                                                                  'complements a sampling plan; both are needed)*',
+                                                                  'complements a sampling plan. Both are needed)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': "It's a formality with no effect on the resulting "
@@ -3523,7 +3523,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ['**Normal distribution**: a symmetric, bell-shaped pattern many statistical tools '
                                      '(including the capability calculation coming in Lesson 07) assume the data '
                                      'roughly follows.',
-                                     "**Socratic prompt:** Given that night shift's manual "
+                                     "**Think it through:** Given that night shift's manual "
                                      're-weighing-every-tenth-loaf workaround means only some loaves get corrected '
                                      "before shipping, could that explain why the combined 300-loaf histogram doesn't "
                                      'look like one smooth bell curve, but something more like two overlapping '
@@ -3557,14 +3557,14 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Interpret what a non-normal or lopsided distribution might indicate '
                                                 'about the underlying process'],
                         'full_explanation': 'A lopsided histogram is a signal worth investigating before doing '
-                                            'anything further with the data — not just a technical nuisance to work '
+                                            'anything further with the data. It is not just a technical nuisance to work '
                                             "around. Given everything uncovered so far, there's a specific, testable "
                                             "hypothesis available: if night shift's workaround only corrects 1 in 10 "
                                             'loaves, the other 9 loaves per batch on night shift are shipping without '
                                             'any real weight verification at all, while day and afternoon shifts (with '
                                             'a fully functioning automated system) are being checked consistently. '
                                             "Combining all three shifts' data into one histogram could easily produce "
-                                            'exactly this kind of lopsided or bimodal pattern — not because "the '
+                                            'exactly this kind of lopsided or bimodal pattern. It is not because "the '
                                             'process" is inherently non-normal, but because the 300-loaf sample '
                                             'actually contains two meaningfully different sub-processes blended '
                                             'together.\n'
@@ -3573,7 +3573,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'which assumes something close to a single, normal distribution. '
                                             "Calculating a single Cp/Cpk value across data that's actually a mixture "
                                             "of two different processes would produce a number that doesn't cleanly "
-                                            'describe either sub-process — potentially masking just how much worse '
+                                            'describe either sub-process; potentially masking just how much worse '
                                             "night shift's numbers really are, hidden inside a blended average. The "
                                             'appropriate next step, suggested directly by this pattern, is to split '
                                             'the histogram by shift and check normality within each shift separately, '
@@ -3583,8 +3583,8 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'in the combined 300-loaf sample?',
                                              'options': [{'key': 'a',
                                                           'text': 'The data may be a mixture of two different '
-                                                                  "sub-processes — night shift's partial manual check "
-                                                                  "versus the other shifts' full automated check — "
+                                                                  "sub-processes; night shift's partial manual check "
+                                                                  "versus the other shifts' full automated check; "
                                                                   'rather than one non-normal process *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -3593,7 +3593,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'All Six Sigma data is expected to look lopsided '
-                                                                  '*(the opposite — normality is generally expected '
+                                                                  '*(the opposite; normality is generally expected '
                                                                   'and useful to check)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -3669,10 +3669,10 @@ BELTS = {'white': {'name': 'White Belt',
                                      '**Repeatability**: does the same scale, used the same way, give a consistent '
                                      'reading for the same loaf? **Reproducibility**: do different scales (or '
                                      'different people using them) agree with each other?',
-                                     '**Socratic prompt:** If the backup scale reads systematically 1.5g heavier than '
+                                     '**Think it through:** If the backup scale reads systematically 1.5g heavier than '
                                      'the primary scale, and night shift used the backup scale for two months, how '
                                      'much of the "process variation" seen in Lesson 05\'s lopsided histogram might '
-                                     'actually just be a measurement artifact — not a real difference in loaf weight '
+                                     'actually just be a measurement artifact. It is not a real difference in loaf weight '
                                      'at all?'],
                         'terms': ['Measurement System Analysis (MSA)', 'Repeatability', 'Reproducibility'],
                         'math': [],
@@ -3688,23 +3688,23 @@ BELTS = {'white': {'name': 'White Belt',
                                             'reads systematically 1.5g heavier than the properly calibrated primary '
                                             'scale, then some portion of what looked like "night shift has worse '
                                             'weight variation" in Lesson 05\'s data could actually be an artifact of '
-                                            'using a different, uncalibrated instrument — not necessarily a real '
+                                            'using a different, uncalibrated instrument. It is not necessarily a real '
                                             'difference in how the dough is being mixed or baked on that shift.\n'
                                             '\n'
                                             'This is exactly what MSA is designed to catch. A basic check would '
                                             'involve having the same set of loaves weighed on both the primary and '
-                                            'backup scales (testing reproducibility — do they agree with each other), '
+                                            'backup scales (testing reproducibility; do they agree with each other), '
                                             'and having the same loaf weighed multiple times on the same scale '
-                                            '(testing repeatability — is the scale even consistent with itself). If '
+                                            '(testing repeatability. Is the scale even consistent with itself). If '
                                             'this reveals a genuine 1.5g systematic offset between scales, the team '
                                             'can mathematically correct for it in the existing data, or, better, '
-                                            'recalibrate the backup scale and recollect a clean sample — either way, '
+                                            'recalibrate the backup scale and recollect a clean sample; either way, '
                                             'this must happen *before* the team decides how much of the observed '
                                             'variation is a real process problem to fix versus a measurement problem '
                                             'to correct first.\n'
                                             '\n'
                                             'Skipping this step risks the Analyze phase chasing a partially fictional '
-                                            "root cause — investigating why night shift's dough handling supposedly "
+                                            "root cause; investigating why night shift's dough handling supposedly "
                                             'produces heavier loaves, when a meaningful part of that apparent '
                                             'difference might simply disappear once the measurement system itself is '
                                             'fixed.',
@@ -3793,14 +3793,14 @@ BELTS = {'white': {'name': 'White Belt',
                                             'standard deviation = 1.1g, against the 500g ± 2g tolerance (USL = 502g, '
                                             'LSL = 498g). Calculate Cpk and interpret whether this process is now '
                                             'capable of meeting the contract requirement.',
-                        'concepts': ['**Cp** = (USL − LSL) ÷ (6 × σ) — measures whether the tolerance width is wide '
+                        'concepts': ['**Cp** = (USL − LSL) ÷ (6 × σ); measures whether the tolerance width is wide '
                                      'enough for the process spread, ignoring centering.',
-                                     '**Cpk** = the smaller of [(USL − mean) ÷ (3 × σ)] and [(mean − LSL) ÷ (3 × σ)] — '
+                                     '**Cpk** = the smaller of [(USL − mean) ÷ (3 × σ)] and [(mean − LSL) ÷ (3 × σ)]; '
                                      'accounts for both spread and centering.',
-                                     '**Socratic prompt:** Before calculating anything, does a mean of 500.4g (very '
+                                     '**Think it through:** Before calculating anything, does a mean of 500.4g (very '
                                      'close to the 500g target) and a standard deviation of 1.1g (much smaller than '
                                      "Lesson 03's 3.1g) suggest this process has genuinely improved since the "
-                                     'scale-calibration fix — or could you already guess that from the numbers alone, '
+                                     'scale-calibration fix; or could you already guess that from the numbers alone, '
                                      'before doing the formal calculation?'],
                         'terms': ['Process Capability', 'Cp', 'Cpk'],
                         'math': [{'name': 'Mean',
@@ -3836,20 +3836,20 @@ BELTS = {'white': {'name': 'White Belt',
                                             '0.485, and [(500.4 − 498) ÷ (3 × 1.1)] = 2.4 ÷ 3.3 ≈ 0.727. The smaller '
                                             'value, **Cpk ≈ 0.49**, is the reported capability.\n'
                                             '\n'
-                                            'A Cpk of 0.49 is well below 1.0 — the commonly used minimum threshold for '
-                                            'a process considered "capable" of meeting its tolerance — and far below '
+                                            'A Cpk of 0.49 is well below 1.0: the commonly used minimum threshold for '
+                                            'a process considered "capable" of meeting its tolerance. far below '
                                             '1.33, a common target for a genuinely robust process. In plain terms: '
                                             'even after removing the measurement-system artifact from Lesson 06, the '
                                             "underlying process still isn't reliably hitting its target consistently "
                                             'enough to meet the 0.1% out-of-tolerance goal. This is a realistic and '
-                                            'important teaching moment — fixing one real problem (the miscalibrated '
+                                            'important teaching moment; fixing one real problem (the miscalibrated '
                                             'scale) improved the numbers substantially (standard deviation dropped '
                                             "from 3.1g to 1.1g) but didn't single-handedly solve the whole problem. "
                                             'Real capability work remains for the Analyze and Improve phases ahead.\n'
                                             '\n'
                                             "It's also worth connecting this back to the very first lesson of the "
                                             'whole curriculum: a Cpk around 0.49 corresponds to a sigma level '
-                                            'meaningfully below 3 sigma — nowhere near the six sigma target, and a '
+                                            'meaningfully below 3 sigma; nowhere near the six sigma target, and a '
                                             'long way even from a merely adequate four-sigma process. This gives the '
                                             'team, and leadership, a very concrete number to track improvement against '
                                             'going into Analyze and Improve.',
@@ -3857,12 +3857,12 @@ BELTS = {'white': {'name': 'White Belt',
                                              'question': 'What is the calculated Cpk value for this process, given '
                                                          'mean = 500.4g, σ = 1.1g, USL = 502g, LSL = 498g?',
                                              'options': [{'key': 'a',
-                                                          'text': '≈0.49 *(correct — the smaller of the two one-sided '
+                                                          'text': '≈0.49 *(correct: the smaller of the two one-sided '
                                                                   'calculations)*',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': '≈0.61 *(this is the Cp value, which ignores '
-                                                                  'centering — not Cpk)*',
+                                                                  'centering. It is not Cpk)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': '≈0.73 *(this is only the upper-side calculation, '
@@ -3870,7 +3870,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': '≈1.33 *(this would represent a robust, '
-                                                                  'well-controlled process — not what this data '
+                                                                  'well-controlled process. It is not what this data '
                                                                   'shows)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -3884,7 +3884,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Cp and Cpk always produce the same number *(they '
-                                                                  'differ here — 0.61 vs. 0.49 — precisely because the '
+                                                                  'differ here, 0.61 vs. 0.49, precisely because the '
                                                                   "process isn't perfectly centered)*",
                                                           'correct': False},
                                                          {'key': 'c',
@@ -3904,7 +3904,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'options': [{'key': 'a',
                                                           'text': 'The process, even after fixing the measurement '
                                                                   "issue, still isn't reliably capable of meeting the "
-                                                                  '0.1% out-of-tolerance goal — real work remains in '
+                                                                  '0.1% out-of-tolerance goal; real work remains in '
                                                                   'Analyze and Improve *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -3914,7 +3914,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Cpk values below 1.0 are considered excellent in '
-                                                                  'food manufacturing *(the opposite — below 1.0 '
+                                                                  'food manufacturing *(the opposite; below 1.0 '
                                                                   'generally indicates a process not yet capable)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -3935,7 +3935,7 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'G20',
                         'title': 'Case Study: The Golden Crust Measure Phase, Completed',
                         'opening_question': 'Given Cpk = 0.49, which lever is likely to matter more for Analyze and '
-                                            'Improve to focus on — recentering the process (getting the mean closer to '
+                                            'Improve to focus on; recentering the process (getting the mean closer to '
                                             'exactly 500g) or reducing variation (lowering σ further)?',
                         'concepts': [],
                         'terms': [],
@@ -3960,14 +3960,14 @@ BELTS = {'white': {'name': 'White Belt',
                         'teach_back': 'Teach the approach back to me in your own words.',
                         'learning_objectives': [],
                         'full_explanation': '**Baseline established:** Original combined sample (Lesson 03) showed '
-                                            'mean 501.2g, SD 3.1g — but this blended two sub-processes (Lesson 05) and '
+                                            'mean 501.2g, SD 3.1g. But this blended two sub-processes (Lesson 05) and '
                                             'included an uncorrected measurement artifact (Lesson 06). After '
                                             'stratified sampling, operational definition agreement, and scale '
                                             'reconciliation, the verified baseline is: mean 500.4g, SD 1.1g, **Cpk ≈ '
                                             '0.49**.\n'
                                             '\n'
                                             '**Exercise:** Given Cpk = 0.49, which lever is likely to matter more for '
-                                            'Analyze and Improve to focus on — recentering the process (getting the '
+                                            'Analyze and Improve to focus on; recentering the process (getting the '
                                             'mean closer to exactly 500g) or reducing variation (lowering σ further)? '
                                             'Work both scenarios:\n'
                                             '- *Recentering only* (mean → 500g exactly, σ stays 1.1g): Cpk = '
@@ -3976,7 +3976,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'min[(502−500.4)/1.8, (500.4−498)/1.8] = min[0.889, 1.333] = **0.889**.\n'
                                             '\n'
                                             'Reducing variation produces a substantially larger capability improvement '
-                                            'than recentering alone — a strong signal that Analyze and Improve should '
+                                            'than recentering alone: a strong signal that Analyze and Improve should '
                                             'focus on *why* the process varies (the shift-to-shift differences and '
                                             'equipment issues already surfaced) rather than simply adjusting the '
                                             'target setpoint.',
@@ -3988,16 +3988,16 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'G21',
                         'title': 'Introduction to Analyze Phase',
                         'opening_question': 'Measure left the team with a Cpk of 0.49 and a strong signal that '
-                                            'reducing variation — not just recentering — is the priority. But "reduce '
+                                            'reducing variation, not just recentering, is the priority. But "reduce '
                                             'variation" isn\'t itself an actionable root cause. What specifically does '
                                             'Analyze need to produce before Improve can begin?',
-                        'concepts': ["Analyze's deliverable is a **specific, evidence-backed root cause** — not a "
+                        'concepts': ["Analyze's deliverable is a **specific, evidence-backed root cause**. It is not a "
                                      'plausible-sounding theory the team feels confident about.',
-                                     '**Socratic prompt:** The Define-phase affinity diagram (Lesson 05) already '
+                                     '**Think it through:** The Define-phase affinity diagram (Lesson 05) already '
                                      'grouped candidate causes into equipment/calibration, shift-to-shift variation, '
                                      'and packaging line issues. Which of these are still live suspects after '
                                      "Measure's findings, and which has already been partly addressed?",
-                                     "A hunch becomes a confirmed root cause only once it's tested against real data — "
+                                     "A hunch becomes a confirmed root cause only once it's tested against real data; "
                                      "Analyze's job is to run that test, not simply pick the most plausible-sounding "
                                      'story.'],
                         'terms': ['Analyze Phase Deliverable', 'Root Cause (Confirmed vs. Hunch)'],
@@ -4021,19 +4021,19 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Connect Define-phase candidate causes to what Analyze will actually '
                                                 'test'],
                         'full_explanation': 'It would be easy, at this point, to declare "night shift is the problem" '
-                                            'and move straight to Improve — the affinity diagram flagged '
+                                            'and move straight to Improve: the affinity diagram flagged '
                                             "shift-to-shift variation early, and Measure's data seemed to support it. "
                                             "But that's exactly the kind of plausible-sounding conclusion Analyze "
                                             'exists to test rigorously before anyone acts on it. The '
                                             'equipment/calibration cluster from Define has already been partly '
                                             'addressed (Lesson 06 of Measure caught and corrected a real '
-                                            "scale-calibration issue) — but partly addressed isn't the same as fully "
+                                            "scale-calibration issue). But partly addressed isn't the same as fully "
                                             'resolved, and the remaining Cpk of 0.49 shows real variation still exists '
                                             'even after that fix.\n'
                                             '\n'
                                             'This means Analyze has genuine, still-open work to do: confirming whether '
                                             'the remaining variation really is concentrated on night shift (as '
-                                            'suspected), and if so, digging into *why* — is it the dough-mixing '
+                                            'suspected), and if so, digging into *why*. Is it the dough-mixing '
                                             "difference mentioned back in Define's affinity diagram, something about "
                                             'the manual reweighing workaround itself, or something not yet considered '
                                             'at all? The next two lessons introduce the two main tools for this: '
@@ -4046,12 +4046,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'problem" and move to Improve immediately?',
                                              'options': [{'key': 'a',
                                                           'text': "That conclusion hasn't yet been tested against real "
-                                                                  "data — it's a plausible hunch, not a confirmed root "
+                                                                  "data; it's a plausible hunch, not a confirmed root "
                                                                   'cause *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Night shift is definitely not the cause of any '
-                                                                  "variation *(the scenario doesn't rule this out — it "
+                                                                  "variation *(the scenario doesn't rule this out. It "
                                                                   "says it needs testing, not that it's false)*",
                                                           'correct': False},
                                                          {'key': 'c',
@@ -4076,7 +4076,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'The scale-calibration fix had no measurable effect '
                                                                   'on the data *(Measure showed a substantial '
-                                                                  'improvement — SD dropped from 3.1g to 1.1g — but '
+                                                                  'improvement, SD dropped from 3.1g to 1.1g, but '
                                                                   "the process still isn't fully capable)*",
                                                           'correct': False},
                                                          {'key': 'c',
@@ -4086,7 +4086,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'The maintenance lead must reconfirm the fix before '
-                                                                  'Analyze can begin *(not the stated requirement — '
+                                                                  'Analyze can begin *(not the stated requirement; '
                                                                   'the issue is what the remaining data shows)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -4109,7 +4109,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'deliverable, already completed)*',
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ["Analyze's deliverable is a specific, evidence-backed root cause — not a "
+                        'summary': ["Analyze's deliverable is a specific, evidence-backed root cause. It is not a "
                                     'plausible-sounding hunch.',
                                     "Partial progress (like the scale-calibration fix) doesn't mean a candidate cause "
                                     'cluster is fully resolved.',
@@ -4125,11 +4125,11 @@ BELTS = {'white': {'name': 'White Belt',
                                             'sample: mean 500.6g, SD 1.8g, n=100. Is this difference in variability '
                                             'real, or could it just be sample noise?',
                         'concepts': ['**Null hypothesis**: there is no real difference in variability between day and '
-                                     'night shift — any observed difference is just random sample noise.',
+                                     'night shift; any observed difference is just random sample noise.',
                                      '**Alternative hypothesis**: there is a real difference in variability between '
                                      'the shifts.',
-                                     '**Socratic prompt:** If a statistical test on this data returns a p-value of '
-                                     "0.01, what can you conclude — and what can't you conclude — about *why* night "
+                                     '**Think it through:** If a statistical test on this data returns a p-value of '
+                                     "0.01, what can you conclude, and what can't you conclude, about *why* night "
                                      'shift is more variable?'],
                         'terms': ['Null Hypothesis', 'Alternative Hypothesis', 'p-value'],
                         'math': [{'name': 'Mean',
@@ -4146,8 +4146,8 @@ BELTS = {'white': {'name': 'White Belt',
                         'learning_objectives': ['Explain the null and alternative hypothesis at a conceptual level',
                                                 'Apply this framework to comparing variability between two shifts',
                                                 'Interpret a p-value result without overclaiming what it proves'],
-                        'full_explanation': "The raw numbers look like a meaningful difference — night shift's "
-                                            "standard deviation (1.8g) is double day shift's (0.9g) — but with two "
+                        'full_explanation': "The raw numbers look like a meaningful difference; night shift's "
+                                            "standard deviation (1.8g) is double day shift's (0.9g). But with two "
                                             "samples of 100 loaves each, there's always some chance this gap could "
                                             'arise from ordinary sample-to-sample noise rather than a genuine '
                                             "underlying difference in the two shifts' actual processes. This is "
@@ -4158,17 +4158,17 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             "If the resulting p-value comes back at 0.01, that means there's only "
                                             'about a 1% chance of seeing a variability gap this large between two '
-                                            'samples if day and night shift were genuinely performing identically — '
+                                            'samples if day and night shift were genuinely performing identically; '
                                             'small enough that most practitioners would reject the null hypothesis and '
                                             "conclude the difference is statistically real, not noise. But it's "
                                             "important to be precise about what this conclusion does and doesn't "
                                             'establish: a p-value of 0.01 supports "night shift\'s variability really '
-                                            'is different from day shift\'s" — it says nothing at all about *why*. It '
+                                            'is different from day shift\'s". It says nothing at all about *why*. It '
                                             "doesn't confirm the manual reweighing workaround is the cause, doesn't "
                                             "rule out some other unexamined factor, and doesn't quantify how much of a "
                                             'business problem this difference actually represents. Confirming that a '
                                             'real difference exists is a necessary step before investigating its cause '
-                                            "— but it's not the same as identifying the cause itself, which is exactly "
+                                            ". But it's not the same as identifying the cause itself, which is exactly "
                                             'why exploratory data analysis, in the next lesson, is still needed.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What does the null hypothesis represent in this comparison?',
@@ -4236,7 +4236,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': ''}],
                         'summary': ['A hypothesis test checks whether an observed difference is likely real or could '
                                     'be explained by sample noise.',
-                                    'A small p-value supports rejecting the null hypothesis — concluding a real '
+                                    'A small p-value supports rejecting the null hypothesis; concluding a real '
                                     'difference likely exists.',
                                     'Confirming a real difference exists is not the same as identifying why it '
                                     'exists.'],
@@ -4253,11 +4253,11 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ['**Exploratory Data Analysis (EDA)**: visually examining data (scatter plots, box '
                                      'plots, time-series plots) to surface patterns, rather than only testing a single '
                                      'predefined hypothesis.',
-                                     '**Socratic prompt:** The variance spike is concentrated in the *first two hours* '
+                                     '**Think it through:** The variance spike is concentrated in the *first two hours* '
                                      'of night shift specifically, not the whole shift evenly. What does that narrower '
                                      'pattern suggest that a simple "night shift vs. day shift" comparison couldn\'t '
                                      'reveal on its own?',
-                                     'A visual pattern like this points toward a specific, testable mechanism — not '
+                                     'A visual pattern like this points toward a specific, testable mechanism. It is not '
                                      'just a broad "shift" difference, but something tied to what changes in the first '
                                      'two hours specifically.'],
                         'terms': ['Exploratory Data Analysis (EDA)', 'Scatter Plot'],
@@ -4269,12 +4269,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain EDA as complementary to, not a replacement for, hypothesis '
                                                 'testing'],
                         'full_explanation': "Lesson 02's hypothesis test confirmed that night shift, overall, has more "
-                                            "variability than day shift — but it couldn't say anything about *when "
+                                            "variability than day shift. But it couldn't say anything about *when "
                                             'within the shift* that variability occurs, because a standard two-group '
                                             'comparison collapses an entire shift into one summary statistic. This is '
                                             'exactly the gap EDA fills: plotting individual loaf weights against '
                                             "time-of-day reveals that the extra variability isn't spread evenly across "
-                                            "all eight hours of night shift — it's concentrated specifically in the "
+                                            "all eight hours of night shift; it's concentrated specifically in the "
                                             'first two hours, tapering off as the shift continues.\n'
                                             '\n'
                                             'This narrower, more specific pattern points toward a plausible, testable '
@@ -4287,7 +4287,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'overnight during the gap between afternoon and night shift, and takes '
                                             "roughly two hours to stabilize once night shift's baking begins). Either "
                                             'mechanism would produce exactly this kind of "high variance early, '
-                                            'tapering off" pattern — and distinguishing between them is now a '
+                                            'tapering off" pattern. distinguishing between them is now a '
                                             'specific, answerable question, rather than the vague "reduce night shift '
                                             'variation" the team started with.\n'
                                             '\n'
@@ -4330,7 +4330,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'It confirms the root cause without any further '
-                                                                  'testing needed *(it narrows the investigation; it '
+                                                                  'testing needed *(it narrows the investigation. It '
                                                                   "doesn't yet confirm which specific mechanism is "
                                                                   'responsible)*',
                                                           'correct': False},
@@ -4344,7 +4344,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'question': 'What is the relationship between EDA and hypothesis testing, '
                                                          'based on this lesson?',
                                              'options': [{'key': 'a',
-                                                          'text': "They're complementary — the hypothesis test "
+                                                          'text': "They're complementary: the hypothesis test "
                                                                   'confirms a real difference exists, and EDA reveals '
                                                                   'more specific patterns within it *(correct)*',
                                                           'correct': True},
@@ -4360,7 +4360,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'They must always be performed in a fixed, required '
-                                                                  'order *(no such strict rule — both add value '
+                                                                  'order *(no such strict rule. Both add value '
                                                                   'regardless of sequence)*',
                                                           'correct': False}],
                                              'answer': ''}],
@@ -4376,7 +4376,7 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'G24',
                         'title': 'Case Study: The Golden Crust Analyze Phase, Completed',
                         'opening_question': 'Given this specific, narrowed root cause, what should Improve phase '
-                                            'actually target — and why would simply telling night-shift staff to "be '
+                                            'actually target. why would simply telling night-shift staff to "be '
                                             'more careful with dough temperature" likely fail as a fix?',
                         'concepts': [],
                         'terms': [],
@@ -4391,30 +4391,30 @@ BELTS = {'white': {'name': 'White Belt',
                                             "confirmed night shift's variability is statistically real (p = 0.01). "
                                             "Lesson 03's scatter plot narrowed this further: the variance spike "
                                             'concentrates in the first two hours of night shift, pointing to two live '
-                                            'candidate mechanisms — the manual reweighing backlog (tied to the '
+                                            'candidate mechanisms: the manual reweighing backlog (tied to the '
                                             'still-unrepaired auto-weigher) and dough temperature stabilization at '
                                             'shift start (tied to overnight proofing-room cooling).\n'
                                             '\n'
                                             '**Confirming which mechanism matters:** The team pulls proofing-room '
                                             'temperature logs and finds they drop notably during the '
                                             'afternoon-to-night shift changeover gap, and take roughly two hours to '
-                                            'stabilize once night-shift baking resumes — matching the variance '
+                                            'stabilize once night-shift baking resumes; matching the variance '
                                             "pattern's timing almost exactly. Meanwhile, reviewing the manual "
                                             'reweighing log shows the backlog is roughly constant throughout the '
-                                            "shift, not concentrated early — its timing pattern doesn't match the "
+                                            "shift, not concentrated early; its timing pattern doesn't match the "
                                             'observed variance spike as closely.\n'
                                             '\n'
                                             '**Confirmed root cause:** Dough temperature instability during the first '
                                             'two hours of night shift, driven by proofing-room cooling during the '
-                                            'shift changeover gap — not primarily the manual reweighing workaround, '
+                                            'shift changeover gap. It is not primarily the manual reweighing workaround, '
                                             "which remains a separate, still-worth-fixing issue but isn't the primary "
                                             'driver of the variance pattern.\n'
                                             '\n'
                                             '**Exercise:** Given this specific, narrowed root cause, what should '
-                                            'Improve phase actually target — and why would simply telling night-shift '
+                                            'Improve phase actually target. why would simply telling night-shift '
                                             'staff to "be more careful with dough temperature" likely fail as a fix? '
-                                            '(Consider: this is an environmental/equipment issue — proofing-room '
-                                            'temperature control during a changeover gap — not a behavioral one. A fix '
+                                            '(Consider: this is an environmental/equipment issue; proofing-room '
+                                            'temperature control during a changeover gap. It is not a behavioral one. A fix '
                                             "aimed at the room's temperature control system, rather than staff "
                                             'behavior, is far more likely to actually work.)',
                         'knowledge_check': [],
@@ -4429,9 +4429,9 @@ BELTS = {'white': {'name': 'White Belt',
                                             'proofing room door this week and move on. What should Improve phase '
                                             'actually produce before that fix gets rolled out to every shift '
                                             'permanently?',
-                        'concepts': ["Improve's deliverable is a **validated fix** — one with real data showing it "
-                                     'works — not simply "a plausible idea that got installed."',
-                                     '**Socratic prompt:** If Marco installs the curtain on all shifts immediately and '
+                        'concepts': ["Improve's deliverable is a **validated fix**. One with real data showing it "
+                                     'works. It is not simply "a plausible idea that got installed."',
+                                     '**Think it through:** If Marco installs the curtain on all shifts immediately and '
                                      'declares victory without piloting it first, what risk is the team accepting?'],
                         'terms': ['Validated Solution', 'Pilot'],
                         'math': [],
@@ -4442,7 +4442,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'rollout',
                                                 'Connect the confirmed root cause to what a real solution needs to '
                                                 'address'],
-                        'full_explanation': "Marco's instinct to move fast is understandable — the team has spent "
+                        'full_explanation': "Marco's instinct to move fast is understandable: the team has spent "
                                             'months getting to a confirmed root cause, and installing a curtain feels '
                                             'like real progress after all that analysis. But "install a plausible fix" '
                                             'and "confirm the fix actually works" are different milestones, and '
@@ -4450,12 +4450,12 @@ BELTS = {'white': {'name': 'White Belt',
                                             'from the first to declaring the second.\n'
                                             '\n'
                                             'The specific risk in going straight to full rollout is that the curtain '
-                                            'might only partially fix the problem — proofing-room temperature might '
+                                            'might only partially fix the problem; proofing-room temperature might '
                                             'stabilize faster than before, but not as completely as needed, especially '
                                             "if there's a second contributing factor (like inconsistent auxiliary "
-                                            "heating) that the curtain alone doesn't address. Without a pilot — "
+                                            "heating) that the curtain alone doesn't address. Without a pilot; "
                                             'installing the fix on one or two shifts first and measuring the actual '
-                                            'before/after difference in dough temperature and loaf weight variance — '
+                                            'before/after difference in dough temperature and loaf weight variance; '
                                             'the team has no clean way to know whether the curtain alone is '
                                             'sufficient, or whether it needs to be paired with something else. '
                                             'Committing to full rollout before that evidence exists risks spending the '
@@ -4477,7 +4477,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'whether the fix works)*',
                                                           'correct': False},
                                                          {'key': 'd',
-                                                          'text': 'Nothing further — installation is sufficient *(this '
+                                                          'text': 'Nothing further; installation is sufficient *(this '
                                                                   'is exactly the risk the lesson describes)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -4502,7 +4502,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': "Marco's instinct is always wrong *(the issue isn't "
-                                                                  "Marco's judgment personally — it's the missing "
+                                                                  "Marco's judgment personally; it's the missing "
                                                                   'validation step)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -4530,7 +4530,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'equipment-based or otherwise)*',
                                                           'correct': False}],
                                              'answer': ''}],
-                        'summary': ["Improve's real deliverable is a validated fix, evidenced by pilot data — not "
+                        'summary': ["Improve's real deliverable is a validated fix, evidenced by pilot data. It is not "
                                     'simply an installed idea.',
                                     'Piloting on a subset before full rollout protects against committing fully to a '
                                     'partial solution.'],
@@ -4542,13 +4542,13 @@ BELTS = {'white': {'name': 'White Belt',
                         'opening_question': 'The team has identified two candidate fixes for the proofing-room '
                                             'temperature gap: an **insulated curtain** over the doorway, and a '
                                             '**timer-controlled auxiliary heater** that kicks on during the changeover '
-                                            'window. Testing them one at a time — a month each — would take two months '
+                                            'window. Testing them one at a time, a month each, would take two months '
                                             'before any conclusion. How could testing both factors together, using a '
                                             'simple factorial design, get an answer faster and reveal something '
                                             'single-factor testing might miss entirely?',
                         'concepts': ['A **2×2 factorial design** tests two factors (Curtain: On/Off, Heater: On/Off) '
                                      'across all four combinations, rather than testing each factor separately.',
-                                     '**Socratic prompt:** If the curtain alone reduces temperature swing by 40%, and '
+                                     '**Think it through:** If the curtain alone reduces temperature swing by 40%, and '
                                      'the heater alone reduces it by 30%, would you expect the combination to reduce '
                                      'it by roughly 70%? What would it mean if the actual combined result was much '
                                      'better, or much worse, than that simple sum?'],
@@ -4571,7 +4571,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain why testing factors together can reveal something '
                                                 'one-at-a-time testing cannot'],
                         'full_explanation': 'Testing the curtain for a month, then the heater for a separate month, '
-                                            'would eventually produce two individual answers — but it would never '
+                                            'would eventually produce two individual answers. But it would never '
                                             'reveal how the two factors behave *together*, which matters enormously if '
                                             'they interact. A **2×2 factorial design** solves this efficiently: '
                                             'instead of two sequential month-long tests, the team runs all four '
@@ -4587,17 +4587,17 @@ BELTS = {'white': {'name': 'White Belt',
                                             '| **Curtain Off** | 8.2°F swing | 5.9°F swing |\n'
                                             '| **Curtain On** | 4.6°F swing | 1.8°F swing |\n'
                                             '\n'
-                                            'Curtain alone (Off→On, Heater Off): swing drops from 8.2 to 4.6 — a 3.6°F '
+                                            'Curtain alone (Off→On, Heater Off): swing drops from 8.2 to 4.6: a 3.6°F '
                                             'improvement. Heater alone (Off→On, Curtain Off): swing drops from 8.2 to '
-                                            '5.9 — a 2.3°F improvement. If the two effects were simply additive, '
+                                            '5.9: a 2.3°F improvement. If the two effects were simply additive, '
                                             'combining both should produce roughly 8.2 − 3.6 − 2.3 = 2.3°F. But the '
-                                            'actual combined result is 1.8°F — better than the simple sum predicts. '
+                                            'actual combined result is 1.8°F; better than the simple sum predicts. '
                                             'This is a real, if modest, **positive interaction**: the curtain and '
                                             'heater work better together than their individual effects would suggest, '
                                             'likely because the curtain traps the warm air the heater produces rather '
                                             'than letting it escape through the doorway gap. A team testing these '
                                             'factors one at a time, sequentially, would have correctly identified the '
-                                            'curtain as the stronger single factor — but would never have discovered '
+                                            'curtain as the stronger single factor. But would never have discovered '
                                             'that combining both produces an even better result than either alone.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What does a 2×2 factorial design test, compared to testing '
@@ -4609,7 +4609,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': "Only the single best-performing factor *(that's "
-                                                                  'what one-at-a-time testing would tell you — '
+                                                                  'what one-at-a-time testing would tell you; '
                                                                   'factorial design tests combinations)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -4626,7 +4626,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'question': 'In the data table, what does the combined result (1.8°F) '
                                                          'being better than the simple sum (2.3°F) suggest?',
                                              'options': [{'key': 'a',
-                                                          'text': 'A positive interaction — the curtain and heater '
+                                                          'text': 'A positive interaction: the curtain and heater '
                                                                   'reinforce each other beyond what either does alone '
                                                                   '*(correct)*',
                                                           'correct': True},
@@ -4667,7 +4667,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'There is no meaningful difference between the two '
-                                                                  'approaches *(there is — the interaction insight is '
+                                                                  'approaches *(there is: the interaction insight is '
                                                                   'only visible in the factorial approach)*',
                                                           'correct': False}],
                                              'answer': ''}],
@@ -4684,16 +4684,16 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Root Cause Analysis (Verifying the Fix)',
                         'opening_question': 'The curtain-and-heater combination tested best in the DOE. Before '
                                             'ordering equipment for every shift, what should the team check to make '
-                                            'sure this fix actually addresses the confirmed root cause — rather than '
+                                            'sure this fix actually addresses the confirmed root cause. Rather than '
                                             'just being the best-performing option among the ones they happened to '
                                             'think of?',
                         'concepts': ['A solution should be explicitly traced back to the Analyze-phase root cause '
                                      'statement: does it directly address *proofing-room cooling during the shift '
                                      'changeover gap*, or does it just correlate with improvement for some other '
                                      'reason?',
-                                     "**Socratic prompt:** Suppose the heater's timer malfunctions and stays on far "
+                                     "**Think it through:** Suppose the heater's timer malfunctions and stays on far "
                                      'longer than intended one night. What new problem could this introduce that '
-                                     "didn't exist before the fix — and is that a reasonable risk to check for before "
+                                     "didn't exist before the fix. is that a reasonable risk to check for before "
                                      'full rollout?'],
                         'terms': ['Root Cause Verification', 'FMEA (Failure Mode and Effects Analysis', 'lightweight)'],
                         'math': [],
@@ -4705,13 +4705,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Distinguish "best-performing option tested" from "actually addresses '
                                                 'the root cause"'],
                         'full_explanation': 'It would be easy to treat "this combination scored best in the DOE" as '
-                                            'sufficient justification to move forward — but a high-performing result '
+                                            'sufficient justification to move forward. But a high-performing result '
                                             "in a controlled test doesn't automatically confirm the fix is addressing "
                                             'the actual confirmed root cause (proofing-room cooling during the '
                                             'changeover gap) rather than some coincidental factor specific to the test '
                                             "window. Before finalizing, it's worth explicitly re-checking: does the "
                                             'curtain-and-heater combination directly target temperature stability '
-                                            'during that specific gap? In this case, yes — both factors act directly '
+                                            'during that specific gap? In this case, yes. Both factors act directly '
                                             'on room temperature during exactly the window Analyze identified, which '
                                             'is a good sign the DOE result reflects a genuine fix rather than a '
                                             'coincidence.\n'
@@ -4720,12 +4720,12 @@ BELTS = {'white': {'name': 'White Belt',
                                             "confirming it doesn't introduce a *new* one. This is where a lightweight "
                                             'FMEA-style check earns its place: walking through plausible failure modes '
                                             'of the fix itself, not just its intended benefit. The heater timer '
-                                            'malfunctioning and running too long is a clear, plausible example — it '
+                                            'malfunctioning and running too long is a clear, plausible example. It '
                                             'could over-warm the proofing room well past the target range, potentially '
                                             'over-proofing the dough and creating a new consistency problem that '
                                             "didn't exist in the original process at all. This doesn't mean the fix "
-                                            'should be abandoned; it means the solution needs a safeguard — for '
-                                            'instance, a temperature cutoff or alarm — before being rolled out to '
+                                            'should be abandoned. It means the solution needs a safeguard; for '
+                                            'instance, a temperature cutoff or alarm; before being rolled out to '
                                             'every shift, rather than being treated as risk-free simply because it '
                                             'tested well in the DOE.',
                         'knowledge_check': [{'number': 1,
@@ -4738,13 +4738,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'DOE results are never reliable *(DOE results are '
-                                                                  'reliable evidence — the point is that further '
+                                                                  'reliable evidence: the point is that further '
                                                                   'verification is still worthwhile before full '
                                                                   'rollout)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'The root cause was never actually confirmed *(it '
-                                                                  'was confirmed in Analyze — the task here is tracing '
+                                                                  'was confirmed in Analyze: the task here is tracing '
                                                                   'the fix back to it)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -4757,12 +4757,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'illustrate?',
                                              'options': [{'key': 'a',
                                                           'text': 'A fix aimed at solving one problem can introduce a '
-                                                                  'new failure mode — like over-proofing from excess '
-                                                                  "heat — that didn't exist before *(correct)*",
+                                                                  'new failure mode; like over-proofing from excess '
+                                                                  "heat. That didn't exist before *(correct)*",
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Heaters should never be used in any bakery process '
-                                                                  '*(overly broad — the issue is a specific '
+                                                                  '*(overly broad: the issue is a specific '
                                                                   'malfunction risk, not heaters in general)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -4772,7 +4772,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': "This risk is irrelevant to the Improve phase *(it's "
-                                                                  "directly relevant — it's exactly the kind of risk "
+                                                                  "directly relevant; it's exactly the kind of risk "
                                                                   'Improve phase should catch before finalizing the '
                                                                   'fix)*',
                                                           'correct': False}],
@@ -4787,13 +4787,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Abandon the curtain-and-heater solution entirely '
-                                                                  '*(the underlying fix remains sound; it needs a '
+                                                                  '*(the underlying fix remains sound. It needs a '
                                                                   'safeguard, not abandonment)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Ignore the risk since the DOE already validated the '
                                                                   'solution *(DOE validated performance under test '
-                                                                  "conditions — it didn't specifically test for this "
+                                                                  "conditions. It didn't specifically test for this "
                                                                   'failure mode)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -4815,7 +4815,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Lean Tools',
                         'opening_question': "Beyond the temperature fix, Define's affinity diagram (Lesson 05) also "
                                             'flagged the manual reweighing workaround for the still-broken '
-                                            'auto-weigher as a real issue — just not the primary root cause. Should '
+                                            'auto-weigher as a real issue; just not the primary root cause. Should '
                                             "the team fix this now too, even though it isn't what's driving the "
                                             'confirmed variance problem?',
                         'concepts': ['**Standard work** documents the correct, consistent procedure for the shift '
@@ -4823,8 +4823,8 @@ BELTS = {'white': {'name': 'White Belt',
                                      'before baking resumes).',
                                      '**Visual management**: a temperature gauge with a clearly marked target range, '
                                      'so any operator can see at a glance whether the room is in or out of the safe '
-                                     'zone — not just Marco.',
-                                     "**Socratic prompt:** The reweighing workaround wasn't the primary root cause, "
+                                     'zone. It is not just Marco.',
+                                     "**Think it through:** The reweighing workaround wasn't the primary root cause, "
                                      "but it's still a real source of manual error and wasted time. Does fixing the "
                                      'primary root cause make this secondary issue less worth addressing, or does it '
                                      "just mean it's no longer the *urgent* item?"],
@@ -4846,17 +4846,17 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'workaround) can still be worthwhile alongside the primary fix',
                                                 'Distinguish a Lean housekeeping fix from the primary '
                                                 'statistical/technical solution'],
-                        'full_explanation': 'The confirmed root cause — proofing-room temperature during the '
-                                            'changeover gap — deserves the primary fix (curtain and heater with a '
+                        'full_explanation': 'The confirmed root cause; proofing-room temperature during the '
+                                            'changeover gap; deserves the primary fix (curtain and heater with a '
                                             "safeguard), but that doesn't mean every other issue flagged back in "
                                             'Define should simply be forgotten. The manual reweighing workaround, tied '
                                             'to the still-unrepaired auto-weigher, is a good example of a secondary '
                                             'issue worth addressing through simpler Lean tools rather than a full '
                                             'DOE-driven fix of its own.\n'
                                             '\n'
-                                            '**Standard work** — a written, specific checklist for the shift '
+                                            '**Standard work**: a written, specific checklist for the shift '
                                             'changeover procedure, including verifying the proofing room has reached '
-                                            'its target temperature range before baking resumes — turns "Marco knows '
+                                            'its target temperature range before baking resumes; turns "Marco knows '
                                             'how to check this" into something any operator on any shift can follow '
                                             'consistently, reducing the risk of the fix depending entirely on one '
                                             "experienced person's memory. **Visual management** complements this "
@@ -4866,13 +4866,13 @@ BELTS = {'white': {'name': 'White Belt',
                                             'target range from memory.\n'
                                             '\n'
                                             "Addressing the reweighing workaround doesn't require anywhere near the "
-                                            "same rigor as the temperature fix did — it doesn't need a factorial "
+                                            "same rigor as the temperature fix did. It doesn't need a factorial "
                                             'experiment, just a straightforward process cleanup: repair or replace the '
                                             'auto-weigher, and in the meantime, standardize the manual reweighing '
                                             "procedure so it's done consistently rather than as an ad hoc workaround. "
                                             'This illustrates a useful principle for Improve phase generally: not '
                                             'every issue on the original affinity diagram needs the same depth of '
-                                            'statistical rigor — the primary, confirmed root cause earns a DOE-tested '
+                                            'statistical rigor: the primary, confirmed root cause earns a DOE-tested '
                                             'fix, while known secondary issues can often be resolved with simpler Lean '
                                             'housekeeping tools, addressed in parallel rather than left indefinitely '
                                             'unaddressed.',
@@ -4887,7 +4887,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'It replaces the need for the temperature safeguard '
                                                                   'discussed in the previous lesson *(it complements '
-                                                                  "the fix; it doesn't replace the safeguard itself)*",
+                                                                  "the fix. It doesn't replace the safeguard itself)*",
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': "It's only relevant to statistical processes, not "
@@ -4950,7 +4950,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': ''}],
                         'summary': ['Standard work and visual management support a technical fix by making it '
                                     'consistent and easy to verify for any operator.',
-                                    "Secondary issues from Define's original brainstorm are still worth fixing — just "
+                                    "Secondary issues from Define's original brainstorm are still worth fixing; just "
                                     'with proportionate effort, not the same rigor as the primary root cause.',
                                     'Not every improvement needs a DOE; some just need straightforward process '
                                     'cleanup.'],
@@ -4962,15 +4962,15 @@ BELTS = {'white': {'name': 'White Belt',
                         'opening_question': "The DOE showed the curtain-and-heater combination performs best, but it's "
                                             'also the most expensive option tested, and now needs an added temperature '
                                             'safeguard on top of that. How should the team make a defensible final '
-                                            'decision — weighing performance against cost and risk — rather than '
+                                            'decision, weighing performance against cost and risk, rather than '
                                             'simply picking whatever performed best in the test, regardless of what it '
                                             'costs to implement everywhere?',
                         'concepts': ['A **solution-selection matrix** scores each candidate option against multiple '
                                      'criteria (performance, cost, implementation risk, ease of rollout) rather than a '
                                      'single "best test result" metric.',
-                                     '**Socratic prompt:** If the curtain-alone option performs meaningfully worse '
+                                     '**Think it through:** If the curtain-alone option performs meaningfully worse '
                                      'than the combination, but costs a third as much and requires no new safeguard, '
-                                     'how would you decide whether that trade-off is worth it — and who should weigh '
+                                     'how would you decide whether that trade-off is worth it. who should weigh '
                                      'in on that decision besides you?'],
                         'terms': ['Solution-Selection Matrix', 'Trade-off Analysis'],
                         'math': [],
@@ -4981,27 +4981,27 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'the right final choice',
                                                 'Make and justify a defensible final recommendation to a champion'],
                         'full_explanation': "It's tempting to treat the DOE's best-performing combination as the "
-                                            'automatic final answer — but "best-performing in the test" and "best '
+                                            'automatic final answer. But "best-performing in the test" and "best '
                                             'choice to implement everywhere" aren\'t guaranteed to be the same '
                                             'decision once cost and risk enter the picture. The curtain-and-heater '
                                             'combination reduced temperature swing to 1.8°F, clearly the strongest '
-                                            'result — but it also costs more to install across every shift, and now '
+                                            'result. But it also costs more to install across every shift, and now '
                                             'requires an added temperature safeguard given the risk identified in '
                                             'Lesson 03. The curtain-alone option, by contrast, reduced swing to 4.6°F '
-                                            '— a real, meaningful improvement over the 8.2°F baseline, though not as '
-                                            'strong — at roughly a third of the cost and without needing the '
+                                            '; a real, meaningful improvement over the 8.2°F baseline, though not as '
+                                            'strong; at roughly a third of the cost and without needing the '
                                             'additional safeguard at all.\n'
                                             '\n'
                                             'A simple **solution-selection matrix** makes this trade-off explicit '
                                             'rather than leaving it implicit: score each option (curtain alone, heater '
                                             'alone, both) against performance, cost, implementation risk, and rollout '
                                             'speed, rather than defaulting to whichever option "won" on a single '
-                                            "metric. This doesn't necessarily mean choosing the cheaper option — it "
+                                            "metric. This doesn't necessarily mean choosing the cheaper option. It "
                                             'means making the trade-off visible and defensible, and importantly, '
                                             "recognizing that this decision isn't purely technical. Whether a further "
                                             '2.8°F improvement (4.6°F vs. 1.8°F) is worth the added cost and '
                                             'complexity of the heater-plus-safeguard is a judgment call blending '
-                                            'quality outcome, budget, and operational risk — exactly the kind of '
+                                            'quality outcome, budget, and operational risk; exactly the kind of '
                                             'decision a champion (and possibly finance) should weigh in on, rather '
                                             'than the Green Belt simply picking the technically superior option in '
                                             'isolation and presenting it as a fait accompli.',
@@ -5017,7 +5017,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'DOE results are unreliable for making real '
                                                                   'decisions *(DOE results are reliable performance '
-                                                                  'evidence — the issue is that performance alone '
+                                                                  'evidence: the issue is that performance alone '
                                                                   "isn't the only relevant factor)*",
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5028,7 +5028,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'The best-performing option is always the cheapest '
-                                                                  'anyway *(in this scenario, the opposite is true — '
+                                                                  'anyway *(in this scenario, the opposite is true; '
                                                                   "it's the most expensive option)*",
                                                           'correct': False}],
                                              'answer': ''},
@@ -5037,13 +5037,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'this specific decision?',
                                              'options': [{'key': 'a',
                                                           'text': 'The choice blends quality outcome with cost and '
-                                                                  'operational risk — a judgment call beyond a purely '
+                                                                  'operational risk: a judgment call beyond a purely '
                                                                   'technical decision *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'The Green Belt is not qualified to understand the '
                                                                   'DOE results *(the Green Belt understands the '
-                                                                  'technical results well — the issue is the broader '
+                                                                  'technical results well: the issue is the broader '
                                                                   'trade-off, not technical competence)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5069,7 +5069,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'To guarantee the cheapest option is always chosen '
-                                                                  "*(it doesn't predetermine the outcome — it "
+                                                                  "*(it doesn't predetermine the outcome. It "
                                                                   'structures the comparison)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5094,7 +5094,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'module_title': 'Improve Phase (Full Module, 6 Lessons)'},
                        {'code': 'G30',
                         'title': 'Case Study',
-                        'opening_question': '1. The Cpk improved from 0.49 to roughly 1.15 — a meaningful gain, but '
+                        'opening_question': '1. The Cpk improved from 0.49 to roughly 1.15: a meaningful gain, but '
                                             'still short of the commonly used "capable process" threshold of 1.33. '
                                             'Should the team recommend full rollout now, or continue refining the fix '
                                             'first?',
@@ -5128,11 +5128,11 @@ BELTS = {'white': {'name': 'White Belt',
                                             '- Pilot (curtain + heater + safeguard, night shift only, 4 weeks): mean '
                                             'loaf weight 500.1g, SD 0.55g, Cpk ≈ 1.15\n'
                                             '- Safeguard activated twice during the pilot (once due to a timer delay, '
-                                            'once due to a sensor miscalibration) — both times before any dough was '
+                                            'once due to a sensor miscalibration). Both times before any dough was '
                                             'affected, and both root-caused and corrected within the pilot window.\n'
                                             '\n'
                                             '**Case Questions:**\n'
-                                            '1. The Cpk improved from 0.49 to roughly 1.15 — a meaningful gain, but '
+                                            '1. The Cpk improved from 0.49 to roughly 1.15: a meaningful gain, but '
                                             'still short of the commonly used "capable process" threshold of 1.33. '
                                             'Should the team recommend full rollout now, or continue refining the fix '
                                             'first? What would you want to know before deciding?\n'
@@ -5141,7 +5141,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'is working as intended, or evidence the underlying fix is still '
                                             'unreliable? Could it be both?\n'
                                             '3. Given the pilot data, what would you include in the recommendation '
-                                            'memo to Sam — and what would you deliberately leave for the Control phase '
+                                            'memo to Sam. what would you deliberately leave for the Control phase '
                                             'to address, rather than trying to solve everything before rollout?',
                         'knowledge_check': [],
                         'summary': [],
@@ -5154,10 +5154,10 @@ BELTS = {'white': {'name': 'White Belt',
                                             'to every shift. Before the team considers this project closed, what does '
                                             'Control phase actually need to establish?',
                         'concepts': ["Control's deliverable is evidence that the improvement **holds up over time** "
-                                     'across all shifts — not just a four-week pilot result on one shift.',
-                                     '**Socratic prompt:** If the team declares the project closed immediately after '
+                                     'across all shifts. It is not just a four-week pilot result on one shift.',
+                                     '**Think it through:** If the team declares the project closed immediately after '
                                      'full rollout, with no monitoring plan in place, what happens if performance '
-                                     'quietly drifts back toward the old baseline six months from now — and who would '
+                                     'quietly drifts back toward the old baseline six months from now. who would '
                                      'even notice?'],
                         'terms': ['Sustained Performance', 'Monitoring Plan'],
                         'math': [{'name': 'Cp',
@@ -5184,7 +5184,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'question than it might seem: it confirms the fix worked on one shift, for '
                                             'four weeks, while the project team was actively paying close attention. '
                                             "It doesn't yet confirm the fix holds up across every shift, over months, "
-                                            "once the project team's attention naturally shifts to other priorities — "
+                                            "once the project team's attention naturally shifts to other priorities; "
                                             'which is exactly the gap Control phase exists to close.\n'
                                             '\n'
                                             "The real risk in skipping this isn't that the fix is secretly wrong; it's "
@@ -5192,9 +5192,9 @@ BELTS = {'white': {'name': 'White Belt',
                                             "old baseline. Equipment can wear, a new operator on a shift Marco doesn't "
                                             'work might not follow the standard-work checklist as consistently, or a '
                                             'facilities change (like a new HVAC schedule) could reintroduce hidden '
-                                            'variation. Without an active monitoring plan — someone watching real data '
+                                            'variation. Without an active monitoring plan; someone watching real data '
                                             'on a regular cadence, with clear criteria for what counts as a warning '
-                                            'sign — this kind of drift is often invisible internally until the exact '
+                                            'sign. This kind of drift is often invisible internally until the exact '
                                             'outcome the project was meant to prevent happens again: the grocery '
                                             "customer's own audit catching a problem before Golden Crust does.",
                         'knowledge_check': [{'number': 1,
@@ -5202,13 +5202,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'closing the project?',
                                              'options': [{'key': 'a',
                                                           'text': 'It confirms the fix worked on one shift for a '
-                                                                  'limited window under close attention — not that it '
+                                                                  'limited window under close attention. It is not that it '
                                                                   'holds up across all shifts over time without that '
                                                                   'attention *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Pilot results are inherently unreliable *(the pilot '
-                                                                  'data is real evidence — the issue is its limited '
+                                                                  'data is real evidence: the issue is its limited '
                                                                   'scope and duration, not its reliability)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5232,7 +5232,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'The fix will definitely fail within a week *(no '
-                                                                  'such certainty is claimed — the risk is undetected '
+                                                                  'such certainty is claimed: the risk is undetected '
                                                                   'drift, not guaranteed failure)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5270,7 +5270,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ["Control's real deliverable is evidence the improvement holds up over time, across "
-                                    'all shifts — not just a strong pilot.',
+                                    'all shifts. It is not just a strong pilot.',
                                     'Skipping monitoring risks invisible drift back toward the old baseline, '
                                     'potentially caught only by an external audit.'],
                         'hands_on_activity': '',
@@ -5285,7 +5285,7 @@ BELTS = {'white': {'name': 'White Belt',
                                      '(typically ±3 standard deviations from the process mean); **specification '
                                      'limits** (like the ±2g contract tolerance) come from the customer requirement '
                                      "and have nothing to do with the process's actual behavior.",
-                                     '**Socratic prompt:** If a control chart shows one point beyond the upper control '
+                                     '**Think it through:** If a control chart shows one point beyond the upper control '
                                      'limit, but that loaf is still well within the ±2g specification, should the team '
                                      'investigate anyway?'],
                         'terms': ['Control Limits', 'Specification Limits', 'Control Chart'],
@@ -5302,21 +5302,21 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain why a chart can trigger an investigation even when the '
                                                 'product is still within specification'],
                         'full_explanation': "It's a common and understandable instinct to only worry about a data "
-                                            'point if it actually falls outside the ±2g specification — after all, '
+                                            'point if it actually falls outside the ±2g specification; after all, '
                                             "that's the number the customer contract cares about. But **control "
                                             "limits** are a different, and in some ways more useful, signal: they're "
                                             'calculated from how the process itself has been behaving (based on its '
                                             "own mean and standard deviation), not from the customer's requirement. A "
                                             'process running steadily at mean 500.1g with SD 0.55g would have control '
-                                            'limits roughly at 500.1 ± (3 × 0.55) ≈ 498.45g to 501.75g — narrower than '
+                                            'limits roughly at 500.1 ± (3 × 0.55) ≈ 498.45g to 501.75g; narrower than '
                                             'the ±2g specification, and entirely independent of it.\n'
                                             '\n'
                                             'This is exactly why a point beyond the control limit deserves '
                                             'investigation even when the loaf is still within specification: it means '
                                             'something about the *process itself* has shifted from its normal '
                                             'behavior, even if the immediate output happens to still be acceptable. '
-                                            'Catching this early — say, a subtle sensor drift on the temperature '
-                                            'safeguard, or an operator skipping a standard-work step — gives the team '
+                                            'Catching this early; say, a subtle sensor drift on the temperature '
+                                            'safeguard, or an operator skipping a standard-work step; gives the team '
                                             'a chance to correct course before that shift compounds into an actual '
                                             'out-of-spec loaf, rather than waiting for a real defect to appear before '
                                             "reacting. This is the core value of SPC: it uses the process's own "
@@ -5359,7 +5359,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'Points beyond control limits always mean the '
                                                                   'product is defective *(the point is still within '
-                                                                  'spec in this scenario — the signal is about process '
+                                                                  'spec in this scenario: the signal is about process '
                                                                   'behavior, not existing defects)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5383,7 +5383,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'A guarantee that no defect will ever occur *(no '
-                                                                  "such guarantee is described — it's about earlier "
+                                                                  "such guarantee is described; it's about earlier "
                                                                   'detection, not elimination of all risk)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5396,7 +5396,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ["Control limits reflect the process's own natural variation; specification limits "
-                                    "reflect the customer's requirement — they're independent of each other.",
+                                    "reflect the customer's requirement; they're independent of each other.",
                                     'A signal beyond control limits is worth investigating even when the product is '
                                     'still within specification, since it can catch a developing problem early.'],
                         'hands_on_activity': '',
@@ -5411,8 +5411,8 @@ BELTS = {'white': {'name': 'White Belt',
                                      "weight), how often (each shift changeover, daily aggregate review), who's "
                                      'responsible (by role, not by name), and the specific response procedure when a '
                                      'signal occurs.',
-                                     '**Socratic prompt:** If the control plan says "Marco checks the temperature '
-                                     'gauge at changeover," what happens the day Marco isn\'t there — and how would '
+                                     '**Think it through:** If the control plan says "Marco checks the temperature '
+                                     'gauge at changeover," what happens the day Marco isn\'t there. how would '
                                      'writing the plan differently have prevented this gap entirely?'],
                         'terms': ['Control Plan', 'Role-Based Responsibility'],
                         'math': [],
@@ -5423,7 +5423,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'specific named individuals',
                                                 'Apply this thinking to a real handoff scenario'],
                         'full_explanation': 'A control plan that quietly depends on one specific person is a control '
-                                            "plan with an unaddressed single point of failure — and Marco's upcoming "
+                                            "plan with an unaddressed single point of failure. Marco's upcoming "
                                             'vacation is exactly the kind of ordinary, predictable event that exposes '
                                             'this gap immediately. If the plan literally reads "Marco checks the '
                                             'gauge," it stops functioning the moment Marco isn\'t physically present, '
@@ -5433,15 +5433,15 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             'The fix is straightforward but easy to overlook when a plan is written by '
                                             '(and implicitly for) the person who happens to be most involved during '
-                                            'the project itself: define every responsibility by **role** — "the shift '
-                                            'lead on duty" — rather than by name. Paired with the standard-work '
+                                            'the project itself: define every responsibility by **role**; "the shift '
+                                            'lead on duty". Rather than by name. Paired with the standard-work '
                                             'checklist and visual management from Improve phase, this means any '
                                             'qualified shift lead, on any shift, on any day, can follow the same '
                                             'documented procedure: check the gauge at changeover, log the reading, and '
                                             'follow a specific, written escalation procedure (who to call, what to do '
                                             'with product already in process) if the safeguard trips or a reading '
                                             'falls outside the expected range. This is what actually makes a control '
-                                            'plan durable past the life of the project team — it survives staff '
+                                            'plan durable past the life of the project team. It survives staff '
                                             'turnover, vacations, and shift rotations, because it was never dependent '
                                             "on one specific person's presence in the first place.",
                         'knowledge_check': [{'number': 1,
@@ -5455,12 +5455,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Named individuals are always less reliable than '
-                                                                  "roles *(the issue isn't reliability of the person — "
+                                                                  "roles *(the issue isn't reliability of the person; "
                                                                   "it's availability over time)*",
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': "It's illegal to name individuals in a control plan "
-                                                                  '*(no such legal issue is described — the concern is '
+                                                                  '*(no such legal issue is described: the concern is '
                                                                   'operational durability)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -5478,7 +5478,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Removing the temperature check from the control '
-                                                                  'plan entirely *(the check remains necessary — only '
+                                                                  'plan entirely *(the check remains necessary; only '
                                                                   "the responsible party's description needs to "
                                                                   'change)*',
                                                           'correct': False},
@@ -5532,10 +5532,10 @@ BELTS = {'white': {'name': 'White Belt',
                                             'checklist from Improve phase is still actually being followed on every '
                                             'shift, rather than quietly skipped once the excitement of the fix has '
                                             'faded?',
-                        'concepts': ['A **layered process audit** — a brief, periodic, often unannounced check by '
-                                     'someone other than the routine operator — verifies that a standard-work '
+                        'concepts': ['A **layered process audit**: a brief, periodic, often unannounced check by '
+                                     'someone other than the routine operator; verifies that a standard-work '
                                      'procedure is actually being followed, not just that it exists on paper.',
-                                     '**Socratic prompt:** The temperature gauge (visual management from Improve) '
+                                     '**Think it through:** The temperature gauge (visual management from Improve) '
                                      'makes it easy to check compliance in the moment. Does that mean compliance is '
                                      'guaranteed to continue six months from now, without anyone checking on the '
                                      'checking?'],
@@ -5552,15 +5552,15 @@ BELTS = {'white': {'name': 'White Belt',
                                             'initiative, under a different name each time: the first steps (installing '
                                             'a fix, writing a checklist, marking a visual gauge) are usually done '
                                             'well, precisely because the project team is paying close attention. What '
-                                            "tends to fail, months later, isn't the initial fix — it's whether anyone "
+                                            "tends to fail, months later, isn't the initial fix; it's whether anyone "
                                             'is still checking that the fix is being used correctly, once the project '
                                             "team's attention has naturally moved elsewhere. This is exactly the "
                                             '"Sustain" problem from 5S, showing up again here in the context of a '
                                             'completed Six Sigma project.\n'
                                             '\n'
-                                            'A **layered process audit** — a short, periodic, sometimes unannounced '
+                                            'A **layered process audit**: a short, periodic, sometimes unannounced '
                                             "check, ideally performed by someone other than the shift lead who's "
-                                            'supposed to be doing the routine check — directly addresses this. It '
+                                            'supposed to be doing the routine check; directly addresses this. It '
                                             "doesn't need to be elaborate: a quality engineer or supervisor "
                                             'spot-checking, once a week or once a month, whether the temperature log '
                                             'is actually being filled in consistently, whether the visual gauge '
@@ -5569,7 +5569,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'is often enough to catch drift in the follow-through long before it shows '
                                             'up as an actual quality problem. Pairing the visual control (which makes '
                                             "correct behavior easy) with a periodic audit (which verifies it's still "
-                                            'happening) closes the exact gap that "Sustain" describes — a control '
+                                            'happening) closes the exact gap that "Sustain" describes: a control '
                                             "that's easy to follow, but nobody ever checks whether it actually is "
                                             'being followed.',
                         'knowledge_check': [{'number': 1,
@@ -5590,7 +5590,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Visual controls are inherently unreliable from day '
-                                                                  'one *(visual controls work well initially — the '
+                                                                  'one *(visual controls work well initially: the '
                                                                   'risk is sustained follow-through over time, not '
                                                                   'initial reliability)*',
                                                           'correct': False},
@@ -5614,7 +5614,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'That the original DOE results were correct *(the '
-                                                                  'DOE results were already validated earlier — the '
+                                                                  'DOE results were already validated earlier: the '
                                                                   'audit checks ongoing compliance, not the original '
                                                                   'experiment)*',
                                                           'correct': False},
@@ -5633,7 +5633,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'The routine operator is assumed to be dishonest '
-                                                                  "*(the reasoning isn't about honesty — it's about an "
+                                                                  "*(the reasoning isn't about honesty; it's about an "
                                                                   "outside perspective catching drift that's easy to "
                                                                   'miss from the inside)*',
                                                           'correct': False},
@@ -5650,8 +5650,8 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': ''}],
                         'summary': ["Standard work and visual controls make correct behavior easy, but don't guarantee "
                                     'it continues without periodic verification.',
-                                    'Layered process audits — brief, periodic checks, ideally by someone other than '
-                                    'the routine operator — verify ongoing compliance.',
+                                    'Layered process audits; brief, periodic checks, ideally by someone other than '
+                                    'the routine operator; verify ongoing compliance.',
                                     'This mirrors the "Sustain" risk from 5S: initial fixes are usually done well; '
                                     'ongoing follow-through is where drift most often occurs unnoticed.'],
                         'hands_on_activity': '',
@@ -5684,8 +5684,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             'scenario, wrapping up the full DMAIC journey.)*\n'
                                             '\n'
                                             '**Full project summary:**\n'
-                                            '- **Define:** Problem — grocery contract suspended over inconsistent loaf '
-                                            'weight ($650,000/year at risk). Goal — bring packaging line into '
+                                            '- **Define:** Problem; grocery contract suspended over inconsistent loaf '
+                                            'weight ($650,000/year at risk). Goal; bring packaging line into '
                                             'compliance, sustained across two consecutive quarterly audits.\n'
                                             '- **Measure:** Baseline confirmed at mean 500.4g, SD 1.1g, Cpk ≈ 0.49, '
                                             'after correcting a real scale-calibration issue along the way.\n'
@@ -5702,7 +5702,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'put in place to sustain performance.\n'
                                             '\n'
                                             '**Six months post-rollout data:** Mean loaf weight 500.05g, SD 0.51g, Cpk '
-                                            '≈ 1.27 — a further improvement over the pilot, attributed largely to the '
+                                            '≈ 1.27: a further improvement over the pilot, attributed largely to the '
                                             'layered process audits catching two early instances of the standard-work '
                                             'checklist being skipped, before either instance produced an out-of-spec '
                                             "loaf. The grocery contract has been fully reinstated, with the customer's "
@@ -5720,9 +5720,9 @@ BELTS = {'white': {'name': 'White Belt',
                                             'to show up, just three months after rollout? Are these two '
                                             'interpretations actually in conflict?\n'
                                             '3. Looking back across the entire DMAIC project, which single decision '
-                                            "point — Define's goal statement, Measure's scale recalibration, Analyze's "
+                                            "point; Define's goal statement, Measure's scale recalibration, Analyze's "
                                             "narrowing to the changeover-gap pattern, Improve's DOE, or Control's "
-                                            'role-based plan — do you think had the largest effect on the final '
+                                            'role-based plan; do you think had the largest effect on the final '
                                             'outcome, and why? Would a different Green Belt reasonably pick a '
                                             'different answer?',
                         'knowledge_check': [],
@@ -5735,17 +5735,17 @@ BELTS = {'white': {'name': 'White Belt',
                         'opening_question': "Golden Crust's COO wants to launch a gluten-free protein bread line "
                                             'within eight months, targeting health-conscious retail customers. R&D is '
                                             'eager to start baking test batches this week. Before any baking happens, '
-                                            'what does a DMADV Define phase need to establish — and how is it similar '
+                                            'what does a DMADV Define phase need to establish. how is it similar '
                                             'to, and different from, the Define phase you already know from DMAIC?',
                         'concepts': ["DMADV's Define phase, like DMAIC's, requires a business case, goal statement, "
-                                     "and scope — but the goal describes a target for something that doesn't exist "
+                                     "and scope. But the goal describes a target for something that doesn't exist "
                                      'yet, not a current-state problem.',
-                                     "**Socratic prompt:** DMAIC's Define phase (Define Module, Lesson 01) warned "
+                                     "**Think it through:** DMAIC's Define phase (Define Module, Lesson 01) warned "
                                      'against starting Measure before scope was explicit. Does that same risk apply '
-                                     'here — could Golden Crust "measure" anything meaningful about a protein bread '
+                                     'here; could Golden Crust "measure" anything meaningful about a protein bread '
                                      "line before Define locks down what's actually being built?",
                                      'A DMADV goal statement typically specifies a target launch date, target customer '
-                                     'segment, and a business outcome — parallel in structure to a DMAIC goal '
+                                     'segment, and a business outcome; parallel in structure to a DMAIC goal '
                                      'statement, but aimed at something new rather than an improvement delta.'],
                         'terms': ['DMADV Define', 'Goal Statement (New Product)'],
                         'math': [],
@@ -5759,19 +5759,19 @@ BELTS = {'white': {'name': 'White Belt',
                         'full_explanation': 'It\'s tempting to treat "we\'re launching a new product" as different '
                                             'enough from "we\'re fixing an old process" that the discipline of Define '
                                             "doesn't fully apply. But the risk DMAIC's Define phase exists to prevent "
-                                            '— proceeding without agreement on scope and goals — is, if anything, '
+                                            '; proceeding without agreement on scope and goals; is, if anything, '
                                             "larger in a DMADV project, because there's no existing process to fall "
                                             "back on if the team's assumptions turn out wrong.\n"
                                             '\n'
                                             "Golden Crust's DMADV Define phase needs a business case (why this "
-                                            'product, why now — likely a market trend toward high-protein, gluten-free '
+                                            'product, why now; likely a market trend toward high-protein, gluten-free '
                                             'snacking, tied to a specific revenue target), a goal statement (e.g., '
                                             '"launch a gluten-free protein bread line meeting defined CTQs, ready for '
                                             'retail distribution within 8 months, targeting $1.2M in incremental '
                                             'annual revenue"), and scope (which retail channels, which regions, '
                                             'retail-only or including foodservice/bulk accounts). Critically, it also '
-                                            "needs an explicit list of what's *not* yet decided — the exact recipe, "
-                                            'the exact protein source, the exact price point — because those are '
+                                            "needs an explicit list of what's *not* yet decided: the exact recipe, "
+                                            'the exact protein source, the exact price point. This is because those are '
                                             'precisely what the rest of DMADV exists to determine. Naming them as "not '
                                             'yet decided, to be determined via DMADV" prevents R&D\'s instinct to lock '
                                             "in a recipe this week from quietly narrowing the team's options before "
@@ -5781,7 +5781,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'DMAIC, arguably more?',
                                              'options': [{'key': 'a',
                                                           'text': "There's no existing process to fall back on if the "
-                                                                  "team's assumptions turn out wrong — everything is "
+                                                                  "team's assumptions turn out wrong; everything is "
                                                                   'being built from an unverified starting point '
                                                                   '*(correct)*',
                                                           'correct': True},
@@ -5809,7 +5809,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': "The exact final recipe *(that's determined later, "
-                                                                  'in Design — locking it in now would undermine '
+                                                                  'in Design; locking it in now would undermine '
                                                                   'Measure and Analyze)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -5847,7 +5847,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ["DMADV's Define phase establishes business case, goal, and scope for something new "
-                                    "— parallel in structure to DMAIC's Define, aimed at a target rather than a "
+                                    "; parallel in structure to DMAIC's Define, aimed at a target rather than a "
                                     'current-state problem.',
                                     'Naming what\'s explicitly "not yet decided" prevents premature narrowing of '
                                     'options before later phases can properly evaluate them.'],
@@ -5864,7 +5864,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ['Translating "filling" → a minimum protein content per serving (≥12g); "doesn\'t '
                                      'taste like cardboard" → a minimum taste-panel score (≥7/10 average); "won\'t go '
                                      'stale" → a minimum shelf life (≥10 days unrefrigerated).',
-                                     '**Socratic prompt:** If the team sets "protein content: as high as possible" '
+                                     '**Think it through:** If the team sets "protein content: as high as possible" '
                                      'instead of a specific number like "≥12g," what problem does that create when '
                                      'Analyze compares a 12g concept against an 18g concept with worse taste?',
                                      'A simple QFD-style translation table connects each customer statement to a '
@@ -5880,11 +5880,11 @@ BELTS = {'white': {'name': 'White Belt',
                         'learning_objectives': ['Translate vague customer language into specific, numeric CTQ targets',
                                                 'Use a simple QFD-style approach to connect customer needs to '
                                                 'measurable specifications',
-                                                'Explain why setting a numeric target — not just a direction — matters '
+                                                'Explain why setting a numeric target, not just a direction, matters '
                                                 'for later phases'],
                         'full_explanation': '"Filling," "doesn\'t taste like cardboard," and "won\'t go stale" are '
                                             'exactly the kind of customer language the earlier DMAIC VOC lesson warned '
-                                            'against treating as directly actionable — they need translation into '
+                                            'against treating as directly actionable. They need translation into '
                                             'something specific enough to design around, the same way "consistent '
                                             'weight" needed translation into "±2 grams of 500 grams."\n'
                                             '\n'
@@ -5901,7 +5901,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'Setting an actual minimum (≥12g), rather than "as much as possible," '
                                             'matters directly for the next phase: without it, Analyze has no '
                                             'principled way to compare a 12g option against an 18g option if the 18g '
-                                            'option tastes worse — the team could easily over-optimize a number nobody '
+                                            'option tastes worse: the team could easily over-optimize a number nobody '
                                             'asked to maximize, at the direct expense of taste, an equally important '
                                             'CTQ. A specific target, once met, lets the team stop optimizing that '
                                             'dimension and focus tradeoffs elsewhere.',
@@ -5926,7 +5926,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': '"As much as possible" is always correct for a '
-                                                                  "nutritional CTQ *(more isn't always better — it can "
+                                                                  "nutritional CTQ *(more isn't always better. It can "
                                                                   'trade off against other requirements)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -5954,7 +5954,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'question': 'Why does "cost per loaf ≤$1.35" appear even though no '
                                                          'customer literally said that phrase?',
                                              'options': [{'key': 'a',
-                                                          'text': "It's an implied requirement for retail viability — "
+                                                          'text': "It's an implied requirement for retail viability; "
                                                                   'a CTQ can come from business constraints, not only '
                                                                   'literal customer language *(correct)*',
                                                           'correct': True},
@@ -5986,15 +5986,15 @@ BELTS = {'white': {'name': 'White Belt',
                         'title': 'Analyze (DMADV): Comparing Design Concepts Against CTQs',
                         'opening_question': 'R&D has developed three candidate protein sources: pea protein, '
                                             'whey-based protein, and soy protein isolate. Each performs differently on '
-                                            'cost, taste, and shelf life. How should the team choose — by whoever '
+                                            'cost, taste, and shelf life. How should the team choose; by whoever '
                                             'advocates most persuasively, or something more systematic?',
                         'concepts': ['A weighted decision matrix scores each concept against each CTQ, using the '
                                      'priority weights from Measure, producing a comparable total score per option.',
-                                     '**Socratic prompt:** If Concept A scores highest overall but fails the minimum '
+                                     '**Think it through:** If Concept A scores highest overall but fails the minimum '
                                      'shelf-life CTQ (9 days against a 10-day requirement), should it still win, just '
                                      'because its total score is highest?',
                                      "DMADV's Analyze phase parallels DMAIC's Analyze phase in spirit: both require "
-                                     'evidence-backed conclusions, not the most persuasive story in the room — the '
+                                     'evidence-backed conclusions, not the most persuasive story in the room: the '
                                      'difference is comparing design alternatives rather than diagnosing root causes.'],
                         'terms': ['Weighted Decision Matrix', 'Hard Minimum CTQ'],
                         'math': [],
@@ -6022,18 +6022,18 @@ BELTS = {'white': {'name': 'White Belt',
                                             '**49**. Whey-Based = (5×3)+(5×3)+(2×2)+(2×3) = 15+15+4+6 = **40**. Soy '
                                             'Isolate = (4×3)+(4×3)+(4×2)+(4×3) = 12+12+8+12 = **44**.\n'
                                             '\n'
-                                            'Pea protein scores highest overall (49) — but whey-based, despite the '
+                                            'Pea protein scores highest overall (49). But whey-based, despite the '
                                             'highest taste score, misses the shelf-life minimum outright (9 days '
                                             'against a required 10), which disqualifies it regardless of its otherwise '
                                             'strong total. This is the key discipline in using a decision matrix: it '
                                             'ranks trade-offs among concepts that already clear every hard minimum CTQ '
-                                            "— it isn't a substitute for checking those minimums first, and a high "
+                                            ". It isn't a substitute for checking those minimums first, and a high "
                                             "total score doesn't override a failed non-negotiable requirement.\n"
                                             '\n'
                                             "This mirrors DMAIC's Analyze phase in an important way: both require the "
                                             "team to resist settling on the most appealing story (here, whey's strong "
                                             'taste score) without checking it against the actual evidence and '
-                                            'requirements — just as a fishbone-session "hunch" needs data confirmation '
+                                            'requirements; just as a fishbone-session "hunch" needs data confirmation '
                                             'before becoming an accepted root cause.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'Why might pea protein be selected despite whey-based scoring '
@@ -6051,7 +6051,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Pea protein always outperforms whey-based on every '
-                                                                  "criterion *(it doesn't — whey-based scores higher "
+                                                                  "criterion *(it doesn't; whey-based scores higher "
                                                                   'specifically on taste)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -6066,7 +6066,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'treating them all equally?',
                                              'options': [{'key': 'a',
                                                           'text': 'It reflects that not every requirement matters '
-                                                                  'equally — high-priority CTQs should influence the '
+                                                                  'equally; high-priority CTQs should influence the '
                                                                   'total more than lower-priority ones *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -6110,7 +6110,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': ''}],
                         'summary': ['A weighted decision matrix compares design concepts against CTQs, using priority '
                                     'weights from Measure.',
-                                    "A high total score doesn't override a failed hard minimum CTQ — check minimums "
+                                    "A high total score doesn't override a failed hard minimum CTQ; check minimums "
                                     'first.',
                                     "DMADV's Analyze phase shares DMAIC's core discipline: evidence over the most "
                                     'appealing story.'],
@@ -6120,15 +6120,15 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'G39',
                         'title': 'Design (DMADV): Building Out the Chosen Concept in Detail',
                         'opening_question': "With pea protein selected as the winning concept, R&D still hasn't "
-                                            'finalized the actual recipe — proportions, baking time, packaging method. '
+                                            'finalized the actual recipe; proportions, baking time, packaging method. '
                                             'What does "Design" need to accomplish here, beyond simply "make the bread '
                                             'now"?',
                         'concepts': ['Design finalizes the specific formulation, process steps, and packaging in '
-                                     'detail — and predicts, via small-batch testing, how well the result performs '
+                                     'detail. predicts, via small-batch testing, how well the result performs '
                                      'against every CTQ before committing to a full pilot.',
-                                     '**Socratic prompt:** Analyze used a single taste-panel score per concept (6.8/10 '
+                                     '**Think it through:** Analyze used a single taste-panel score per concept (6.8/10 '
                                      'for pea protein). Is that one number enough to finalize a recipe, or does Design '
-                                     'need something more precise — like testing multiple proportions of pea protein '
+                                     'need something more precise; like testing multiple proportions of pea protein '
                                      'to find the specific formulation that actually clears the 7/10 threshold?',
                                      'Predicting CTQ performance in Design, before Verify, catches problems on a '
                                      'small, cheap scale rather than in the more expensive full pilot.'],
@@ -6148,7 +6148,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'important remaining questions: exactly what ratio of pea protein to '
                                             'flour, what baking temperature and time, what packaging seals in '
                                             'freshness for the required 10-day shelf life. Design is where these '
-                                            "specifics get worked out — and it's worth noticing that the original "
+                                            "specifics get worked out. it's worth noticing that the original "
                                             'pea-protein taste score (6.8/10) is actually below the 7/10 minimum CTQ. '
                                             "Analyze's decision matrix compared *concepts* at a coarse level; Design "
                                             'now has to refine the specific formulation until it actually clears the '
@@ -6156,7 +6156,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             'This might mean testing three or four specific pea-protein-to-flour '
                                             'ratios in small batches, running each through the same taste panel, and '
-                                            'picking the formulation that reaches or exceeds 7/10 — while checking '
+                                            'picking the formulation that reaches or exceeds 7/10; while checking '
                                             "this adjustment doesn't push cost or protein content back out of their "
                                             'own targets. Design work is inherently iterative: adjusting one variable '
                                             'to hit one CTQ can shift performance on another, and the team needs to '
@@ -6243,7 +6243,7 @@ BELTS = {'white': {'name': 'White Belt',
                                     'until it actually clears every CTQ.',
                                     'Iterative small-batch testing during Design is far cheaper than discovering the '
                                     'same gap during a full pilot.',
-                                    'CTQs can interact — adjusting for one may affect another, requiring convergence '
+                                    'CTQs can interact; adjusting for one may affect another, requiring convergence '
                                     'on a formulation that satisfies all simultaneously.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
@@ -6251,18 +6251,18 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'G40',
                         'title': 'Verify (DMADV): Confirming Performance Before Full Launch',
                         'opening_question': 'The refined pea-protein formulation now scores 7.4/10 on taste, 12.5g '
-                                            'protein per serving, and $1.28 cost per loaf in small-batch testing — all '
+                                            'protein per serving, and $1.28 cost per loaf in small-batch testing. All '
                                             'CTQs cleared. Before Golden Crust commits to full retail production, what '
                                             "does Verify still need to confirm that small-batch testing alone can't?",
-                        'concepts': ['Small-batch, test-kitchen results confirm the *recipe* works — a pilot '
+                        'concepts': ['Small-batch, test-kitchen results confirm the *recipe* works: a pilot '
                                      'production run confirms the *process* works at real scale, with real equipment '
                                      'and real shift-to-shift variation.',
-                                     "**Socratic prompt:** If the test kitchen's oven bakes six loaves at a time under "
+                                     "**Think it through:** If the test kitchen's oven bakes six loaves at a time under "
                                      'close supervision, and the actual production line bakes hundreds per shift '
                                      'across three shifts, is there any reason to expect the CTQ numbers to hold up '
                                      'identically at scale?',
                                      "A pilot run's CTQ performance can be assessed with the same capability thinking "
-                                     "from DMAIC's Measure phase — checking not just the average, but the spread, "
+                                     "from DMAIC's Measure phase; checking not just the average, but the spread, "
                                      "against each CTQ's minimum."],
                         'terms': ['Pilot Production Run', 'One-Sided Capability', 'Verify (Exit Criteria)'],
                         'math': [{'name': 'Mean',
@@ -6284,31 +6284,31 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'project'],
                         'full_explanation': 'Small-batch success is real progress, but it answers a narrower question '
                                             'than it might seem: it confirms the recipe *can* meet its CTQs under '
-                                            'ideal, closely supervised conditions — not that it reliably will, across '
+                                            'ideal, closely supervised conditions. It is not that it reliably will, across '
                                             'hundreds of loaves per shift, on real equipment, across three shifts with '
                                             'different operators. This is precisely the gap Verify exists to close, '
                                             "and it should feel familiar: it's the same logic DMAIC's Control phase "
                                             "used when a strong four-week pilot result on one shift still wasn't "
-                                            'enough to close that project — full-scale, real-world confirmation '
+                                            'enough to close that project; full-scale, real-world confirmation '
                                             'matters beyond a promising small test.\n'
                                             '\n'
-                                            'Running an actual pilot batch — say, one full production shift, several '
-                                            'hundred loaves — lets the team apply the same capability thinking from '
+                                            'Running an actual pilot batch; say, one full production shift, several '
+                                            'hundred loaves. Lets the team apply the same capability thinking from '
                                             'DMAIC Measure. Suppose the pilot batch shows protein content with mean '
                                             '12.6g and standard deviation 0.4g, against a CTQ minimum of 12g. Since '
                                             'this is a one-sided minimum specification, the relevant calculation is a '
                                             'one-sided capability index: (mean − minimum) ÷ (3 × σ) = (12.6 − 12) ÷ (3 '
                                             '× 0.4) = 0.6 ÷ 1.2 = **0.5**. This is well below the 1.0 threshold '
-                                            'generally considered capable — meaning that even though the *average* '
+                                            'generally considered capable; meaning that even though the *average* '
                                             'clears the 12g minimum, the *variation* across loaves is wide enough that '
                                             'a meaningful share of individual loaves likely fall below 12g, which the '
                                             'average alone would hide.\n'
                                             '\n'
                                             'This is exactly the kind of finding Verify exists to catch before full '
                                             'launch: a promising average masking risky variation, only visible once '
-                                            'real production-scale data — not test-kitchen results — is examined with '
+                                            'real production-scale data, not test-kitchen results, is examined with '
                                             'the same statistical rigor already applied to the weight-consistency '
-                                            'project. "Verified" doesn\'t mean "the average looks good" — it means the '
+                                            'project. "Verified" doesn\'t mean "the average looks good". It means the '
                                             'full distribution of real pilot-scale performance clears every CTQ with '
                                             "acceptable capability, the same bar DMAIC's Control phase held the "
                                             'weight-consistency project to before declaring it truly finished.',
@@ -6323,12 +6323,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Test-kitchen results are always inaccurate '
-                                                                  "*(they're real evidence — the issue is their "
+                                                                  "*(they're real evidence: the issue is their "
                                                                   'limited scale and conditions)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': "CTQs don't apply to test-kitchen batches *(the same "
-                                                                  'CTQs apply — the concern is whether they hold up at '
+                                                                  'CTQs apply: the concern is whether they hold up at '
                                                                   'scale)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -6353,7 +6353,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'The average itself is below the minimum *(the '
-                                                                  'average, 12.6g, is above the 12g minimum — '
+                                                                  'average, 12.6g, is above the 12g minimum; '
                                                                   'variation is the issue)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -6373,7 +6373,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Averages are never useful in a DMADV project '
-                                                                  '*(averages are necessary but insufficient — '
+                                                                  '*(averages are necessary but insufficient; '
                                                                   'variation must also be checked)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -6392,7 +6392,7 @@ BELTS = {'white': {'name': 'White Belt',
                                     'Capability thinking (mean and variation together, not average alone) applies to '
                                     'DMADV Verify the same way it applied to DMAIC Measure.',
                                     '"Verified" means the full distribution of real pilot performance clears every CTQ '
-                                    'with acceptable capability — not just a good-looking average.'],
+                                    'with acceptable capability. It is not just a good-looking average.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
                         'module_title': 'DMADV Module: Design for Six Sigma in Practice (5 Lessons)'}]},
@@ -6403,7 +6403,7 @@ BELTS = {'white': {'name': 'White Belt',
            'modules': [{'code': 'B01',
                         'title': 'The Basics of Six Sigma',
                         'opening_question': "As a Black Belt, you'll lead projects that are handed off from Green "
-                                            'Belts or are too complex for a part-time team member to run alone. So — '
+                                            'Belts or are too complex for a part-time team member to run alone. So; '
                                             "precisely what is different about how you're expected to *understand* Six "
                                             'Sigma, compared to a Green Belt?',
                         'concepts': ['**Sigma shift**: the commonly used 1.5σ adjustment between short-term and '
@@ -6411,7 +6411,7 @@ BELTS = {'white': {'name': 'White Belt',
                                      '**Yield**: First Time Yield (FTY) measures pass rate at one step; Rolled '
                                      'Throughput Yield (RTY) multiplies FTY across every step in a process, exposing '
                                      "hidden failure a single-step view can't.",
-                                     '**Socratic prompt:** If Rolled Throughput Yield is always lower than any '
+                                     '**Think it through:** If Rolled Throughput Yield is always lower than any '
                                      "individual step's yield, what does that tell you about judging a whole process "
                                      'by its final inspection pass rate alone?',
                                      '**Evolution of quality**: Shewhart (statistical control) → Deming (PDCA, '
@@ -6421,7 +6421,7 @@ BELTS = {'white': {'name': 'White Belt',
                                      'root cause analysis, improvement plan, control plan, and financial benefit '
                                      'documentation.',
                                      '**VOC / VOB / VOE**: customer, business, and employee "voices" all feed '
-                                     "requirements — and they don't always agree.",
+                                     "requirements. they don't always agree.",
                                      '**KANO categories**: Basic/Must-be, Performance, Delighters (Excitement), '
                                      'Indifferent, Reverse.',
                                      '**Role hierarchy**: White → Yellow → Green → Black Belt → Master Black Belt → '
@@ -6471,14 +6471,14 @@ BELTS = {'white': {'name': 'White Belt',
                                             'typically looks tighter than it performs over a year, because means '
                                             'drift, materials vary, and operators change. The 1.5-sigma shift is a '
                                             'widely used correction that converts a short-term capability estimate '
-                                            "into a more realistic long-term defect estimate — it's why a process "
+                                            "into a more realistic long-term defect estimate; it's why a process "
                                             'quoted as "six sigma" (long-term) corresponds to a 4.5-sigma short-term '
                                             'Z-score. Second, **yield**: First Time Yield (FTY) is simply the '
                                             'percentage of units that pass a given step without rework or scrap. But a '
                                             "multi-step process's *true* performance is better captured by **Rolled "
-                                            "Throughput Yield (RTY)** — the product of every step's FTY. A process "
+                                            "Throughput Yield (RTY)**: the product of every step's FTY. A process "
                                             'with five steps each running 95% FTY looks fine step-by-step, but its RTY '
-                                            'is only about 77% (0.95⁵) — meaning nearly a quarter of units experience '
+                                            'is only about 77% (0.95⁵); meaning nearly a quarter of units experience '
                                             'a defect somewhere along the way, even though no single step "looks bad" '
                                             'in isolation. This is a core reason Black Belts insist on measuring the '
                                             'whole value stream, not just the final inspection point.\n'
@@ -6497,27 +6497,27 @@ BELTS = {'white': {'name': 'White Belt',
                                             'from the Toyota Production System.\n'
                                             '\n'
                                             "**Deliverables and problem-solving strategy.** A Six Sigma project isn't "
-                                            "complete because a chart looks better — it's complete when a defined set "
+                                            "complete because a chart looks better; it's complete when a defined set "
                                             'of deliverables exists: a signed charter, a VOC-derived CTQ tree, '
                                             'current-state process maps, a data collection plan, documented root cause '
                                             'analysis, a validated improvement, a control plan, and a financial '
                                             'benefit statement your finance department would sign off on. Underlying '
-                                            'all of this is a **structured problem-solving strategy** — DMAIC (or PDCA '
-                                            'at a smaller scale) — chosen deliberately over unstructured '
+                                            'all of this is a **structured problem-solving strategy**; DMAIC (or PDCA '
+                                            'at a smaller scale); chosen deliberately over unstructured '
                                             'trial-and-error, because unstructured fixes tend to treat symptoms and '
                                             'don\'t hold up once the "current crisis" fades.\n'
                                             '\n'
                                             '**Hearing the customer, the business, and the employee.** A **VOC '
                                             'campaign** is a planned, multi-method effort (not a single survey) to '
-                                            'capture customer needs — combining **VOC tools** like structured '
+                                            'capture customer needs; combining **VOC tools** like structured '
                                             'interviews, surveys, focus groups, complaint/warranty data, and even '
                                             'social listening. But customer voice alone is incomplete. **VOB (Voice of '
-                                            'the Business)** captures constraints the organization itself imposes — '
-                                            'profitability targets, regulatory requirements, strategic fit — and **VOE '
+                                            'the Business)** captures constraints the organization itself imposes; '
+                                            'profitability targets, regulatory requirements, strategic fit. **VOE '
                                             '(Voice of the Employee)** captures insight from the people who run the '
                                             'process daily, who often see failure modes and workarounds that never '
                                             'reach a customer survey. **Kano analysis** helps reconcile all three by '
-                                            'classifying requirements into categories: **Basic/Must-be** (expected — '
+                                            'classifying requirements into categories: **Basic/Must-be** (expected; '
                                             "their absence causes dissatisfaction, but their presence doesn't add "
                                             'delight), **Performance** (satisfaction rises linearly with how well you '
                                             'deliver them), **Delighters/Excitement** (unexpected features that '
@@ -6529,7 +6529,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             '**Roles, and what drives adoption.** The Six Sigma role hierarchy runs '
                                             'from **White Belt** (basic awareness) through **Yellow Belt** (part-time '
                                             'team member) and **Green Belt** (project co-lead, still has a "day job") '
-                                            'up to **Black Belt** — typically a full-time or near full-time role '
+                                            'up to **Black Belt**; typically a full-time or near full-time role '
                                             'leading complex, cross-functional projects and mentoring Green Belts. The '
                                             '**Master Black Belt (MBB)** sits above that: an expert trainer, coach, '
                                             'and statistical resource who works across many projects and often reports '
@@ -6537,7 +6537,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'single project. The **Project Champion** is a business leader (not a '
                                             'statistician) whose job is securing resources and removing organizational '
                                             'obstacles. What **drives** organizations to adopt Six Sigma in the first '
-                                            "place is rarely academic interest — it's usually competitive pressure, "
+                                            "place is rarely academic interest; it's usually competitive pressure, "
                                             'customer demands, regulatory compliance, a costly quality failure, or '
                                             'leadership deciding quality needs to become a genuine strategic '
                                             'differentiator rather than an afterthought.',
@@ -6598,7 +6598,7 @@ BELTS = {'white': {'name': 'White Belt',
                                     "RTY (not single-step FTY) reveals a process's true end-to-end defect exposure.",
                                     "Quality's evolution: Shewhart → Deming → Juran → Crosby → TQM → Six Sigma → Lean "
                                     'Six Sigma.',
-                                    'VOC, VOB, and VOE together — reconciled via Kano analysis — form a complete '
+                                    'VOC, VOB, and VOE together, reconciled via Kano analysis, form a complete '
                                     'requirements picture.',
                                     'Role hierarchy: White → Yellow → Green → Black Belt → Master Black Belt → '
                                     'Champion.'],
@@ -6611,7 +6611,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'times more units per day than the other, are they equally "bad"? What '
                                             'does that tell you about why raw defect counts alone are a poor Six Sigma '
                                             'metric?',
-                        'concepts': ['**SIPOC**: Suppliers, Inputs, Process, Outputs, Customers — a high-level map '
+                        'concepts': ['**SIPOC**: Suppliers, Inputs, Process, Outputs, Customers: a high-level map '
                                      'that defines process boundaries before detailed measurement begins.',
                                      '**Project Charter**: the formal one-page agreement on scope and goals (covered '
                                      'in full depth in Lesson 03).',
@@ -6619,13 +6619,13 @@ BELTS = {'white': {'name': 'White Belt',
                                      'from VOC via a CTQ tree.',
                                      '**COPQ (PAF model)**: Prevention costs, Appraisal costs, Internal Failure costs, '
                                      'External Failure costs.',
-                                     '**Pareto Analysis**: the 80/20 principle — a small number of causes typically '
+                                     '**Pareto Analysis**: the 80/20 principle: a small number of causes typically '
                                      'account for the majority of defects.',
-                                     '**Socratic prompt:** If 80% of your defects trace back to just 15% of your '
+                                     '**Think it through:** If 80% of your defects trace back to just 15% of your '
                                      'causes, why would spreading improvement effort evenly across *all* causes be a '
                                      "poor use of a Black Belt's time?",
                                      '**Basic metrics**: DPU (defects per unit), DPO (defects per opportunity), DPMO '
-                                     '(defects per million opportunities) — building blocks for sigma level '
+                                     '(defects per million opportunities); building blocks for sigma level '
                                      'conversion.'],
                         'terms': ['SIPOC', 'CTQ Tree', 'COPQ (PAF Model)', 'Pareto Analysis', 'DPU', 'DPO', 'DPMO'],
                         'math': [{'name': 'Mean',
@@ -6661,17 +6661,17 @@ BELTS = {'white': {'name': 'White Belt',
                                             'standard high-level tool for this: it forces the team to name who '
                                             'supplies inputs, what those inputs are, the major process steps (usually '
                                             '5–7, deliberately high-level), what outputs result, and who receives '
-                                            'them. Skipping this step is a common cause of scope creep later — teams '
+                                            'them. Skipping this step is a common cause of scope creep later; teams '
                                             'start collecting data before agreeing on what\'s actually "in" the '
                                             'process.\n'
                                             '\n'
                                             "**Project Charter, briefly.** The charter formalizes the project's "
-                                            'business case, problem statement, goal statement, scope, and team — the '
+                                            'business case, problem statement, goal statement, scope, and team: the '
                                             'full breakdown of each element is covered in Lesson 03, since it deserves '
                                             'its own deep treatment.\n'
                                             '\n'
                                             '**CTQ: connecting VOC to something measurable.** A customer rarely says '
-                                            '"I need a cycle time of 4.2 hours" — they say "I need this fast." '
+                                            '"I need a cycle time of 4.2 hours". They say "I need this fast." '
                                             'Translating a vague need like that into a specific, measurable '
                                             'requirement is the job of a **CTQ tree**: it starts with a broad need, '
                                             'breaks it into drivers, and ends in a measurable specification (e.g., '
@@ -6681,12 +6681,12 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             '**Cost of Poor Quality, and how to calculate it.** COPQ is typically '
                                             'broken into four categories under the **PAF model**: **Prevention** costs '
-                                            '(training, process design, quality planning — spent to avoid defects in '
-                                            'the first place), **Appraisal** costs (inspection, testing, audits — '
+                                            '(training, process design, quality planning; spent to avoid defects in '
+                                            'the first place), **Appraisal** costs (inspection, testing, audits; '
                                             'spent to catch defects before they reach the customer), **Internal '
-                                            'Failure** costs (scrap, rework, downtime — defects caught before the '
+                                            'Failure** costs (scrap, rework, downtime; defects caught before the '
                                             'customer sees them), and **External Failure** costs (warranty claims, '
-                                            'returns, complaint handling, lost customers — defects the customer '
+                                            'returns, complaint handling, lost customers; defects the customer '
                                             'experiences directly, generally the most expensive category). A '
                                             'simplified calculation might look like: if a plant spends $50,000/year on '
                                             'inspection (appraisal), $120,000/year on scrap and rework (internal '
@@ -6701,20 +6701,20 @@ BELTS = {'white': {'name': 'White Belt',
                                             'applied the same "vital few vs. trivial many" logic to quality: in most '
                                             'defect data, roughly 80% of the problem traces back to roughly 20% of the '
                                             'causes. A **Pareto chart** sorts causes by frequency (or cost) in '
-                                            'descending bars, with a cumulative percentage line overlaid — visually '
+                                            'descending bars, with a cumulative percentage line overlaid; visually '
                                             'showing exactly where the "vital few" cutoff falls. This matters '
                                             'practically: a Black Belt with limited time should attack the tallest '
                                             'bars first, not spread effort evenly across every possible cause.\n'
                                             '\n'
                                             '**Basic Six Sigma metrics.** **DPU (Defects Per Unit)** is the average '
-                                            'number of defects found per unit produced — note this counts defects, not '
+                                            'number of defects found per unit produced; note this counts defects, not '
                                             'defective units (a unit can have more than one defect). **DPO (Defects '
                                             'Per Opportunity)** normalizes DPU by the number of ways a defect could '
                                             'occur on a single unit, since a complex product naturally has more '
                                             'opportunities for defects than a simple one. **DPMO (Defects Per Million '
                                             'Opportunities)** simply scales DPO by one million, giving a standardized '
                                             'number that can be converted directly into a sigma level using a standard '
-                                            'conversion table — which is what makes it possible to compare a '
+                                            'conversion table, which is what makes it possible to compare a '
                                             "completely different process (say, a call center's error rate) to a "
                                             "manufacturing line's defect rate on the same sigma scale.",
                         'knowledge_check': [{'number': 1,
@@ -6743,7 +6743,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b', 'text': 'Prevention', 'correct': False},
                                                          {'key': 'c', 'text': 'Appraisal', 'correct': False},
                                                          {'key': 'd', 'text': 'Internal Failure', 'correct': False}],
-                                             'answer': 'a — though this can vary by industry, external failure is '
+                                             'answer': 'a; though this can vary by industry, external failure is '
                                                        'generally the costliest because it includes lost customer '
                                                        'trust and future revenue, not just direct repair cost'},
                                             {'number': 3,
@@ -6779,15 +6779,15 @@ BELTS = {'white': {'name': 'White Belt',
                                             'time, but one is projected to save $20,000 and the other $400,000, is the '
                                             'choice really as simple as "pick the bigger number"? What else might '
                                             'matter?',
-                        'concepts': ['**Project selection roadmap**: a structured funnel — from a long list of '
+                        'concepts': ['**Project selection roadmap**: a structured funnel; from a long list of '
                                      'potential problems, through feasibility and impact screening, down to a short '
                                      'list a Champion approves.',
                                      '**Charter elements**: Business Case, Problem Statement, Goal Statement, Scope, '
                                      'Key Milestones, Team Selection.',
                                      "**Tuckman's stages**: Forming, Storming, Norming, Performing, Adjourning.",
                                      '**RACI/RASIC**: Responsible, Accountable, Consulted, Informed (+ Support in '
-                                     'RASIC) — clarifies who does what on cross-functional teams.',
-                                     '**Socratic prompt:** If a project\'s "goal statement" only says "improve '
+                                     'RASIC); clarifies who does what on cross-functional teams.',
+                                     '**Think it through:** If a project\'s "goal statement" only says "improve '
                                      'customer satisfaction," how would you know when the project is actually '
                                      'finished?',
                                      '**Financial evaluation**: expected benefits, KPIs, benefits capture, and Net '
@@ -6826,26 +6826,26 @@ BELTS = {'white': {'name': 'White Belt',
                                             'against criteria like expected financial impact, feasibility within a '
                                             'reasonable timeframe, data availability, and strategic alignment (see '
                                             'Green Belt Module 1, Lesson 02). Projects that pass this screen go to a '
-                                            'Champion for formal approval and charter sign-off — this roadmap exists '
+                                            'Champion for formal approval and charter sign-off. This roadmap exists '
                                             'precisely to prevent Black Belts from spending months on a technically '
                                             'interesting but low-value problem.\n'
                                             '\n'
                                             '**The project charter, element by element.** The **Business Case** '
-                                            'states, in a few sentences, why this project matters now — typically tied '
+                                            'states, in a few sentences, why this project matters now; typically tied '
                                             'to a cost, revenue, or risk figure leadership recognizes. The **Problem '
                                             'Statement** describes the current, undesirable state in specific, '
-                                            'measurable, neutral terms (what, where, when, how big — deliberately '
+                                            'measurable, neutral terms (what, where, when, how big; deliberately '
                                             'avoiding an assumed cause or solution baked into the wording). The **Goal '
                                             'Statement** states the target state in equally measurable terms, '
                                             'following a "reduce/increase [metric] from [baseline] to [target] by '
-                                            '[date]" structure — vague goals like "improve customer satisfaction" fail '
+                                            '[date]" structure; vague goals like "improve customer satisfaction" fail '
                                             'the test of "how would you know when you\'re done?" The **Scope** defines '
                                             "what's in and out of bounds (which product lines, which sites, which "
-                                            'process steps) — scope creep is one of the most common reasons Black Belt '
+                                            'process steps); scope creep is one of the most common reasons Black Belt '
                                             'projects overrun their timeline. **Key Milestones** break the DMAIC '
                                             'timeline into checkpoints with target dates, giving the Champion '
                                             'visibility without needing to review raw data weekly. **Team Selection** '
-                                            "identifies who's needed — not just for technical skill, but for "
+                                            "identifies who's needed. It is not just for technical skill, but for "
                                             'representing every part of the process the project touches, since a team '
                                             'missing a key function (e.g., IT, or a specific shift) tends to produce '
                                             "solutions that don't survive contact with reality.\n"
@@ -6855,30 +6855,30 @@ BELTS = {'white': {'name': 'White Belt',
                                             '**Storming** (conflict emerges as people push back on approach or '
                                             'authority), **Norming** (the team settles into working agreements and '
                                             'mutual trust), and **Performing** (the team executes efficiently, with '
-                                            'conflict handled constructively) — with **Adjourning** added later to '
+                                            'conflict handled constructively); with **Adjourning** added later to '
                                             'describe the wind-down once a project closes. A Black Belt who expects '
-                                            'Storming and treats it as a normal, temporary phase — rather than a sign '
-                                            "the team is failing — tends to navigate it far better than one who's "
+                                            'Storming and treats it as a normal, temporary phase. Rather than a sign '
+                                            "the team is failing; tends to navigate it far better than one who's "
                                             'caught off guard by it. To clarify who does what on a cross-functional '
-                                            'team, a **RACI matrix** (Responsible — does the work; Accountable — owns '
-                                            'the outcome; Consulted — provides input beforehand; Informed — kept '
+                                            'team, a **RACI matrix** (Responsible, does the work; Accountable, owns '
+                                            'the outcome; Consulted, provides input beforehand; Informed, kept '
                                             'updated afterward) is mapped against every task. **RASIC** adds a fifth '
                                             'role, **Support**, for people who assist the Responsible party without '
-                                            'owning the task themselves — useful on larger projects where '
+                                            'owning the task themselves; useful on larger projects where '
                                             '"Responsible" alone doesn\'t capture everyone actually doing hands-on '
                                             'work.\n'
                                             '\n'
                                             "**Making the value concrete: financial evaluation.** A project's "
                                             '**expected financial benefits** should be estimated *before* work begins '
-                                            '(as part of the charter) and then verified afterward — this before/after '
+                                            '(as part of the charter) and then verified afterward. This before/after '
                                             'discipline is what separates a credible Six Sigma project from an '
                                             'anecdote. **Developing project metrics** means choosing measures that '
                                             'will actually detect whether the improvement worked (not just '
                                             "easy-to-collect proxies), and a subset of those become the project's "
-                                            '**KPIs (Key Performance Indicators)** — the few numbers a Champion will '
+                                            '**KPIs (Key Performance Indicators)**: the few numbers a Champion will '
                                             'actually track over time. **Financial evaluation and benefits capture** '
                                             'is the formal process (often run jointly with Finance) of confirming the '
-                                            'savings actually materialized in the P&L, not just on paper — "hard" '
+                                            'savings actually materialized in the P&L, not just on paper; "hard" '
                                             'savings (real cost reduction) are typically weighted more heavily than '
                                             '"soft" savings (e.g., time freed up that isn\'t reallocated to something '
                                             'else of value). For projects with benefits spread over multiple years, '
@@ -6886,7 +6886,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'next year is worth less than a dollar saved today: NPV = Σ [CFₜ / (1+r)ᵗ] '
                                             '− initial investment, where CFₜ is the cash flow in year t and r is the '
                                             'discount rate. A project with a large but distant payoff can have a lower '
-                                            'NPV than a smaller, faster one — which is exactly why "biggest projected '
+                                            'NPV than a smaller, faster one, which is exactly why "biggest projected '
                                             'savings" isn\'t always the right selection criterion on its own.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What distinguishes a well-written Problem Statement from a '
@@ -6946,8 +6946,8 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': 'a'}],
                         'summary': ['A project selection roadmap filters candidate problems before a Champion approves '
                                     'a charter.',
-                                    'Charter elements — Business Case, Problem Statement, Goal Statement, Scope, '
-                                    'Milestones, Team — each serve a distinct purpose; a weak Goal Statement '
+                                    'Charter elements; Business Case, Problem Statement, Goal Statement, Scope, '
+                                    'Milestones, Team. Each serve a distinct purpose; a weak Goal Statement '
                                     'especially undermines the whole project.',
                                     "Tuckman's stages (Forming, Storming, Norming, Performing, Adjourning) describe "
                                     'normal team development; RACI/RASIC clarifies task ownership.',
@@ -6961,17 +6961,17 @@ BELTS = {'white': {'name': 'White Belt',
                         'opening_question': 'If Lean and Six Sigma both aim to improve a process, why do most modern '
                                             'practitioners insist on combining them rather than picking just one?',
                         'concepts': ['**Lean** targets speed and waste elimination; **Six Sigma** targets variation '
-                                     'and defect elimination — together they address both "too slow/wasteful" and "too '
+                                     'and defect elimination; together they address both "too slow/wasteful" and "too '
                                      'inconsistent."',
-                                     '**3Ms**: Muda (waste), Mura (unevenness), Muri (overburden) — Mura and Muri '
+                                     '**3Ms**: Muda (waste), Mura (unevenness), Muri (overburden); Mura and Muri '
                                      'often *cause* Muda, so addressing only the visible waste without its root '
                                      'unevenness or overburden tends to have the waste reappear.',
-                                     '**DOWNTIME**: an alternate mnemonic for the same eight wastes as TIMWOODS — '
+                                     '**DOWNTIME**: an alternate mnemonic for the same eight wastes as TIMWOODS; '
                                      'Defects, Overproduction, Waiting, Non-utilized talent, Transportation, '
                                      'Inventory, Motion, Extra-processing.',
-                                     '**Socratic prompt:** If Muri (overburdening a person or machine) causes rushed '
+                                     '**Think it through:** If Muri (overburdening a person or machine) causes rushed '
                                      'work, and rushed work causes Muda (defects, rework), which one should a Black '
-                                     'Belt address first — the visible waste, or its root cause?',
+                                     'Belt address first: the visible waste, or its root cause?',
                                      '**5S**: Sort (Seiri), Set in Order (Seiton), Shine (Seiso), Standardize '
                                      '(Seiketsu), Sustain (Shitsuke).'],
                         'terms': ['Lean Six Sigma',
@@ -6997,16 +6997,16 @@ BELTS = {'white': {'name': 'White Belt',
                                             "without Lean won't fix that either). **Lean Methodology** in practice "
                                             'means running value stream mapping and waste-elimination tools (5S, '
                                             "kanban, standard work) alongside DMAIC's statistical toolkit within the "
-                                            'same project — which is why the discipline is more accurately called '
+                                            'same project, which is why the discipline is more accurately called '
                                             '**Lean Six Sigma** rather than treating the two as competitors.\n'
                                             '\n'
-                                            '**The 3Ms: Muda, Mura, Muri.** Most practitioners know Muda (waste — the '
+                                            '**The 3Ms: Muda, Mura, Muri.** Most practitioners know Muda (waste: the '
                                             'TIMWOODS/DOWNTIME categories) but skip past its two root causes. **Mura** '
-                                            "is unevenness or inconsistency in workload or demand — a process that's "
-                                            'idle one hour and overwhelmed the next. **Muri** is overburden — asking a '
+                                            "is unevenness or inconsistency in workload or demand: a process that's "
+                                            'idle one hour and overwhelmed the next. **Muri** is overburden; asking a '
                                             'person, machine, or system to operate beyond a sustainable capacity. The '
                                             'relationship matters: Mura (uneven demand) often forces Muri (overburden '
-                                            'during the spikes), and Muri, in turn, produces Muda — rushed work '
+                                            'during the spikes), and Muri, in turn, produces Muda; rushed work '
                                             'creates defects, exhausted equipment breaks down, overworked staff make '
                                             'mistakes. A Black Belt who only attacks the visible Muda (say, adding '
                                             "inspectors to catch defects) without addressing the Mura/Muri that's "
@@ -7020,26 +7020,26 @@ BELTS = {'white': {'name': 'White Belt',
                                             'order and with slightly different labels: **D**efects, '
                                             '**O**verproduction, **W**aiting, **N**on-utilized talent, '
                                             '**T**ransportation, **I**nventory, **M**otion, **E**xtra-processing. '
-                                            'Neither ordering is more "correct" — different organizations and training '
+                                            'Neither ordering is more "correct"; different organizations and training '
                                             'programs simply adopted different acronyms for the identical underlying '
                                             'list. What matters is recognizing all eight categories regardless of '
                                             'which acronym your organization uses.\n'
                                             '\n'
                                             '**5S, in detail.** 5S is a workplace organization method with five '
-                                            'sequential steps. **Sort (Seiri)** — remove anything not needed for the '
+                                            'sequential steps. **Sort (Seiri)**; remove anything not needed for the '
                                             'current work, using a "red tag" process to flag and relocate/discard '
                                             'uncertain items rather than leaving them "just in case." **Set in Order '
-                                            '(Seiton)** — arrange what remains so that everything has a clearly '
+                                            '(Seiton)**; arrange what remains so that everything has a clearly '
                                             'marked, logical place, minimizing motion waste (the classic principle: a '
                                             "tool used often should be within arm's reach, not across the room). "
-                                            '**Shine (Seiso)** — clean the workspace thoroughly, which does double '
+                                            '**Shine (Seiso)**; clean the workspace thoroughly, which does double '
                                             'duty as a first-line inspection (a clean machine makes a leak or a loose '
                                             'bolt visible immediately, whereas grime hides early failure signs). '
-                                            '**Standardize (Seiketsu)** — create the visual controls, checklists, and '
+                                            '**Standardize (Seiketsu)**; create the visual controls, checklists, and '
                                             'agreed procedures that keep Sort/Set in Order/Shine from decaying back to '
-                                            'the old state within a week. **Sustain (Shitsuke)** — build the habits, '
+                                            'the old state within a week. **Sustain (Shitsuke)**; build the habits, '
                                             'audits, and accountability that make 5S part of the culture rather than a '
-                                            'one-time event; this last step is where most 5S initiatives actually '
+                                            'one-time event. This last step is where most 5S initiatives actually '
                                             'fail, since the first three steps produce a satisfying visible '
                                             '"before/after," while Sustain requires ongoing discipline with no '
                                             'dramatic payoff moment.',
@@ -7080,35 +7080,35 @@ BELTS = {'white': {'name': 'White Belt',
                                              'question': 'Which 5S step is most commonly cited as the reason 5S '
                                                          'initiatives fail over time?',
                                              'options': [{'key': 'a',
-                                                          'text': 'Sustain — because it requires ongoing discipline '
+                                                          'text': 'Sustain. This is because it requires ongoing discipline '
                                                                   'without a dramatic visible payoff',
                                                           'correct': False},
                                                          {'key': 'b',
-                                                          'text': "Sort — because it's too difficult to decide what to "
+                                                          'text': "Sort. This is because it's too difficult to decide what to "
                                                                   'remove',
                                                           'correct': False},
                                                          {'key': 'c',
-                                                          'text': 'Shine — because cleaning takes too much time',
+                                                          'text': 'Shine. This is because cleaning takes too much time',
                                                           'correct': False},
                                                          {'key': 'd',
-                                                          'text': 'Set in Order — because labeling is too costly',
+                                                          'text': 'Set in Order. This is because labeling is too costly',
                                                           'correct': False}],
                                              'answer': 'a'}],
                         'summary': ['Lean (speed/waste) and Six Sigma (variation/defects) are complementary, not '
                                     'competing, disciplines.',
-                                    'Mura and Muri are root causes that frequently produce visible Muda — addressing '
+                                    'Mura and Muri are root causes that frequently produce visible Muda; addressing '
                                     'only the waste without its root cause tends to be temporary.',
                                     'TIMWOODS and DOWNTIME describe the same eight wastes with different mnemonics.',
                                     "5S's five steps (Sort, Set in Order, Shine, Standardize, Sustain) build toward a "
-                                    'sustained habit, not a one-time cleanup — Sustain is where most initiatives '
+                                    'sustained habit, not a one-time cleanup; Sustain is where most initiatives '
                                     'actually fail.'],
-                        'hands_on_activity': 'Walk through a real workspace you use regularly — a physical desk, a '
+                        'hands_on_activity': 'Walk through a real workspace you use regularly: a physical desk, a '
                                              'shared team drive, or a digital project folder. Identify at least one '
                                              'example of Muda, one of Mura, and one of Muri in that space. Then apply '
                                              "the first three S's (Sort, Set in Order, Shine) to one area of it.",
                         'worked_solution': 'Using a shared team file drive as the workspace:\n'
                                            '- **Muda (waste):** dozens of duplicate "final_v2_FINAL" versions of the '
-                                           'same document — searching for the right one wastes time on every use '
+                                           'same document; searching for the right one wastes time on every use '
                                            '(Motion/Waiting waste).\n'
                                            '- **Mura (unevenness):** the drive is barely touched most of the month, '
                                            'then everyone dumps files into it frantically right before a monthly '
@@ -7126,7 +7126,7 @@ BELTS = {'white': {'name': 'White Belt',
                                            'This example also illustrates the Mura → Muri → Muda chain directly: '
                                            "fixing the folder structure once (Sort/Set in Order) doesn't fix the "
                                            'underlying problem if the end-of-month rush (Mura) that caused the mess '
-                                           'keeps recurring — which is what Standardize and Sustain exist to address.',
+                                           'keeps recurring, which is what Standardize and Sustain exist to address.',
                         'module_title': 'Module 1: Define Phase (Lessons 01–04)'},
                        {'code': 'B05',
                         'title': 'Process Definition',
@@ -7136,7 +7136,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'comparison to mean anything at all?',
                         'concepts': ['Comparing raw numbers across plants is only valid if each plant is measuring '
                                      '**the same thing, at the same point in the process, the same way**.',
-                                     '**Socratic prompt:** Plant A weighs loaves after a 20-minute cooling period; you '
+                                     '**Think it through:** Plant A weighs loaves after a 20-minute cooling period. You '
                                      'later learn Plant B weighs them straight off the oven line, and Plant C weighs a '
                                      'sample after packaging. Before any statistical comparison, what does this '
                                      'difference alone already tell you about whether the three datasets can be '
@@ -7153,7 +7153,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'full_explanation': 'A single-plant Green Belt project can often get away with an informal '
                                             'understanding of "where we measure weight," because everyone on that one '
                                             'team already shares the same mental model. A cross-plant Black Belt '
-                                            "comparison can't rely on that shared understanding — it has to be "
+                                            "comparison can't rely on that shared understanding. It has to be "
                                             "verified explicitly, because it's entirely plausible each plant developed "
                                             'its own convention independently, with nobody ever noticing the '
                                             'inconsistency since no one had previously compared the raw numbers side '
@@ -7163,7 +7163,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'cooling period, Plant B measures straight off the oven line (while the '
                                             'loaf is still losing moisture rapidly), and Plant C measures a packaged '
                                             'sample later still. Bread continues to lose weight as it cools and its '
-                                            'moisture content stabilizes — meaning "500g" measured immediately off the '
+                                            'moisture content stabilizes; meaning "500g" measured immediately off the '
                                             'oven at Plant B is not the same physical measurement as "500g" measured '
                                             'after cooling at Plant A, even though both appear in a spreadsheet under '
                                             'the identical column header "loaf weight (g)." Treating these as directly '
@@ -7172,14 +7172,14 @@ BELTS = {'white': {'name': 'White Belt',
                                             'rigorous while actually comparing three different things.\n'
                                             '\n'
                                             "The fix isn't necessarily forcing every plant to change its process "
-                                            'immediately — it may be operationally reasonable for each to weigh at a '
+                                            'immediately. It may be operationally reasonable for each to weigh at a '
                                             'different point for their own internal control purposes. But for a valid '
                                             'cross-plant comparison, the Black Belt needs either a standardized '
                                             'measurement point across all three plants for this specific study, or a '
                                             'way to mathematically account for the expected weight difference at each '
                                             'measurement stage before comparing the underlying process performance. '
                                             'Skipping this step and comparing raw numbers directly would be a classic '
-                                            'and easily avoidable error — reaching a conclusion about which plant is '
+                                            'and easily avoidable error; reaching a conclusion about which plant is '
                                             '"worse" based on a difference in *when* they measured, not necessarily '
                                             'how well the process actually performs.',
                         'knowledge_check': [{'number': 1,
@@ -7204,7 +7204,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': "Plant B's oven is defective *(no defect is "
-                                                                  'described — the issue is measurement timing, not '
+                                                                  'described: the issue is measurement timing, not '
                                                                   'equipment malfunction)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -7276,15 +7276,15 @@ BELTS = {'white': {'name': 'White Belt',
                                             '(SD 0.9g). Corporate wants "the statistics." Is reporting these six '
                                             'numbers alone a sufficient statistical summary?',
                         'concepts': ['**Central tendency** (mean) tells you where a process is centered; **spread** '
-                                     '(standard deviation) tells you how consistent it is — a plant can be '
+                                     '(standard deviation) tells you how consistent it is: a plant can be '
                                      'well-centered and still highly variable, or off-center and fairly consistent.',
-                                     '**Socratic prompt:** Plant B is off-center (500.8g vs. the 500g target) and has '
+                                     '**Think it through:** Plant B is off-center (500.8g vs. the 500g target) and has '
                                      'the largest spread (SD 1.4g). Plant C is closer to target (499.6g) but still has '
                                      'a wider spread than Plant A (0.9g vs 0.51g). Which plant do you suspect has the '
-                                     'worse actual capability against the ±2g tolerance — and is that answer obvious '
+                                     'worse actual capability against the ±2g tolerance. is that answer obvious '
                                      'just from looking at the means alone?',
                                      "Before computing capability indices, it's worth checking whether each plant's "
-                                     'data is even approximately **normally distributed** — capability formulas assume '
+                                     'data is even approximately **normally distributed**; capability formulas assume '
                                      'normality, and applying them to a distribution that looks meaningfully skewed '
                                      'can produce a misleading index.'],
                         'terms': ['Central Tendency', 'Spread (Standard Deviation)', 'Normality Check'],
@@ -7323,8 +7323,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             'suggests: judging Plant B "worst" purely because its mean is furthest '
                                             "from target ignores that Plant C's spread is also meaningfully worse than "
                                             "Plant A's, even though Plant C's mean looks closer to target. Mean and "
-                                            'standard deviation each answer a different question — where is the '
-                                            'process centered, and how consistent is it — and a real capability '
+                                            'standard deviation each answer a different question. Where is the '
+                                            'process centered, and how consistent is it. a real capability '
                                             'judgment needs both together, not either one read in isolation. This is '
                                             'exactly why the next lesson introduces Cp/Cpk: a way to combine centering '
                                             'and spread into a single index relative to the specification.\n'
@@ -7332,8 +7332,8 @@ BELTS = {'white': {'name': 'White Belt',
                                             "Before getting there, though, it's worth pausing on an assumption baked "
                                             'into every capability formula: that the underlying data is approximately '
                                             "normally distributed. If Plant B's process, for instance, actually has a "
-                                            'skewed distribution — say, because of an occasional but not-rare '
-                                            'equipment hiccup that produces a cluster of unusually heavy loaves — a '
+                                            'skewed distribution; say, because of an occasional but not-rare '
+                                            'equipment hiccup that produces a cluster of unusually heavy loaves: a '
                                             'capability index computed assuming normality could understate or '
                                             'overstate the real risk of producing an out-of-spec loaf. A simple '
                                             "histogram or normal probability plot of each plant's data, checked before "
@@ -7346,13 +7346,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'worst-performing plant based on its mean alone?',
                                              'options': [{'key': 'a',
                                                           'text': 'Its mean is furthest from target, but a full '
-                                                                  'judgment also needs spread — and Plant C, despite a '
+                                                                  'judgment also needs spread. Plant C, despite a '
                                                                   'closer mean, still has a wider spread than Plant A '
                                                                   '*(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Mean is always irrelevant to capability *(mean is a '
-                                                                  "necessary part of the picture — it's just not "
+                                                                  "necessary part of the picture; it's just not "
                                                                   'sufficient alone)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -7387,7 +7387,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'd',
                                                           'text': 'Normality only matters if the sample size is under '
                                                                   '10 *(sample size and normality are related but '
-                                                                  'distinct considerations — checking shape matters '
+                                                                  'distinct considerations; checking shape matters '
                                                                   'regardless of exact sample size)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -7403,13 +7403,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Mean and standard deviation are never useful '
-                                                                  'numbers to report *(they are useful and necessary — '
+                                                                  'numbers to report *(they are useful and necessary; '
                                                                   'just not sufficient as the complete picture alone)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Corporate never actually wants numerical detail '
                                                                   '*(the scenario shows corporate specifically asked '
-                                                                  'for statistics — the concern is completeness, not '
+                                                                  'for statistics: the concern is completeness, not '
                                                                   'whether numbers are wanted)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -7420,7 +7420,7 @@ BELTS = {'white': {'name': 'White Belt',
                                              'answer': ''}],
                         'summary': ['Mean and standard deviation each answer a different question; judging performance '
                                     'from either alone risks a misleading conclusion.',
-                                    'Capability indices combine centering and spread — but assume approximate '
+                                    'Capability indices combine centering and spread. But assume approximate '
                                     'normality, which should be checked, not assumed.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
@@ -7434,13 +7434,13 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ['**Repeatability**: variation when the *same* operator measures the *same* part '
                                      'multiple times on the *same* gage. **Reproducibility**: variation when '
                                      '*different* operators measure the *same* part on the *same* gage.',
-                                     "**Socratic prompt:** Suppose Plant B's Gage R&R study shows repeatability is "
+                                     "**Think it through:** Suppose Plant B's Gage R&R study shows repeatability is "
                                      'fine (the same operator gets consistent readings), but reproducibility is poor '
                                      '(different operators get meaningfully different readings for the same loaf). '
-                                     'What does this specific pattern suggest about where the problem actually lives — '
+                                     'What does this specific pattern suggest about where the problem actually lives; '
                                      "the scale itself, or something about how it's used?",
                                      'A **%Gage R&R** above roughly 30% of the tolerance is generally considered '
-                                     'unacceptable — meaning the measurement system itself is consuming too much of '
+                                     'unacceptable; meaning the measurement system itself is consuming too much of '
                                      'the allowable tolerance, leaving too little room to reliably distinguish real '
                                      'process variation from measurement noise.'],
                         'terms': ['Gage R&R', 'Repeatability', 'Reproducibility', '%Gage R&R'],
@@ -7468,17 +7468,17 @@ BELTS = {'white': {'name': 'White Belt',
                                             "calibration alone doesn't: whether the *system* of gage plus operator "
                                             'plus procedure produces consistent results, not just whether the gage '
                                             'itself reads a known weight correctly in isolation. Running a Gage R&R at '
-                                            'Plant B — having two or three operators each weigh the same set of sample '
-                                            'loaves multiple times — separates the total measurement variation into '
-                                            "repeatability (operator-to-operator consistency isn't involved yet — same "
+                                            'Plant B; having two or three operators each weigh the same set of sample '
+                                            'loaves multiple times; separates the total measurement variation into '
+                                            "repeatability (operator-to-operator consistency isn't involved yet; same "
                                             'operator, same loaf, repeated) and reproducibility (different operators, '
                                             'same loaf).\n'
                                             '\n'
                                             'Suppose the study finds repeatability is solid, but reproducibility is '
-                                            'weak — different operators produce meaningfully different readings for '
+                                            'weak; different operators produce meaningfully different readings for '
                                             'the identical loaf. This is a specific, useful diagnostic: it points away '
                                             'from the scale itself (which is producing consistent readings when the '
-                                            'same person uses it the same way) and toward operator technique — perhaps '
+                                            'same person uses it the same way) and toward operator technique; perhaps '
                                             'inconsistent loaf placement, inconsistent timing relative to the cooling '
                                             'process discussed in Lesson 01, or simply inconsistent training on the '
                                             'weighing procedure across shifts. This is a very different, and generally '
@@ -7488,7 +7488,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'This matters directly for the cross-plant capability comparison: if Plant '
                                             "B's %Gage R&R comes back above the commonly used 30% threshold, some "
                                             "meaningful portion of Plant B's apparently worse capability (Cpk) could "
-                                            'actually be measurement noise rather than real process variation — '
+                                            'actually be measurement noise rather than real process variation; '
                                             "meaning the plant's true underlying performance might be better than its "
                                             'raw capability number suggests, until the measurement system itself is '
                                             'fixed and the comparison is redone on trustworthy data.',
@@ -7569,7 +7569,7 @@ BELTS = {'white': {'name': 'White Belt',
                                     'operators/same part) separate two distinct sources of measurement variation.',
                                     'A weak reproducibility result with strong repeatability points toward operator '
                                     'technique, not necessarily the gage itself.',
-                                    'Poor %Gage R&R can make true process variation look worse than it is — resolve '
+                                    'Poor %Gage R&R can make true process variation look worse than it is; resolve '
                                     'measurement system issues before trusting a capability comparison.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
@@ -7577,19 +7577,19 @@ BELTS = {'white': {'name': 'White Belt',
                        {'code': 'B08',
                         'title': 'Process and Performance Capability',
                         'opening_question': 'With measurement systems now verified, corporate wants a single number '
-                                            'per plant to compare. Cpk was used back in the original Plant A project — '
+                                            'per plant to compare. Cpk was used back in the original Plant A project; '
                                             'but is Cpk actually the right index for a *company-wide* rollup spanning '
                                             'several months of data across three plants?',
-                        'concepts': ['**Cp/Cpk**: capability calculated from short-term, stable-process variation — a '
+                        'concepts': ['**Cp/Cpk**: capability calculated from short-term, stable-process variation: a '
                                      'best-case estimate of what the process is *capable* of under controlled '
                                      'conditions.',
                                      '**Pp/Ppk**: capability calculated from long-term data, including normal '
-                                     'shift-to-shift and month-to-month variation — a more realistic estimate of what '
+                                     'shift-to-shift and month-to-month variation: a more realistic estimate of what '
                                      'customers actually experience over time.',
-                                     "**Socratic prompt:** Plant A's original pilot Cpk (1.15, over four weeks on one "
+                                     "**Think it through:** Plant A's original pilot Cpk (1.15, over four weeks on one "
                                      'shift) and its six-month figure (1.27, across all shifts) used different data '
                                      'windows. Which one is more comparable to a rollup spanning several months across '
-                                     'three whole plants — and why might using the narrower, short-term number for '
+                                     'three whole plants. why might using the narrower, short-term number for '
                                      'this comparison be misleading?'],
                         'terms': ['Cp/Cpk', 'Pp/Ppk', 'Long-Term vs. Short-Term Capability'],
                         'math': [{'name': 'Mean',
@@ -7618,7 +7618,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'Explain why a company-wide, multi-month rollup is better represented '
                                                 'by Ppk than Cpk'],
                         'full_explanation': "Using Plant A's original four-week pilot Cpk (1.15) is tempting because "
-                                            "it's already calculated and was reported as a project success — but it "
+                                            "it's already calculated and was reported as a project success. But it "
                                             'reflects short-term, closely monitored conditions on a single shift, not '
                                             'the kind of long-term, all-shift, all-month performance corporate is '
                                             'actually asking about across three plants. This is exactly the '
@@ -7632,7 +7632,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             'For a rollup meant to represent what the grocery customer actually '
                                             'experiences over months of deliveries from all three plants, Ppk is the '
-                                            "more honest and appropriate index — precisely because it doesn't filter "
+                                            "more honest and appropriate index; precisely because it doesn't filter "
                                             'out the normal, real-world variation a short-term Cpk study is designed '
                                             "to exclude. Using Plant A's narrower, more favorable four-week Cpk figure "
                                             'in this context would make the comparison look better than it should, and '
@@ -7649,7 +7649,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             "min[0.89, 0.59] ≈ **0.59**. This confirms the Socratic prompt's suspicion "
                                             'from Lesson 02: Plant B, despite not looking dramatically different from '
                                             'Plant C on mean alone, is meaningfully the worst performer once centering '
-                                            'and spread are combined — a clear, defensible priority for the Analyze '
+                                            'and spread are combined: a clear, defensible priority for the Analyze '
                                             'and Improve work to come.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What is the key difference between Cp/Cpk and Pp/Ppk?',
@@ -7667,13 +7667,13 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Cp/Cpk are always more accurate than Pp/Ppk '
-                                                                  '*(neither is universally "more accurate" — they '
+                                                                  '*(neither is universally "more accurate". They '
                                                                   'answer different questions about different time '
                                                                   'horizons)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'Pp/Ppk only apply to multi-plant comparisons *(they '
-                                                                  'can apply to a single process too — the key factor '
+                                                                  'can apply to a single process too: the key factor '
                                                                   'is long-term versus short-term data, not number of '
                                                                   'sites)*',
                                                           'correct': False}],
@@ -7688,19 +7688,19 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': "Ppk is always a larger number than Cpk *(this isn't "
-                                                                  "guaranteed — in this scenario Plant A's numbers "
+                                                                  "guaranteed; in this scenario Plant A's numbers "
                                                                   "happen to be similar, but that's not a general "
                                                                   'rule)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Cpk cannot be calculated for bakery products *(Cpk '
                                                                   'can be calculated for any process with normally '
-                                                                  'distributed data and known limits — the issue here '
+                                                                  'distributed data and known limits: the issue here '
                                                                   'is the data window, not the industry)*',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'Corporate specifically banned the use of Cpk *(no '
-                                                                  'such rule is stated — the issue is appropriateness '
+                                                                  'such rule is stated: the issue is appropriateness '
                                                                   'of the metric for this specific comparison)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -7722,7 +7722,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'c',
                                                           'text': 'Plant C, since its mean was closest to the 500g '
                                                                   "target *(a closer mean alone doesn't offset Plant "
-                                                                  "C's wider spread compared to Plant A — but Plant "
+                                                                  "C's wider spread compared to Plant A. But Plant "
                                                                   "B's combined result is still worse)*",
                                                           'correct': False},
                                                          {'key': 'd',
@@ -7736,14 +7736,14 @@ BELTS = {'white': {'name': 'White Belt',
                                     'A multi-month, multi-plant rollup should generally use Ppk, not a narrow '
                                     'short-term Cpk, for a fair and honest comparison.',
                                     'Combining centering and spread into a single index (rather than eyeballing mean '
-                                    'and SD separately) can reveal a clear priority — here, Plant B.'],
+                                    'and SD separately) can reveal a clear priority; here, Plant B.'],
                         'hands_on_activity': '',
                         'worked_solution': '',
                         'module_title': 'Measure Phase (Full Module, 4 Lessons)'},
                        {'code': 'B09',
                         'title': 'Define (DMADV): Enterprise-Scale New Product Launch',
                         'opening_question': 'Corporate wants the protein bread line launched simultaneously at Plants '
-                                            'A, B, and C — each with different oven equipment, different regional '
+                                            'A, B, and C. Each with different oven equipment, different regional '
                                             'supply contracts, and different labor costs. The single-plant Green Belt '
                                             'version of this project only had to define goals for one site. What '
                                             'changes about Define when the same launch has to succeed across three '
@@ -7751,11 +7751,11 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ['A multi-site DMADV project needs one shared business case and goal, but scope '
                                      'must explicitly account for real site-level differences (equipment, supply '
                                      'contracts, labor) rather than assuming uniformity.',
-                                     "**Socratic prompt:** If Plant C's oven equipment can't reach the baking "
+                                     "**Think it through:** If Plant C's oven equipment can't reach the baking "
                                      "temperature the Green Belt's original recipe used, does that belong in Define's "
                                      'scope discussion, or is it something to discover later, during Design?',
                                      'A corporate-level champion (here, likely a VP of Manufacturing or Operations '
-                                     "overseeing all three plants) has authority a single-plant champion doesn't — the "
+                                     "overseeing all three plants) has authority a single-plant champion doesn't: the "
                                      'ability to resolve resource conflicts *between* plants, not just within one.'],
                         'terms': ['Multi-Site Scope', 'Corporate Champion', 'Site-Level Constraint'],
                         'math': [{'name': 'Mean',
@@ -7780,7 +7780,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'means locally.\n'
                                             '\n'
                                             "This means Define's scope section needs an explicit inventory of known "
-                                            'site-level differences before the project proceeds — not because every '
+                                            'site-level differences before the project proceeds. It is not because every '
                                             'difference needs to be resolved immediately, but because an unresolved, '
                                             "unflagged difference (like Plant C's oven ceiling temperature) can "
                                             'silently invalidate assumptions made much later in Design, at a point '
@@ -7790,12 +7790,12 @@ BELTS = {'white': {'name': 'White Belt',
                                             "solve for from the start (find a formulation that works at Plant C's "
                                             'lower maximum temperature), or a scope decision to make explicitly now '
                                             '(launch at Plants A and B first, defer Plant C pending an equipment '
-                                            "upgrade) — but it shouldn't be an accidental discovery mid-project.\n"
+                                            "upgrade). But it shouldn't be an accidental discovery mid-project.\n"
                                             '\n'
                                             "This is also where the corporate-level champion's authority matters "
                                             "differently than a single-plant champion's. If Plants A and B need to "
                                             "temporarily divert staff time to support Plant C's pilot testing, only "
-                                            'someone with authority across all three sites can make that call — a '
+                                            'someone with authority across all three sites can make that call: a '
                                             "single-plant champion can advocate for their own plant's priorities, but "
                                             "can't resolve a genuine resource conflict between plants.",
                         'knowledge_check': [{'number': 1,
@@ -7896,9 +7896,9 @@ BELTS = {'white': {'name': 'White Belt',
                                      'buy again" (≥7/10 equivalent).',
                                      'The **standard error** of this proportion: SE = √[p(1−p)/n] = √[0.62×0.38/150] = '
                                      '√0.00157 ≈ **0.0397**.',
-                                     '**Socratic prompt:** If the point estimate is 62%, but the true population '
+                                     '**Think it through:** If the point estimate is 62%, but the true population '
                                      'proportion could reasonably be anywhere in a range around that number, should '
-                                     'the CTQ target be set at exactly 62% — or somewhere more conservative, and why?',
+                                     'the CTQ target be set at exactly 62%; or somewhere more conservative, and why?',
                                      'A 95% confidence interval: 0.62 ± (1.96 × 0.0397) = 0.62 ± 0.078 → **(54.2%, '
                                      '69.8%)**.'],
                         'terms': ['Confidence Interval', 'Standard Error', 'Point Estimate'],
@@ -7925,7 +7925,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                 'target',
                                                 'Explain why a point estimate alone is insufficient to justify a '
                                                 'target at enterprise scale'],
-                        'full_explanation': 'A single survey result — "62% said they\'d buy again" — is a point '
+                        'full_explanation': 'A single survey result, "62% said they\'d buy again", is a point '
                                             'estimate, not a guarantee about the true underlying customer population. '
                                             'Because the survey sampled only 150 people out of a much larger potential '
                                             'customer base, that 62% carries real uncertainty, which is exactly what a '
@@ -7935,20 +7935,20 @@ BELTS = {'white': {'name': 'White Belt',
                                             '× 0.38) / 150] = √(0.2356 / 150) = √0.00157 ≈ 0.0397. For a 95% '
                                             'confidence interval, multiply by 1.96 (the standard normal critical '
                                             'value): 1.96 × 0.0397 ≈ 0.078. This gives an interval of 0.62 ± 0.078, or '
-                                            '**54.2% to 69.8%** — meaning the team can be 95% confident the true '
+                                            '**54.2% to 69.8%**; meaning the team can be 95% confident the true '
                                             'population proportion falls somewhere in that range, not necessarily '
                                             'exactly at 62%.\n'
                                             '\n'
                                             'This directly informs a defensible CTQ target: rather than setting the '
                                             'purchase-intent target at the point estimate of 62% (which assumes the '
                                             'survey nailed the true value exactly), a more defensible approach uses '
-                                            'the *lower bound* of the confidence interval — something like "≥55% '
-                                            'purchase intent" — as the actual CTQ minimum. This is conservative by '
+                                            'the *lower bound* of the confidence interval; something like "≥55% '
+                                            'purchase intent"; as the actual CTQ minimum. This is conservative by '
                                             'design: even in the less favorable end of the plausible range the data '
                                             'supports, the product still needs to clear the bar. Setting the target at '
                                             'the point estimate alone risks appearing to meet the CTQ in later testing '
                                             'due to sampling variation alone, not real underlying customer preference '
-                                            '— exactly the kind of statistically unjustified target corporate wants to '
+                                            '; exactly the kind of statistically unjustified target corporate wants to '
                                             'avoid for a company-wide financial commitment.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What does the calculated 95% confidence interval (54.2%, '
@@ -7983,7 +7983,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': "The point estimate is always wrong *(it's a real, "
-                                                                  'unbiased estimate — the issue is the uncertainty '
+                                                                  'unbiased estimate: the issue is the uncertainty '
                                                                   "around it, not that it's incorrect)*",
                                                           'correct': False},
                                                          {'key': 'c',
@@ -8040,9 +8040,9 @@ BELTS = {'white': {'name': 'White Belt',
                                             'two factors interact. What kind of experiment can?',
                         'concepts': ['A **2² factorial design** tests two factors (protein source: pea vs. whey; '
                                      'baking temperature: 350°F vs. 375°F) at two levels each, in all four '
-                                     "combinations — letting the team estimate each factor's effect, and potentially "
+                                     "combinations; letting the team estimate each factor's effect, and potentially "
                                      'their interaction, from a single small experiment.',
-                                     '**Socratic prompt:** If the team had only tested pea protein at both '
+                                     '**Think it through:** If the team had only tested pea protein at both '
                                      'temperatures (ignoring whey entirely), could they have concluded anything about '
                                      'whether protein source itself affects shelf life?',
                                      'A **main effect** is the average change in the response (here, shelf life) '
@@ -8087,13 +8087,13 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             'Both effects point in a consistent direction across the four runs (pea '
                                             'protein and lower temperature both help shelf life in each comparison), '
-                                            'which is itself a useful check — a genuine interaction would show up as '
+                                            'which is itself a useful check: a genuine interaction would show up as '
                                             'the temperature effect flipping direction or changing size dramatically '
                                             "depending on which protein source is used, which isn't strongly evident "
                                             'in just four runs but would be worth confirming with a larger, replicated '
                                             'design before treating it as settled. For now, this small experiment '
                                             'gives the team a clear, ranked priority: protein source matters more (2.5 '
-                                            'days) than baking temperature (1.5 days) for shelf life — informing where '
+                                            'days) than baking temperature (1.5 days) for shelf life; informing where '
                                             'Design should focus its most careful control.',
                         'knowledge_check': [{'number': 1,
                                              'question': 'What does the main effect of protein source (+2.5 days) '
@@ -8124,7 +8124,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'answer whether protein source itself matters?',
                                              'options': [{'key': 'a',
                                                           'text': "That design would only reveal temperature's effect "
-                                                                  'for pea protein alone — it says nothing about '
+                                                                  'for pea protein alone. It says nothing about '
                                                                   'whether switching protein source changes shelf life '
                                                                   '*(correct)*',
                                                           'correct': True},
@@ -8154,7 +8154,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': True},
                                                          {'key': 'b',
                                                           'text': 'Baking temperature, since it was tested second '
-                                                                  "*(order of testing doesn't determine priority — "
+                                                                  "*(order of testing doesn't determine priority; "
                                                                   'effect size does)*',
                                                           'correct': False},
                                                          {'key': 'c',
@@ -8164,12 +8164,12 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False},
                                                          {'key': 'd',
                                                           'text': 'Both factors have exactly equal importance *(2.5 '
-                                                                  "days and 1.5 days are not equal — protein source's "
+                                                                  "days and 1.5 days are not equal; protein source's "
                                                                   'effect is larger)*',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ["A 2×2 factorial experiment tests two factors together, revealing each factor's "
-                                    'main effect and potential interactions — more informative than testing one factor '
+                                    'main effect and potential interactions; more informative than testing one factor '
                                     'at a time.',
                                     "Main effects quantify the average impact of changing one factor's level, averaged "
                                     "across the other factor's levels.",
@@ -8189,12 +8189,12 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ['Given five formulation batches with measured moisture content and observed shelf '
                                      'life, a **simple linear regression** finds the best-fit line: ShelfLife = '
                                      'intercept + slope × Moisture%.',
-                                     '**Socratic prompt:** If the regression shows a strong, consistent relationship '
+                                     '**Think it through:** If the regression shows a strong, consistent relationship '
                                      'between moisture content and shelf life, what does that suggest about *why* '
                                      'protein source and baking temperature affected shelf life in the earlier '
                                      'factorial experiment?',
                                      '**R²** indicates how much of the variation in shelf life is explained by '
-                                     'moisture content alone — a high R² suggests moisture content is a strong, '
+                                     'moisture content alone: a high R² suggests moisture content is a strong, '
                                      'reliable predictor.'],
                         'terms': ['Simple Linear Regression', 'Slope', 'R² (Coefficient of Determination)'],
                         'math': [{'name': 'Mean',
@@ -8227,13 +8227,13 @@ BELTS = {'white': {'name': 'White Belt',
                                             'using the deviations from each mean: slope = (sum of [(x−mean x)(y−mean '
                                             'y)]) ÷ (sum of [(x−mean x)²]) = −30 ÷ 40 = **−0.75**. This means each '
                                             '1-percentage-point increase in moisture content is associated with a '
-                                            '0.75-day *decrease* in shelf life — bread with more residual moisture '
+                                            '0.75-day *decrease* in shelf life; bread with more residual moisture '
                                             'spoils faster, which matches basic food-science intuition and gives the '
                                             'number real credibility.\n'
                                             '\n'
                                             'The intercept: 9.2 − (−0.75 × 36) = 9.2 + 27 = **36.2**. The regression '
                                             'equation: **Shelf Life = 36.2 − 0.75 × (Moisture %)**. Checking fit, R² '
-                                            'for this data comes out to approximately **0.987** — meaning moisture '
+                                            'for this data comes out to approximately **0.987**; meaning moisture '
                                             'content alone explains about 98.7% of the variation in shelf life across '
                                             'these five batches, an unusually strong fit that suggests moisture is '
                                             'indeed the dominant driver behind what the factorial experiment '
@@ -8245,7 +8245,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             'at or below approximately 34.9%, rather than managing protein source and '
                                             'temperature as two separate, harder-to-control levers. (In practice, a '
                                             'Black Belt would also compute a prediction interval around this estimate, '
-                                            'not just a point prediction, since five data points is a small sample — '
+                                            'not just a point prediction, since five data points is a small sample; '
                                             'but the point estimate already gives Design a clear, actionable target to '
                                             'design around.)',
                         'knowledge_check': [{'number': 1,
@@ -8268,7 +8268,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                                   'shelf life, not the reverse)*',
                                                           'correct': False},
                                                          {'key': 'd',
-                                                          'text': 'The relationship is positive — more moisture means '
+                                                          'text': 'The relationship is positive; more moisture means '
                                                                   'longer shelf life *(the negative slope indicates '
                                                                   'the opposite relationship)*',
                                                           'correct': False}],
@@ -8278,7 +8278,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'regression model?',
                                              'options': [{'key': 'a',
                                                           'text': 'Moisture content alone explains about 98.7% of the '
-                                                                  'variation in shelf life across these batches — an '
+                                                                  'variation in shelf life across these batches: an '
                                                                   'unusually strong fit *(correct)*',
                                                           'correct': True},
                                                          {'key': 'b',
@@ -8310,7 +8310,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'b',
                                                           'text': 'Protein source and temperature have no real effect '
                                                                   'on the product *(the factorial experiment showed '
-                                                                  'they do — likely by affecting moisture)*',
+                                                                  'they do; likely by affecting moisture)*',
                                                           'correct': False},
                                                          {'key': 'c',
                                                           'text': 'Regression models can never inform formulation '
@@ -8326,7 +8326,7 @@ BELTS = {'white': {'name': 'White Belt',
                         'summary': ['A simple linear regression predicts a response (shelf life) from a single input '
                                     'variable (moisture content), using slope, intercept, and R² to describe the '
                                     "relationship's strength and direction.",
-                                    'A high R² suggests the input variable is a strong, reliable predictor — and may '
+                                    'A high R² suggests the input variable is a strong, reliable predictor. may '
                                     'be a more fundamental driver than variables that influence it indirectly.',
                                     'A regression equation can be solved to set a specific, actionable Design-phase '
                                     'formulation target.'],
@@ -8343,13 +8343,13 @@ BELTS = {'white': {'name': 'White Belt',
                         'concepts': ["Comparing shelf-life results across three plants' pilot batches requires a "
                                      'formal hypothesis test (such as one-way ANOVA), not just a visual comparison of '
                                      'three average values.',
-                                     "**Socratic prompt:** If Plant A's pilot batches average 10.3 days, Plant B's "
+                                     "**Think it through:** If Plant A's pilot batches average 10.3 days, Plant B's "
                                      "average 9.8 days, and Plant C's average 10.6 days, does that half-day spread "
-                                     'necessarily mean the plants perform differently in any meaningful sense — or '
+                                     'necessarily mean the plants perform differently in any meaningful sense; or '
                                      'could it just be normal batch-to-batch variation?',
                                      'The null hypothesis for this test: there is no real difference in mean shelf '
                                      'life across the three plants. A resulting p-value above 0.05 means the data '
-                                     "doesn't provide strong evidence against that null hypothesis — it does *not* "
+                                     "doesn't provide strong evidence against that null hypothesis. It does *not* "
                                      'prove the plants are identical.'],
                         'terms': ['One-Way ANOVA', 'p-value', 'Null Hypothesis (Multi-Group Comparison)'],
                         'math': [{'name': 'Mean',
@@ -8370,14 +8370,14 @@ BELTS = {'white': {'name': 'White Belt',
                                             "arise from normal random variation within each plant's own batch-to-batch "
                                             'results. Suppose the test returns a p-value of **0.31**. Since 0.31 is '
                                             'well above the conventional 0.05 threshold, the team fails to reject the '
-                                            "null hypothesis — the data doesn't provide strong evidence that the three "
+                                            "null hypothesis: the data doesn't provide strong evidence that the three "
                                             'plants genuinely differ in mean shelf-life performance. This supports '
                                             'proceeding with a single, standardized process and formulation across all '
                                             'three plants, rather than developing plant-specific adjustments.\n'
                                             '\n'
                                             "It's worth being precise about what this conclusion actually means, and "
                                             "what it doesn't. A p-value of 0.31 does not prove the three plants "
-                                            "perform identically — it means the pilot data simply doesn't provide "
+                                            "perform identically. It means the pilot data simply doesn't provide "
                                             'strong enough evidence of a real difference to justify treating them '
                                             "differently. If a real, smaller difference exists but wasn't detected due "
                                             "to limited pilot sample size, that's a genuine possibility a Black Belt "
@@ -8385,7 +8385,7 @@ BELTS = {'white': {'name': 'White Belt',
                                             '\n'
                                             'Contrast this with a hypothetical alternative outcome: if the same test '
                                             'had returned a p-value of **0.02**, that would fall below the 0.05 '
-                                            'threshold, providing evidence against the null hypothesis — suggesting a '
+                                            'threshold, providing evidence against the null hypothesis; suggesting a '
                                             'real, statistically significant difference between at least one plant and '
                                             'the others. In that scenario, the team would need a follow-up test (a '
                                             'pairwise comparison) to identify which specific plant differs, and likely '
@@ -8398,7 +8398,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'comparing the three plant averages by eye?',
                                              'options': [{'key': 'a',
                                                           'text': 'A small spread between averages could reflect '
-                                                                  'normal random variation or a real difference — only '
+                                                                  'normal random variation or a real difference; only '
                                                                   'a formal test, using within-plant variation, can '
                                                                   'distinguish the two *(correct)*',
                                                           'correct': True},
@@ -8424,7 +8424,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          'three plants?',
                                              'options': [{'key': 'a',
                                                           'text': "The data doesn't provide strong evidence of a real "
-                                                                  'difference between the plants — it does not prove '
+                                                                  'difference between the plants. It does not prove '
                                                                   "they're identical *(correct)*",
                                                           'correct': True},
                                                          {'key': 'b',
@@ -8440,7 +8440,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'd',
                                                           'text': 'There is a 31% chance the plants are actually '
                                                                   'different *(this misinterprets what a p-value '
-                                                                  'represents — it does not directly state the '
+                                                                  'represents. It does not directly state the '
                                                                   'probability that a hypothesis is true)*',
                                                           'correct': False}],
                                              'answer': ''},
@@ -8462,7 +8462,7 @@ BELTS = {'white': {'name': 'White Belt',
                                                          {'key': 'c',
                                                           'text': 'Discard the entire DMADV project and restart from '
                                                                   'Define *(a significant difference at one plant '
-                                                                  "doesn't invalidate the whole project — it calls for "
+                                                                  "doesn't invalidate the whole project. It calls for "
                                                                   'targeted adjustment)*',
                                                           'correct': False},
                                                          {'key': 'd',
@@ -8473,10 +8473,10 @@ BELTS = {'white': {'name': 'White Belt',
                                                           'correct': False}],
                                              'answer': ''}],
                         'summary': ['Comparing group averages by eye risks misjudging whether an observed spread '
-                                    'reflects real difference or normal variation — a formal hypothesis test resolves '
+                                    'reflects real difference or normal variation: a formal hypothesis test resolves '
                                     'this.',
                                     'A p-value above the significance threshold means insufficient evidence of a real '
-                                    'difference — not proof of true equivalence.',
+                                    'difference. It is not proof of true equivalence.',
                                     'A significant result (low p-value) calls for follow-up investigation and targeted '
                                     'adjustment, not abandoning the project.'],
                         'hands_on_activity': '',
@@ -8578,7 +8578,7 @@ for _belt in BELTS.values():
 
 
 # Terms are intentionally reusable across lessons so the glossary can be a real reference system.
-GLOSSARY = {'5S': {'definition': 'Sort, Set in Order, Shine, Standardize, Sustain: a Lean workplace organization and control method.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Common Cause': {'definition': 'Routine variation arising from a stable process system.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Confidence Interval': {'definition': 'An interval estimation procedure that quantifies uncertainty around a population parameter under a specified confidence level and method.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Control Limit': {'definition': 'A statistically derived boundary used to identify unusual process behavior on a control chart.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'COPQ': {'definition': 'Cost of Poor Quality: costs attributable to failures, defects, rework, complaints, inspection, and related quality losses.', 'why_it_matters': 'COPQ makes the economic consequence of poor performance visible through prevention, appraisal, internal failure and external failure costs.', 'use_when': 'Use it to build the business case and compare improvement options.', 'watch_out': 'Counting only visible rework or complaint costs can understate the true economic impact.'}, 'Cp': {'definition': 'Potential capability index based on specification width relative to six standard deviations of process variation.', 'why_it_matters': 'Cp compares specification width with six standard deviations and describes potential capability when centeredness is ignored.', 'use_when': 'Use it alongside Cpk to separate spread problems from centering problems.', 'watch_out': 'High Cp does not prove that the process is centered or currently meeting specifications.'}, 'Cpk': {'definition': 'Capability index that also accounts for how centered the process is within the specification limits.', 'why_it_matters': 'Cpk combines process spread with distance from the nearest specification limit.', 'use_when': 'Use it to assess practical capability when both variation and centering matter.', 'watch_out': 'Cpk can fall even when variation is acceptable if the process mean drifts toward a specification limit.'}, 'CTQ': {'definition': 'Critical to Quality: a measurable characteristic that represents an important customer requirement.', 'why_it_matters': 'A CTQ converts an important requirement into a measurable characteristic with an operational definition.', 'use_when': 'Use it to translate VOC into metrics and acceptance criteria.', 'watch_out': 'A vague “quality” goal is not a CTQ until it has a measurable definition and threshold.'}, 'CUSUM': {'definition': 'Cumulative Sum control chart: a monitoring method designed to detect small or persistent shifts in a process mean.', 'why_it_matters': 'CUSUM accumulates deviations from a target to make small persistent shifts easier to detect than with some traditional charts.', 'use_when': 'Use it when small mean shifts matter and rapid detection is valuable.', 'watch_out': 'Chart settings and target values should reflect the actual process and decision risk.'}, 'Defect': {'definition': 'A failure to meet a defined customer, specification, or process requirement.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'DFSS': {'definition': 'Design for Six Sigma: structured methods for designing products and processes to meet requirements from the outset.', 'why_it_matters': 'DFSS applies Six Sigma thinking during design so customer and business requirements are built into a new product, service or process.', 'use_when': 'Use it when creating something new or making a redesign substantial enough that an existing-process improvement cycle is not sufficient.', 'watch_out': 'A DFSS project still requires explicit requirements, verification and stakeholder alignment.'}, 'DMADV': {'definition': 'Define, Measure, Analyze, Design, Verify: a DFSS method used for new development or substantial redesign when DMAIC is not sufficient.', 'why_it_matters': 'DMADV is the Define, Measure, Analyze, Design and Verify framework used within Design for Six Sigma for new development.', 'use_when': 'Use it when the desired future process or product does not yet exist, or when redesign requires a new architecture.', 'watch_out': 'Do not assume it is interchangeable with DMAIC: the object of improvement and the evidence available are different.'}, 'DMAIC': {'definition': 'Define, Measure, Analyze, Improve, Control: the core cycle for improving an existing process.', 'why_it_matters': 'It is designed for improving an existing process whose problem and performance can be characterized.', 'use_when': 'Use it when the process exists and the team needs disciplined problem definition, measurement, causal analysis, improvement and control.', 'watch_out': 'Do not use DMAIC as a substitute for choosing the right problem or understanding the operating context.'}, 'DOE': {'definition': 'Design of Experiments: planned manipulation of factors to learn about their effects on a response.', 'why_it_matters': 'DOE changes multiple factors in a planned way so their effects and interactions can be estimated efficiently.', 'use_when': 'Use it when controlled experimentation is feasible and the team needs evidence about causal factors.', 'watch_out': 'Poor factor selection, uncontrolled noise and an ambiguous response measure weaken the experiment.'}, 'DPMO': {'definition': 'Defects per million opportunities: DPO multiplied by one million.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'DPO': {'definition': 'Defects per opportunity: defects divided by units times opportunities per unit.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'DPU': {'definition': 'Defects per unit: total defects divided by total units.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'EWMA': {'definition': 'Exponentially Weighted Moving Average control chart: a monitoring method that weights recent observations more heavily to detect gradual shifts.', 'why_it_matters': 'EWMA gives greater weight to recent observations while retaining information from earlier data.', 'use_when': 'Use it to detect gradual or sustained shifts when a moving average view is useful.', 'watch_out': 'Smoothing can delay or obscure individual large signals if used without understanding the process.'}, 'Hypothesis Test': {'definition': 'A statistical procedure for evaluating evidence against a null hypothesis under stated assumptions.', 'why_it_matters': 'A hypothesis test compares observed evidence with what would be expected under a null model and its assumptions.', 'use_when': 'Use it when a decision requires formal evidence about a difference, relationship or effect.', 'watch_out': 'A p-value is not the probability that the null hypothesis is true, nor is statistical significance the same as business importance.'}, 'IDOV': {'definition': 'Identify, Design, Optimize, Verify: a DFSS framework commonly used as an alternative naming convention to DMADV for new development.', 'why_it_matters': 'IDOV—Identify, Design, Optimize and Verify—is a DFSS framework closely related to DMADV and often used for new development.', 'use_when': 'Use it as an alternative design-oriented roadmap when the organization uses IDOV terminology.', 'watch_out': 'The names differ by organization; the underlying logic remains requirements, design, optimization and verification.'}, 'Interaction': {'definition': 'A situation where the effect of one factor depends on the level of another factor.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Kano': {'definition': 'A framework for classifying customer requirements into categories such as basic, performance, and attractive needs.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Lean': {'definition': 'An approach focused on customer value, flow, waste reduction, and continuous improvement.', 'why_it_matters': 'Lean focuses on creating customer value with less unnecessary work, delay, inventory, motion and complexity.', 'use_when': 'Use it to understand flow and remove waste before or alongside statistical analysis.', 'watch_out': 'Waste elimination without understanding demand, variation or quality can simply move problems downstream.'}, 'MSA': {'definition': 'Measurement System Analysis: evaluation of whether a measurement system is adequate for its intended decision.', 'why_it_matters': 'Measurement System Analysis determines whether the measurement process is precise and stable enough for the decisions being made.', 'use_when': 'Use it before trusting process data for capability, comparison or root-cause decisions.', 'watch_out': 'A sophisticated analysis cannot rescue a measurement system that cannot reliably distinguish meaningful differences.'}, 'NPV': {'definition': 'Net Present Value: the discounted value of future cash flows less the initial investment.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'p-value': {'definition': 'The probability, under the null hypothesis, of observing a result at least as extreme as the one obtained, according to the chosen test statistic.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Pareto': {'definition': 'A prioritization method that ranks categories by contribution, often illustrated with bars and a cumulative line.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'PCA': {'definition': 'Principal Component Analysis: a dimension-reduction method that represents correlated variables through orthogonal components.', 'why_it_matters': 'PCA reduces many correlated variables into a smaller set of components that capture major patterns of variation.', 'use_when': 'Use it for exploratory analysis and dimensionality reduction when many variables move together.', 'watch_out': 'Components are mathematical constructs and should not automatically be treated as causal factors.'}, 'PLS': {'definition': 'Projection to Latent Structures: a multivariate modelling method that extracts latent predictors while considering the response.', 'why_it_matters': 'PLS models relationships between predictors and responses through latent structures, especially when predictors are numerous or correlated.', 'use_when': 'Use it when the goal is prediction or explanation with strongly correlated process variables.', 'watch_out': 'Validation and overfitting checks are essential before using a PLS model operationally.'}, 'Practical Significance': {'definition': 'The real-world magnitude and consequence of an effect, distinct from statistical significance.', 'why_it_matters': 'Practical significance asks whether the size of an effect is meaningful for customers, operations, cost or risk.', 'use_when': 'Use it alongside statistical significance when deciding whether to act.', 'watch_out': 'A statistically significant effect can still be too small to justify a process change.'}, 'Process': {'definition': 'A set of related activities that transforms inputs into outputs for a customer or stakeholder.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Process Capability': {'definition': 'The ability of a stable process to meet specification requirements, often summarized with indices such as Cp and Cpk.', 'why_it_matters': 'Capability compares the spread and location of a stable process with specification limits.', 'use_when': 'Use it after verifying process stability and an appropriate measurement system.', 'watch_out': 'Capability indices are not meaningful when the process is unstable or the specification is poorly defined.'}, 'RACI': {'definition': 'Responsible, Accountable, Consulted, Informed: a responsibility-assignment framework.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Regression': {'definition': 'A modelling approach used to estimate relationships between predictors and a response variable.', 'why_it_matters': 'Regression estimates relationships between predictor variables and a response while making assumptions explicit.', 'use_when': 'Use it to quantify associations, build predictions and support causal investigation when paired with sound design and domain knowledge.', 'watch_out': 'Association in a regression model does not by itself establish causation.'}, 'Repeatability': {'definition': 'Variation when the same operator measures the same item using the same method and equipment.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Reproducibility': {'definition': 'Variation attributable to differences among operators or appraisers using the measurement system.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Root Cause': {'definition': 'A validated causal mechanism whose removal or control prevents recurrence of the problem under the relevant conditions.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Sigma Shift': {'definition': 'A convention often used in Six Sigma teaching to translate short-term process performance into an assumed long-term performance estimate.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'SIPOC': {'definition': 'Suppliers, Inputs, Process, Outputs, Customers: a high-level view of process boundaries.', 'why_it_matters': 'SIPOC sets process boundaries by identifying suppliers, inputs, high-level process steps, outputs and customers.', 'use_when': 'Use it early in Define to align stakeholders on scope before detailed mapping.', 'watch_out': 'A SIPOC is intentionally high level; it should not become a detailed process map.'}, 'Six Sigma': {'definition': 'A disciplined approach to improving process performance by reducing defects and variation using data and structured problem solving.', 'why_it_matters': 'It is a management system as much as a set of analytical tools: the objective is predictable process performance and better decisions.', 'use_when': 'Use it to frame improvement around customer requirements, variation, evidence and measurable business outcomes.', 'watch_out': 'Do not reduce Six Sigma to a sigma-level calculation or a statistics exercise.'}, 'SPC': {'definition': 'Statistical Process Control: monitoring process behavior over time to distinguish common-cause from special-cause variation.', 'why_it_matters': 'SPC monitors process behavior over time to distinguish routine variation from signals that warrant investigation.', 'use_when': 'Use it when a process needs ongoing control after improvement or when stability is itself in question.', 'watch_out': 'Control limits are not specification limits; a process can be stable but incapable.'}, 'Special Cause': {'definition': 'An identifiable source of unusual variation that produces a non-routine signal.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Specification Limit': {'definition': 'A customer, engineering, regulatory, or business requirement defining acceptable output values.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Variation': {'definition': 'The degree to which process outcomes differ from one another.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'VOB': {'definition': 'Voice of the Business: business, strategic, economic, operational, and risk requirements.', 'why_it_matters': 'VOB captures the organization’s economic, strategic, operational and risk requirements.', 'use_when': 'Use it to connect improvement work to value, capacity, revenue, cost, resilience or risk outcomes.', 'watch_out': 'Business metrics can conflict with customer or employee needs; the trade-off should be made explicit.'}, 'VOC': {'definition': 'Voice of the Customer: structured understanding of customer needs, expectations, pain, and requirements.', 'why_it_matters': 'VOC translates customer experience and expectations into requirements that can be measured and acted upon.', 'use_when': 'Use it at project definition and whenever a proposed solution risks optimizing an internal metric at the expense of customer value.', 'watch_out': 'A complaint is evidence, not automatically the complete customer requirement.'}, 'VOE': {'definition': 'Voice of the Employee: frontline experience, friction, capability constraints, and adoption concerns.', 'why_it_matters': 'VOE captures the experience of employees who operate, support or are affected by the process.', 'use_when': 'Use it to identify workarounds, hidden rework, capability constraints, incentives and adoption barriers.', 'watch_out': 'Employee feedback is not merely sentiment; it can reveal process conditions that transaction data misses.'}, 'Yield': {'definition': 'The proportion of output that meets the relevant requirement under a defined yield convention.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}}
+GLOSSARY = {'5S': {'definition': 'Sort, Set in Order, Shine, Standardize, Sustain: a Lean workplace organization and control method.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Common Cause': {'definition': 'Routine variation arising from a stable process system.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Confidence Interval': {'definition': 'An interval estimation procedure that quantifies uncertainty around a population parameter under a specified confidence level and method.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Control Limit': {'definition': 'A statistically derived boundary used to identify unusual process behavior on a control chart.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'COPQ': {'definition': 'Cost of Poor Quality: costs attributable to failures, defects, rework, complaints, inspection, and related quality losses.', 'why_it_matters': 'COPQ makes the economic consequence of poor performance visible through prevention, appraisal, internal failure and external failure costs.', 'use_when': 'Use it to build the business case and compare improvement options.', 'watch_out': 'Counting only visible rework or complaint costs can understate the true economic impact.'}, 'Cp': {'definition': 'Potential capability index based on specification width relative to six standard deviations of process variation.', 'why_it_matters': 'Cp compares specification width with six standard deviations and describes potential capability when centeredness is ignored.', 'use_when': 'Use it alongside Cpk to separate spread problems from centering problems.', 'watch_out': 'High Cp does not prove that the process is centered or currently meeting specifications.'}, 'Cpk': {'definition': 'Capability index that also accounts for how centered the process is within the specification limits.', 'why_it_matters': 'Cpk combines process spread with distance from the nearest specification limit.', 'use_when': 'Use it to assess practical capability when both variation and centering matter.', 'watch_out': 'Cpk can fall even when variation is acceptable if the process mean drifts toward a specification limit.'}, 'CTQ': {'definition': 'Critical to Quality: a measurable characteristic that represents an important customer requirement.', 'why_it_matters': 'A CTQ converts an important requirement into a measurable characteristic with an operational definition.', 'use_when': 'Use it to translate VOC into metrics and acceptance criteria.', 'watch_out': 'A vague “quality” goal is not a CTQ until it has a measurable definition and threshold.'}, 'CUSUM': {'definition': 'Cumulative Sum control chart: a monitoring method designed to detect small or persistent shifts in a process mean.', 'why_it_matters': 'CUSUM accumulates deviations from a target to make small persistent shifts easier to detect than with some traditional charts.', 'use_when': 'Use it when small mean shifts matter and rapid detection is valuable.', 'watch_out': 'Chart settings and target values should reflect the actual process and decision risk.'}, 'Defect': {'definition': 'A failure to meet a defined customer, specification, or process requirement.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'DFSS': {'definition': 'Design for Six Sigma: structured methods for designing products and processes to meet requirements from the outset.', 'why_it_matters': 'DFSS applies Six Sigma thinking during design so customer and business requirements are built into a new product, service or process.', 'use_when': 'Use it when creating something new or making a redesign substantial enough that an existing-process improvement cycle is not sufficient.', 'watch_out': 'A DFSS project still requires explicit requirements, verification and stakeholder alignment.'}, 'DMADV': {'definition': 'Define, Measure, Analyze, Design, Verify: a DFSS method used for new development or substantial redesign when DMAIC is not sufficient.', 'why_it_matters': 'DMADV is the Define, Measure, Analyze, Design and Verify framework used within Design for Six Sigma for new development.', 'use_when': 'Use it when the desired future process or product does not yet exist, or when redesign requires a new architecture.', 'watch_out': 'Do not assume it is interchangeable with DMAIC: the object of improvement and the evidence available are different.'}, 'DMAIC': {'definition': 'Define, Measure, Analyze, Improve, Control: the core cycle for improving an existing process.', 'why_it_matters': 'It is designed for improving an existing process whose problem and performance can be characterized.', 'use_when': 'Use it when the process exists and the team needs disciplined problem definition, measurement, causal analysis, improvement and control.', 'watch_out': 'Do not use DMAIC as a substitute for choosing the right problem or understanding the operating context.'}, 'DOE': {'definition': 'Design of Experiments: planned manipulation of factors to learn about their effects on a response.', 'why_it_matters': 'DOE changes multiple factors in a planned way so their effects and interactions can be estimated efficiently.', 'use_when': 'Use it when controlled experimentation is feasible and the team needs evidence about causal factors.', 'watch_out': 'Poor factor selection, uncontrolled noise and an ambiguous response measure weaken the experiment.'}, 'DPMO': {'definition': 'Defects per million opportunities: DPO multiplied by one million.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'DPO': {'definition': 'Defects per opportunity: defects divided by units times opportunities per unit.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'DPU': {'definition': 'Defects per unit: total defects divided by total units.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'EWMA': {'definition': 'Exponentially Weighted Moving Average control chart: a monitoring method that weights recent observations more heavily to detect gradual shifts.', 'why_it_matters': 'EWMA gives greater weight to recent observations while retaining information from earlier data.', 'use_when': 'Use it to detect gradual or sustained shifts when a moving average view is useful.', 'watch_out': 'Smoothing can delay or obscure individual large signals if used without understanding the process.'}, 'Hypothesis Test': {'definition': 'A statistical procedure for evaluating evidence against a null hypothesis under stated assumptions.', 'why_it_matters': 'A hypothesis test compares observed evidence with what would be expected under a null model and its assumptions.', 'use_when': 'Use it when a decision requires formal evidence about a difference, relationship or effect.', 'watch_out': 'A p-value is not the probability that the null hypothesis is true, nor is statistical significance the same as business importance.'}, 'IDOV': {'definition': 'Identify, Design, Optimize, Verify: a DFSS framework commonly used as an alternative naming convention to DMADV for new development.', 'why_it_matters': 'IDOV;Identify, Design, Optimize and Verify;is a DFSS framework closely related to DMADV and often used for new development.', 'use_when': 'Use it as an alternative design-oriented roadmap when the organization uses IDOV terminology.', 'watch_out': 'The names differ by organization; the underlying logic remains requirements, design, optimization and verification.'}, 'Interaction': {'definition': 'A situation where the effect of one factor depends on the level of another factor.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Kano': {'definition': 'A framework for classifying customer requirements into categories such as basic, performance, and attractive needs.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Lean': {'definition': 'An approach focused on customer value, flow, waste reduction, and continuous improvement.', 'why_it_matters': 'Lean focuses on creating customer value with less unnecessary work, delay, inventory, motion and complexity.', 'use_when': 'Use it to understand flow and remove waste before or alongside statistical analysis.', 'watch_out': 'Waste elimination without understanding demand, variation or quality can simply move problems downstream.'}, 'MSA': {'definition': 'Measurement System Analysis: evaluation of whether a measurement system is adequate for its intended decision.', 'why_it_matters': 'Measurement System Analysis determines whether the measurement process is precise and stable enough for the decisions being made.', 'use_when': 'Use it before trusting process data for capability, comparison or root-cause decisions.', 'watch_out': 'A sophisticated analysis cannot rescue a measurement system that cannot reliably distinguish meaningful differences.'}, 'NPV': {'definition': 'Net Present Value: the discounted value of future cash flows less the initial investment.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'p-value': {'definition': 'The probability, under the null hypothesis, of observing a result at least as extreme as the one obtained, according to the chosen test statistic.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Pareto': {'definition': 'A prioritization method that ranks categories by contribution, often illustrated with bars and a cumulative line.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'PCA': {'definition': 'Principal Component Analysis: a dimension-reduction method that represents correlated variables through orthogonal components.', 'why_it_matters': 'PCA reduces many correlated variables into a smaller set of components that capture major patterns of variation.', 'use_when': 'Use it for exploratory analysis and dimensionality reduction when many variables move together.', 'watch_out': 'Components are mathematical constructs and should not automatically be treated as causal factors.'}, 'PLS': {'definition': 'Projection to Latent Structures: a multivariate modelling method that extracts latent predictors while considering the response.', 'why_it_matters': 'PLS models relationships between predictors and responses through latent structures, especially when predictors are numerous or correlated.', 'use_when': 'Use it when the goal is prediction or explanation with strongly correlated process variables.', 'watch_out': 'Validation and overfitting checks are essential before using a PLS model operationally.'}, 'Practical Significance': {'definition': 'The real-world magnitude and consequence of an effect, distinct from statistical significance.', 'why_it_matters': 'Practical significance asks whether the size of an effect is meaningful for customers, operations, cost or risk.', 'use_when': 'Use it alongside statistical significance when deciding whether to act.', 'watch_out': 'A statistically significant effect can still be too small to justify a process change.'}, 'Process': {'definition': 'A set of related activities that transforms inputs into outputs for a customer or stakeholder.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Process Capability': {'definition': 'The ability of a stable process to meet specification requirements, often summarized with indices such as Cp and Cpk.', 'why_it_matters': 'Capability compares the spread and location of a stable process with specification limits.', 'use_when': 'Use it after verifying process stability and an appropriate measurement system.', 'watch_out': 'Capability indices are not meaningful when the process is unstable or the specification is poorly defined.'}, 'RACI': {'definition': 'Responsible, Accountable, Consulted, Informed: a responsibility-assignment framework.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Regression': {'definition': 'A modelling approach used to estimate relationships between predictors and a response variable.', 'why_it_matters': 'Regression estimates relationships between predictor variables and a response while making assumptions explicit.', 'use_when': 'Use it to quantify associations, build predictions and support causal investigation when paired with sound design and domain knowledge.', 'watch_out': 'Association in a regression model does not by itself establish causation.'}, 'Repeatability': {'definition': 'Variation when the same operator measures the same item using the same method and equipment.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Reproducibility': {'definition': 'Variation attributable to differences among operators or appraisers using the measurement system.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Root Cause': {'definition': 'A validated causal mechanism whose removal or control prevents recurrence of the problem under the relevant conditions.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Sigma Shift': {'definition': 'A convention often used in Six Sigma teaching to translate short-term process performance into an assumed long-term performance estimate.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'SIPOC': {'definition': 'Suppliers, Inputs, Process, Outputs, Customers: a high-level view of process boundaries.', 'why_it_matters': 'SIPOC sets process boundaries by identifying suppliers, inputs, high-level process steps, outputs and customers.', 'use_when': 'Use it early in Define to align stakeholders on scope before detailed mapping.', 'watch_out': 'A SIPOC is intentionally high level. It should not become a detailed process map.'}, 'Six Sigma': {'definition': 'A disciplined approach to improving process performance by reducing defects and variation using data and structured problem solving.', 'why_it_matters': 'It is a management system as much as a set of analytical tools: the objective is predictable process performance and better decisions.', 'use_when': 'Use it to frame improvement around customer requirements, variation, evidence and measurable business outcomes.', 'watch_out': 'Do not reduce Six Sigma to a sigma-level calculation or a statistics exercise.'}, 'SPC': {'definition': 'Statistical Process Control: monitoring process behavior over time to distinguish common-cause from special-cause variation.', 'why_it_matters': 'SPC monitors process behavior over time to distinguish routine variation from signals that warrant investigation.', 'use_when': 'Use it when a process needs ongoing control after improvement or when stability is itself in question.', 'watch_out': 'Control limits are not specification limits; a process can be stable but incapable.'}, 'Special Cause': {'definition': 'An identifiable source of unusual variation that produces a non-routine signal.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Specification Limit': {'definition': 'A customer, engineering, regulatory, or business requirement defining acceptable output values.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'Variation': {'definition': 'The degree to which process outcomes differ from one another.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}, 'VOB': {'definition': 'Voice of the Business: business, strategic, economic, operational, and risk requirements.', 'why_it_matters': 'VOB captures the organization’s economic, strategic, operational and risk requirements.', 'use_when': 'Use it to connect improvement work to value, capacity, revenue, cost, resilience or risk outcomes.', 'watch_out': 'Business metrics can conflict with customer or employee needs; the trade-off should be made explicit.'}, 'VOC': {'definition': 'Voice of the Customer: structured understanding of customer needs, expectations, pain, and requirements.', 'why_it_matters': 'VOC translates customer experience and expectations into requirements that can be measured and acted upon.', 'use_when': 'Use it at project definition and whenever a proposed solution risks optimizing an internal metric at the expense of customer value.', 'watch_out': 'A complaint is evidence, not automatically the complete customer requirement.'}, 'VOE': {'definition': 'Voice of the Employee: frontline experience, friction, capability constraints, and adoption concerns.', 'why_it_matters': 'VOE captures the experience of employees who operate, support or are affected by the process.', 'use_when': 'Use it to identify workarounds, hidden rework, capability constraints, incentives and adoption barriers.', 'watch_out': 'Employee feedback is not merely sentiment. It can reveal process conditions that transaction data misses.'}, 'Yield': {'definition': 'The proportion of output that meets the relevant requirement under a defined yield convention.', 'why_it_matters': 'It provides a shared language for analyzing, improving or controlling process performance.', 'use_when': 'Use it when the lesson or case study requires this concept to make a decision or interpret evidence.', 'watch_out': 'Keep the definition, assumptions and business context aligned before applying the term.'}}
 
 
 
@@ -8594,7 +8594,7 @@ DIAGNOSTIC_BANK = [
          "To guarantee zero customer complaints within one year",
          "To replace all manual processes with automation",
      ], "answer": 0,
-     "rationale": "Six Sigma centers on reducing variation and defects to improve quality and business performance — it is not a training quota or a guarantee.",
+     "rationale": 'Six Sigma centers on reducing variation and defects to improve quality and business performance. It is not a training quota or a guarantee.',
      "socratic": "If a process has very little variation but still produces defects, has Six Sigma succeeded?"},
     {"id": "W2", "belt": "white", "tier": 1, "topic": "Lean Principles",
      "question": "In simple terms, what does waste mean in a Lean environment?",
@@ -8604,7 +8604,7 @@ DIAGNOSTIC_BANK = [
          "Only physical scrap or damaged product",
          "Time employees spend on breaks",
      ], "answer": 0,
-     "rationale": "Lean defines waste (muda) broadly as non-value-adding activity — much wider than physical scrap alone.",
+     "rationale": 'Lean defines waste (muda) broadly as non-value-adding activity; much wider than physical scrap alone.',
      "socratic": "Can you think of an activity in your own work that feels necessary but might not add value to the customer?"},
     {"id": "W3", "belt": "white", "tier": 1, "topic": "Voice of the Customer",
      "question": "Which of the following best describes Voice of the Customer (VOC)?",
@@ -8614,7 +8614,7 @@ DIAGNOSTIC_BANK = [
          "The company's internal quality standards",
          "A single customer's opinion used to set project priorities",
      ], "answer": 0,
-     "rationale": "VOC is a structured, ongoing process of capturing needs and expectations — not a complaints inbox or one person's opinion.",
+     "rationale": "VOC is a structured, ongoing process of capturing needs and expectations. It is not a complaints inbox or one person's opinion.",
      "socratic": "How might the voice of an internal customer differ from an external one?"},
     {"id": "W4", "belt": "white", "tier": 1, "topic": "Six Sigma & Org",
      "question": "What is a defect in Six Sigma terms?",
@@ -8647,7 +8647,7 @@ DIAGNOSTIC_BANK = [
      ], "answer": 0,
      "rationale": "DMAIC is the standard Six Sigma project structure.",
      "socratic": "Why do you think Define comes before Measure rather than the other way around?"},
-    {"id": "Y2", "belt": "yellow", "tier": 2, "topic": "Analyze — Root Cause Tools",
+    {"id": "Y2", "belt": "yellow", "tier": 2, "topic": 'Analyze; Root Cause Tools',
      "question": "What tool would you use to identify the vital few causes contributing to most of a problem (the 80/20 rule)?",
      "options": ["Pareto Chart", "Control Chart", "Scatter Diagram", "Histogram"], "answer": 0,
      "rationale": "The Pareto chart is specifically built to visualize the 80/20 relationship between causes and effect.",
@@ -8662,7 +8662,7 @@ DIAGNOSTIC_BANK = [
      ], "answer": 0,
      "rationale": "It is a brainstorming and organizing tool for causes, not a statistical or financial calculation.",
      "socratic": "Why might grouping causes into categories like Method, Machine, or People help a team brainstorm more completely?"},
-    {"id": "Y4", "belt": "yellow", "tier": 2, "topic": "Lean Tools — 5S",
+    {"id": "Y4", "belt": "yellow", "tier": 2, "topic": 'Lean Tools; 5S',
      "question": "In 5S, what does the Sort step involve?",
      "options": [
          "Removing unnecessary items from the workspace, keeping only what is needed",
@@ -8683,7 +8683,7 @@ DIAGNOSTIC_BANK = [
      "rationale": "Yellow Belts are typically subject-matter contributors, not project leads or approvers.",
      "socratic": "How does a Yellow Belt's role differ from a Green Belt's role on the same project?"},
 
-    {"id": "G1", "belt": "green", "tier": 3, "anchor": True, "topic": "Measure — MSA",
+    {"id": "G1", "belt": "green", "tier": 3, "anchor": True, "topic": 'Measure; MSA',
      "question": "What is the purpose of a Measurement System Analysis (MSA)?",
      "options": [
          "To determine how much of the observed variation in data comes from the measurement system itself versus the actual process",
@@ -8691,14 +8691,14 @@ DIAGNOSTIC_BANK = [
          "To identify which employees need more training",
          "To set the specification limits for a process",
      ], "answer": 0,
-     "rationale": "MSA isolates measurement-system variation from true process variation — a prerequisite for trusting any data collected afterward.",
+     "rationale": 'MSA isolates measurement-system variation from true process variation: a prerequisite for trusting any data collected afterward.',
      "socratic": "If your measurement system contributes 40% of the variation you are seeing, can you trust your process data?"},
-    {"id": "G2", "belt": "green", "tier": 3, "topic": "Measure — Process Capability",
+    {"id": "G2", "belt": "green", "tier": 3, "topic": 'Measure; Process Capability',
      "question": "Which statistical concept describes the spread of a process relative to its specification limits?",
      "options": ["Process Capability (e.g., Cp/Cpk)", "Correlation coefficient", "Standard deviation alone", "Sample size"], "answer": 0,
      "rationale": "Cp/Cpk specifically relate process spread to the specification width, unlike standard deviation on its own.",
      "socratic": "What does it mean if a process has a Cpk below 1.0?"},
-    {"id": "G3", "belt": "green", "tier": 3, "topic": "Analyze — Hypothesis Testing",
+    {"id": "G3", "belt": "green", "tier": 3, "topic": 'Analyze; Hypothesis Testing',
      "question": "What does a p-value in hypothesis testing help you determine?",
      "options": [
          "The probability of observing your data (or something more extreme) if the null hypothesis is true",
@@ -8706,9 +8706,9 @@ DIAGNOSTIC_BANK = [
          "The percentage of defects in your sample",
          "The confidence level you should report to stakeholders",
      ], "answer": 0,
-     "rationale": "This is the precise statistical definition — a very common point of confusion worth reinforcing.",
+     "rationale": 'This is the precise statistical definition: a very common point of confusion worth reinforcing.',
      "socratic": "If a p-value is 0.03, and your significance level is 0.05, what conclusion would you draw about the null hypothesis?"},
-    {"id": "G4", "belt": "green", "tier": 3, "topic": "Control — Control Plan",
+    {"id": "G4", "belt": "green", "tier": 3, "topic": 'Control; Control Plan',
      "question": "What is the primary purpose of a Control Plan in the Control phase?",
      "options": [
          "To document how key process variables will be monitored and controlled so improvements are sustained after the project ends",
@@ -8718,13 +8718,13 @@ DIAGNOSTIC_BANK = [
      ], "answer": 0,
      "rationale": "The Control Plan exists specifically to sustain gains after the project team disbands.",
      "socratic": "What might happen to your project's gains six months after closure if there is no control plan in place?"},
-    {"id": "G5", "belt": "green", "tier": 3, "topic": "Define — Project Management",
+    {"id": "G5", "belt": "green", "tier": 3, "topic": 'Define; Project Management',
      "question": "Which tool is used in the Define phase to establish project scope, goals, and business case?",
      "options": ["Project Charter", "Fishbone Diagram", "Control Chart", "DOE Matrix"], "answer": 0,
      "rationale": "The charter is the foundational Define-phase document; the other tools belong to later phases.",
      "socratic": "Why is a clearly defined problem statement in the charter important before a team starts collecting data?"},
 
-    {"id": "B1", "belt": "black", "tier": 4, "anchor": True, "topic": "Improve — Factorial Experiments",
+    {"id": "B1", "belt": "black", "tier": 4, "anchor": True, "topic": 'Improve; Factorial Experiments',
      "question": "In Design of Experiments (DOE), what is a factorial experiment used for?",
      "options": [
          "To study the effects of multiple input factors and their interactions on an output simultaneously",
@@ -8734,7 +8734,7 @@ DIAGNOSTIC_BANK = [
      ], "answer": 0,
      "rationale": "Factorial designs are specifically valued for detecting interaction effects that one-factor-at-a-time testing would miss.",
      "socratic": "Why might testing one factor at a time miss an important interaction effect between two variables?"},
-    {"id": "B2", "belt": "black", "tier": 4, "topic": "Define — Sigma Shift",
+    {"id": "B2", "belt": "black", "tier": 4, "topic": 'Define; Sigma Shift',
      "question": "What does the 1.5 sigma shift account for in long-term Six Sigma calculations?",
      "options": [
          "It accounts for the fact that process means tend to drift over the long term, so short-term capability studies are adjusted to better estimate long-term defect rates",
@@ -8744,7 +8744,7 @@ DIAGNOSTIC_BANK = [
      ], "answer": 0,
      "rationale": "The shift bridges short-term and long-term process performance estimates.",
      "socratic": "Why might a process that looks capable in a short-term study still produce more defects than expected over a year?"},
-    {"id": "B3", "belt": "black", "tier": 4, "topic": "Analyze — Hypothesis Testing with Non-Normal Data",
+    {"id": "B3", "belt": "black", "tier": 4, "topic": 'Analyze; Hypothesis Testing with Non-Normal Data',
      "question": "When should you use a non-parametric (non-normal) hypothesis test instead of a standard t-test?",
      "options": [
          "When the data significantly violates the assumption of normality and sample sizes are small, or the data is ordinal/ranked rather than continuous",
@@ -8754,7 +8754,7 @@ DIAGNOSTIC_BANK = [
      ], "answer": 0,
      "rationale": "Non-parametric tests exist precisely for cases where normality assumptions do not hold.",
      "socratic": "If a Shapiro-Wilk test shows your data is non-normal and you cannot transform it, what does that mean for choosing between a t-test and a Mann-Whitney test?"},
-    {"id": "B4", "belt": "black", "tier": 4, "topic": "Improve — Multiple Regression",
+    {"id": "B4", "belt": "black", "tier": 4, "topic": 'Improve; Multiple Regression',
      "question": "In multiple regression analysis, what does a high VIF (variance inflation factor) indicate?",
      "options": [
          "High multicollinearity among predictor variables, meaning they are highly correlated with each other, making individual coefficient estimates unreliable",
@@ -8762,9 +8762,9 @@ DIAGNOSTIC_BANK = [
          "That the sample size is too large for the model",
          "That the residuals are normally distributed",
      ], "answer": 0,
-     "rationale": "VIF flags multicollinearity specifically — a common source of misleading coefficient estimates.",
+     "rationale": 'VIF flags multicollinearity specifically: a common source of misleading coefficient estimates.',
      "socratic": "If two of your predictors are highly correlated, how would you decide which one to keep in the model?"},
-    {"id": "B5", "belt": "black", "tier": 4, "topic": "Define — COPQ Calculation",
+    {"id": "B5", "belt": "black", "tier": 4, "topic": 'Define; COPQ Calculation',
      "question": "How is Cost of Poor Quality (COPQ) typically calculated?",
      "options": [
          "By summing costs of prevention, appraisal, and internal/external failure related to poor quality",
