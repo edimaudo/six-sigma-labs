@@ -65,6 +65,9 @@
   <section class="section scenario-stakeholders" aria-labelledby="stakeholders-heading">
     <div class="kicker">Stakeholders to interview</div>
     <h2 id="stakeholders-heading">Ask the people closest to the problem.</h2>
+    {% if error %}
+    <div class="alert" role="alert">Customer voice is not available, please try again later.</div>
+    {% endif %}
     <div class="grid-3">
       {% for s in scenario.stakeholders %}
         {% if s == 'Executive Sponsor' %}
