@@ -10,7 +10,7 @@ from typing import Any
 
 from google import genai
 
-MODEL = os.getenv("GEMINI_MODEL", "gemini-3.7-flash")
+MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
 
 class GeminiConfigError(RuntimeError):
     pass
