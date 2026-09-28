@@ -6,8 +6,8 @@ The API key is read from GEMINI_API_KEY and is never stored in the database.
 import json
 import os
 from typing import Any
-
 from google import genai
+from google.genai import types
 
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
 
@@ -23,6 +23,9 @@ def _client():
     if not api_key:
         raise GeminiConfigError("GEMINI_API_KEY is not configured.")
     return genai.Client(api_key=api_key)
+
+
+
 
 
 def _json_schema(kind: str):
